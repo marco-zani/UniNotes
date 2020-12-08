@@ -206,6 +206,9 @@
 						Det(A⁻¹) = 1/(Det(A))
 					- determinant of transposed matrix: it equals to original matrix
 						Det(Aᵀ) = Det(A)
+					- determinant of scalar product: equals to the determinant of the original matrix multiplied by the scalar
+					powered to the order of the matrix
+						Det(λA) = λⁿ * Det(A) 
 
 
 			sistemi lineari e determinanti
