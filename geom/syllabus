@@ -1,0 +1,248 @@
+(b1) 	Insiemi, gruppi e campi. 
+		Vettori e matrici. 
+		Operazioni sulle matrici.
+
+(b2) 	Vettori geometrici. 
+		Rette e piani: 
+			equazioni vettoriali
+			parametriche 
+			cartesiane.
+
+(b3) 	Vector spaces: 
+				a vector space is an algebric structure made of a field (K), a set(V) and two binary operations,
+				called scalar addition and moltiplication
+
+			subspaces 
+				a subspace is a subset of a vector space. It must be not empty and respect the same addition and moltiplication
+				properties as the original space.
+				
+				caraterization of subspaces
+				
+				- ∀ s1, s2 ∈ S, s1 + s2 ∈ S
+				- ∀ s ∈ S e ∀ λ ∈ K, λs ∈ S
+
+				by testing these properties we can determine if a given set is a vector subspace 
+
+			linear dependency 
+				A vector space is composed of linearly indipendent vectors when none of the vectors as a linear combination
+				of the other vectors of the set. If the opposite is valid the vectors are called linearly dependent.
+				The definition states that:
+					Given the vector space V on the field K, and given v1...vn as vectors of V. the vectors v1...vn are linearly 
+					indipendent	if by taking n scalar a1...an ∈ K and imposing
+						a1v1 + a2v2 + .... + anvn = 0
+					it results that the equation is correct only if
+						a1 = a2 = .... = an = 0				
+				definition is confusing!!!
+
+				concept:
+				
+				If only when a1 = .... = an = 0, the equation 
+					a1v1 + a2v2 + .... + anvn = 0
+				is true, then the vectors a linearly indipendent. If there are other 
+				cases, then the vectors are linearly dependent
+
+				example
+					v1=(1,1,0) v2=(0,0,2) v3=(0,0,-3)
+					a(1,1,0) + b(0,0,2) + c(0,0,-3) = (0,0,0)
+					(a,a,0) + (0,0,2b) + (0,0,-3c) = (0,0,0)
+					(a,a,2b-3c) = (0,0,0) => two cases (a=b=c=0) & (a=0, 2b=-3c)
+					linearly dependent
+
+			generators
+				In the context of vector spaces, a system of generators is a set of vectors that allows to reconstruct all the 
+				vectors in the given space
+
+				the definition states that given a vector space v in a field K, we will say that the vector set{v1...vn} ⊆ V is 
+				a set of generators of V if every element of V can be written as a linear combination.
+				In other words:
+				{v1...vn} ⊆ V is a set of generators if ∀ w ∈ V exist n scalars a1...an ∈ K such that:
+												n
+					a1v1 + a2v2 + .... + anvn = Σ aivi = w
+											   i=1
+
+
+											   #########Work in progress##############
+
+
+(b4) 	Matrices and linear equation system: 
+				A matrix is an ordered table of elements of the same set, is composed of rows and columns, and the elements are real 
+				numbers. The product of columns and rows is called dimension of the matrix.
+					Aₘₓₙ
+					dim A = m * n
+				There are various types of matrices:
+					- row matrix: a matrix of type (1,n), or with only one row
+					- column matrix: a matrix of type (n,1), or with only one column
+					- rectangular matrix: a matrix of type (m,n), with m ≠ n
+					- square matrix: a matrix of type (n,n), with the same number of rows and columns. This type of matrices are
+					the only type where you can calculate the determinant and the inverted matrix. they are also composed by primary 
+					and secondy diagonals
+					- diagonal matrix: a square matrix where only the elements on the primary diagonal are not 0
+					- anti-diagonal matrix: the same as the diagonal matrix but the elements are on the secondary diagonal
+					- identity matrix: a matrix with all 1 on the primary diagonal and 0 on the rest of the elements. Can be also writed
+					as Idₙ or Iₙ
+					- null matrix: is a matrix where all the elements are 0
+					- superior triangular matrix: a square matrix where all the elements under the primary diagonal are 0
+					- inferior triangular matrix: same as the superior, but with all 0 over the primary diagonal
+					- matrix with row echelon form (matrice a scalini(americani bastardi)): a matrix where the first element of 
+					of the row is more on the right from the element of the previous row. This elements are called pivots.
+					- simmetric matrix: a square matrix where the elements are simmetric on the primary diagonal.
+						aᵢⱼ = aⱼᵢ
+					- anti simmetric matrix: same as a simmetric matrix but the elements are opposite (multiplied by -1)
+						aᵢⱼ = -aⱼᵢ
+
+				The linear equation systems (or linear systems) are groups of equations of first grade with one or more unknowns
+				Example:
+					2x + 3y - z = -2
+					x - y = 2
+				To solve these system we can use three methods:
+					- by substitution
+					- by comparison
+					- by reduction
+					- with the cramer method 
+
+				the substitution method is the most used
+				example:
+					x + y = 5
+					x - y = 1
+
+					x = 5 - y
+					x - y = 1
+
+					x = 5 - y
+					(5 - y) - y = 1
+
+					....
+				the comparison method isolates and compares two unknowns, in the next example we are going to isolate the x variable
+				example:
+					x + y = 5
+					x - y = 1
+
+					x = 5 - y
+					x = 1 + y
+
+					x = 5 - y
+					5 - y = 1 + y
+
+					....
+				the reduction method is the less common of the four, and consist in multipling one unknown to the same integer of the
+				second equation, and the subtracting to the result equation to the other one
+				example:
+					2x + 3y = 6
+					x + 4y = 8
+
+					2(x + 4y) = 2*8
+
+					2x + 8y = 16
+
+					2x + 8y - (2x + 3y) = 16 - 6
+
+					5y = 10
+
+					2x + 3y = 6
+					y = 2
+
+					....
+				Least we have the cramer method, which is a little complicated, we must use the determinants of various matrices.
+				the first matrix is composed from the coefficents of the unknowns, the other two from the results and one unknown.
+					D =	|a1	c1|			Dx = |c1 b1|			Dy = |a1 c1|
+						|a2 c2|				 |c2 b2|				 |a2 c2|
+				we calculate the determinant of these matrices and the use this formula:
+					x = Dx/D 		y = Dy/D
+				if D equals to 0 the system is indetermined or impossible
+				example
+					2x - y = 4
+					x + 3y = 9
+
+					D = (2 * 3) - (1 * -1) = 7
+
+					Dx = (4 * 3) - (-1 * 9) = 21
+
+					Dy = (2 * 9) - (1 * 4) = 14
+
+					x = 21 / 7 = 3
+					y = 14 / 7 = 2 				
+				A linear system can be written in a matrix form, the part with all the unknowns is rempresents the matrix Ax,
+				and the known part is going to be represented by the column matrix b. In the end we have Ax = b 
+				example:
+					x + y = 2										|1  1  0|				| 2 |
+					x + 3y  - z = 1				==>			Ax = 	|1  3 -1|		b = 	| 1 |
+					z = 2											|0  0  1|				| 2 |
+
+			Structure of linear system's solutions
+										   #########Work in progress##############
+
+				
+			equivalent systems
+
+			basic operations
+				
+
+			Gauss elimination
+				this method is used to get a echelon form matrix through basic operations:
+					Sᵢⱼ => switch between rows i and j
+					Dᵢ (c) => moltiplication by c of row i 
+					Eᵢⱼ (c) => moltiplication by c of row j, the result is added to row i
+				this method is usefull to calculate rank and determinant of a matrix 
+
+(b5) 	determinant and rank: 
+			determinant properties
+				to calculate a determinant we use two rules depending from the size of the matrix. When we have a square matrix
+				2x2 we just multiply the elements in the primary and secondary diagonal and subtracting the two valors.
+				With bigger matrices we can use the sarus rule. it consist into putting beside the matrix a copy of itself, and
+				calculating the resulting primary and secondary diagonal
+				example:
+							|5 9 4|		|5 9 4 5 9 4|
+					det A = |8 1 3|	=>	|8 1 3 8 1 3|	=> [(5*1*1)+(9*3*9)+(4*8*5)]-[(4*1*9)+(5*3*5)+(9*8*1)] = (5+243+180)-(36+75+72)
+							|9 5 1|		|9 5 1 9 5 1|														   = (428)-(183) = 225
+				
+				the determinant of a matrix has specific properties:
+					- null determinant: happens when a row (or columns) is composed entirely of null element, when two rows are
+					proportional or one row is a linear composition of two or more rows (or columns)
+					- determinant of triangular matrix: it is calculated only on the primary diagonal
+					- determinant of a moltiplication: the determinant of a matrix resulting from the moltiplication of two matrices
+					equals to the moltiplication of the determinants of those teo matrices
+						Det(AB) = Det(A) * Det(B)
+					-determinant of inverted matrix: it equals to the reciprocal of the determinant of the matrix
+						Det(A⁻¹) = 1/(Det(A))
+					- determinant of transposed matrix: it equals to original matrix
+						Det(Aᵀ) = Det(A)
+
+
+			sistemi lineari e determinanti
+											   #########Work in progress##############
+
+			rank of a matrix
+				the rank of a matrix (also known as characteristic) is a number that corresponds to various definitions, the most
+				used is the number of pivots in a matrix. It also represents:
+					- the max number of linear indipendent rows and columns in the matrix
+					- the dimension of the image
+					- the dimension of the vectorial subspace generated by the columns, or rows, of the matrix 
+				To calculate the rank the best way is to reduce a matrix to his echelon form and counting the pivots.
+				It's important to remember that the maximum rank is:
+					max rk = min(m,n)				(A = (mxn))
+
+(b6) 	Basi e dimensione di uno spazio vettoriale: 
+			*proprietà delle basi di uno spazio di n-uple
+			dimensione di uno spazio vettoriale.
+
+(b7) 	Funzioni lineari: 
+			nucleo e immagine 
+			*teorema della nullità più rango e sue applicazioni
+			matrici associate
+			*teorema di Rouchè-Capelli
+			matrici simili.
+
+(b8) 	Autovalori e autovettori: 
+			definizioni ed esempi
+			polinomio caratteristico
+			diagonalizzabilità.
+
+(b9) 	Prodotto scalare: 
+			proiezione ortogonale
+			norma
+			distanza
+			basi ortonormali
+			complemento ortogonale.
+
+(b10) 	Il *teorema spettrale.
+

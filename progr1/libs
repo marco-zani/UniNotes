@@ -1,0 +1,5 @@
+usefull libraries:
+ <cctype> - identify variables (isalpha, isupper,...), convert variables (toupper,...)
+ <cmath> - math functions
+
+
