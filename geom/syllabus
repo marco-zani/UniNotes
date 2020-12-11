@@ -1,6 +1,30 @@
 (b1) 	Insiemi, gruppi e campi. 
 		Vettori e matrici. 
-		Operazioni sulle matrici.
+		Operations on matrices
+			- product between matrices: it can be done only if the number of columns of the first matrix is equals to the
+			numbers of rows.
+			the procedure is to take the first row and the first column, multipling the respective valors and adding the all
+			together. the final result is the first element of our resulting matrix
+			example:
+					|1 0  2|			|4  1|
+				A = |0 3 -1|		B = |-2 2|
+										|0  3|
+				
+				(1*4) + (0*-2) + (2 * 0) = 4
+
+					|4	|
+				R = |	|
+			we then proceed with multipling the first row with the second column, and the repeat for the 2 row.
+			example:
+				(1*1)+(0*2)+(2*3) = 7
+				(0*4)+(3*-2)+(-1*0)= -6
+				(0*1)+(3*2)+(-1*3)= 3
+
+					|4  7|
+				R = |-6 3|
+			- inverting a matrix: this is kinda a big deal, so I'm opening a new paragraph in b4) that in the syllabus doesn't exist
+										   #########Work in progress##############
+
 
 (b2) 	Vettori geometrici. 
 		Rette e piani: 
@@ -11,6 +35,9 @@
 (b3) 	Vector spaces: 
 				a vector space is an algebric structure made of a field (K), a set(V) and two binary operations,
 				called scalar addition and moltiplication
+
+			Linear combination
+				the result vector from an operation like addition or moltiplication between two vectors is called linear combination
 
 			subspaces 
 				a subspace is a subset of a vector space. It must be not empty and respect the same addition and moltiplication
@@ -40,6 +67,10 @@
 					a1v1 + a2v2 + .... + anvn = 0
 				is true, then the vectors a linearly indipendent. If there are other 
 				cases, then the vectors are linearly dependent
+
+				linear dependency for dumbasses:
+					basically, imagine various vectors in a 2d space. they will be indipendent if there are not vectors opposite 
+					(it matters the direction, not the strength of the vector) to any other vectors or linear combination
 
 				example
 					v1=(1,1,0) v2=(0,0,2) v3=(0,0,-3)
@@ -168,14 +199,21 @@
 					x + 3y  - z = 1				==>			Ax = 	|1  3 -1|		b = 	| 1 |
 					z = 2											|0  0  1|				| 2 |
 
+			Inverted Matrices
+				a square matrix can be inverted if exist a square matrix of the same order that, when multiplied by the first matrix, 
+				the result equals to the identity matrix of that order
+					Idₙ = A⁻¹A
+										   #########Work in progress##############
+
 			Structure of linear system's solutions
 										   #########Work in progress##############
 
 				
 			equivalent systems
+										   #########Work in progress##############
 
 			basic operations
-				
+										   #########Work in progress##############
 
 			Gauss elimination
 				this method is used to get a echelon form matrix through basic operations:
@@ -224,7 +262,15 @@
 				It's important to remember that the maximum rank is:
 					max rk = min(m,n)				(A = (mxn))
 
-(b6) 	Basi e dimensione di uno spazio vettoriale: 
+(b6) 	Basis and dimension of a vector space:
+				A base of a vector space is a set of vectors which can be used to reconstruct all the vectors in the space using
+				linear combinations. In short, from a base we can get the entire vector space.
+				The definition states that a base is a set of linear indipendent generators which creates an entire vector space.
+				So, in a space V on a field K, we will say that the set of vectors {v1...vn} ⊆ V is a base when:
+				- {v1...vn} is a set of generators of V;
+				- v1...vn a linear indipendent vectors;
+											   #########Work in progress##############
+
 			*proprietà delle basi di uno spazio di n-uple
 			dimensione di uno spazio vettoriale.
 
@@ -233,12 +279,35 @@
 			*teorema della nullità più rango e sue applicazioni
 			matrici associate
 			*teorema di Rouchè-Capelli
-			matrici simili.
+			Similar matrices
+				two matrices A, B are similar if exist a invertable matrix P such that the products between P⁻¹, P and B 
+				equals to A
+						∃ P ∈ GL(n,K) | A = P⁻¹PB 						
+						
+						NB: GL(n,K) is the general linear group, which contains all invertable matrices of order n
+						and with elements belonging to the field K
+				Example:
+						|-1 0|				|1 2|
+					A = | 0 5|			B =	|4 3|
 
-(b8) 	Autovalori e autovettori: 
-			definizioni ed esempi
+						|-1 1|
+					P =	| 1 2|
+											   #########Work in progress##############
+
+
+(b8) 	eigenvalues and eigenvectors (Autovalori e autovettori): 
+			definition 
+				premise: eigen values is referred only in square matrices.
+				In a square matrix A, a scalar λ ∈ K is a eigen value if it exist a column vector not null where
+					Av = λv
+				the vector v is called eigen vector relative to the eigen value λ.
+											   #########Work in progress##############
+
 			polinomio caratteristico
-			diagonalizzabilità.
+			Diagonalization
+				A square matrix of order n can be diagonalized when it is similar to a diagonal matrix D of order n
+											   #########Work in progress##############
+
 
 (b9) 	Prodotto scalare: 
 			proiezione ortogonale
@@ -249,3 +318,13 @@
 
 (b10) 	Il *teorema spettrale.
 
+
+
+inversione di matrice
+prodotto tra matrici
+dipendenza lineare	
+combinazione lineare
+basi e dimensione
+matrici simili
+auto vettori
+diagonalizzazione
