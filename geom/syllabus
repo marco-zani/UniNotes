@@ -311,20 +311,27 @@
 
 (b9) 	Prodotto scalare: 
 			proiezione ortogonale
-			norma
+			Norm
+				A norm is an operation done on a vector that associates a real number. the norm of a vector is defined as:
+					v -> Rⁿ
+					||v|| = ²√[(v₁)² + (v₂)² + ... + (vₙ)²] = ²√(v • v)
+				
+				list of properties:
+				- a norm is always not negative
+					||v|| ≥ 0
+				- a norm of a product between a scalar and a vector is equal to the product between the norm of the vector 
+				and the absolute of the scalar
+					||λv|| = |λ| * ||v||
+				- the absolute between the dot product of two vectors is less or equal of the product of the norms
+					|v • u| ≤ ||v|| * ||u||
+				- the norm of the summ between two vectors is less or equal to the summ of the norms of the two vectors
+					||v + u|| ≤ ||v|| + ||u||
+				- the norm of the difference between two vectors is higher or equal to the absolute of the difference of
+				the norms of the two vectors
+					||v - u|| ≥ | ||v|| - ||u|| |
+
 			distanza
 			basi ortonormali
 			complemento ortogonale.
 
 (b10) 	Il *teorema spettrale.
-
-
-
-inversione di matrice
-prodotto tra matrici
-dipendenza lineare	
-combinazione lineare
-basi e dimensione
-matrici simili
-auto vettori
-diagonalizzazione
