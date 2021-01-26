@@ -1,0 +1,51 @@
+1 - vettori geometrici
+
+    intersezione
+        per trovare un punto dove due elementi coicidono, metto le formule parametriche a sistema
+
+        r => {x = t, y = t, z = 3 -t}     π => x + y -z = 0 
+        {
+            x = t
+            y = t
+            z = 3 - t
+            x + y - z = 0
+        {
+
+    passante
+        passante per un punto, all'equazione parametrica si aggiungono le cordinate del punto
+
+        r = (1,-2,3)   P = (-1,0,2)
+        
+	r { x = -1 + t
+            y = -2t
+          { z = 2 + 3t
+
+    ortogonale
+        la retta ortogonale a un piano è (a,b,c) con piano ax + by + cz = d, lo stesso vale al contrario.
+        per trovare la retta ortogonale a un'altra retta si calcola il piano ortogonale e si estrae una
+        delle due rette che compongono il piano.
+
+    lunghezza
+        o norma, si calcola con la radice quadrata della sommatoria delle componenti del vettore alla seconda
+         √(a1^2 + a2^2 + ... an^2)
+
+    angolo
+        l'angolo tra due vettori si calcola con il prodotto scalare dei due vettori diviso il prodotto tra le 
+        norme dei due vettori
+        il risultato va messo sotto arcoseno
+       	
+	    x·y
+	__________	= cos θ   
+	||x|| ||y|| 
+
+
+
+
+2 - numeri, n-uple e matrici
+
+    combinazioni lineari
+	prendo gli elementi e li metto a sistema moltiplicandoli per x,y,z,... Più elementi ha la matrice più righe
+	avrà il sistema. Invece più matrici da confrontare ci sono, più incognite faranno parte del sistema.
+	Se nel sistema risulta una discrepanza allora non ci sono soluzioni.
+	in caso di incognite (es. k), ottenuta una soluzione si esamina le casistiche (Se k = x allora... se k != x allora...)
+	Ricordarsi di esprimere la combinazione lineare alla fine (x = 1, y = 2 => A + 2B = C)	 
