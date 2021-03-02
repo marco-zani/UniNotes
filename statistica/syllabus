@@ -1,0 +1,21 @@
+Calcolo delle Probabilità
+- Teoria assiomatica del calcolo delle probabilità: spazi di probabilità, eventi, probabilità congiunte, condizionate e indipendenza stocastica
+- Calcolo combinatorio
+- Ripetizione di esperimenti indipendenti: lo schema di Bernoulli
+- Variabili aleatorie: distribuzioni, momenti, distribuzioni congiunte, marginali, distribuzioni condizionate e indipendenza
+- Disuguaglianze di Markov e Chebyshev
+- Leggi dei Grandi Numeri
+- Teorema Centrale del Limite
+
+Inferenza Statistica
+- Campione e Popolazione
+- Campioni Indipendenti e Identicamente Distribuiti
+- Stima Puntuale: metodo dei momenti, stimatori e stime, errore quadratico medio e valutazione degli stimatori, consistenza in media quadratica, metodo delta univariato
+- Stima Intervallare: intervalli di confidenza
+- Modello lineare semplice: metodo dei minimi quadrati
+
+
+probabilità congiunte:
+	dati 2 eventi, la probabilità che un evento si verifichi sapendo che l'altro è verificato
+indipendenza stocastica:
+	dati 2 eventi, uno non modifica la probabilità che l'altro accada

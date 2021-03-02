@@ -1,0 +1,62 @@
+Introduzione
+- Teoria e concetti base sui calcolatori
+- Cenni storici
+
+Aritmetica dei calcolatori
+- Codifica dei numeri interi con/senza segno
+- Operazioni aritmetiche in formato binario
+- Algebra in virgola fissa
+- Algebra in virgola mobile
+
+Reti logiche (cenni)
+- Funzioni logiche a 2 e più variabili
+- Elementi di algebra Booleana
+- Simbologia e porte logiche
+- Reti combinatorie e reti sequenziali
+
+Assembly
+- Processori CISC e RISC
+- ISA e ABI
+- Convenzioni di chiamata
+
+RISC-V
+- Concetti base
+- Istruzioni logico-aritmetiche
+- Indirizzamento e accesso a memoria
+- Controllo di flusso
+- Convenzioni di chiamata
+- Esempi
+
+Intel x86
+- Concetti base
+- Metodi di indirizzamento
+- Istruzioni ed esempi
+
+ARM
+- Concetti base
+- Metodi di indirizzamento
+- Istruzioni ed esempi
+
+Toolchain
+- Compilazione
+- Linking statico e dinamico
+- Esempi
+
+CPU
+- Struttura di una ALU
+- Esecuzione completa delle istruzioni RISC-V
+- Controllo della CPU e del sistema
+- Pipeline
+
+Memorie
+- Concetti fondamentali
+- Memorie RAM statiche/dinamiche
+- Memorie ROM e EPROM
+- Memorie cache
+
+Organizzazione dell'I/O
+- Dispositivi
+- Accesso diretto in memoria (DMA)
+- Struttura di comunicazione interna (bus del processore)
+- Bus esterni (SCSI, IDE, ecc.)
+- Interrupt ed eccezioni

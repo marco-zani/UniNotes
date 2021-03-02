@@ -48,4 +48,49 @@
 	avrà il sistema. Invece più matrici da confrontare ci sono, più incognite faranno parte del sistema.
 	Se nel sistema risulta una discrepanza allora non ci sono soluzioni.
 	in caso di incognite (es. k), ottenuta una soluzione si esamina le casistiche (Se k = x allora... se k != x allora...)
-	Ricordarsi di esprimere la combinazione lineare alla fine (x = 1, y = 2 => A + 2B = C)	 
+	Ricordarsi di esprimere la combinazione lineare alla fine (x = 1, y = 2 => A + 2B = C)	
+
+
+3 - sistemi lineari
+
+   trucchi per la riduzione di Gauss
+	- iniziare spostando le righe in modo che se ci sono degli zeri, posizionarli già come se fosse stato risolto
+	esempio:  matrice 3x3, la prima e la seconda riga hanno un valore non nullo nella prima posizione, la terza riga
+	si, sposto la terza riga in seconda posizione, così ho già trovato i pivot in 1 e 2 riga, continuo a risolvere la 
+	terza
+
+	- divido le righe che sono divisibili
+
+	- sposto le colonne se torna utile. tipo ho delle incognite sulla prima colonna, le porto all'ultimo posto.
+	IMPORTANTE!!! ricordare che ho spostato le variabili
+
+	- gestisco le operazioni elementari a cascata, partendo dall'alto verso il basso
+
+	- inoltre invece che effetturare una divisione con l'operatore E sulla riga x da y, meglio fare il contrario 
+	e moltiplicare effettuare una moltiplicazione della riga x sulla riga y 
+
+4 - Spazi vettoriali
+
+5 - Basi
+
+6 - Determinante
+
+7 - Funzioni lineari
+	
+	dimensione del nucleo equivale a n - rg(A). Se dim(N(T)) == 0 allora la funzione è inniettiva.
+	per trovare le basi dell'immagine, riduco a scalini la matrice e trovo i pivot. le colonne originali dove sono
+	presenti i pivot corrispondono alle basi. la dimensione corrisponde al numero di basi. Se la dimensione
+	è uguale al numero di righe, allora la funzione è suriettiva.
+
+	Se il rango non è massimo, la matrice non è invertibile
+
+8 - autovalori e autovettori
+	
+	per calcolare gli autovettori si sottrae lamba ai valori sulla diagonale principale, e si calcola il determinante
+	si trovano i valori di lamba per la quale il determinante si annullerebbe, e li si sostituisce a lamba. si riduce a
+	scalini la matrice e si mette il risultato a sistema, il vettore risultante è l'autovettore.
+	per calcolare la diagonalizzabilità si prendono gli autovettori e si mettono a matrice, si calcola il determinante e
+	se il determinante è diverso da 0 allora la matrice è diagonalizzabile
+
+	La matrice diagonalizzata D rispetto a una matrice A corrisponde alla diagonale principale di A. la matrice 
+	diagonalizzante P corrisponde agli autovettori della matrice A
