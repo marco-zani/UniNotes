@@ -1,0 +1,136 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fixltx2e}
+\usepackage{amsmath}
+\title{Statistica}
+\date{}
+\author{}
+
+\def\SPSB#1#2{\rlap{\textsuperscript{#1}}\SB{#2}}
+\def\SP#1{\textsuperscript{#1}}
+\def\SB#1{\textsubscript{#1}}
+
+\begin{document}
+
+\section{Introduzione}
+
+probabilità $\rightarrow$ misurare l'incertezza
+
+statistica:
+\begin{itemize}
+    \item descrittiva
+    \item differenziale $\rightarrow$  \underline{campione casuale} per \underline{stimare} un esito
+\end{itemize}
+
+\begin{center}
+    \rule{100pt}{0.5pt}
+\end{center}
+
+probabilità:  
+\begin{center}
+    $\frac{casi favorevoli}{casi totali}$
+\textbf{\underline{SE}} equiprobabili
+\end{center}
+
+per contare i casi ci si appoggia alla \underline{combinatoria}
+
+\begin{center}
+    \rule{100pt}{0.5pt}
+\end{center}
+
+partizione: separazione di A in sottoinsiemi senza elementi comuni
+
+\begin{center}
+    \rule{100pt}{0.5pt}
+\end{center}
+
+\textbf{NB:} 
+\begin{itemize}
+    \item $\wedge$ - and $\rightarrow$ A$\cap$B = \{x$|$x$\in$A$\wedge$x$\in$B\}
+    \item $\vee$ - or $\rightarrow$ A$\cup$B = \{x$|$x$\in$A$\vee$x$\in$B\}
+\end{itemize} 
+
+\begin{center}
+    \rule{100pt}{0.5pt}
+\end{center}
+
+\textbf{Principi della combinatoria:}
+\begin{enumerate}
+    \item A insieme, \{E\textsubscript{i}\}\SPSB{n}{i=1} partizione di A $\rightarrow$ \#A = $\sum_{i = 1}^{n}$ \#E\textsubscript{i} 
+    \begin{itemize}
+        \item A,B insiemi, AxB è l'insieme di coppie ordinate (a,b)
+    \end{itemize}  
+    \item \#(AxB) = \#A$\cdot$\#B $\rightarrow$ \{A\textsubscript{i}\}\SPSB{n}{i = 1} = $\bigotimes$\SPSB{n}{i=1} A\SB{i}
+    \item A,B, \#(A$\cup$B) = \underline{\#A + \#B - \#(A{$\cap$}B)} (non perfetto) $\rightarrow$
+    \begin{center}
+        \item \# $\cup$\SPSB{n}{i= 1} A\SB{i} = $\sum_{i = 1}^{n}$ \#A\SB{i} - $\sum_{i<j}^{}$\#(A\SB{i}$\cap$A\SB{j}) +
+        $\sum_{i<j<k}^{}$\#(A\SB{i}$\cap$A\SB{j}$\cap$A\SB{k}) + \dots
+        
+        $\downarrow$
+
+        \textbf{+(-1)\SP{n+1} \#$\cap$\SPSB{n}{i=1}A\SB{i}}
+    \end{center}
+\end{enumerate}
+
+\section{Permutazioni e anagrammi}
+
+Fattoriale $\rightarrow$ x! = 9! = 9$\cdot$8$\cdot$7$\cdot$6$\cdot$$\dots$$\cdot$2$\cdot$1
+
+\textbf{NB:} 0! = 1
+
+\begin{itemize}
+    \item "prendiamo" ha 9! anagrammi
+    \item "anagramma" ha tre ripetizioni di a e due ripetizioni di m, quindi per calcolare i casi unici:   
+\end{itemize}
+\begin{center}
+    \Large $\frac{9!}{3!{\cdot}2!}$
+
+    $\downarrow$
+ \end{center} 
+per calcolare la probabilitàdegli elementi n, ma mi interessano solo k elementi allora:
+\begin{center}
+    \Large $\frac{n!}{(n-k)!}$
+\end{center}
+se non sono interessato all'ordine, allora:
+\begin{center}
+    \Large $\frac{n!}{(n-k)!k!}$ $\Rightarrow$ $\binom{n}{k}$ 
+\end{center}
+chiamato anche \textbf{coefficente binominiale}
+\\
+\textbf{Proprietà:}
+\begin{itemize}
+    \item $\binom{n}{k}$ = $\binom{n}{n-k}$
+    \item $\binom{n}{0}$ = $\binom{n}{n}$ = 1
+    \item $\sum_{k=0}^{n}$ $\binom{n}{k}$  = 2\SP{n}
+    \item $\binom{n}{k}$ + $\binom{n}{k+1}$ = $\binom{n+1}{k+1}$  
+\end{itemize}
+
+\section{Esperimenti aliatori}
+
+Un esperimento si definisce \textbf{aliatorio} o casuale se con i dati iniziali il risultato è incerto.
+\\
+I risultati a 2 a2 incompatibili di un esperimento aliatorio sono chiamati \textbf{esiti}.
+\\
+$\Omega$ denota lo \textbf{spazio degli esiti}.
+\\
+Un \textbf{evento} è un osservabile di un esperimento aliatorio.
+\\
+Una parte di $\Omega$ può essere considerata come famiglia:
+\begin{center}
+    $\mathcal{F}$ $\subseteq$ P($\Omega$)
+\end{center}
+Questa è definitò come \textbf{algebra} se:
+\begin{itemize}
+    \item $\Omega$$\in$$\mathcal{F}$
+    \item se A$\in$$\mathcal{F}$ allora A\SP{c}$\in$$\mathcal{F}$
+    \item se A,B$\in$$\mathcal{F}$, allora A$\cup$B$\in$$\mathcal{F}$
+    \subitem potremmo scrivere anche \{A\SB{i}\}\SPSB{n}{i=1}$\subseteq$$\mathcal{F}$ allora $\cup$\SPSB{n}{i=1}A\SB{i}$\in$$\mathcal{F}$
+\end{itemize}
+
+\large\textbf{Proprietà}
+\begin{itemize}
+    \item $\emptyset$$\in$$\mathcal{F}$
+    \item se A,B$\in$$\mathcal{F}$ allora A$\cap$B$\in$$\mathcal{F}$
+    \item se \{A\SB{i}\}\SPSB{n}{i=1}$\subseteq$$\mathcal{F}$ allora $\cap$\SPSB{n}{i=1}A\SB{i}$\in$$\mathcal{F}$
+\end{itemize}
+\end{document}
