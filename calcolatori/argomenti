@@ -6,7 +6,7 @@ NB: 0x denota l'utilizzo di codifica esadecimale
  - problema di condivisione 
 per ulteriori caratteri si utilizza l'unicode o UTF, nelle vari versioni utf 32,16,8. l'UTF-8 è compatibile con ASCII
 
-reti logiche
+4 reti logiche
 - nei circuiti elettronici, i transistor hanno 2 livelli: uno alto per 1 e uno basso per 0
 - le reti logiche sono circuiti che dati valori logici in entrata, ne forniscono altri un uscita
  - possono essere combinatorie, cioé senza memoria e l'uscita dipende solo dal valore in ingresso
@@ -22,7 +22,7 @@ Algebra di Boole
  - A+B=B+A, A.B=B.A (commutativa)
  - A+(B+C)=(A+B)+C, A.(B.C)=(A.B).C (associativa)
  - A.(B+C)=(A.B)+(A.C), A+(B.C)=(A+B).(A+C) (distributiva)
-
+:
  - _A.B_=_A+_B
  - _A+B_=_A._B
 - queste ultime due regole introducono il NAND (NOT AND) e il NOR (NOT OR)
@@ -33,7 +33,7 @@ PLA (Programmable Logic Array)
 - questa struttura è formata da un barriera di AND (mintermini) e una barriera di OR
 - le funzione logiche hanno un costo rappresentato dal numero di porte e ingressi nella rete. Esistono vari metodi per ridurre il costo, questi sono di tipo sistematico o grafico e si riuniscono sotto la "sintesi logica" 
 
-Reti sequenziali
+5 Reti sequenziali
 - generalmente discutiamo di reti logiche dove in un istante viene dato un output, e nell'istante successivo quell'output fa parte dei parametri in input
 - l'elemento base di memoria è chiamato latch, ed è composto da due porte NOR
 - dato che i segnali richiedono tempo per propagarsi, questo può causare errori, allora si utilizza il clock per temporizzare le azioni. I latch temporizzati vengono chiamati gated latch
@@ -44,3 +44,34 @@ Reti sequenziali
 
 - questi elementi di memorizzazione servono per strutturare i registri, cioé una serie di latch in grado di memorizzare una word di dati. Il loro funzionamento avviene al fronte in salita del clock.
 - questi funzionamenti in base al clock vengono definiti come edge triggered, e offrono il vantaggio di rimuovere le situazioni di corse.
+
+
+6 Struttura di un programma assembly
+- fetch: preleva un'istruzione dalla memoria
+- decode: decodifica l'istruzione
+- execute: eseguisce l'istruzione
+
+- un programma in assembly è una lista di istruzioni sequenziali con la presenza di salti
+
+- le istruzioni
+ - operazioni aritmetico logiche
+ - movimenti di dati/assegnazioni di valore
+ - controlli di flusso
+
+- tipi di dati
+ - immediati (constanti)
+ - contenuti in registri (general purpose/specializzato, da 4 a 64)
+ - contenuti in memoria
+
+risc: semplifica l'implementazione della cpu
+- istruzioni aritmentico-logiche: <opcode> <dst>, <arg1>, <arg2>
+- accesso alla memoria:
+ - load <reg>, <mem loc>
+ - store <mem loc>, <reg>
+ - intel, risc-v
+
+cisc: semplifica la scrittura dei programmi in assembly
+ - istruzioni aritmentico-logiche: hanno operandi e/o destinazioni in memoria
+ - più istruzioni
+ - sintassi meno regolare
+ - ARM
