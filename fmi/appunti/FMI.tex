@@ -1,0 +1,125 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{fixltx2e}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\title{Statistica}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\begin{document}
+    
+\section{First week}
+\textbf{2$^{A}$:} insieme delle parti di A $\Rightarrow\ 2^{\wedge\#A}$ = elenco delle parti di A
+
+\textbf{Relazioni:} dati 2 insiemi X e Y, e un sottoinsieme $\mathcal{R}$(X,Y) è detto relazione tra 
+X e Y e scriveremo x$\mathcal{R}$y, x,y$\in\mathcal{R}$
+
+\textbf{Funzione:} siano dati X,Y e dia f una relazione tra X e Y, f $\subset X\times Y$.
+diremo che f è una funzione da X in Y se vale:
+\begin{center}
+    $\forall x \in X: \exists ! y \in Y tc (x,y)\in f$
+\end{center}
+
+\textbf{Dominio:} insieme delle x che vanno in Y
+
+\textbf{Codomidio:} insieme delle y che hanno corrispondenza in X
+
+\textbf{Legge:} proprietà che definisce una relazione da X a Y
+
+\textbf{Insieme di tutte le funzioni:} $Y^{X}$ corrisponde a tutte le funzioni con leggi diverse ma
+con stessi insiemi di partenza ed arrivo
+
+\textbf{Funzione identità:} $id_{X}(X) = X$
+
+\textbf{Composizione di funzioni:} $x\rightarrow^{f} y\rightarrow^{g} z \Rightarrow g(f(x)) = z
+\Rightarrow gof(x) = z$ 
+
+\textbf{Iniettiva:} ad ogni f(x) corrisponde un solo y\\
+\textbf{Surgettiva:} ad ogni y corrisponde un f(x)\\
+\textbf{Bigiettiva:} sia iniettiva che suriettiva
+
+\textbf{Inversa:} se f è biettiva, allora esiste $g=f^{-1}$
+
+\newpage
+\section{Second week}
+
+\textbf{Sistemi equipotenti:} X e Y sono equipotenti ($X\sim Y$) se hanno la stessa
+cardinalità e la funzione $f:X\rightarrow Y$ è bigiettiva (o invertibile)
+
+\textbf{insiemi cardinali:} sono gli insiemi in formato \{0,1,...,n\} equipotenti all'insieme dato, si 
+rapprensentano $|A|$ e definiscono una cardinalità pari a n+1
+
+\textbf{TEOREMA:} X e Y sono equipotenti se e solo se i loro insiemi cardinali sono uguali
+\begin{center}
+    $|X|=|Y|$
+\end{center}
+
+\textbf{Numeri naturali:} sono definiti dagli assiomi di Peano:
+\begin{itemize}
+    \item 0 è un numero naturale
+    \item esiste una funzione successivo $\mathbb{N}\rightarrow\mathbb{N}$
+    \item succ(n) $\in\mathbb{N}\backslash\{0\}$, cioé il successivo di ogni naturale è diverso da 0
+    \item vale principio d'induzione
+\end{itemize}
+
+\textbf{Principio d'induzione:} con $A\subset\mathbb{N}$ 
+\begin{itemize}
+    \item base induttiva: $0\in A$
+    \item passo induttivo: $\forall n \in\mathbb{N}, n\in A\Rightarrow succ(n)\in A$, allora $A=\mathbb{N}$
+\end{itemize}
+
+\newpage
+
+\textbf{Principio induttivo di prima forma:}\\
+Prendiamo una proposizione P(n) e supponiamo che rispetti 2 condizioni:
+\begin{itemize}
+    \item la base induttiva: P(0) è vera
+    \item il passo induttivo: $\forall n \in\mathbb{N}$, P(n) è vera (ipotesi induttiva), allora P(succ(n))
+\end{itemize}
+Se rispetta queste condizioni allora implica $\forall n\in\mathbb{N}$, P(n)
+
+\textbf{Teorema di ricorsione:} Sia X un insieme, esite una funzione $f:\mathbb{N}\rightarrow X$ tc:
+\begin{center}
+    $f(0) = c$\\
+    $f(succ(n))=h(n,f(n))$
+\end{center}
+
+\textbf{Addizione:} tramite il teorema di ricorsione definiamo la funzione $m\rightarrow n+m:$
+\begin{center}
+    $n + 0 = n$\\
+    $n+succ(m)=succe(n)+m$
+\end{center}
+
+\textbf{Moltiplicazione:} tramite il teorema di ricorsione definiamo la funzione $m\rightarrow nm:$
+\begin{center}
+    $n\cdot 0 = 0$\\
+    $n(m+1)=mn+n$
+\end{center}
+
+\textbf{Ordinamento dei naturali:} può essere totale o parziale
+
+\textbf{Ordine parziale:} è una relazione $\mathcal{R}\subset X\times X$ e rispecchia le seguenti proprità:
+\begin{itemize}
+    \item riflessiva: $x\mathcal{R}x, \forall x\in X$
+    \item antisimmetrica: $x\mathcal{R}y e y\mathcal{R} x\Rightarrow x=y, \forall x,y \in X$
+    \item transitiva: $x\mathcal{R}y\ e\ y\mathcal{R} z\Rightarrow x\mathcal{R}z, \forall x,y,z \in X$
+\end{itemize}
+
+\textbf{Ordinamento totale:} come l'ordinamento parziale, ma con la proprietà aggiunta:
+\begin{itemize}
+    \item tricotomia: $x\mathcal{R}y\ o\ y\mathcal{R} x\, \forall x,y \in X$
+\end{itemize}
+
+\textbf{insiemi ordinati:} se $\mathcal{R}$ è parziale o totale, dirò che $(X,\mathcal{R})$ è 
+parzialmente o totalmente ordinato
+
+\textbf{Principio d'induzione shiftato di prima forma:} identico alla prima forma ma la base
+invece che 0, parte da $k\leq n$
+\begin{itemize}
+    \item base induttiva: P(k) è vera
+    \item passo induttivo: $\forall n\geq k$, P(n) è vera $\Rightarrow$ P(n+1)
+\end{itemize}
+
+\end{document}

@@ -75,3 +75,224 @@ cisc: semplifica la scrittura dei programmi in assembly
  - più istruzioni
  - sintassi meno regolare
  - ARM
+
+Accessi alla memoria
+- load e store per risc
+- generiche per cisc
+- argomento <memory location>
+ - ind. memoria costante
+ - registro
+ - shiftando un registro
+ - combinazione
+
+Indirizzamento
+- assoluto: indirizzo codificato
+- indiretto: registro contendente indirizzo codificato
+- base + spiazzamento: indirizzo otttenuto sommando registro a valore
+- base + indice: indirizzo ottenuto sommando registro a registro shiftato
+- base + indice + spiazzamente: vedi precedenti
+
+- ISA risc usano modalità semplici (assoluto)
+- ISA cisc usano indirizzamento con indice shiftato
+ - eccezzione ARM (pre/post-incremento)
+
+ISA & ABI
+- ISA definisce le istruzioni della CPU e registri (general-purpose vs specializzati)
+- come usarli? tramite una convenzione software
+- ABI: insieme di convenzioni software sull'utilizzo dei registri
+ - esampio: le chiamate
+
+Instruction set
+ - diverso per ogni tipo di processore
+
+RISC-V 
+- ripo risc, moderno, open source
+principio di progettazione n.1: la semplicità favorisce la regolarità
+- prevede solo istruzioni aritmentiche a tre operandi:
+ - a = b + c => add a, b, c
+ - a = b + c + d + e => 
+   add a, b, c
+   add a, a, d 
+   add a, a, e
+ - f = (g+h) - (i+j) =>
+   add t0, g, h 
+   add t1, i, j
+   sub f, t0, t1
+- commenti con # 
+- Risc-v contiene 32 registri a 64 bit
+principio di progettazione n.2: minori sono le dimensioni, maggiore la velocità
+- convertendo l'esempio di prima:
+ - f = (g+h) - (i+j) =>
+   add x5, x20, x21 
+   add x6, x22, x23
+   sub x19, x5, x6
+
+servono istruzioni per caricare e scaricare dati dalla memoria
+memoria(sequenza di byte collegati a un indirizzo). i byte vengono organizzati in parole
+da 4 byte o doppie parole da 8 byte
+gli indirizzi si specificano tramite una base (registro) e un offset
+Caricamento doppia parola in un indirizzo dato da x22 + 8: ld x9 8(x22)
+ld = istruzione load
+x9 = registro di destinazione
+8 = offset
+(x22) = base
+
+register spilling: caricamento e scaricamento delle variabili nei registri in base al loro utilizzo
+
+l'approccio con le costanti  avviene tramite la memorizzazione del dato in
+qualche indirizzo. Questo risulta inefficente, quindi si usano gli operandi immediati
+es: f = f + 4 => addi x22, x22, 4
+
+RISC-V dedica un registro ad hoc (x0) alla costante 0
+
+I numeri vengono rappresentati in esadicmale (2 cifre esa => 1 byte). una word
+(es: 0xEA01BD1C) allora viene caratterizzata dai byte + o - significativi (il primo e l'ultimo)
+little endian: la memorizzazione della word parte dal byte meno significativo e sale
+big endian: al contrario del little endian, la word parte dal byte più significativo e scende
+little viene usato in architetture intel e RISC-V, il big da motorola e protocolli internet
+
+le istruzioni vanno convertite in codici numerici univoci, da 32 bit in RISC-V:
+- primo (7bit), quarto (3bit) e sesto (7bit) codificano l'istruzione
+- secondo (5 bit) : secondo operando
+- terzo (5 bit): primo operando
+- quinto (5 bit): risultato
+=> |funz7|rs2|rs1|funz3|rd|codop| =>
+codop: codice operativo dell’istruzione
+funz7 efunz3: codici operativi aggiuntivi
+rs1: primo operando sorgente
+rs2: secondo operando sorgente
+rd: operando destinazione
+
+Trade-off 
+principio di progettazione n.3:
+un buon progetto richiede buoni compromessi
+RISC-V con le sue istruzioni a 32 bit limita il numero di istruzioni, di registri e di modalità d'indirizzamento,
+ma ci guadagna in efficenza
+
+Operazioni logiche
+RISC-V offre varie funzioni per operare su porzioni di words o su singolo bit:
+
+Shift logico
+si usa per inserire degli zeri nella posizione meno significativa (shift a sinistra) o nella posizione più significativa (shift a destra)
+slli x11, x19, 4 => memorizzare in x11 il valore di x19 moltiplicato per 2^4
+srli x11, x19, 4 => memorizzare in x11 il valore di x19 diviso per 2^4
+Questo può generare degli overflow. Per risolvere questo problema si utilizza lo shift aritmentico (questo funziona
+solo con lo shift a destra): invece di aggiungere bit pari a 0, si aggiungono bit
+pari al bit di segno
+srai x11, x19, 4
+
+altre operazioni logiche sono:
+AND bit a bit:
+and x9, x10, x11 => la word salvata in x9 a i bit che corrispondono al risultato dell'AND tra x10 e x11
+(fondamentalmente tiene a 1 solo i bit che sono a 1 in entrambe le word)
+OR bit a bit
+simile al AND ma utilizza un operatore OR
+or x9, x9, 19
+OR esclusivo (XOR)
+mantiene il bit a 1 solamente se i due bit confrontati sono differenti
+per esempio si usa lo xor per resettare un registro => xor x9, x9, x9
+NOT
+il not è un'operatore unario e di conseguenza non è supportato da RISC-V, ma si può ottenerlo
+attraverso un XOR: NOT A => XOR (A, 1)
+
+istruzioni con condizioni
+nelle architetture le condizioni si convertono in istruzioni di salto condizionato. esso è dato da due istruzioni:
+beq rs1, rs2, L1 => se rs1 è uguale a rs2 allora salta all'etichetta L1
+bne rs1, rs2, L1 => se rs1 è diverso a rs2 allora salta all'etichetta L1
+es:
+costrutto if: if(i==j) f=g+h; else f=g-h;
+      bne x22, x23, ELSE 
+      add x19, x20, x21   
+      beq x0, x0, ESCI
+ELSE: sub x19, x20, x21
+ESCI:
+
+Cicli
+sfruttando i salti condizionati si possono creare dei loop 
+Ciclo:  slli x10, x22, 3
+        add x10, x10, x25
+        ld x9, 0(x10)
+        bne x9, x24, Esci   
+        addi x22, x22, 1
+        beq x0, x0, Ciclo
+Esci:   ...
+
+considerazioni
+le istruzioni tra 2 salti condizionati (conditional branch) vengono chiamati blocchi di base
+l'individuazione di questi blocchi è una delle prime fasi della compilazione
+
+ulteriori istruzioni di salto
+blt => salta se minore
+bge => salta se maggiore o uguale
+bltu => blt ma unsigned
+bgeu => bge ma unsigned
+le versioni unsigned semplicemente tengono conto o meno del bit significativo
+
+costrutto switch
+memorizza i vari codici da eseguire in una tabella, per poi caricare in un registro l'indirizzo del codice.
+infine tramite l'istruzione jalr si salta all'indirizzo contenuto nel registro
+
+Procedure
+le funzioni svolgono un ruolo fondamentale, non ci interessa il funzionamento interno di una funzione,
+ma necessitiamo di un protocollo per la chiamate alle procedure:
+1 caricare i parametri di input in posti noti a priori
+2 trasferire il controllo alla procedura
+  - acquisire i parametri in input
+  - eseguire la procedura
+  - caricare i valori di ritorno in posti noti
+  - restituire il controllo al chiamante
+3 prendere i valori di ritorno e pulire le tracce della procedura
+RISC-V affronta questo meccanismo usando il più possibile i registri. le convenzioni sono:
+x10-x17: usato per parametri in ingresso e valori di ritorno
+x1: indirizzo di ritorno
+ - questo indirizzo viene usato particolarmente per istruzioni di jump and link (jal), che effettuano il salto
+ e memorizzano in x1 l'indirizzo di ritorno
+ - alla fine della procedura sarà sufficiente fare un salto (jalr x0, 0(x1))
+nel caso i registri non bastino si usa lo stack x2, chiamato anche sp. Alla fine della procedura è importante
+ricordare di pulire lo stack
+
+esempio =>
+long long int esempio_foglia(long long int g, long long int h, long long int i, long long int j) {
+  long long int f;
+  f = (g+h) – (i+j);
+  return f;
+}
+
+- come prima fase il compilatore etichetta la procedura (esempio_foglia), questa fare è chiamata linking
+- prologo, ovvero la fase in cui vengono salvati in memoria tutti i registri usati dalla procedura
+- esecuzione della procedura
+- epilogo, fase di ripristino dei registri e settagio del valore di ritorno
+
+tutto questo è una menzogna, RISC-V adotta la convenzione:
+ x5-x7 e x28-x31 sono registri temporanei
+ x8-x9 e x18-x27 sono registri in cui salvare il contenuto in caso di chiamata a procedura
+La cosa può essere ancora più complessa in caso di variabili locali e procedure annidate. Questo si risolvere
+usando lo stack allocando variabili locali e valori del registro di ritorno x1
+
+Storage class
+le variabili in C sono associate a locazioni di memoria caratterizzate per tipo e storage class. Il C ha due tipi
+di storage class: Automatic (le variabili locali) e Static. Le variabili static vengono memorizzate da RISC-V
+nel registro x3, chiamato anche gp (global pointer). Per quello che riguarda le automatic, esse sono memorizzate
+nei registri o nello stack in caso i registri non bastassero
+
+record di attivazione
+Il segmento di stack che contiene variabili locali e i registri salvati è chiamato record di attivazione
+(o stack frame). Le variabili locali sono individuate tramite un offset. In alcuni casi il registro
+sp può essere scomodo, percui in alcuni programmi viene usato il registro x8 come fp o frame pointer,
+come puntato alla prima parola doppia del frame della procedura
+
+Dati dinamici
+per tutti le variabili allocate dinamicamente, RISC-V procede per indirizzi crescenti
+
+Riassunto convenzione sui registri:
+(immagine pagina 25, pdf n3)
+
+(elaborazione)
+spesso la ricorsione può essere inefficente, conviene piuttosto generare una ricorsione 
+"di coda", cioé che tiene conto del procedimento e ritorna direttamente il risultato
+
+(Ottimizzazione)
+alcuni compilatori sanno riconoscere la ricorsione di coda. Le caratteristiche
+principali sono: il chiamante ritrna subito dopo la jalr, x5 e gli altri registri non cambiano,
+il chiamato protrebbe direttamente ritornare al ra del chiamante...
+gcc fa questo con opportuni flag 
