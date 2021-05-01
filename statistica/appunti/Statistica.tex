@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{fixltx2e}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{fancyhdr}
 \title{Statistica}
 \date{}
 \author{}
@@ -247,4 +249,145 @@ P(E\SB{1}$\cap$E\SB{2} $\vert\mathcal{F}$) = P(E\SB{1}$\vert\mathcal{F}$) $\cdot
     P = $\bigotimes_{i\in I}$ P\SB{i} cioé P($\Pi_{i\in I}$ E\SB{i}) = $\Pi_{i\in I}$P\SB{i}(E\SB{i})
 
 \end{enumerate}
+
+\newpage
+\section{Trasformazioni lineari di variabili aleatorie}
+\marginpar{07/04/21}
+
+$X$ variabile aleatoria con legge $F_{X}$. Se X è variabile aleatoria discreta:
+\begin{center}
+    $\varphi_{Y}(y)=\sum_{x\in g^{-1}(\{y\})}\varphi_{X}(x)$
+\end{center}
+Se X è variabile aleatoria assolutamente continua abbiamo 2 strategia:
+\begin{enumerate}
+    \item Ricaviamo la legge di $Y$ usando la forma di $X$ e della funzione $g$
+    \item usiamo il teorema generale
+\end{enumerate}
+
+\textbf{Teorema del cambio di variabile}
+
+Sia $X$ variabile aleatoria continua di densità $f_{X}$, sia $Y=g(x)$ con $g:\mathbb{R}\rightarrow\mathbb{R}$
+continua a tratti t.c. $P(g(x)=0)=0$. Allora:
+\begin{center}
+    $f_{Y}(y)=\sum_{x\in g^{-1}(\{y\})}\frac{f_{X}(x)}{|g^{1}(x)|} $
+\end{center}
+
+\section{Vettori aleatori}
+Dato uno spazio probabilizzabile $(\Omega,\mathcal{F},P)$ consideriamo 2 variabili aliatorie $X,Y: $
+$\Omega\rightarrow$$\mathbb{R}^{2}$
+
+Def: dati $(\Omega,\mathcal{F},P)$ e $X,Y$ variabili aleatorie su di esso si chiama \textbf{coppia di variabili aleatorie}
+o \textbf{variabile aleatoria doppia} o \textbf{2-vettore aleatorio}. La funzione $V:\Omega\rightarrow\mathbb{R}^{2}:
+V(\omega)=(X(\omega/Y(\omega)))$. Il supporto del vettore aleatorio $V$:
+\begin{center}
+    $\mathcal{R}_{V}=\mathcal{R}_{X,Y}=\mathcal{R}_{X}\times\mathcal{R}_{Y}=\{(x,y)\in\mathbb{R}^{2}:x\in\mathcal{R}_{X}
+    , y\in\mathcal{R}_{Y} \}$
+\end{center}
+Def: Data $(X,Y)$ coppia di variabili aleatorie, la sua funzione di ripartizione è:
+\begin{center}
+    $F_{X,Y}((x,y))=F_{X,Y}(x,y)=P(X\leq x, Y\leq y)$
+\end{center}
+$F_{X,Y}$ si chiama anche funzione di ripartizione \textbf{congiunta} di $X$ e $Y$
+
+Def: Data $(X,Y)$ coppia di variabili aleatorie, chiameremo \textbf{funzione di ripartizione di $X$ condizionata a $Y$}
+la funzione:
+\begin{center}
+    $F_{X|Y}(x|y):= \frac{F_{X,Y}(x,y)}{F_{Y}(y)}$
+\end{center}
+
+Def: Dato $(\Omega,\mathcal{F},P)$ e due tribù $\mathcal{F}_{1}, \mathcal{F}_{2}\subset\mathcal{F},\mathcal{F}_{1},
+\mathcal{F}_{2}$ sono indipendenti se lo sono le tribù $\sigma(x)\ e\ \sigma(y)$ da esse generate 
+
+Prop: $X,Y$ sono indipendenti se e solo se:
+\begin{center}
+    $\forall(x,y)\in\mathbb{R}^{2}\ F_{X|Y}(x|y)=F_{X}(x)F_{Y}(y)$    
+\end{center}
+
+Prop: $X,Y$ sono indipendenti se e solo se:
+\begin{center}
+    $\forall(x,y)\in\mathbb{R}^{2}\ F_{X|Y}(x|y)=F_{X}(x)\ e\ F_{Y|X}(y|x)=F_{Y}(y)$    
+\end{center}
+
+\section{Vettori aleatori discreti}
+
+Def: Siano $X,Y$ variabili aleatorie discrete su $(\Omega,\mathcal{F},P)$ chiamiamo \textbf{densità discrete congiunte}
+la funzione $\varphi_{X,Y}:\mathbb{R}^{2}\rightarrow [0,1]$ definita:
+\begin{center}
+        $\varphi_{X,Y}(x,y)=P(X=x, Y=y)$
+\end{center}
+la \textbf{densità discreta di $X$ condizionata a $Y$} è  $\varphi_{X,Y}$ definità:
+
+\newpage
+\pagestyle{fancy}
+\chead{ottava settimana}
+\section{Schema o processo di Bernoulli}
+\marginpar{21/04/21}
+
+Dati infiniti esperimenti indipendenti e identicamente distribuiti
+\begin{center}
+    $(X_{i})_{i}\in\mathbb{N}\ iid\ X_{i}\sim bin(1,p)$
+\end{center}
+$\Omega=\{0,1\}^{\mathbb{N}/\{0\}}$\\
+Tribù $\mathcal{F}$ generata dai cilindri\\
+P uguale al prodotto delle probabilità delle componenti
+\subsection{Cilindri}
+I cilindri sono sottoinsiemi $c\subseteq\Omega$ tali che esiste un $n\in\mathbb{N}/\{0\}$ e un vettore $v\in\{0,1\}^{n}$:
+\begin{center}
+    $C=\{\omega\in\Omega :\omega_{i}=v_{i}\ 1\leq i\leq n\}$
+\end{center}
+Es:
+\begin{itemize}
+    \item un successo seguito da due insuccessi:
+    \subitem Cilindro: $n=3\ v=(1,0,0)\Rightarrow prob=p(1-p)^{2}$
+    \item primo successo al k-esimo lancio:
+    \subitem Cilindro: $(0,0,...,0_{k-1},1_{k})\Rightarrow prob=(1-p)^{k-1}p$
+    \item prob 3° lancio sia un successo:
+    \subitem $(\cdot\cdot\cdot 1*)=(001)\cup(101)\cup(011)\cup(111)$
+    \subitem $P(\cdot\cdot\cdot 1*)=\sum P(...)=(1-p)^{2}p+2(1-p)p^{2}+p^{3}=P(p+(1-p))^{2}$ 
+\end{itemize}
+
+\section{Geometriche}
+Una varibile aleatoria ($T_{1}:=inf\{i\geq 1: \omega_{i}=1\}$) è una geometrica di parametro p $X\sim geom(p)$
+se è l'istante precedente al primo successo in un processo di Bernoulli di parametro p
+
+cdf di una geometria:
+\begin{equation}
+    F_{X}(x)
+  \begin{cases}
+    0\ \ x<0\\
+    \sum_{k=0}^{x} \varphi_{x}(k)=1-(1-p)^{x}\ \ x \geq 0
+  \end{cases}
+\end{equation}
+
+\textbf{Assenza di memoria:} $\forall n,k\in\mathbb{N}\ \ \ P(x\geq n+k|X\geq n)=P(X\geq k)$\\
+es:
+\begin{center}
+    $(Y\geq 60+30|Y\geq 60)=(Y\geq 30)=(1-p)^{30}$
+\end{center}
+
+\subsection{Binominali negative}
+$T_{n}$= istante dell'n-esimo successo
+
+$T_{1}:=inf\{i\geq 1: \omega_{i}=1\}$\\
+$T_{n+1}:=inf\{i\geq T_{n}: \omega_{i}=1\}\ n\geq 1$
+
+$X$ è una variabile aleatoria binominale negativa (o di pascal) di parametri n e p se è il numero di insuccessi precedenti
+all'n-ennesimo successo di uno schema di bernoulli di parametro p $X\sim NB(n,p)$
+
+\begin{equation}
+    pn k\in\mathbb{N} \varphi_{x}(k)
+    \begin{cases}
+        = P(x=k)=P(T_{n}=k+n)\\
+        = P(\omega_{n+k}=1,\sum_{j=1}\omega_{j}=n-1)\\
+        = p \binom{k+n-1}{n-1} p^{n-1}(1-p)^{k} 
+    \end{cases}    
+    \Rightarrow \binom{k+n-1}{n-1} p^{n}(1-p)^{k} 
+\end{equation}
+
+\section{Riproducibilità}\marginpar{22/04/21}
+Una famiglia di variabili aleatorie si dice riproducibile se sommando 2 variabili aleatorie indipendenti appartenenti
+a quella famiglia abbiano ancora una variabile aleatoria della medesima famiglia
+
+\textbf{Prop:} La famiglia delle binominali a parametro $p$ fissato è riproducibile. Se $X\sim bin(n,p)$
+
 \end{document}

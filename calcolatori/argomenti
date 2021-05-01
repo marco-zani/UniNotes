@@ -296,3 +296,90 @@ alcuni compilatori sanno riconoscere la ricorsione di coda. Le caratteristiche
 principali sono: il chiamante ritrna subito dopo la jalr, x5 e gli altri registri non cambiano,
 il chiamato protrebbe direttamente ritornare al ra del chiamante...
 gcc fa questo con opportuni flag 
+
+
+intel
+- architettura CISC utilizzata soprattutto in laptop, desktop e server
+- usufruisce di molteplici modalità di funzionamento e molteplici assembler
+ - useremo GNU assembler
+
+registri
+- registri general purpouse
+ - sono 16 da 64bit e usano il prefisso % 
+ - %rsp: stack pointer
+ - %sbp: base pointer
+ - %rsi e %rdi: registri source e destination per la copia di Array
+
+ - %rip: Instruction pointer
+ - %rflags: estende %flags, che contiene flag come CF (flag di carry), ZF(risultato 0), SF(risultato negativo), OF(flag di overflow)
+  - sono usati da istruzioni di salto condizionale
+
+Convenzioni di chiamata
+- sono molteplici, tecnicamente specificate dall'ABI
+- i primi 6 argomenti sono in %rdi, %rsi, %rdx, %rcx, %r8 ed %r9, gli altri vengono impilati nello stack
+- valori di ritorno in %rax e %rdx
+- registri preservati %rbp, %rbx, %r12, %r13, %r14 ed %r15
+
+Indirizzamento
+- Istruzioni principalmente a 2 operandi (destinazione implicita)
+ - Sorgente: operando immediato($20), registro (%rax), memoria (0x0100A8)
+ - destinazione: registro o memoria
+- accesso alla memoria: <displ> (<base reg>, <index reg>, <scale>)
+ - <displacement>: costante a 8, 16 o 32bit
+ - <base>: valore in registro 
+ - <indice>: valore in registro 
+ - <scala>: valore costante
+ - in casi speciali scala, indice, base e displacement possono essere omessi
+
+Istruzioni intel
+- fondamentalmente sono una caterba
+- sintassi <opcode> <source>, <destination>
+ - <opcode> può terminare con b/w/l/q per indicare 8/16/32/64bit
+- istruzioni comuni
+ - mov, add, sub, mul, div, inc/dec (incrementa/decrementa di 1), rcl/rcr/rol/ror (rotate),
+   sal/sar/shl/shr (shift aritmentici e logici), and, or, xor, not, neg(complemento a 2, negazione),
+   nop.
+ - push/pop: inserisce/rimuove dati nello stack
+ - cmp/test: comparano i 2 argomenti e settano i flag nel flag register
+ - jmp, je/jnz/jc/jnc: salti condizionati
+ - call/ret: chiamata/ritorno alla procedura
+- Load effective address: lea è un istruzione utilizzata per calcolare indirizzi
+ - calcola l'indirizzo e memorizza nel registro senza caricare nulla dalla memoria, ogni tanto viene
+   usato per fare somme
+ - es: lea 80(%rdx, %rcx, 2), %rax => %rax = %rdx + 2*%rcx +80
+ - es: lea (%rbx, %rcx), %rax
+
+
+
+ARM
+- Advanced Risc Machine
+- usato nei sistemi embedded e in smartphone e tablet
+- 16 registri e modalità d'indirizzamento potenti
+- precisazioni, ARM è una famiglia di CPU, con ISA differenti ma simili fra loro 
+
+registri
+- 16 registri a 32 bit, r0-r15, quasi tutti general purpouse (r15 non lo è)
+ - alcuni registri hanno sinonimi: r13=sp(stack pointer) e r14=lr(link register)
+ - Application Program Status Register (apsr) / Current Program StatusRegister (cpsr) ?
+ - r15 contiene il pc(program counter) e i flags (bit 28..31)
+ - flags: z | c | n | v
+  - eq/ne: equal/not equal => z = 1/0
+  - hs/lo: higher or same/lower => c = 1/0
+  - mi/pl: negativo o positivo => n = 1/0
+  - vs/vs: presenza o meno di overflow => v = 1/0
+  - hi: higher => c = 1 | z = 0
+  - ls: lower or same => c = 0 oppure z = 1
+  - ge: greater or equal => n = 1 | v = 1 oppure n = 0 | v = 0
+  - lt: less than => n = 1 | v = 0 oppure n = 0 | v = 1
+  - gt: greater than => come ge ma con z = 0
+  - le: less or equal => come lt, ma esegue anche se z = 1
+
+Convenzioni di chiamata
+- r0-r3 sono registri temporanei non preservati, con più di 4 argomenti si usa lo stack
+- r4-r11 registri preservati (in alcune ABI r9 non è preservato)
+- r0-r1 valori di ritorno
+
+Indirizzamento
+- istruzioni prevalentemente a 3 argomenti
+ - operando sinistro = registro, operando destro = immediato o registro
+- accesso alla memoria con ldr/str (load register/store register) e ldm/stm (load/store multiple)

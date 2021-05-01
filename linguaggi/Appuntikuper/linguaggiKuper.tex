@@ -1,0 +1,83 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\def\separator{\begin{center}    \rule{100pt}{0.5pt}\end{center}}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+
+\begin{document}
+Linguaggi di programmazione - Modulo Kuper
+
+\newpage
+\pagestyle{fancy}
+\chead{nona settimana}
+
+\section{Pointers and arrays}
+In C pointers and arrays are interchangeable
+
+\textbf{Equivalence and compatibility}
+
+given two tipes $T$ and $S$ are equivalent if every object
+of type $T$ is also of type $S$.\\ $T$ is compatible with $S$, if any object of type $T$ can be
+used in a context where an object $S$ is expected.
+
+\textbf{Structural equivalence}
+
+\textbf{Compatibility}
+
+the definition depends on the language. $S$ is compatible with $T$ if:
+\begin{itemize}
+    \item $T$ and $S$ are equivalent
+    \item values of $T$ are a subset of the values of $S$
+    \item All operations on $S$ can be performed on $T$
+    \item there is a natural corrispondence
+    \item values of $T$ can be manipulated to correspond to some values of $S$
+\end{itemize}
+
+\textbf{Type conversion}
+
+If $T$ is compatable with $S$ there is a type conversion mechanism:
+\begin{itemize}
+    \item implicit conversion (or coercion): the abstract machine does the conversion
+    \item explicit conversion (or cast): requires that the conversion is written in the program
+\end{itemize}
+
+\textbf{Coercion}
+
+there are 3 types of coercion:
+\begin{itemize}
+    \item same values and representation
+    \item different values but common values have the same representation
+    \item differet representation
+\end{itemize}
+
+\textbf{Cast}
+    
+the conversion is alowed only when the program knows how to do the conversion, and in certain 
+casesmust be explicitly converted
+
+\textbf{Polymorphism}
+
+single value with multiple types:
+\begin{itemize}
+    \item ad hoc Polymorphism (overloading)
+    \item parametric Polymorphism
+\end{itemize}
+
+\textbf{overloading}
+
+same simbols but with different meanings, resolved in compile time, after type inference
+
+\textbf{parametric Polymorphism}
+
+\textbf{garbage collector}
+
+\textbf{Dangling re}
+
+\end{document}

@@ -3,6 +3,10 @@
 \usepackage{fixltx2e}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{margin=1.2in}
 \title{Statistica}
 
 \setlength{\parindent}{0em}
@@ -19,7 +23,7 @@ X e Y e scriveremo x$\mathcal{R}$y, x,y$\in\mathcal{R}$
 \textbf{Funzione:} siano dati X,Y e dia f una relazione tra X e Y, f $\subset X\times Y$.
 diremo che f è una funzione da X in Y se vale:
 \begin{center}
-    $\forall x \in X: \exists ! y \in Y tc (x,y)\in f$
+    $\forall x \in X: \exists ! y \in Y t.c. (x,y)\in f$
 \end{center}
 
 \textbf{Dominio:} insieme delle x che vanno in Y
@@ -80,7 +84,7 @@ Prendiamo una proposizione P(n) e supponiamo che rispetti 2 condizioni:
 \end{itemize}
 Se rispetta queste condizioni allora implica $\forall n\in\mathbb{N}$, P(n)
 
-\textbf{Teorema di ricorsione:} Sia X un insieme, esite una funzione $f:\mathbb{N}\rightarrow X$ tc:
+\textbf{Teorema di ricorsione:} Sia X un insieme, esite una funzione $f:\mathbb{N}\rightarrow X$ t.c.:
 \begin{center}
     $f(0) = c$\\
     $f(succ(n))=h(n,f(n))$
@@ -122,4 +126,409 @@ invece che 0, parte da $k\leq n$
     \item passo induttivo: $\forall n\geq k$, P(n) è vera $\Rightarrow$ P(n+1)
 \end{itemize}
 
+\section{third week}
+exercises
+
+\newpage
+\section{forth week}
+
+\textbf{Insiemi finiti:} Indicando con I$_{n}$ un insieme che va da 0 a n, diremo che l'insieme X è finito
+se essite $n\in\mathbb{N}$ t.c. $I_{n}\sim X$. Se non esiste lo definiremo insieme infinito.
+
+\textbf{Teorema di lemma dei cassetti:} Siano X e Y due insiemi rispettivamente $X\sim I_{n}$ e $Y\sim I_{m}$
+con $n<m$ allora la funzione $f(x):\ Y\rightarrow X$ non è iniettiva
+
+\textbf{Cardinalità:} Sia X un insieme finito. Definiamo cardinalità n t.c. $I_{n}$ sia equipotente
+a X. Definiamo $I_{n}$ come insieme cardinalità associato a X
+
+\textbf{Proposizione:} Sia $A$ insieme finito e $B\subseteq A$, allora $|B|\leq |A|$
+
+\textbf{Osservazione:} Qualsiasi $f(x): \mathbb{N}\rightarrow\mathbb{N}/\{0\} $ è bigiettiva
+
+\textbf{Minimo:} Sia $A$ un insieme e $z\in A$. Se $\forall x \in A, z\leq x$, allora definiremo $z$ come 
+\textbf{minimo} di $A$: 
+\begin{center}
+    $z = min(A)$
+\end{center}
+
+\textbf{Buon ordinamento:} Un ordinamento totale è definito \textbf{ben ordinato} se ogni sottoinsieme di 
+$(Z,\leq)$ ammette un minimo
+
+\textbf{Assioma di buon ordinamento:} L'ordinamento $(\mathbb{N},\leq)$ è ben ordinato e l'ordinamento $\leq$
+è \textbf{usuale} su $\mathbb{N}$ (cioé se $\exists k\ t.c.\ n+k=m$ allora $n\leq m$)
+
+\textbf{Principio di induzione (2$^{a} forma$):} prendiamo una famiglia di preposizioni $P(n)$ e supponiamo
+rispetti le 2 condizioni:
+\begin{itemize}
+    \item la base induttiva: $P(0)$ è vera
+    \item il passo induttivo: $\forall n\in\mathbb{N}, \forall k \in\mathbb{N}\ t.c.\ 0\leq k \leq n$,
+    $P(k)$ è vera (ipotesi induttiva), allora P(n)
+\end{itemize}
+Se rispetta questa condizioni allora implica $\forall n\in\mathbb{N},\ P(n)$
+
+\newpage
+\textbf{Divisione euclidea:} Siano $n,m\in\mathbb{Z} t.c. m\neq 0 \exists ! q,r\in\mathbb{Z} t.c:$
+\begin{center}
+    $n=mq+r$\\$0\leq n <|m|$
+\end{center}
+(si definiscono $q$ quoziente e $r$ resto della divisione di $n$ per $m$)
+
+\newpage
+\section{fifth week}
+
+\textbf{Rappresentabilità:} Sia $b\in\mathbb{N}$, diremo che $n\in\mathbb{N}$ è rappresentabile in base
+$b$ se esistono $k\in\mathbb{N}$ e $\varepsilon{0},\varepsilon{1},...,\varepsilon{k}\in I_{b}\ t.c:$
+\begin{center}
+    \ \ \ \ \ \ \ \ \ \ \ \ \ \ $n = \sum_{i=0}^{k}\ \varepsilon_{i}b^{i}$\ \ \ \ \ \ \ \ con $I_{b}=\{0,1,...,b-1\}$
+\end{center} 
+
+\textbf{Teorema della rappresentazione dei naturali in base arbitraria:} Sia $b\in\mathbb{N}, b\geq 2$, allora
+$\forall n\in\mathbb{N},\ n$ è rappresentabile in base $b$ in maniera univoca
+
+\textbf{Divisibilità:} Dati $n,m\in\mathbb{Z}$ si dice che $n$ è \textbf{divisore} di $m$ (o $m$ è multiplo
+di $n$) se $\exists k\in\mathbb{Z}\ t.c.\ m=nk$ e scriveremo $n|m$
+
+\textbf{Proprità della divisibilità:}
+\begin{itemize}
+    \item se $n|m$ e $m|q$ allora $n|q$
+    \item se $n|m$ e $m|n$ allora $n=\pm m$
+\end{itemize}
+
+\textbf{Massimo Comune Divisore:} Dati $m,n\in\mathbb{Z}$ si dice $d\in\mathbb{Z},\ d>0$ massimo comune divisore
+se:
+\begin{itemize}
+    \item $d|n\ e\ d|m$
+    \item $\exists c\in\mathbb{Z}\ t.c.\ c|n\ c|m\ c|d$
+\end{itemize} 
+
+proposizione: se $d$ e $d^{I}$ sono mcd tra $m$ e $n$ allora $d=d^{I}$
+
+\textbf{Teorema:} dati $n,m\in\mathbb{Z} \neq 0$, esiste mcd unico indicato con $(n,m)$
+
+\textbf{Lemma utile:} dati $n,m,c\in\mathbb{Z} \neq 0$ e $c|n\ c|m$, allora $\forall x,y\in\mathbb{Z}$ vale:
+\begin{center}
+    $c|xn+ym$
+\end{center}
+
+Corollario: Siano $n,m\in\mathbb{Z} \neq 0$ se sia $d:=(n,m)$ allora esistono $x,y\in\mathbb{Z}\ t.c:$
+\begin{center}
+    $d=xn+ym$
+\end{center}
+
+\textbf{Numeri coprimi:} dati $n,m\in\mathbb{Z}$, si dicono coprimi fra di loro se $(n,m)=1$
+
+proposizione: sia $d=n,m$ allora $(\frac{n}{d},\frac{m}{d})=1$
+
+\textbf{Algoritmo di Euclide:}
+\begin{center}
+    \begin{tabular}{ c c c }
+        
+        $n=q_{1}m+r_{1}$ & & $r_{1}=n-q_{1}m$\\
+        $m=q_{2}r_{1}+r_{2}$ & & $r_{2}=m-q_{2}r_{1}$\\
+        $r_{1}=q_{3}r_{2}+r_{3}$ & &$r_{3}=r_{1}-q_{3}r_{2}$\\
+        $\cdot$ & &$\cdot$\\
+        $\cdot$ & $\Rightarrow$ & $\cdot$\\
+        $\cdot$ & & $\cdot$\\
+        $r_{k-3}=q_{k-1}r_{k-2}+r_{k-1}$ & &$r_{k-1}=r_{k-3}-q_{k-1}r_{k-2}$\\
+        $r_{k-2}=q_{k}r_{k-1}+r_{k}$ & & $r_{k}=r_{k-2}-q_{k}r_{k-1}$\\
+        $r_{k-1}=q_{k+1}r_{k}+0$ & & $= xn+ym$
+        
+    \end{tabular}
+\end{center}
+
+Es:
+\begin{center}
+    (48,28)
+
+    \begin{tabular}{ c c c }
+        $48=28\cdot 1 + 20$ & &\\
+        $28=20\cdot 1 + 8$ && $4=20-2\cdot 8$\\
+        $20=8\cdot 2 + 4$ &$\Rightarrow$& $8=28-20\cdot 1$\\
+        $8=\underline{4}\cdot 2 + 0$ &&$20 = 48-28\cdot 1$\\
+        $MDC = 4$&&\\
+    \end{tabular}
+
+    $\Downarrow$\\
+    $4=20-2(28-20\cdot 1)=3\cdot 20 - 2\cdot 28$\\
+    $4=3(48-28\cdot 1)-2\cdot 28$\\
+    $=\underline{3\cdot 48 - 5\cdot 28}$
+
+\end{center}
+
+\newpage
+\section{Sixth week}
+
+\textbf{Proprietà dei coprimi:} Siano $n,m,q\in\mathbb{Z}$ e $n$ o $m\neq 0$ e $(n,m)=1$:
+\begin{itemize}
+    \item Se $n|mq$ allora $n|q$
+    \item Se $n|q$ e $m|q$ allora $nm|q$
+\end{itemize} 
+
+\textbf{Numeri primi:} $p\in\mathbb{Z}$ si dice \textbf{primo} se $p\geq 2$ e i suoi divisori sono quelli banali 
+($\pm 1|p,\ \pm p|p$). $p$ è primo se $\forall n,m$ e $p|nm$ allora $p|n\bigvee p|m$
+
+\textbf{Minimo Comune Multiplo:} dati $n,m\in\mathbb{Z}$ si dice $M$ minimo comune multiplo di $n$ e $m$ se:
+\begin{itemize}
+    \item $n|M$ e $m|M$
+    \item $\exists c\ t.c.\ n|c, m|c, M|c$
+\end{itemize}
+
+\textbf{Unicità mcm:} dati $n,m\in\mathbb{Z}$ e $M,M^{1}$ sono mcm di $n$ e $m$, allora $M=M^{1}$
+
+\textbf{Denotazione mcm:} mcm di $n$ e  $m$ si scrive $[n,m]$
+
+\textbf{Teorema d'esistenza:} siano $n,m\in\mathbb{Z}$ allora $\exists [n,m]$ e se $n\bigvee m\neq 0$ allora:
+\begin{center}
+    $[n,m] = \frac{nm}{(n,m)}$
+\end{center}
+
+\textbf{Teorema fondamentale dell'aritmetica:} $\forall n\in\mathbb{N},n\geq 2$, $n$ è uguale a un prodotto di numeri
+primi, anche ripetuti:
+\begin{center}
+    $n=p_{1}\cdot p_{2}\cdot p_{3}\cdot ... \cdot p_{k}$
+\end{center}
+La fattorizzazione di questo prodotto è univoca
+
+Corollario: i numeri primi sono infiniti
+
+\textbf{Congruenza:} dati $a,b\in\mathbb{Z}$ diremo che $a$ è  congruo a $b$ modulo $n$ ($a\equiv b\ mod\ n$) se
+\begin{center}
+    $n|a-b$
+\end{center} 
+
+\textbf{Proprietà congruenza:} 
+\begin{itemize}
+    \item riflessiva: $a\equiv a\ mod\ n\ \ \ \forall a,n\in\mathbb{Z}$
+    \item simmetrica: $a\equiv b\ mod\ n$ allora $b\equiv a\ mod\ n\ \ \ \forall a,b,n\in\mathbb{Z}$
+    \item transitiva: $a\equiv b\ mod\ n$ e $b\equiv c\ mod\ n$ allora $a\equiv c\ mod\ n\ \ \ 
+    \forall a,b,c,n\in\mathbb{Z}$
+\end{itemize}
+
+\textbf{equivalenza:} una relazione $\mathcal{R}$ binaria su l'insieme $X$ si dice relazione d'equivalenza su $X$ se:
+\begin{itemize}
+    \item è riflessiva: $\forall x\in X,\ x\mathcal{R}x$
+    \item è simmetrica: $\forall x,y\in X,\ x\mathcal{R}y$ allora $y\mathcal{R}x$
+    \item è transitiva: $\forall x,y,z\in X,\ x\mathcal{R}y$ e $y\mathcal{R}z$ allora $x\mathcal{R}z$
+\end{itemize}
+
+\newpage
+\section{seventh week}
+
+\textbf{Classi d'equivalenza:} sia $X$, $x\in X$ e $\sim$ una relazione d'equivalenza su $X$. Chiameremo classe
+d'equivalenza di $x$ in $X$ rispetto a $\sim$ il sottoinsieme di $X$ i quali elementi $y$ sono equivalenti a $x$:
+\begin{center}
+    $[x]_{\sim}=\{y\in x| y\sim x\}$
+\end{center}
+
+\textbf{Insieme quoziente:} chiameremo insieme quoziente di $X$ modulo $\sim$ l'insieme delle classi d'equivalenza
+contenute in $X$:
+\begin{center}
+    $X/\sim =\{ y\in\ x| y\sim x\}$
+\end{center}
+
+\textbf{Proprietà classi d'equivalenza:}
+\begin{itemize}
+    \item $\forall x\in X,\ x\in [x]$
+    \item $\forall x,y\in X,\ [x]=[y] \Leftrightarrow x\sim y$
+    \item $\forall x,y\in X,\ [x]\cap [y]\neq 0\Rightarrow [x]=[y]$
+\end{itemize}
+
+\textbf{Classi di congruenza:} Dati $a,n\in\mathbb{Z}$ definiamo la classe di congruenza di $a$ modulo
+$n$ l'insieme delle $x$ congruenti ad $a\ mod\ n$:
+\begin{center}
+    $[a]_{n}=\{x\in\mathbb{Z}|x\equiv a\ mod\ n\}$
+\end{center}
+Indicheremo l'insieme quoziente $\mathbb{Z}\ mod\ \sim_{n}$ come $\mathbb{Z}/_{n}\mathbb{Z}$ e ha 
+come elementi le classi di congruenza $[a]_{n}$ che appartengono alle partizioni di $\mathbb{Z}$
+($2^{\mathbb{Z}}$), quindi:
+\begin{center}
+    $[a]_{n}=\{a+kn|k\in\mathbb{Z}\}$
+\end{center}
+Es:\\ $\mathbb{Z}/_{3}\mathbb{Z}=\{[0]_{3},[1]_{3},[2]_{3}\}$
+
+\newpage
+
+\textbf{Prop:} Sia $a\in\mathbb{Z}$ e sia $r$ il resto di $\frac{a}{n}$, allora $a\equiv r\ (mod\ n)$, oppure:
+\begin{center}
+    $[a]_{n}=[r]_{n}$
+\end{center}
+
+\textbf{Criterio di divisibilità:} dati $a,n\in\mathbb{Z}$ con $n\neq 0$, diremo che $a$ è multiplo di $n$ se:
+\begin{center}
+    $[a]_{n}=[0]_{n}$
+\end{center}
+
+\textbf{Notazione:} dato $a\in\mathbb{Z}$ e $x\in [a]_{n}$ ($[a]_{n}=[x]_{n}$), diremo che $x$ è \textbf{rappresentante
+della classe} $[a]_{n}$. Se $x$ è di tipo resto, allora $x$ è \textbf{rappresentante canonico}
+
+gli elementi di $\mathbb{Z}/_{n}\mathbb{Z}$ si chiamano \textbf{classi di resto} modulo $n$
+
+\textbf{Struttura algebrica:} esistono due operazioni di somma e moltiplicazione tra insiemi quozienti:
+\begin{itemize}
+    \item Somma: $[a]_{n}+[b]_{n}=[a+b]_{n}$
+    \item Moltiplicazione: $[a]_{n}\cdot [b]_{n}=[a\cdot b]_{n}$
+\end{itemize}
+
+\textbf{Prop:} dati $a,a^{1},b,b^{1}\in\mathbb{Z}$ tc $[a]_{n}=[a^{I}]_{n}$ e $[b]_{n}=[b^{I}]_{n}$ allora:
+\begin{itemize}
+    \item Somma: $[a+b]_{n}=[a^{I}+b^{I}]_{n}$
+    \item Moltiplicazione: $[a\cdot b]_{n}=[a^{I}\cdot b^{I}]_{n}$
+\end{itemize}
+
+Oss: Sia $a\in\mathbb{Z},\ m\in\mathbb{N},\ m>0$. Allora:
+\begin{center}
+    $[a]_{n}^{m}=[a_{1}]_{n}\cdot[a_{2}]_{n}\cdot ... \cdot[a_{m}]_{n}\cdot = [a^{m}]_{n}$
+\end{center}
+
+\newpage
+\section{eight week}
+\textbf{Teorema cinese del resto:} Siano $n,m>0$ e siano $a,b\in\mathbb{Z}$. Consideriamo il seguente
+sistema di congruenze:
+\begin{center}
+    \begin{tabular}{ c c c }
+        $\begin{cases}
+            x\in\mathbb{Z}\\
+            x\equiv a(mod\ n)\\
+            x\equiv b(mod\ m)
+        \end{cases}$
+        & o &
+        $\begin{cases}
+            x\in\mathbb{Z}\\
+            [x]_{n}=[a]_{n}\\
+            [x]_{m}=[b]_{m}
+        \end{cases}$
+    \end{tabular}
+\end{center}
+
+Sia $S$ l'insieme delle soluzioni dei precedenti Sistemi
+\begin{center}
+    $S=\langle x\in\mathbb{Z}|x\equiv a(mod\ n)\ e\ x\equiv b(mod\ m) \rangle$
+\end{center}
+Il precedente sistema è \textbf{compatile} (ammette soluzioni) se e soltanto se:
+\begin{center}
+    $(n,m)|a-b$
+\end{center}
+Se $S\neq\varnothing$ e $c\in S$, allora $S=[c]_{[n,m]}\in\mathbb{Z}=\langle c+k_{[n,m]}\in\mathbb{Z}
+|k\in\mathbb{Z}\rangle$
+
+Es:
+
+$
+\begin{cases}
+ x\equiv 9(mod\ 162)\\
+ x\equiv -9(mod\ 114)
+\end{cases}
+$
+
+1 - Compatibilità
+\begin{center}
+    \begin{tabular}{ c c c }  
+        $(162,114) = 6$ & $\Rightarrow$ & $(162,114)| 9-(-9) = 6|18 = 3$\\
+        && $\Rightarrow 9-(-9) = 3(162,114)_{(1)}$
+    \end{tabular}
+\end{center}
+
+2 - Calcolo di una soluzione\\
+Algoritmo di Euclide:
+\begin{center}
+    \begin{tabular}{c|c c c}
+        $162=114+48$ & $48=162-114$ && $=18-(48-2\cdot 18)= 3\cdot 18-48$\\
+        $114=2\cdot 48+18$ & $18=114-2\cdot 48$ && $=3(114-2\cdot 48)-48 = 3\cdot 114-7\cdot $$48$\\
+        $48=2\cdot 18+12$ & $12=48-2\cdot 18$ & $\Rightarrow$ & $=3\cdot 114-7(162-114)=10\cdot 114-7\cdot 162$\\
+        $18=12+6$ & $6=18-12$ && $6 = 10\cdot 114-7\cdot 162$\\
+        $12=2\cdot 6+0$&&& $(162,114)=10\cdot 114-7\cdot 162_{(2)}$\\
+    \end{tabular}
+\end{center}
+\newpage
+Da (1) e (2) segue che 
+\begin{center}
+    $9-(-9)=3(162,114)=3(10\cdot 114-7\cdot 162)$\\
+    $9-(-9)= 30\cdot 114-21\cdot 162_{(3)}$
+
+    $9+21\cdot 162=-9+30\cdot 114 \Rightarrow 3411$
+\end{center}
+$c=3411$ è una soluzione del sistema
+
+3 - Calcolo di S\\
+Teorema cinese del resto:
+\begin{center}
+    $S=[c]_{[162,114]}=[3411]_{[162,114]}$
+
+    \begin{tabular}{c c c}
+        $[162,114]=\frac{162\cdot 114}{(162,114)}=3078$ &$\Rightarrow$ & $S=[3411]_{[3078]}=[333]_{[3078]}$
+    \end{tabular}
+    
+$\Rightarrow S=\langle 333+3078k\in\mathbb{Z}|k\in\mathbb{Z}\rangle$
+\end{center}
+Bonus:\\
+Esiste soluzione di $S$ divisibile da 17?
+
+metodo 1
+\begin{center}
+    $\begin{cases}
+        x\equiv 333(mod\ 3078)\\
+        x\equiv 0(mod\ 17)
+    \end{cases}$
+
+    $(3078,17)|333-0$
+
+    $1|333$
+\end{center}
+è divisibile quindi accetta soluzione
+
+metodo 2
+\begin{center}
+    $[333+3078k]_{17}=[333]_{17}+[3078]_{17}[k]_{17}$\\
+    $[10]_{17}+[1]_{17}[k]_[17]=[10+k]_{17}$\\
+    $\Rightarrow k=7$
+\end{center}
+
+\newpage
+\textbf{Elementi invertibili modulo n:}
+Siano $a,n\in\mathbb{Z}$ con $n>0$. Diremo che $a$ è invertibile modulo $n$ o equivalentemente che $[a]_{n}$ è
+invertibile in $\mathbb{Z}/_{n}\mathbb{Z}$ se esiste $x\in\mathbb{Z}$ tc:
+\begin{center}
+    $ax\equiv 1(mod\ n) \Leftrightarrow [a]_{n}[x]_{n}=[1]_{n}$
+\end{center}
+In questo caso diremo che $x$ è un'inversa di $a(mod\ n)$ e $[x]_{n}$ è una classe inversa di $[a]_{n}$ in 
+$\mathbb[Z]/_{n}\mathbb{Z}$
+
+\textbf{Lemma:} Supponiamo che $a$ sia invertibile modulo $n$, ovver $[a]_{n}$ sia invertibile in
+$\mathbb[Z]/_{n}\mathbb{Z}$. Allora esiste un unico $[x]_{n}\in\mathbb[Z]/_{n}\mathbb{Z}$ tale che:
+\begin{center}
+    $[a]_{n}[x]_{n}=[x]_{n}[a]_{n}=[1]_{n}$
+\end{center}
+Equivalentemente $[x]_{n}$ è l'unica classe inversa di $[a]_{n}$ in $\mathbb[Z]/_{n}\mathbb{Z}$.
+Tale classe $[x]_{n}$ viene detta inversa e viene indicata con il simbolo $[a]_{n}^{-1}$
+
+\textbf{Prop:} $a\in\mathbb{Z}$ è invertibile $mod\ n\Leftrightarrow(a,n)=1$, in questo caso esiste $x,y\in\mathbb{Z}$
+tali che:
+\begin{center}
+    $xa+yn=1$\\
+    $(Algoritmo\ di\ euclide)$
+\end{center}
+Allora
+\begin{center}
+    $[a]_{n}^{-1}=[x]_{n}$
+\end{center}
+
+Es:\\
+$11\ inv(mod\ 30)$
+
+$(11,30) = 1 \Rightarrow \exists[11]_{30}^{-1}$
+
+alg. euclide:\\
+$1= 11\cdot 11 + (-4)30$
+
+$[1]_{30}=[(11)(11)+(-4)(30)]=[11]_{30}[11]_{30}+[-4]_{30}[0]_{30}=\underline{[11]_{30}}[11]_{30} \Rightarrow 
+[11]_{30}^{-1}=[11]_{30}$
+
+\textbf{Def:} Dato $n\in\mathbb{Z}, n>0$, indichiamo con $(\mathbb{Z}/_{n}\mathbb{Z})$* il sottoinsieme di 
+\marginpar{invertibili, cioé mcd è uguale a 1}
+$\mathbb{Z}/_{n}\mathbb{Z}$ formato da tutti gli interi modulo $n$ invertibili
+
+\textbf{Prop:} Sia $p$ numero primo, allora vale:
+\begin{center}
+    $(\mathbb{Z}/_{n}\mathbb{Z})$*$=\{[1]_{p},[2]_{p},...,[p-1]_{p}\}=\mathbb{Z}/_{p}\mathbb{Z}\backslash \{[0]_{p}\}$
+\end{center}
 \end{document}
