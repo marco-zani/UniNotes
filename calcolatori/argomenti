@@ -383,3 +383,35 @@ Indirizzamento
 - istruzioni prevalentemente a 3 argomenti
  - operando sinistro = registro, operando destro = immediato o registro
 - accesso alla memoria con ldr/str (load register/store register) e ldm/stm (load/store multiple)
+
+
+##################################################################################################
+Processore
+##################################################################################################
+
+panoramica
+- nell'esecuzione delle istruzioni, ci sono due fasi iniziali comuni
+ - prelievo dell'istruzione dalla memoria
+ - lettura dei registri
+- i passi sccessivi sono simili, ma dipendono dall'istruzione
+
+-le istruzioni più comuni usano la alu 
+ - calcolo dell'indirizzo per l'accesso alla memoria
+ - istruzioni aritmentico logiche
+ - confrontare le condizioni per eseguire dei salti
+- successivamente le tre classi divergono
+ - le istruzioni d'accesso alla memoria salvano il dato in memoria
+ - le istruzioni aritmetico logiche memorizzano il risultato nel registro
+ - le istruzioni di salto cambiano il valore del registro PC in base al confronto
+
+Il processore utilizza anche i multiplexer per effettuare decisioni. Per esempio le istruzioni
+possono provenire dal banco dei registri o dal codice dell'istruzione stessa, per selezionare
+i due tipi, viene usato un multiplexer. Oppure per far decidere alla ALU che operazione effettuare,
+dai banchi dei registri per decidere in quale registro scrivere o dalla memoria dati per determinare
+se vogliamo leggere o scrivere. Per decidere come utilizzare i vari ingressi di controllo viene 
+utilizzata un'unità specifica.
+
+informazioni di base
+assunzione: il processore lavora sincronizzandosi con i cicli di clock, assumiamo che tutte le 
+  istruzioni si svolgano in un singolo ciclio di clock
+

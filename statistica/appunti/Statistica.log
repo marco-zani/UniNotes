@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.24)  25 APR 2021 14:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.24)  2 MAY 2021 21:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -194,26 +194,29 @@ Overfull \hbox (9.65309pt too wide) detected at line 385
 \OML/cmm/m/it/10.95 pnk \OMS/cmsy/m/n/10.95 2 \U/msb/m/n/10.95 N\OML/cmm/m/it/10.95 '[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 k\OT1/cmr/m/n/10.95 ) [] \OMS/cmsy/m/n/10.95 ) []\OML/cmm/m/it/10.95 p[]\OT1/cmr/m/n/10.95 (1 \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 )[]
  []
 
+[10] [11]
 
-Package Fancyhdr Warning: \headheight is too small (13.59999pt): 
-Make it at least 14.4521pt.
-We now make it that large for the rest of the document.
-This may cause the page layout to be inconsistent, however.
+LaTeX Warning: Marginpar on page 12 moved.
 
-[10] (/home/marco/Documents/uni/statistica/appunti/Statistica.aux) ) 
+[12]
+Overfull \hbox (7.80539pt too wide) in paragraph at lines 455--457
+[]\OT1/cmr/bx/n/10.95 Prop: \OT1/cmr/m/n/10.95 Le vari-abili aleato-rie di Pois-son sono ripro-ducibili. $\OML/cmm/m/it/10.95 X \OMS/cmsy/m/n/10.95 ^^X \OML/cmm/m/it/10.95 Pois\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^U[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;  Y \OMS/cmsy/m/n/10.95 ^^X
+ []
+
+[13] (/home/marco/Documents/uni/statistica/appunti/Statistica.aux) ) 
 Here is how much of TeX's memory you used:
- 1324 strings out of 482854
- 18132 string characters out of 5956881
+ 1323 strings out of 482854
+ 18124 string characters out of 5956881
  254107 words of memory out of 5000000
- 16690 multiletter control sequences out of 15000+600000
+ 16689 multiletter control sequences out of 15000+600000
  545203 words of font info for 68 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 35i,11n,45p,272b,238s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/marco/Documents/uni/statistica/appunti/Statistica.pdf (10 pages, 200119 bytes).
+ 35i,11n,45p,272b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /home/marco/Documents/uni/statistica/appunti/Statistica.pdf (13 pages, 195336 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 79 compressed objects within 1 object stream
+ 117 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1619354683 "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" "/home/marco/Documents/uni/statistica/appunti/Statistica.pdf" "Statistica" 1619354739
+["pdflatex"] 1619985159 "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" "/home/marco/Documents/uni/statistica/appunti/Statistica.pdf" "Statistica" 1619985159
   "/etc/texmf/web2c/texmf.cnf" 1614952470 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk" 1615996494 12644 110c7c52377ff161b0d91edaa1aeecfe ""
-  "/home/marco/Documents/uni/statistica/appunti/Statistica.aux" 1619354683 1444 9127499146405c0ba12b7fb089bbac1d ""
-  "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" 1619354739 15031 763078d54ce76299846692335f59d323 ""
+  "/home/marco/Documents/uni/statistica/appunti/Statistica.aux" 1619985159 1637 fbe5f9d286be590e7c9308ea99256d64 ""
+  "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" 1619985159 17511 2ac87d0ba7b565640db2d8eb6d8b783a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -42,7 +42,6 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1248133631 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
-  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb" 1248133631 35022 e40946b20bfdcd1099eafb2bcd9f25dd ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1248133631 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
@@ -66,11 +65,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1596975543 38841 5237427e4d3283e7b009b6a8b45dfdcd ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1614952478 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1619283104 1156112 4de30183ffd53b7aad759bf0db996b20 ""
-  "Statistica.aux" 1619354683 1444 9127499146405c0ba12b7fb089bbac1d "pdflatex"
-  "Statistica.tex" 1619354739 15031 763078d54ce76299846692335f59d323 ""
+  "Statistica.aux" 1619985159 1637 fbe5f9d286be590e7c9308ea99256d64 "pdflatex"
+  "Statistica.tex" 1619985159 17511 2ac87d0ba7b565640db2d8eb6d8b783a ""
   (generated)
-  "/home/marco/Documents/uni/statistica/appunti/Statistica.pdf"
   "Statistica.pdf"
+  "/home/marco/Documents/uni/statistica/appunti/Statistica.pdf"
   "Statistica.aux"
   "Statistica.log"
   "/home/marco/Documents/uni/statistica/appunti/Statistica.log"

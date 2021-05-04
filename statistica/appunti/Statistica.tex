@@ -318,7 +318,7 @@ la funzione $\varphi_{X,Y}:\mathbb{R}^{2}\rightarrow [0,1]$ definita:
 la \textbf{densità discreta di $X$ condizionata a $Y$} è  $\varphi_{X,Y}$ definità:
 
 \newpage
-\pagestyle{fancy}
+\thispagestyle{fancy}
 \chead{ottava settimana}
 \section{Schema o processo di Bernoulli}
 \marginpar{21/04/21}
@@ -365,7 +365,7 @@ es:
     $(Y\geq 60+30|Y\geq 60)=(Y\geq 30)=(1-p)^{30}$
 \end{center}
 
-\subsection{Binominali negative}
+\section{Binominali negative}
 $T_{n}$= istante dell'n-esimo successo
 
 $T_{1}:=inf\{i\geq 1: \omega_{i}=1\}$\\
@@ -384,10 +384,77 @@ all'n-ennesimo successo di uno schema di bernoulli di parametro p $X\sim NB(n,p)
     \Rightarrow \binom{k+n-1}{n-1} p^{n}(1-p)^{k} 
 \end{equation}
 
+\newpage
 \section{Riproducibilità}\marginpar{22/04/21}
 Una famiglia di variabili aleatorie si dice riproducibile se sommando 2 variabili aleatorie indipendenti appartenenti
 a quella famiglia abbiano ancora una variabile aleatoria della medesima famiglia
 
-\textbf{Prop:} La famiglia delle binominali a parametro $p$ fissato è riproducibile. Se $X\sim bin(n,p)$
+\textbf{Prop:} La famiglia delle binominali a parametro $p$ fissato è riproducibile. Se $X\sim bin(n,p),\ 
+Y\sim bin(m,p)$, $X$ e $Y$ indipendenti allora:
+\begin{center}
+    $X+Y\sim bin(n+m,p)$
+\end{center}
 
+\section{Ipergeometriche}
+Data un urna con $n$ biglie bianche e $n$ biglie nere, contiamo le bianche:\\
+- con reimmissione abbiamo $bin(k,\frac{n}{m+n})$\\
+- senza reimmissione usiamo un'ipergeometrica
+
+\textbf{Def:} Si chiama ipergeometrica di parametri $k,n,m$ la variabile aleatoria che conta il numero di bianche
+tra le estratte senza reimmissione
+\begin{center}
+    $X\sim hyp(k,n,m)$
+\end{center}
+
+$\varphi_{x}(b):
+\begin{cases}
+    \frac{\binom{m}{b}\binom{n}{k-b}}{\binom{n+m}{k}}\\
+    0\ \ altrimenti
+\end{cases}$
+
+\newpage
+\thispagestyle{fancy}
+\chead{Nona settimana}
+\marginpar{28/04/2021}
+
+\textbf{Prop:} Siano $\{a_{i}\}_{i\in\mathbb{N}},\ \{b_{i}\}_{i\in\mathbb{N}}$ interi non negativi che tendono
+in modo monotono a $+\infty$, $\lim_{i \to \infty} a_{i}=\lim_{i\to\infty} b_{i}=+\infty$ o tali che \\
+$\lim_{i\to\infty} \frac{a_{i}}{b_{i}+a_{i}}= \alpha,\ \alpha\in[0,1]$, allora:
+\begin{center}
+    $\frac{\binom{a_{i}}{k}\binom{b_{i}}{n-k}}{\binom{a_{i}+b_{i}}{n}} \rightarrow_{i\to\infty}
+    \binom{n}{k}\alpha^{k}(1-\alpha)^{n-k}$
+\end{center}
+
+\section{Poisson}
+\textbf{Def:} $X$ è variabile aleatoria di Poisson di parametro $\lambda >0$ se:
+\begin{center}
+    $\varphi_{x}(k)\begin{cases}
+        \frac{\lambda^{k}}{k!}\cdot e^{-\lambda}\ \ k\in\mathbb{N}\\
+        0\ \ altrimenti
+    \end{cases}$
+\end{center} 
+e si denota come $X\sim Pois(\lambda)$
+
+Es:\\
+in una partita di calcio vengono segnati 2.5 gol di media. X determina la probabilità di fare gol in un intervallo:\\
+$\Rightarrow$ dividiamo 90' in 5 intervalli: $X\sim bin(5,1/2)$\\
+$\Rightarrow$ dividiamo in 20 intervalli: $X\sim bin(20,1/8)$\\
+$\Rightarrow$ dividiamo in 90 intervalli: $X\sim bin(90,1/36)$
+
+Questa successione tende a una variabile aleatoria di Poisson
+
+Oss: Poisson viene a volte utilizzato come descrizione di una binomiale con $n,p$ piccoli o grandi, non precisi
+
+\textbf{Prop:} $\{p_{n}\}_{n}$ successione di numeri in $[0,1]$ tale che $\lim_{x\to\infty}n\cdot p_{n}=
+\lambda\in\mathbb{R}^{+}$ allora $\forall k\in\mathbb{N}$:
+\begin{center}
+    $\lim_{n\to\infty} \binom{n}{k}p_{n}^{k}(1-p_{n})^{n-k}=\frac{\lambda^{k}}{k!}e^{-\lambda}$
+\end{center}
+
+\newpage
+\textbf{Prop:} Le variabili aleatorie di Poisson sono riproducibili. 
+$X\sim Pois(\lambda_{1}),\ Y\sim Pois(\lambda_{2})$:
+\begin{center}
+    $X+Y\sim Pois(\lambda_{1}+\lambda_{2})$
+\end{center}
 \end{document}

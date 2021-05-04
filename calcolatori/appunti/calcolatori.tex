@@ -2,6 +2,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
+
 
 
 \def\separator{\begin{center}    \rule{100pt}{0.5pt}\end{center}}
@@ -255,5 +257,396 @@ dove a = x19, b = x20, c = x21, d = x22, e = x23, t1 = x5 e t2 = x6.
 Ovviamente però il numero di registri non basta, per questo vengono usate istruzioni di 
 trasferimento dai registri alla memoria (\textbf{store}) e dalla memoria ai registri
 (\textbf{load}) 
+
+Il caricamento e scaricamento di dati nei registri viene definito register spilling
+
+Le costanti vengono memorizzate in un indirizzo. Questo metodo però risulta inefficente, quindi vengono usati gli operandi
+immediati:\\
+f = f + 4 => addi x22, x22, 4
+
+\subsection{I numeri}
+
+I numeri in Risc-V vengono rappresentati in esadecimale, in questo modo due cifre rappresentano un byte,
+e una word con 8 cifre (es: 0xEA01BD1C). Una word viene quindi caratterizzata dall'ordine di lettura dei 
+byte più o meno significativi. Se si parte dal byte meno significativo e si sale la denoteremo little endian,
+se invece si parte da byte più significativo e si segnade, parliamo di big endian. Il little endian viene
+utilizzato in intel e RISC-V, mentre il big endian da motorola e protocolli internet
+RISC-V dedica un registro ad hoc (x0) alla costante 0
+
+Le istruzioni in Risc-V vengono convertite in codici numerici univoci a 32 bit
+\begin{itemize}
+  \item primo (7bit), quarto (3bit) e sesto (7bit) codificano l'istruzione
+  \item secondo (5 bit) : secondo operando
+  \item terzo (5 bit): primo operando 
+  \item quinto (5 bit): risultato
+\end{itemize}
+\begin{center}
+  \begin{tabular}{c|c|c|c|c|c}
+    funz7&rs2&rs1& funz3 & rd & codop 
+  \end{tabular}
+\end{center}
+codop: codice operativo dell’istruzione
+funz7 efunz3: codici operativi aggiuntivi
+rs1: primo operando sorgente
+rs2: secondo operando sorgente
+rd: operando destinazione
+
+Trade-off 
+\begin{quote}
+  \center principio di progettazione n.3: 
+
+  un buon progetto richiede buoni compromessi
+\end{quote}
+
+
+RISC-V con le sue istruzioni a 32 bit limita il numero di istruzioni, di registri e di modalità d'indirizzamento,
+ma ci guadagna in efficenza
+
+\subsection{Operazioni logiche}
+RISC-V offre varie funzioni per operare su porzioni di words o su singolo bit:
+
+\textbf{Shift logico}\\
+si usa per inserire degli zeri nella posizione meno (shift a sinistra) o più (shift a destra)significativa 
+Lo shift a destra però, può generare degli overflow. Per risolvere questo problema si utilizza lo shift aritmentico
+(srai) che, invece di aggiungere bit pari a 0, si aggiungono bit pari al bit di segno
+
+\newpage
+altre operazioni logiche sono:
+
+\textbf{AND bit a bit}\\ la word salvata tiene valori a 1 solamente se erano a 1 in entrambe le word confrontate
+
+\textbf{OR bit a bit}\\ la word salvata tiene il valore a 1 se compare almeno una volta nelle word confrontate
+
+\textbf{OR esclusivo (XOR)}\\mantiene il bit a 1 solamente se i due bit confrontati sono differenti.
+Viene, per esempio, usato per resettare un registro (xor x9, x9, x9)
+
+\textbf{NOT}\\
+il not è un'operatore unario e di conseguenza non è supportato da RISC-V, ma si può ottenerlo
+attraverso un XOR: NOT A $\rightarrow$ XOR (A, 1)
+
+\textbf{istruzioni con condizioni}\\
+nelle architetture le condizioni si convertono in istruzioni di salto condizionato. Queste istruzioni si
+caratterizzano in due tipi:
+\begin{itemize}
+  \item per uguaglianza: beq rs1, rs2, L1 $\rightarrow$ se rs1 è uguale a rs2 allora salta all'etichetta L1
+  \item per differenza: bne rs1, rs2, L1 $\rightarrow$ se rs1 è diverso a rs2 allora salta all'etichetta L1
+\end{itemize}
+
+es:\\
+costrutto if: if(i==j) f=g+h; else f=g-h;
+
+\begin{tabular}{l l}
+     &bne x22, x23, ELSE \\
+     &   add x19, x20, x21   \\
+     &  beq x0, x0, ESCI\\
+ELSE:& sub x19, x20, x21\\
+ESCI:&
+\end{tabular}
+
+\newpage
+
+\textbf{Cicli}
+sfruttando i salti condizionati si possono creare dei cicli, per esempio:
+
+\begin{tabular}{l l}
+Ciclo: &slli x10, x22, 3\\
+       &add x10, x10, x25\\
+       &ld x9, 0(x10)\\
+       &bne x9, x24, Esci\\   
+       &addi x22, x22, 1\\
+       &beq x0, x0, Ciclo\\
+Esci:  &...
+\end{tabular}
+
+Alcune considerazioni:\\
+le istruzioni tra 2 salti condizionati (conditional branch) vengono chiamati blocchi di base.
+L'individuazione di questi blocchi è una delle prime fasi della compilazione.
+
+ulteriori istruzioni di salto sono $blt$(salta se minore),bge (salta se maggiore o uguale),
+bltu e bgeu (blt e bge ma unsigned). Le versioni unsigned semplicemente tengono conto
+o meno del bit significativo
+
+\textbf{costrutto switch}\\
+Memorizza i vari codici da eseguire in una tabella, per poi caricare in un registro 
+l'indirizzo del codice da eseguire.
+
+infine abbiamo l'istruzione di salto jalr che salta all'indirizzo contenuto nel registro
+
+\newpage
+\subsection{Procedure}
+Le funzioni (o procedure) svolgono un ruolo fondamentale,ma necessitiamo di un protocollo
+per richiamarle. Un protocollo necessità di standardizzare
+\begin{enumerate}
+  \item dei posti noti dove caricare i parametri in input
+  \item il trasferimento del controllo alla procedura
+  \subitem aquisizione dei parametri in input
+  \subitem esecuzione della procedura
+  \subitem caricamento dei valori di ritorno in posti noti
+  \subitem restituzione del controllo al chiamante
+  \item la raccolta dei valori di ritorno e la pulizia delle tracce della procedura
+\end{enumerate}
+RISC-V affronta questo meccanismo usando il più possibile i registri attraverso delle convenzioni:
+\begin{itemize}
+  \item x10-x17: usato per parametri in ingresso e valori di ritorno
+  \item x1: indirizzo di ritorno
+  \subitem questo indirizzo viene usato particolarmente per istruzioni di jump and link (jal), che effettuano il salto
+  e memorizzano in x1 l'indirizzo di ritorno
+  \subitem alla fine della procedura sarà sufficiente fare un salto (jalr x0, 0(x1))
+\end{itemize}
+nel caso i registri non bastino viene usato lo stack x2, chiamato anche \textbf{sp} (Stack Pointer). Alla fine della procedura è importante
+ricordare di pulire lo stack
+
+\begin{itemize}
+  \item  x5-x7 e x28-x31 sono registri temporanei
+  \item  x8-x9 e x18-x27 sono registri in cui salvare il contenuto in caso di chiamata a procedura
+\end{itemize}
+
+In caso di variabili locali e procedure annidate la gestione dei registri può diventare complessa
+Questo viene risolto usando lo stack per allocare variabili locali e valori del registro di ritorno x1
+
+\textbf{Storage class}
+le variabili in C sono associate a locazioni di memoria caratterizzate per tipo e storage class. Il C ha due tipi
+di storage class: Automatic (le variabili locali) e Static. Le variabili static vengono memorizzate da RISC-V
+nel registro $x3$, chiamato anche \textbf{gp} (global pointer). Per quello che riguarda le automatic, esse sono memorizzate
+nei registri o nello stack in caso i registri non bastassero
+
+\textbf{record di attivazione}
+Il segmento di stack che contiene variabili locali e i registri salvati è chiamato record di attivazione
+(o stack frame). Le variabili locali sono individuate tramite un offset. In alcuni casi il registro
+sp può essere scomodo, percui in alcuni programmi viene usato il registro x8 come \textbf{fp} o frame pointer,
+come puntatore alla prima parola doppia del frame della procedura
+
+per tutti le variabili allocate dinamicamente, RISC-V procede per indirizzi crescenti
+
+Riassunto convenzione sui registri:
+\begin{center}
+  \includegraphics[width=350px]{images/RISC-V_RegisterConvention.jpeg}
+\end{center}
+
+
+%(elaborazione)
+%spesso la ricorsione può essere inefficente, conviene piuttosto generare una ricorsione 
+%"di coda", cioé che tiene conto del procedimento e ritorna direttamente il risultato
+
+%(Ottimizzazione)
+%alcuni compilatori sanno riconoscere la ricorsione di coda. Le caratteristiche
+%principali sono: il chiamante ritrna subito dopo la jalr, x5 e gli altri registri non cambiano,
+%il chiamato protrebbe direttamente ritornare al ra del chiamante...
+%gcc fa questo con opportuni flag 
+
+\newpage
+\section{Intel}
+
+Intel è un'archittettura di tipo CISC usata in laptop, desktop e servers. Possiede diverse modalità di
+funzionamento e diversi assembler. Nel nostro caso useremo GNU
+
+\subsection{Registri}
+Intel usa 16 registri general purpouse a 64 bit caratterizzati dal prefisso \%. Alcuni dei più importanti
+sono:
+\begin{itemize}
+  \item \%rsp: stack pointer
+  \item \%sbp: base pointer
+  \item \%rsi e \%rdi: registri source e destination per la copia di Array
+  \item \%rip: Instruction pointer
+  \item \%rflags: estende \%flags, che contiene flag come CF (flag di carry), ZF(risultato 0),
+  SF(risultato negativo), OF(flag di overflow). Questi registri speciali vengono usati da
+  istruzioni di salto condizionale
+\end{itemize}
+
+\subsection{Convenzioni di chiamata}
+Le chiamate in Intel sono molteplici, e cambiano in base alle specifiche tecniche dell'ABI. Alcune però sono 
+comuni a tutte le CPU:
+\begin{itemize}
+  \item i primi 6 argomenti sono in \%rdi, \%rsi, \%rdx, \%rcx, \%r8 ed \%r9, mentre gli altri vengono impilati nello stack
+  \item i valori di ritorno stanno in \%rax e \%rdx
+  \item i registri vengono preservati \%rbp, \%rbx, \%r12, \%r13, \%r14 ed \%r15
+  \item i valori di ritorno in \%rax e \%rdx
+\end{itemize}
+
+
+\subsection{Indirizzamento}
+Con intel le istruzioni sono principalmente a 2 operandi con destinazione implicita. Per la sorgente si usano
+operandi immediati(\$20), registri (\%rax), o indirizzi di memoria (0x0100A8). Per le destinazioni sono utilizzabili.
+L'accesso alla memoria avviene seguendo la seguente sintassi:
+
+$\langle displ\rangle$ ($\langle base reg\rangle, \langle index reg\rangle, \langle scale\rangle$)
+
+ - $\langle displacement\rangle$: costante a 8, 16 o 32bit\\
+ - $\langle base\rangle$: valore in registro \\
+ - $\langle indice\rangle$: valore in registro \\
+ - $\langle scala\rangle$: valore costante
+
+In casi speciali scala, indice, base e displacement possono essere omessi
+
+\subsection{Istruzioni intel}
+Le istruzioni Intel sono molte, inutile sarebbe elencarle tutte, ma condividono una sintassi comune:
+
+$\langle opcode\rangle \langle source\rangle, \langle destination\rangle$
+
+Il parametro $\langle opcode\rangle$ può terminare con b/w/l/q per indicare che l'operazione viene 
+effettuata su 8/16/32/64bit
+
+\newpage
+\textbf{istruzioni comuni}
+\begin{itemize}
+  \item istruzioni logico aritmentiche
+  \subitem mov, add, sub, mul, div, inc/dec (incrementa/decrementa di 1), 
+  \subitem rcl/rcr/rol/ror (rotate)
+  \subitem sal/sar/shl/shr (shift aritmentici e logici)
+  \subitem and, or, xor, not, neg(complemento a 2, negazione), nop.
+  \item push/pop: inserisce/rimuove dati nello stack
+  \item cmp/test: comparano i 2 argomenti e settano i flag nel flag register
+  \item jmp, je/jnz/jc/jnc: salti condizionati
+  \item call/ret: chiamata/ritorno alla procedura
+  \item lea (Load effective address) è un istruzione utilizzata per calcolare indirizzi:
+  \subitem calcola e e memorizza l'indirizzo senza caricare nulla dalla memoria
+  \subitem viene anche usato per fare somme
+\end{itemize}
+ 
+
+\newpage
+\section{ARM}
+- Advanced Risc Machine
+- usato nei sistemi embedded e in smartphone e tablet
+- 16 registri e modalità d'indirizzamento potenti
+- precisazioni, ARM è una famiglia di CPU, con ISA differenti ma simili fra loro 
+
+registri
+- 16 registri a 32 bit, r0-r15, quasi tutti general purpouse (r15 non lo è)
+ - alcuni registri hanno sinonimi: r13=sp(stack pointer) e r14=lr(link register)
+ - Application Program Status Register (apsr) / Current Program StatusRegister (cpsr) ?
+ - r15 contiene il pc(program counter) e i flags (bit 28..31)
+ - flags: z | c | n | v
+  - eq/ne: equal/not equal => z = 1/0
+  - hs/lo: higher or same/lower => c = 1/0
+  - mi/pl: negativo o positivo => n = 1/0
+  - vs/vs: presenza o meno di overflow => v = 1/0
+  - hi: higher => c = 1 | z = 0
+  - ls: lower or same => c = 0 oppure z = 1
+  - ge: greater or equal => n = 1 | v = 1 oppure n = 0 | v = 0
+  - lt: less than => n = 1 | v = 0 oppure n = 0 | v = 1
+  - gt: greater than => come ge ma con z = 0
+  - le: less or equal => come lt, ma esegue anche se z = 1
+
+Convenzioni di chiamata
+- r0-r3 sono registri temporanei non preservati, con più di 4 argomenti si usa lo stack
+- r4-r11 registri preservati (in alcune ABI r9 non è preservato)
+- r0-r1 valori di ritorno
+
+Indirizzamento
+- istruzioni prevalentemente a 3 argomenti
+ - operando sinistro = registro, operando destro = immediato o registro
+- accesso alla memoria con ldr/str (load register/store register) e ldm/stm (load/store multiple)
+
+
+
+
+\newpage
+\thispagestyle{fancy}
+\chead{Nona settimana}
+\section{Toolchain}
+La CPU funziona con un linguaggio di basso livello composto, da 1 e 0, troppo complesso da programmare. La conversione
+viene eseguita dal compilatore
+
+\subsection{Esempio: il compilatore di C}
+la compilazione del linguaggio C segue i seguenti passaggi:
+\begin{enumerate}
+  \item Preprocessore: gestisce le direttive di sostituzione del codice
+  \item Compilatore: da C ad assembly 
+  \item Assembler: da assembly a linguaggio macchina
+  \item Linker: unisce linguaggio macchina con le librerie per creare un eseguibile
+\end{enumerate}
+Questo processo è gestito automaticamente da un Driver
+
+\textbf{gcc} (Gnu Compiler Collection)\\ È in grado di compilare vari linguaggi in assembly per varie CPU. Per 
+operare utilizza vari programmi: cpp,cc,as e ld 
+
+\textbf{Da C ad Assembly}\\ dato un file .c, il comando gcc -S invoca cc per generare un file assembly .s.
+cc riconosce l'archittettura dulla CPU, applica vari livelli di ottimizzazione (tramite l'opzione -o)
+
+\textbf{Da Assembly a linguaggio macchina}\\ Usando gcc -c viene invocato cc e successivamente as, per generare un
+file .o, o file oggetto. as non solo converte i codici memonici in sequenze di bit, ma converte pseudo-istruzioni,
+i numeri da decimale/esadecimale a binario, genera metadati e gestisce label e salti.\\
+Con pseudo-istruzioni si intendo le istruzioni non di tipo nativo, che sono formate da altre istruzioni macchina
+e che esistono per semplificare la programmazione.
+
+\newpage
+\textbf{File oggetto}\\ È composto da segmenti distinti:
+\begin{itemize}
+  \item header: specifica dimensione e posizione degli altri segmenti del file oggetto
+  \item text segment: contiene il codice in linguaggio macchina
+  \item data segment: contiene tutti i dati statici e dinamici allocati
+  \item symbol table: associa simboli a indirizzi e enumera quelli non definiti
+  \item relocation table: enumera istruzioni e dati che dipendono da indirizzi assoluti, o definiti 
+  quando il programma viene caricato in memoria
+  \item altro...
+\end{itemize}
+
+\textbf{Da file oggetto a eseguibile}\\ Il passo finale, tramite gcc senza opzioni, richiama il linker ld, che decide
+la disposizione di codice e dati nella memoria, associa indirizzi assoluti a tutti i simboli, risolve i siboli 
+lasciati indefiniti nel file .o e sistema la tabella di rilocazione. In breve, ld rimuove le tabelle dei simboli  e 
+di rilocazione, generando codice macchina con riferimenti corretti.\\
+Un linker gestisce vari tipi di simboli:
+\begin{itemize}
+  \item simboli definiti: associati a un indirizzo nella tabella dei simboli
+  \item simboli non definiti: usati in un file, ma definiti in un file diverso. Se il linker, cercando in altri file 
+  non trova il simbolo, da errore di linking
+  \item simboli locali:  definiti e usati in un file, ma non usabile in altri file
+\end{itemize}
+in tre passi, il linking consiste nel: disporre in memoria i vari segmenti dei file .o, assegnare un indirizzo assoluto
+ad ogni simbolo contenuto nelle tabelle e correggere le istruzioni delle tabelle di rilocazione con degli indirizzi 
+calcolati. Il risultato viene poi incapsulato in un file eseguibile (segmenti, informazioni per il carimento in memoria,
+altri dati)
+
+\subsection{Librerie}
+il compilatore, o il sistema, fornisce delle funzioni predefinite. Queste funzioni sono contenute in librerie, o collezioni
+di file .o. Le librerie sono di due tipi: statiche (.a) e dinamiche (.so)
+
+\textbf{Librerie statiche}\\ ld inserisce tutto il codice della libreria nell'eseguibile. Quest'ultima serve solo 
+durante il linking. 
+
+\textbf{Librerie dinamiche}\\ ld inserisce un riferimento a un linker dinamico (es: /lib/ld-linux.so) alla libreria,
+senza includerla nell'eseguibile. All'esecuzione del programma, il linker viene caricato ed eseguito, caricando le 
+librerie e l'eseguibile, facendo il linking.
+
+La differenza principale tra librerie statiche e dinamiche sta nelle dimensioni e nella complessità di caricamento
+del programma da parte del SO. Un'altro vantaggio delle librerie dinamiche rispetto a quelle statiche è che dato che 
+le librerie non sono caricate, permette di aggiornarle senza dover ricompilare l'eseguibile.
+
+\textbf{Lazy linking}\\ Può capitare che alcune librerie vengano poco usate a tempo di runtime, quindi, invece che
+linkare la vera funzione, può essere chiamato uno stub, che esegue caricamento, rilocazione e linking solo quando 
+necessario
+
+(es: slide 18, toolchain)
+
+\newpage
+\section{Il processore}
+
+panoramica
+- nell'esecuzione delle istruzioni, ci sono due fasi iniziali comuni
+ - prelievo dell'istruzione dalla memoria
+ - lettura dei registri
+- i passi sccessivi sono simili, ma dipendono dall'istruzione
+
+-le istruzioni più comuni usano la alu 
+ - calcolo dell'indirizzo per l'accesso alla memoria
+ - istruzioni aritmentico logiche
+ - confrontare le condizioni per eseguire dei salti
+- successivamente le tre classi divergono
+ - le istruzioni d'accesso alla memoria salvano il dato in memoria
+ - le istruzioni aritmetico logiche memorizzano il risultato nel registro
+ - le istruzioni di salto cambiano il valore del registro PC in base al confronto
+
+Il processore utilizza anche i multiplexer per effettuare decisioni. Per esempio le istruzioni
+possono provenire dal banco dei registri o dal codice dell'istruzione stessa, per selezionare
+i due tipi, viene usato un multiplexer. Oppure per far decidere alla ALU che operazione effettuare,
+dai banchi dei registri per decidere in quale registro scrivere o dalla memoria dati per determinare
+se vogliamo leggere o scrivere. Per decidere come utilizzare i vari ingressi di controllo viene 
+utilizzata un'unità specifica.
+
+informazioni di base
+assunzione: il processore lavora sincronizzandosi con i cicli di clock, assumiamo che tutte le 
+  istruzioni si svolgano in un singolo ciclio di clock
+
 
 \end{document}
