@@ -3,10 +3,14 @@
 \usepackage{fixltx2e}
 \usepackage{amsmath}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{fancyhdr}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1.2in}
+
 \title{Statistica}
-\date{}
-\author{}
+
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -319,6 +323,51 @@ la \textbf{densità discreta di $X$ condizionata a $Y$} è  $\varphi_{X,Y}$ defi
 
 \newpage
 \thispagestyle{fancy}
+\chead{settima settimana}
+
+\section{Vettori aleatori misti}
+caso speciale di va discreta e va continua
+
+\begin{center}
+    \textbf{Modelli di variabili aleatorie discrete}
+\end{center}
+
+\section{Bernoulliane}
+\textbf{Def:}\\ Una variabile aleatoria di dice bernoulliana di parametro $p\in[0,1]$ se la densità discreta è:
+\begin{center}
+    $X\sim bin(1,p)$
+
+    $\varphi_{x}(x)=\begin{cases}            
+        p & x=1\\
+        1-p & x=0\\
+        0 & altrimenti
+        
+    \end{cases}$
+\end{center}
+la cdf di una bernoulliana ($p$) è 
+$F_{x}(x)=
+\begin{cases}
+        0 & x < 0\\
+        1-p & 0 \leq x<1\\
+        1 & x\geq 1
+\end{cases}$
+
+\section{Binominale}
+\textbf{Def:}\\ una variabile aleatoria discreta $X$ è binominale di parametri $n$ e $p$ se è la somma di $n$ bernulliane($p$) 
+indipendenti
+\begin{center}
+    $X\sim bin(n,p)$
+
+    $\varphi_{x}(k)=
+    \begin{cases}
+            \binom{n}{k}p^{k}(1-p)^{n-k} & k\in\{0,...,n\}\\
+            0 & altrimenti
+        
+    \end{cases}$
+\end{center}
+
+\newpage
+\thispagestyle{fancy}
 \chead{ottava settimana}
 \section{Schema o processo di Bernoulli}
 \marginpar{21/04/21}
@@ -457,4 +506,567 @@ $X\sim Pois(\lambda_{1}),\ Y\sim Pois(\lambda_{2})$:
 \begin{center}
     $X+Y\sim Pois(\lambda_{1}+\lambda_{2})$
 \end{center}
+
+\section{Speranza/Valore atteso/Media}
+\begin{center}
+    \textbf{Caso variabile aleatoria discreta}
+\end{center}
+
+\textbf{Def:}\\La speranza di una variabile aleatoria discreta è il baricentro della sua distribuzione
+\begin{center}
+    $E[X]=\sum_{x\in\mathcal{R}_{x}}\ x\cdot\varphi_{x}(x)$
+\end{center}
+
+Oss: se prendo un esito $Y=y$ nella mia tribù e considerò $P(.|Y)$
+\begin{center}
+    $E[X|Y]=\sum_{x\in\mathcal{R}_{x}}\ x\cdot P(X=x|Y=y)=\sum x\cdot\varphi_{x|y}(X|Y)$
+\end{center}
+
+\textbf{Teorema}\\Sia $X$ una variabile aleatoria discreta con densità discreta $\varphi_{x}$ e sia $Y=g(x)$, allora:
+\begin{center}
+    $E[Y]=\sum_{k\in\mathcal{R}_{x}}\ g(k)\cdot\varphi_{x}(x)$
+\end{center}
+
+\textbf{Teorema}\\Sia ($X,Y$) un vettore aleatorio discreto con densità congiunta $\varphi_{x,y}$ e sia $Z=g(x,y)$,
+$g:\mathbb{R}^{2}\rightarrow\mathbb{R}$, allora:
+\begin{center}
+    $E[Z]=\sum_{j\in\mathcal{R}_{y}}\sum_{k\in\mathcal{R}_{x}}\ g(k,j)\cdot\varphi_{xy}(k,j)$
+\end{center}
+
+\newpage
+\textbf{Prop}\marginpar{29/04/2021}\\il valore atteso possiede le seguenti proprietà:
+\begin{itemize}
+    \item Linearità: Siano $X,Y$ variabili aleatorie discrete e $a,b\in\mathbb{R}$, allora:
+    \begin{center}
+        $E[aX+bY]=aE[X]+bE[Y]$
+    \end{center}
+    \item Prodotto di variabili aleatorie indipendenti: Siano $X,Y$ variabili aleatorie discrete e indipendenti, allora:
+    \begin{center}
+        $E[XY]=E[X]\cdot E[Y]$
+    \end{center}
+    \item Monotonia: $X$ variabile aleatoria discreta, se $X\geq 0$ allora $E[X]\geq 0$. L'uguaglianza vale solo se $X\equiv 0$
+\end{itemize}
+
+Corollario: Se $X,Y$ variabili aleatorie discrete tali che $P((X\geq Y)=1)$ allora $E[X]\geq E[Y]$. In più se $E[X]=E[Y]$ Allora
+$X=Y$
+
+\textbf{Speranza di variabili aleatorie discrete note}
+
+\begin{tabular}{l c c l}
+    Bernoulliane & $X\sim bin(1,p)$ & $\Rightarrow$ & $E[X]=p$\\
+    Binomiali & $X\sim bin(n,p)$ & $\Rightarrow$ & $E[X]=n\cdot p$\\
+    Poisson & $X\sim pois(\lambda)$ & $\Rightarrow$ & $E[X]=\lambda$\\
+    Ipergeometriche & $X\sim hyp(k,m,n)$ & $\Rightarrow$ & $E[X]=k\cdot\frac{m}{n+m}$\\
+    Geometriche & $X\sim geom(p)$ & $\Rightarrow$ & $E[X]=\frac{1-p}{p}$\\
+    Binomiali Negative & $X\sim NB(n,p)$ & $\Rightarrow$ & $E[X]=n\cdot\frac{1-p}{p}$\\
+\end{tabular}
+
+\section{Variabile aleatoria assolutamente continua}
+$X$ è variabile aleatoria assolutamente continua $P(X=a)=0$
+\begin{center}
+    $P(X\in[a,b])=\int_{a}^{b} f_{x}(x)\,dx $
+\end{center}
+
+\textbf{Def}\\ $X$ variabile aleatoria assolutamente continua allora $E[X]=\int_{-\infty}^{+\infty}\ x\cdot f_{x}(x) \,dx$
+
+\newpage
+\textbf{Teorema}\\$X$ variabile aleatoria assolutamente continua e $Y=g(x)$ allora:
+\begin{center}
+    $E[Y]=\int_{\mathbb{R}} g(x) f_{x}(x)\,dx$
+\end{center}
+
+\textbf{Teorema}\\$(X,Y)$ vettlre aleatorio assolutamente continuo e $g:\mathbb{R}^{2}\rightarrow\mathbb{R}$ allora se
+$Z=g(x,y)$:
+\begin{center}
+    $E[Z]=\int\int_{\mathcal{R}^{2}}\ g(x,y)f_{X,Y}(x,y)\,dx\,dy$
+\end{center}
+
+\textbf{Teorema}\\$(X,Y)$ vettlre aleatorio misto con $X$ discreta e $Y$ assolutamente continua e densità ibrida (o mista)
+$f_{X,Y}$. Se $g:\mathbb{R}^{2}\rightarrow\mathbb{R}$ e $Z=g(X,Y)$ allora:
+\begin{center}
+    $E[Z]=\sum_{x\in\mathcal{R}_{x}}\int_{-\infty}^{+\infty}\ g(x,y)f_{X,Y}(x,y)\,dx\,dy$
+\end{center}
+
+\textbf{Proprietà}\\ Il valore atteso gode delle seguenti proprietà:
+\begin{itemize}
+    \item Linearità
+    \item prodotto di variabili aleatorie indipendenti
+    \item Monotonia
+\end{itemize}
+
+\section{momenti di una variabile aleatoria}
+
+\textbf{Def}\\ per ogni $n\in\mathbb{N}/\{0\}$ si dice momento n-esimo di $X$ variabile aleatoria il 
+numero reale $E[X^{n}]$.\\ Si dice \textit{momento centrale} di $X$ il numero reale $E[(X-E[X])^{n}]$\\
+Il momento secondo centrale di $X$ prende il nome di \textit{varianza} di $X$: $Var[X]$
+
+NB: la varianza misura la larghezza della distribuzione, al quadrato
+
+\textbf{Prop}
+\begin{center}
+     $Var[X]=E[X^{2}]-(E[X])^{2}$
+\end{center}
+
+\textbf{Proprietà della varianza}
+\begin{itemize}
+    \item $Var[X]\geq0,\ Var[X]=0 \Leftrightarrow X\equiv const$
+    \item $a,b\in\mathbb{R},\ Var[aX+b]=a^{2}Var[X]$
+\end{itemize}
+
+\textbf{Prop} 
+\begin{center}
+    Siano $X,Y$ variabili aleatorie indipendeti, allora $Var[X+Y]=Var[X]+Var[Y]$
+\end{center}
+
+\newpage
+\thispagestyle{fancy}
+\chead{Decima settimana}
+
+\section{Deviazione standard}
+Chiamiamo \textit{deviazione standard} $\sigma_{x}$ di una variabile aleatoria $X$, il 
+numero $\sigma_{x}=\sqrt{Var[X]}$\\
+Sia $Y=\alpha X$ allora $\sigma_{Y}=\alpha\cdot\sigma_{X}$
+
+\textbf{Varianza di modelli discreti noti}\\
+\begin{tabular}{l c c l}
+   Bernoulliane & $X\sim bin(1,p)$ & $\Rightarrow$ & $Var[X]= p(1-p)$\\
+   Binomiali & $X\sim bin(n,p)$ & $\Rightarrow$ & $Var[X]= n\cdot p(1-p)$\\
+   Geometriche & $X\sim geom(p)$ & $\Rightarrow$ & $Var[X]= \frac{(1-p)}{p^{2}}$\\
+   Binomiali neagative & $X\sim NB(p)$ & $\Rightarrow$ & $Var[X]= n\cdot\frac{(1-p)}{p^{2}}$\\
+   Poisson & $X\sim pois(\lambda)$ & $\Rightarrow$ & $Var[X]= \lambda$\\
+\end{tabular}
+
+\section{Diseguaglianze}
+
+\textbf{Disuguaglianza di Markov}\\ Sia $X$ una variabile aleatoria non negativa, allora $\forall a>0$:
+\begin{center}
+    $P(X\geq a) \leq \frac{E[X]}{a}$
+\end{center}
+
+\textbf{Disuguaglianza di Chebychev}\\ Sia $X$ variabile aleatoria. Per ogni $a>0$:
+\begin{center}
+    $P(|X-E[X]|\geq a)\leq \frac{Var[X]}{a^{2}}$
+\end{center}
+
+Oss: posso prendere $a\sigma_{x}$ al posto di $a$ e la funzione diventa:
+\begin{center}
+    $P(|X-E[X]|\geq a\sigma_{x})\leq \frac{\sigma^{2}_{x}}{a^{2}\sigma_{x}^{2}}$
+\end{center}
+
+\section{Covarianza e correlazione}
+Date $X,Y$ variabili aleatorie, chiamiamo \textit{covarianza} di $X$ e $Y$ il numero:
+\begin{center}
+    $Cpv[X,Y]=E[(X-E[X])(Y-E[Y])]$
+\end{center}
+
+Oss: Se $X=Y$ Allora
+\begin{center}
+    $Cov[X,Y]=E[(X-E[X])^2]=Var[X]$
+
+    $Conv[X,Y]=E[X\cdot Y]-E[X]\cdot E[Y]$
+\end{center}
+
+\newpage
+\textbf{Proprietà}
+\begin{itemize}
+    \item Se $X$ e $Y$ sono indipendenti allora $Cov[X,Y]=0$
+    \item La covarianza è simmetrica: $Cov[X,Y]=Cov[Y,X]$
+\end{itemize}
+
+\textbf{Def}\\Date $X$ e $Y$ variabili aleatorie tali che $Cov[X,Y]=0$, allora si defininiscono
+\textit{scorrelate}
+
+\textbf{Proprietà}
+\begin{itemize}
+    \item $Var[X+Y]=Var[X]+Var[Y]+2\cdot Conv[X,Y]$
+    \item In ogni componente la $Cov$ è lineare:
+    \subitem $Cov[aX+bY,Z]=a\cdot Cov[X,Z]+b\cdot Cov[Y,Z]$ 
+    \item La convarianza è bilineare:
+    \subitem Dati $(a_{i})^{n}_{i=1},(b_{j})^{m}_{j=1}$ vettori reali, $(X_{i})^{n}_{i=1},
+    (Y_{j})^{m}_{j=1}$ vettori aleatori:
+    \subitem $Cov[\sum^{n}_{i=1} a_{i}X_{i},\sum^{m}_{j=1}b_{j}Y_{j}]=\sum_{i,j}a_{i}b_{j}\ 
+    Conv[X_{i},Y_{j}]$
+\end{itemize}
+
+\textbf{Def}\\ La matrice $Cov[X_{i},Y_{i}]$ si chiama \textit{matrice di covarianza} $(\sum)$
+\begin{center}
+    $Cov[\vec{a}\cdot\vec{X},\vec{b}\cdot\vec{Y}]=\vec{a}^{t}\sum\vec{b}$
+\end{center}
+
+\textbf{Prop}
+\begin{center}
+    $-\sqrt{Var[X]Var[Y]}\leq Cov[X,Y]\leq\sqrt{Var[X]Var[Y]}$
+\end{center}
+
+\textbf{Def}\\Date $X$ e $Y$ variabili aleatorie, chiamiamo \textit{Correlazione} il numero:
+\begin{center}
+    $\mathcal{P}(X,Y)=Corr[X,Y]=\frac{Cov[X,Y]}{\sqrt{Var[X]Var[Y]}}$
+\end{center}
+
+
+\section{Mediane}\marginpar{06/05/21}
+Si dice \textit{Mediane} di una variabile aleatoria $X$ un numero $mx$ tale che:
+\begin{center}
+    $P(X\leq mx)=P(X\geq mx)$
+\end{center}
+
+\newpage
+Oss:
+\begin{center}
+    $P(X\leq mx)=F_{X}(mx)$\\
+    $P(X\geq mx)=1-F_{X}(mx)-P(X=mx)$
+\end{center}
+cioé, per $X$ assolutamente continua $mx$ tale che:
+\begin{center}
+    $F_{X}(mx)=1-F_{X}(mx)$ ossia $F_{X}(mx)=1/2\qquad mx\in F_{X}^{-1}(\{1/2\})$
+\end{center}
+Per $X$ assolutamente continua esiste una mediana, ma può essere non unica
+
+Oss: Se $X$ è  una variabile aleatoria discreat, la mediana può non essere unica o non esistere
+
+\textbf{Def}\\ Chiamiamo mediana impropria un reale $\widetilde{m}x$ tale che:
+\begin{center}
+    $P(X\leq\widetilde{m}x)\geq 1/2\quad$ e $\quad P(X\geq\widetilde{m}x)\geq 1/2$    
+\end{center}
+
+\section{Quantile}
+Dato $X$ con legge $F_{X}$ e $p\in(1,0)$, chiamiamo \textit{p-quantile} il numero reale $Q_{X}(p)$:
+\begin{center}
+    $Q_{X}(p)=inf\{x\in\mathbb{R}:\ F_{X}(x)\geq p\}$
+\end{center}
+
+Oss: la funzione quantile $Q_{X}:p\rightarrow Q_{x}(p)$ $((0,1)\rightarrow\mathbb{R})$ è qualcosa di simile
+all'inversa della $F_{X}$
+
+\section{Moda}
+Chiamiamo \textit{moda} di una variabile aleatoria $X$ un numero $x\in\mathcal{R}_{x}$ tale che:
+\begin{itemize}
+    \item Se $X$ è discreta, $\varphi_{x}$ è massima in $x$, cioé $x\in argmax\ \varphi_{x}(y)$
+    \item Se $X$ è continua, $f{x}$ è massima in $x$, cioé $x\in argmax\ f_{x}(y)$
+\end{itemize}
+
+Se la moda è unica $X$ è unimodale. Se ha 2 mode è bimodale. Se ha più di 2 mode è multimodale
+
+\newpage
+\textbf{Modelli assolutamente continui}
+
+\section{Uniformi}
+Dati due numeri reali $a<b$ chiamiamo un variabile aleatoria $X$ uniforme su $[a,b]$ se 
+la sua densità $f_{X}$ è costante in $(a,b)$ e nulla altrove
+\begin{center}
+    $X\sim unif(a,b)\quad$ o $\quad X\sim unif[a,b]$
+
+    $\frac{1}{b-a}$
+\end{center}
+
+Indicatori:
+\begin{itemize}
+    \item $E[X]=\frac{a+b}{2}$
+    \item $Var[X]=\frac{(b-a)^{2}}{12}$
+\end{itemize}
+la mediana coincide con la media e la moda coincide con qualunque valore in $(a,b)$
+
+\section{Esponenziali}
+$X$ è esponenziale di parametro $\lambda>0$ se
+\begin{center}
+    $f_{x}(x)=\begin{cases}
+        c\cdot e^{-\lambda x} & x\geq 0\\
+        0 & x<0
+    \end{cases}$
+\end{center}
+$c=\lambda$, $F_{X}(x)=1-e^{-\lambda x}$
+
+Indicatori
+\begin{itemize}
+    \item $E[X]=\frac{1}{\lambda}$
+    \item $Var[X]=\frac{1}{\lambda^{2}}$
+    \item la moda è $0$
+    \item la mediana è $\frac{log(2)}{\lambda}$
+\end{itemize}
+Le esponenziali hanno assenza di memoria, cioé per $s,t>0$:
+\begin{center}
+    $P(X>s+t\mid X>s)=P(X>t)$
+\end{center}
+
+\newpage
+\thispagestyle{fancy}
+\chead{undicesima settimana}
+\section{Gaussiane o Normali} $X$ è normale standard se ha densità:
+\begin{center}
+     $X\sim \mathcal{N}(0,1)\Rightarrow f_{x}(x)=\frac{1}{\sqrt{2\pi}}^{(1)}\cdot e^{\frac{-x^{2}}{2}\ (2)}$
+\end{center}
+(1) è costante di normalizzazione, mentre (2) da la forma a campana
+
+\textbf{Proprietà}
+\begin{itemize}
+    \item $f_{X}$ è simmetrica rispetto a $x=0,\ f_{X}(x)=f_{X}(-x)$
+    \item $f_{x}$ ha massimo in $x=0$. Tale massimo è $\frac{1}{\sqrt{2\pi}}$
+    \item ha punti di flesso in $\pm 1$
+    \item in $\pm 2$ ha valore $\approx 0.05$ e in $\pm 3$ vale $\approx 0.004$
+\end{itemize}
+
+\textbf{Funzione di ripartizione}
+\begin{center}
+    $\Phi(x)=\int_{-\infty}^{\infty}\ \frac{1}{\sqrt{2\pi}}\cdot e^{\frac{-x^{2}}{2}} dt$ 
+\end{center}
+
+\textbf{Proprietà}
+\begin{itemize}
+    \item in $0$ vale $\frac{1}{2}$
+    \item è simmetrica rispetto a $(0,\frac{1}{2})\rightarrow \Phi(x)=1-\Phi(x)$
+    \item in $-3$ vale $\approx 0.0013$, in $3$ vale $\approx 0.9987$
+    \item $\Phi(-2)\approx 0.0228$, $\Phi(2)\approx 0.9772$
+    \item è monotona strettamente crescente
+\end{itemize}
+
+$\Phi^{-1}$ è funzione quantile
+\begin{center}
+    $\Phi^{-1}(p)=x\Leftrightarrow\Phi(x)=p\Leftrightarrow P(X\leq x)=p$
+\end{center}
+La funzione quantile è simmetrica rispetto a $(\frac{1}{2},p)$, cioé $\Phi^{-1}(p)=-\Phi^{-1}(1-p)$
+
+Indicatori
+\begin{itemize}
+    \item $E[X]=0$
+    \item $Var[X]=1$
+\end{itemize}
+
+\textbf{Def}\\ Sia $Z\sim\mathcal{N}(0,1)$ allora $X$ è una variabile aleatoria normale di parametri
+$\mu\in\mathbb{R},\sigma>0$ se $X=\sigma Z+\mu$, e scriveremo $X\sim\mathcal{N}(\mu,\sigma)$
+\begin{center}
+    $F_{X}(x)=P(z\leq \frac{x-\mu}{\sigma})=\Phi(\frac{x-\mu}{\sigma})$
+
+    $f_{X}(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}\cdot e^{\frac{-(x-\mu)^{2}}{2\sigma^{2}}}$
+\end{center}
+\begin{itemize}
+    \item $E[X]=\mu$
+    \item $Var[X]=\sigma^{2}$
+\end{itemize}
+
+\textbf{Proprietà}\\ $X\sim\mathcal{N}(\mu,\sigma)$ eredità le proprietà di $Z\sim\mathcal{N}(0,1)$
+tenendo conto di trasformazioni e deviazione
+
+\textbf{Prop:} la famiglia  Gaussiana è riproducibile. Dati $X_{1}\sim\mathcal{N}(\mu_{1},\sigma_{1})$
+e $X_{2}\sim\mathcal{N}(\mu_{2},\sigma_{2})$, allora:
+\begin{center}
+    $X_{1}+X_{2}\sim\mathcal{N}(\mu_{1}+\mu_{2},\sqrt{\sigma_{1}^{2}+\sigma_{2}^{2}})$
+\end{center}
+
+\section{Chi quadro}
+Se $X$ è una somma di $n$ quadrati di guassiane standard indipendenti, diciamo
+che $X$ è una chi quadro con $n$ gradi di libertà, e scriveremo $X\sim X^{2}_{n}$ oppure 
+$X\sim\mathcal{X}^{2}(n)$
+\begin{center}
+    $(Y_{i})^{n}_{i=1}\quad iid\qquad Y_{i}\sim\mathcal{N}(0,1)\quad X=\sum_{i=1}^{n}\ Y_{i}^{2}$
+\end{center}
+
+Oss: Se sommiamo $2$ quadrati, la distribuzione che otteniamo è una esponenziale con 
+$\lambda=\frac{1}{2}$
+
+Oss: le chi quadro sono riproducibili
+
+La densità $f_{X}(x)=c_{n}\cdot x^{\frac{n}{2}-1}\cdot e^{\frac{-x}{2}}$ con $c_{n}$ opportuna
+rinormalizzazione
+
+Indicatori:
+\begin{itemize}
+    \item $E[X]=n$
+    \item $Var[X]=2n$
+\end{itemize}
+
+\section{T (di Student)}
+Data $Z\sim\mathcal{N}(0,1),\ W\sim \mathcal{X}^{2}(n)$ indipendenti, $X$ è una \textit{t di student}
+a $n$ gradi di libertà se $X=\frac{Z}{\sqrt{w/n}}$ e scriviamo $X\sim t(n)$ o $X\sim t_{n}$
+
+\textbf{Proprietà}
+\begin{itemize}
+    \item $f_{X}(x)=f_{X}(-x)$
+    \item $F_{X}(-x)=1-F_{X}(x)$
+    \item $F^{-1}_{X}(p)=-F^{-1}_{X}(1-p)$
+\end{itemize}
+
+Indicatori
+\begin{itemize}
+    \item $E[X]=0\quad \forall n$
+    \item $Var[X]=\begin{cases}
+        $non definita$ & n=1\\
+        +\infty & n=2\\
+        \frac{n}{n-2} & n>2
+    \end{cases}$
+\end{itemize}
+Oss: $Var[X]\rightarrow 1$ con lim $ n\to \infty$
+\begin{itemize}
+    \item $E[\frac{W}{n}]=1$
+    \item $Var[\frac{W}{n}]=\frac{2}{n}\qquad n\to\infty=0$
+\end{itemize}
+
+\marginpar{17/05/21}
+\section{Convergenza variabili aleatorie}
+\subsection{convergenza quasi certa}
+$(\Omega,\mathcal{F},P)$ spazio di probabilità e $X$ variabile aleatoria su di esso e $(X_{n})_{n\in\mathbb{N}}$
+una successione di variabili aleatorie sullo spazio di probabilità. Diciamo che $(X_{n})_{n}$ \textit{converge
+quasi certamente} o \textit{puntualmente} a $X$ e scriviamo $X_{n}\xrightarrow[n\to\infty]{\text{qc}}$
+se esiste $E\in\mathcal{F}$ con $P(E)=1$ tale che $\forall w\in E$:
+\begin{center}
+    $\lim_{n\to\infty}\quad X_{n}(w)=X(w)$
+\end{center}
+
+\subsection{Convergenza in probabilità}
+$(\lambda_{n})_{n}$ successione di variabili aleatorie e $X$ variabile aleatoria su $(\Omega,\mathcal{F},P)$.
+Diciamo che $(X_{n})_{n}$ converge \textit{in probabilità} a $X$ e scriviamo $X_{n}\xrightarrow[n\to\infty]{p}X$
+se $\forall\varepsilon>0$:
+\begin{center}
+    $\lim_{n\to\infty}\quad P(|X_{n}-X|>\varepsilon)=0 $
+\end{center}
+
+\subsection{Convergenza in media quadratica}
+Diciamo che $(X_{n})_{n}$ converge in \textit{media quadratica} on in $\mathcal{L}^{2}$ a $X$ e scriviamo
+$X_{n}\xrightarrow[n\to\infty]{\mathcal{L}^{2}}X$ se:
+\begin{center}
+    $\lim_{n\to\infty}\quad E[|X_{n}-X|^{2}]=0$
+\end{center}
+
+Prop: la convergenza in media quadratica implica la convergenza in probabilità, cioé
+\begin{center}
+    $X_{n}\xrightarrow[n\to\infty]{\mathcal{L}^{2}}X\qquad$ allora $\qquad X_{n}\xrightarrow[n\to\infty]{p}X$
+\end{center}
+
+\subsection{Convergenza in distribuzione}
+Sia $(X_{n})_{n\in\mathbb{N}}$ successione su $(\Omega,\mathcal{F},P)$ e $X$ variabile aleatoria su $(\tilde{\Omega}
+,\tilde{\mathcal{F}},\tilde{P})$. Diciamo che $(X_{n})_{n}$ converge \textit{in distribuzione} o \textit{in legge}
+o \textit{debolmente} a $X$ ($X_{n}\xrightarrow[n\to\infty]{\mathfrak{L}}X,\ 
+X_{n}\xrightarrow[n\to\infty]{d}X\\o\ X_{n}\xrightarrow[n\to\infty]{w}X$) se $\forall x\in\mathbb{R}$:
+\begin{center}
+    $\lim_{n\to\infty}\quad P(X_{n}\leq x)=P(X\leq x)$\\
+    ossia\\
+    $\lim_{n\to\infty}\quad F_{X_{n}}(x)=F_{X}(x)$
+\end{center}
+
+Prop: Le convergenze quasi certe implicano la convergenza in probabilità
+\begin{center}
+    $X_{n}\xrightarrow{\alpha}X\Leftarrow X_{n}\xrightarrow{p}X\Leftarrow
+    \begin{cases}
+        X_{n}\xrightarrow{qc}X\\
+        X_{n}\xrightarrow{\mathcal{L}^{2}}X    
+    \end{cases}$
+\end{center}
+
+Oss: La convergenza in $\mathcal{L}^{2}$ e $qc$ non sono confrontabili
+
+Prop: la convergenza in probabilità implica la convergenza debolmente
+
+\section{Teoremi limite}
+Sia $(X_{1}\_\_ X_{n})$ un vettore aleatorio con componenti indipendenti, di media comune $\mu$ e varianza comune
+$\sigma^{2}$. Sia $S_{n}=\sum_{i=1}^{n}\ X$ la variabile aleatoria somma. Allora:
+\begin{center}
+    $E[\frac{S_{n}}{n}]=\mu\quad$ e $\quad Var[\frac{-S_{n}}{n}]=\frac{\sigma^{2}}{n}$
+\end{center}
+
+\section{Teorema della legge debole dei grandi numeri}
+Sia $(X_{n})_{n\in\mathbb{N}}$ variabile aleatoria ciascuna di media $\mu$ e  varianza $\sigma^{2}$. Sia inoltre
+$S_{n}=\sum_{i=1}^{n}\ X_{i}$. Allora $\frac{S_{n}}{n}$ converge in probabilità a $\mu$, cioé $\forall\varepsilon
+>0$:
+\begin{center}
+    $\lim_{n\to\infty}\quad P(|\frac{S_{n}}{n}-\mu|>\varepsilon)=0$
+\end{center}
+
+\section{Teorema centrale del limite}
+\begin{center}
+    $\frac{S_{n}-n\mu}{\sigma\sqrt{n}}\xrightarrow{\mathfrak{L}}\mathcal{N}(0,1)$\\
+    cioé\\
+    $\lim_{n\to\infty}\quad P(\frac{S-n\mu}{\sigma\sqrt{n}}\leq x)=\Phi(x)$
+\end{center}
+
+Oss: $\frac{S_{n}-n\mu}{\sigma}$ è nell'ordine di $\sqrt{n}$ per $n\to\infty$
+
+Oss: il modo in cui usiamo il TLC se $n$ è sufficientemente grande, allora:
+\begin{center}
+    $\frac{S_{n}-n\mu}{\sigma\sqrt{n}}\sim\mathcal{N}(0,1)\qquad\frac{S_{n}}{2}\sim\mathcal{N}(\mu,
+    \frac{\sigma}{\sqrt{n}})$
+
+    $S_{n}\sim\mathcal{N}(n\mu,\sigma\sqrt{n})$
+\end{center}
+$n$ è sufficientemente grande quando:
+\begin{itemize}
+    \item $X_{i}\sim\mathcal{N}\to\ n\geq 1$
+    \item $X_{i}\sim Unif\to\ n\geq 5$
+    \item $X_{i}sim geom$ o $X_{i}\sim exp\to\ n\geq 15$
+    \item $X_{i}\sim X^{2}\to n\geq 25$
+\end{itemize}
+
+\subsection{Correzione di continuità}
+Se le $X_{i}$ sono discrete nella versione approssimata usiamo la correzione di continuita, ossia:
+\begin{center}
+    $F_{S_{n}}(x)\simeq\Phi\left(\frac{x+1/2-n\cdot E[X_{i}]}{\sqrt{n\cdot Var[X_{i}]}}\right)$
+\end{center}
+
+Oss:$bin(n,p)\sim\mathcal{N}(np,\sqrt{np(1-p)})$ purché $p$ sia lontano da 0 e 1. Cioé se $np(1-p)\gtrsim 3$:
+\begin{center}
+    $Pois(\lambda)\sim\mathcal{N}(\lambda,\sqrt\lambda)\qquad$ per $\lambda\geq 30$
+\end{center}
+
+\newpage
+\thispagestyle{fancy}
+\chead{Dodicesima settimana}
+
+\begin{center}
+    \textbf{Statistica}
+\end{center}
+
+\section{Popolazione di riferiento}
+La \textit{popolazione di riferimento} è un insieme di elementi sui quali conduciamo un'indagine. Gli elemtni si
+chiamano \textit{individui, esemplari} o \textit{unità statistiche}.
+
+Il \textit{Campione} è un sottoinsieme della popolazione
+
+\section{Campionamento}
+Esistono dievrsi tipi di campionamento: \textit{campionamento casuale semplice, campionamento stratificato, 
+campionamento a grappoli}
+
+\section{Variabili}
+Le caratteristiche che misuriamo sono definite \textit{variabili}. I loro valori si chiamano \textit{modalità} o
+\textit{livelli}:
+\begin{itemize}
+    \item qualitative o categoriche
+    \subitem nominali (senza un ordine naturale)
+    \subitem ordinali (con ordine naturale)
+    \item quantitative o numeriche
+    \subitem discrete
+    \subitem continue
+\end{itemize}
+Le variabili quantitative possono essere quantificate in scale per intervallo o rapporto
+
+\section{Statistica}
+Chiamiamo \textit{statistica} una funzione calcolabile dalle misurazioni del campione.
+
+Si dice \textit{stimatore} di un parametro di una variabile aleatoria discreta che sia una statistica e il cui
+valore sia "spesso vicino" al parametro d'interesse.\\ Il valore deterministico assunto dallo stimatore usando la
+realizzazione del campione si chiama \textit{stima} del parametro
+
+\textbf{Notazione:} Se $\theta$ è uno stimatore di $\vartheta$, possiamo scrivere $\theta_{n}$ per evidenziare la 
+numerosità del campione e $\hat{\vartheta}=\theta$.\\ Chiedere che $\theta$ sia vicino a $\vartheta$ significa che 
+l'errore di stima sia piccolo
+
+\textbf{Def}\\Uno stimatote $\theta$ di $\vartheta$ è:
+\begin{itemize}
+    \item \textit{corretto} o \textit{non distorto} se $E[\theta]=\vartheta$
+    \item \textit{distorto} se $E[\theta]\neq\vartheta$. Chiameremo allora \textit{bias} $E[\theta]-\vartheta$
+\end{itemize}
+Se $Lim_{n\to\infty}\ E[\theta_{n}]=\vartheta$ allora $\theta$ è \textit{asintoticamente non distorto}
+
+\section{Errore quadratico medio}
+Si dice \textit{Errore quadratrico medio}, o MSE, di $\theta$ la quantità $MSE[\theta]=E[(\theta-\vartheta)^{2}]$:
+\begin{center}
+    $MSE[\theta]=Var[\theta]+bias^{2}$
+\end{center}
+
+\textbf{Def}\\$\theta$ è \textit{consistente} se $\theta_{n}\xrightarrow{p}\theta$. $\theta$ è \textit{consistente
+in media quadratica} se $\theta_{n}\xrightarrow{\mathcal{L}^{2}}\theta$
+
+\textbf{Prop}\\Se $\theta$ è asintoticamente non distorto e $lim_{n\to\infty}\ Var[\theta_{n}]=0$ allora $\theta$
+è consistente in media quadratica e quindi consistente
+
+Oss\\ Stimatori corretti ma non consistenti $(X_{1},...,X_{n})$. Allora una qualunque $X_{i}$ è stimatore della
+media $\mu\Rightarrow E[X_{i}]=\mu$. Se $\sigma^{2}=Var[X_{i}]\neq 0$ allora $P(|X_{i}-\mu|>\varepsilon)>0$ e 
+rimane tale per $n\to\infty\Rightarrow$ non conv in $P$
 \end{document}

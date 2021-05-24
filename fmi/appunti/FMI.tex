@@ -6,6 +6,7 @@
 \usepackage{multicol}
 \usepackage{amssymb}
 \usepackage{geometry}
+\usepackage{tabto}
 \geometry{margin=1.2in}
 \title{Statistica}
 
@@ -484,6 +485,7 @@ metodo 2
 \end{center}
 
 \newpage
+\section{neinth week}
 \textbf{Elementi invertibili modulo n:}
 Siano $a,n\in\mathbb{Z}$ con $n>0$. Diremo che $a$ è invertibile modulo $n$ o equivalentemente che $[a]_{n}$ è
 invertibile in $\mathbb{Z}/_{n}\mathbb{Z}$ se esiste $x\in\mathbb{Z}$ tc:
@@ -531,4 +533,331 @@ $\mathbb{Z}/_{n}\mathbb{Z}$ formato da tutti gli interi modulo $n$ invertibili
 \begin{center}
     $(\mathbb{Z}/_{n}\mathbb{Z})$*$=\{[1]_{p},[2]_{p},...,[p-1]_{p}\}=\mathbb{Z}/_{p}\mathbb{Z}\backslash \{[0]_{p}\}$
 \end{center}
+
+\newpage
+Prop: Sia $a\in\mathbb{Z}$ e $r$ sia il resto di $a/n$, allora:
+\begin{center}
+    $a\equiv n(mod\ n)$
+
+    oppure
+
+    $[a]_n=[r]_{n}$
+\end{center}
+
+\textbf{Criterio di divisibilità:} dati $a,n\in\mathbb{Z}$ con $n\neq 0$, diremo che $a$ è multiplo di
+$n$ se:
+\begin{center}
+    $[a]_{n}=[0]_{n}$
+\end{center}
+
+notazione: dato $a\in\mathbb{Z}$ e $x\in [a]_{n}\ ([a]_{n}=[x]_{n})$, diremo che $x$ è \textit{rappresentante
+della classe} $[a]_{n}$. Se $x$ è di tipo resto, allora $x$ è \textit{rappresentante canonico}
+
+Gli elementi di $\mathbb{Z}/_{n}\mathbb{Z}$ si chiamano \textit{classi di resto modulo $n$}
+
+\textbf{Struttura algebrica:} Esistono due operazioni di somma e moltiplicazione tra insiemi quozienti:\\
+Somma: $[a]_{n}+[b]_{n}=[a+b]_{n}$\\
+Moltiplicazione: $[a]_{n}\cdot[b]_{n}=[ab]_{n}$
+
+Prop: dati $a,a^{I},b,b^{I}\in\mathbb{Z}$ tali che $[a]_{n}=[a^{I}]_{n}$ e $[b]_{n}=[b^{I}]_{n}$, allora:
+\begin{itemize}
+    \item $[a+b]_{n}=[a^{I}+b^{I}]_{n}$
+    \item $[ab]_{n}=[a^{I}b^{I}]_{n}$
+\end{itemize}
+
+Oss: Sia $a\in\mathbb{Z},\ m\in\mathbb{N},\ m>0$. Allora:
+\begin{center}
+    $[a]_{n}^{m}=[a^{m}]_{n}$
+\end{center}
+
+\newpage
+\section{tenth week}
+\textbf{Il teorema di Fermat-Eulero}\\Definiamo la funzione $\phi:\mathbb{N}/\{0\}\rightarrow\mathbb{N}$, detta
+\textit{funzione phi di eulero}, ponendo:
+\begin{center}
+    $\phi(n):=|\{a\in\mathbb{Z}\mid \leq a\leq n,\ (a,n)=1\}|\qquad\forall n\in\mathbb{N}/\{0\}$
+\end{center}
+
+Oss: la funzione $\phi$ è moltiplicativa sulle coppie coprime:
+\begin{center}
+    $\phi(n\cdot m)=\phi(n)\cdot\phi(m)\qquad \forall n,m\in\mathbb{N}/\{0\}\ tc\ (n,m)=1$
+\end{center}
+
+Sia $p$ un numero primo e sia $m\in\mathbb{N}/\{0\}$. Considero $n=p^{m}$, allora $\phi(n)=\phi(p^{m})$ che vale:
+\begin{center}
+    $\phi(p^{m})=p^{m}-p^{m-1}\qquad \forall p$ primo e $\forall m\in\mathbb{N}/\{0\}$
+\end{center}
+
+\textbf{Formula generale:} Sia $n\geq 2$ e $n=p_{1}^{m_{1}}\cdot p_{2}^{m_{2}}\cdot...\cdot p_{k}^{m_{k}}$ per 
+qualche numero primo $p_{1},p_{2},...,p_{k}$ con $p_{i}\neq p_{j} \forall i\neq j$ e $m_{1},...,m_{k}\in\mathbb{N}
+/\{0\}$. Allora:
+\begin{center}
+    $\phi(n)=\phi(p_{1}^{m_{1}}\cdot ... \cdot p_{k}^{m_{k}})=(p_{1}^{m_{1}}-p_{1}^{m_{1-1}})\cdot ... \cdot
+    (p_{k}^{m_{k}}-p_{k}^{m_{k-1}})$
+\end{center}
+
+\textbf{Lemma:} Dato $n>0$, vale:
+\begin{center}
+    $|(\mathbb{Z}/_{n}\mathbb{Z})^{*}|=\phi(n)$
+\end{center}
+
+\textbf{Lemma:} Dati $\alpha,\beta\in(\mathbb{Z}/_{n}\mathbb{Z})^{*}$, valgono le seguenti affermazioni:
+\begin{itemize}
+    \item $\alpha\beta\in(\mathbb{Z}/_{n}\mathbb{Z}),\quad (\alpha\beta)^{-1}=\alpha^{-1}\beta^{-1}$
+    \item $\alpha^{-1}\in(\mathbb{Z}/_{n}\mathbb{Z}),\quad (\alpha^{-1})^{-1}=\alpha$
+\end{itemize}
+
+\textbf{Teorema:} Sia $n>0$. Per ogni $\alpha\in(\mathbb{Z}/_{n}\mathbb{Z})^{*}$, vale:
+\begin{center}
+    $\alpha^{\phi(n)}=[1]_{n}$ in $\mathbb{Z}/_{n}\mathbb{Z}$
+\end{center}
+Equivalentemente, per ogni $a\in\mathbb{Z}$ tale che $(a,n)=1$
+\begin{center}
+    $a^{\phi(n)}\equiv 1(mod\ n)$
+\end{center}
+
+Corollario: Se $p$ è un numero primo e $a\in\mathbb{Z}$ tale che $(p,a)=1$, allora:
+\begin{center}
+    Con $n=p\Rightarrow a^{p-1}\equiv 1(mod\ p)$
+\end{center}
+
+\newpage
+\marginpar{09/05/21}
+\textbf{Crittografia RSA}\\
+Fissiamo  $n>0$. Per ogni $c\in\mathbb{N}/\{0\}$, definiamo la funzione:
+\begin{center}
+    $P_{c}:(\mathbb{Z}/_{n}\mathbb{Z})^{*}\rightarrow(\mathbb{Z}/_{n}\mathbb{Z})^{*}$\\
+    $\alpha\rightarrow\alpha^{c}$
+\end{center}
+Ovvero $P_{c}(\alpha):= \alpha^{c}\quad\forall\alpha\in(\mathbb{Z}/_{n}\mathbb{Z})^{*}$. La funzione $P_{c}$ è
+ben definita, ovvero, se $\alpha$ è una classe di congruenza e $n$ invertibile, allora anche $\alpha^{c}$ è 
+invertibile
+
+\textbf{Teorema della crittografia RSA}\\ Sia $c\in\mathbb{N}/\{0\}$ tale che $(c,\phi(n))=1$ e sia $d\in\mathbb{N}
+/\{0\}$ un inverso di $c$ modulo $\phi(n)$ (ovver $d>0$ e $d\in[c]^{-1}_{\phi(n)}$), allora $P_{c}$ è una funzione
+invertibile e vale $P_{c}^{-1}=P_{d}$
+\begin{center}
+    \begin{tabular}{c l}
+        $P_{d}=P_{c}^{-1}\Leftrightarrow$ & $p_{d}(P_{c}(\alpha))=\alpha\qquad\forall\alpha\in(\mathbb{Z}/_{n}
+        \mathbb{Z})^{*}$\\
+        & $p_{c}(P_{d}(\beta))=\beta\qquad\forall\beta\in(\mathbb{Z}/_{n}\mathbb{Z})^{*}$\\
+    \end{tabular}
+\end{center}
+
+Corollario: Siano $a,c\in\mathbb{Z}$ tale che $(a,n)=1$ e $c>0$. Considero la seguente congruenza 
+in $x\in\mathbb{Z}$
+\begin{center}
+    $x^{c}\equiv a (mod\ n)$
+\end{center}
+Sia $S$ l'insieme delle soluzioni della precedente congruenza, ovvero:
+\begin{center}
+    $S:=\{x\in\mathbb{Z}\mid x^{c}\equiv a(mod\ n)\}$
+\end{center}
+allora se $(c,\phi(n))=1$ e $d>0$ con $d\in[c]^{-1}_{\phi(n)}$, Allora
+\begin{center}
+    $S=[a^{d}]_{n}=\{a^{d}+kn\in\mathbb{Z}\mid k\in\mathbb{Z}\}$
+\end{center}
+
+\textbf{Crittografia a chiave pubblica}\\Supponiamo che A voglia comunicare con B mediante RSA:\\
+B pubblica $c,n\in\mathbb{Z}/\{0\}$, $c$ chiave di codifica e $n$ modulo tale che $(c,\phi(n))=1$. A userà
+l'alfabeto $(\mathbb{Z}/_{n}\mathbb{Z})^{*}$. Se A comunica $\alpha\in(\mathbb{Z}/_{n}\mathbb{Z})^{*}$, allora 
+calcola $\alpha^{c}$ e lo invierà. Allora B $(c,\phi(n))\rightarrow d>0, d\in[c]^{-1}_{\phi(n)}$ con $d$ 
+chiave di decifratura. Quindi $\beta\rightarrow\beta^{d}=\alpha$
+
+
+\newpage
+\section{Eleventh week}
+\textbf{Grafi:} Dato un insieme $V$, indichiamo $\binom{V}{2}$ l'insieme i cui elementi sono tutti sottoinsiemi di 
+$V$ con 2 elementi, ovvero:
+\begin{center}
+    $\binom{V}{2}:=\{A\in 2^{V}\mid |A|=2\}$
+\end{center}
+Vale la formula:
+\begin{center}
+    $|\binom{V}{2}|=\binom{|V|}{2}=\frac{|V|!}{2!(|V|-2)!}=\frac{|V|(|V|-1)}{2}$
+\end{center}
+
+\textbf{Def:} Un grafo $G$ è una coppia $(V,E)$, dove $V$ è un'insieme non vuoto detto \textit{insieme
+dei vertici di $G$} e $E$ è un sottoinsieme di $\binom{V}{2}$ detto \textit{insieme dei lati di $G$}.\\
+Se $G=(V,E)$ è un grafo ed $e=\{v_{1},v_{2}\}\in E$, cioé un lato di $G$, allora diciamo che $v_{1}$ e
+$v_{2}$ sono degli estremi di $e$
+
+Se $G$ è un grafo, allora $V(G)$ indica l'insieme dei vertici e $E(G)$ l'insieme dei lati di $G$. Se 
+$G=(V,E)$ è un grafo ed $e=\{v_{1},v_{2}\}\in E$, cioé un lato di $G$, allora diciamo che $v_{1}$ e
+$v_{2}$ sono gli \textit{estremi} di $e$ ed anche che $e$ congiunge $v_{1}$ e $v_{2}$
+
+\textbf{Esempi notevoli}
+\begin{itemize}
+    \item Per ogni $n\in\mathbb{N}$, definiamo il \textit{cammino} $P_{n}$ di lunghezza $n$ come il
+    seguente grafo 
+    \begin{center}
+        $V(P_{n})=\{0,1,...,n\}\ E(P_{n}):= \varnothing $ se $n=0$\\
+        $E(P_{n}):=\{\{i,i+1\}\in\binom{V(P_{n})}{2}\}$ 
+    \end{center}
+    \item $P_{\infty}$ il cammino infinito
+    \item Per ogni $n\in\mathbb{N}$ con $n\geq 3$, il \textit{ciclo} di lunghezza $n$ è definito:
+    \begin{center}
+        $V(C_{n})=\{1,2,...,n\}\ E(C_{n})=\{\{i,i+1\}\in\binom{V(C_{n})}{2}\}\cup\{\{1,n\}\}$
+    \end{center}
+    \item Per ogni $n\in\mathbb{N},\ n\geq 1$, il \textit{grafo completo} di $n$ vertici, denotato con
+    $k_{n}$, è definito:
+    \begin{center}
+        $V(k_{n})_:=\{1,2,...,n\},\ E(kn):=\binom{V(kn)}{2}$
+    \end{center}
+\end{itemize}
+
+\newpage
+\textbf{Sottografi e sottografi indotti}\\ Siano $G=(E,V)$ e $G^{I}=(E^{I},V^{I})$ due grafi. Diremo 
+che $G^{I}$ è un sotto grafo di $G$ se $V^{I}\subset V$ e $E^{I}\subset E$
+
+Se $G^{I}$ è sottografo di $G$ vale:
+\begin{center}
+    $E^{I}=\{e\in E\mid e=\{v_{1},v_{2}\}, v_{1}\in V^{I},v_{2}\in V^{I}\}$
+\end{center}
+allora $G^{I}$ si dice \textit{sotto grafo} di $G$ \textit{indotto} da $V^{I}$ e si indica con il
+simbolo $G[V^{I}]$
+
+
+\marginpar{13/05/21}
+\textbf{Morfismi}\\ Siano $G=(V,E)$ e $G^{I}=(V^{I},E^{I})$ due grafi, e $f:V\rightarrow V^{I}$ 
+una funzione iniettiva. Allora si dice morfismo da $G$ a $G^{I}$ se vale:
+\begin{center}
+    $\forall v_{1},v_{2}\in V,\ \{v_{1},v_{2}\}\in E\Rightarrow \{f(v_{1}),f(v_{2})\}\in E^{I}$
+\end{center}
+Se $f:V\rightarrow V^{I}$ è un morfismo da $G$ a $G^{I}$, allora scriveremo $f:G\rightarrow G^{I}$
+
+Oss: Siano $G=(V,E)$ e $G^{I}=(V^{I},E^{I})$ due grafi, sia $f:G\rightarrow G^{I}$. Per ogni 
+$e=\{v_{1},v_{2}\}\in E$, allora:
+\begin{center}
+    $f(e)=\{f(v_{1},v_{2})\}\in\binom{V^{I}}{2}$
+\end{center}
+Definiamo $f(E):=\{f(e)\in\binom{V^{I}}{2}\mid e\in E\}$, segue che:
+\begin{center}
+    $f(E)\subset E^{I}$
+\end{center}
+Dunque $f$ è un morfismo solo se $f(E)\subset E^{I}$
+
+\textbf{Isomorfinsmo}\\ Diciamo che $f$ è un isomorfinsmo da $G$ in $G^{I}$ se:
+\begin{itemize}
+    \item $f$ è bigiettiva
+    \item $f$ è morfismo da $G$ in $G^{I}$
+    \item $f^{-1}:V(G)\rightarrow V(G)$ è un morfismo da $G^{I}$ in $G$. Se esiste un isomorfismo, allora
+    $G$ si dice isomorfo a $G^{I}\Rightarrow G\cong G^{I}$
+\end{itemize}
+
+Prop: Siano $G$, $G^{I}$ due grafi e $f:V\rightarrow V^{I}$ una funzione. $f$ è isomorfismo da $G$ in $G^{I}$ 
+se e solo se:
+\begin{itemize}
+    \item $f$ è bigiettiva
+    \item $f(E)=E^{I}$, ovvero $\forall e\in\binom{V}{2},\ e\in E\Leftrightarrow f(e)\in E^{I}$
+\end{itemize}
+
+\newpage
+\textbf{Passeggiate, cammini e cicli}\\ Sia $G$ una successione finita ordinata di vertici di $G$. Allora si dice:
+\begin{itemize}
+    \item Passeggiata in $G$, se $n=0$ oppure $n\geq 1$ e $\{v_{i},v_{i+1}\}\in E\quad\forall i\in\{0,1,...,n-1\}$
+    \item Cammino in $G$, se è una passeggiata in $G$ e $v_{i}\neq v_{j}\quad\forall i,j\in\{0,1,...,n\}$
+    \item Ciclo in $G$ se è una passeggiata in $G$, $v_{0}=v_{n}$ e $n\geq 3,\ v_{i}\neq v_{j}$
+\end{itemize}
+Se $(v_{0},v_{1},...,v_{n})$ è una passeggiata in $G$, allora $n$ è detto lunghezza, $n=l(G)$
+
+\textbf{Def}\\ Sia $G$ un grafo e siano $v,w\in V$. Sono \textit{congiungibili} in $G$ con passeggiata se 
+esiste una passeggiata in $G$ della seguente forma: $(v_{0},v_{1},...,v_{n})$
+
+\newpage
+\section{Dodicesima settimana}
+\textbf{Congiungibilità}\\ Sia $G=(V,E)$ e siano $v,w\in V$. Diciamo che $v$ e $w$ sono congiungibili con un cammino
+se esiste un cammino $(v_{0},v_{1},...,v_{n})$ tale che $v_{0}=v$ e $v_{n}=w$
+
+\textbf{Prop}: Sia $G=(V,E)$ e siano $v,w\in V$. Allora $v$ e $w$ sono congiungibili con un cammino se e soltanto 
+se lo sono con una passeggiata
+
+Oss: Dato un grafo $G=(V,E)$ e $v,w\in V$ diciamo che $v$ e $w$ sono congiungibili se lo sono per cammini o
+passeggiate
+
+\textbf{Prop:} Sia $G=(V,E)$ e sia $\sim$ la relazione binaria su $V$ indetta dalla nozione di congiungibilità
+in $G$: $\sim\in\mathcal{P}(V\times V)$ è definita ponendo $v\sim w$ se $v$ è congiungibile a $w$ in $G$.
+Allora $\sim$ è una relazione di equivalenza in $V$. Allora $\sim$ è una relazione di equivalenza in $V$
+
+\textbf{Def:}Sia $G=(V,E)$ e  sia $\sim$ la relazione di congiungibilità su $V$, indichiamo con $\{V_{i}\}_{i\in I}$
+l'insieme di tute le $\sim$ classi d'equivalenza.I sotto grafi $\{G[V_{i}]\}_{i\in I}$ indotti  da $G$ su $V_{i}$
+si dicono \textit{componenti connesse} di $G$
+
+\textbf{Grafi connessi}\\Un grafo si dice \textit{connesso} se possiede una sola componente connessa. Altrimenti
+si definisce \textit{sconnesso}
+
+Oss:
+\begin{itemize}
+    \item Sia $G$ un grafo, allora $G$ è connesso se e solo se ogni coppia di vertici di $G$ è congiungibile
+    in $G$
+    \item Ogni componente connessa di $G^{I}$ di $G$ è un grafo connesso
+\end{itemize}
+
+\textbf{Prop:} Siano $G$ e $G^{I}$ due grafi e sia $f:G\to G^{I}$ un morfismo. Valgono:
+\begin{itemize}
+    \item se $v,w\in V(G)$ tale che $v$ è raggiungibile a $w$ in $G$, allora $f(w)$ e $f(v)$ sono 
+    congiungibili in $G^{I}$
+    \item Se $f$ è un isomorfinsmo, allora $v\sim w$ in $G\Leftrightarrow f(v)\sim f(w)$ in $G^{I}$
+\end{itemize}
+
+Corollario: Siano $G$ e $G^{I}$ due grafi isomorfi, siano $\{G_{i}\}_{i\in I}$ le componenti connesse di $G$ e 
+$\{G^{I}_{j}\}_{j\in I}$ le componenti connesse di $G^{I}$. Allora $G$ e $G^{I}$ hanno lo stesso numero di componenti
+connesse e tali componenti sono 2 a 2 isomorfe. Più precisamente, $\exists\varphi:I\to J$ una bigezione talche che 
+$G_{i}\cong G^{I}_{\varphi(i)}\quad\forall i\in I$
+
+Corollario: Due grafi isomorfi sono entrambi connessi o non connessi
+
+\newpage
+\textbf{Relazione fondamentale tra gradi dei vertici e numero dei lati di un grafo finito}
+
+\textbf{Def:}Un grafo $G$ è detto finito se ha un numero finito di vertici
+
+Oss: Un grafo finito possiede anche un numero finito di lati.\\Viceversa è falso, esistono grafi con infiniti vertici
+e finiti lati.
+
+\textbf{Def:} Sia $G$ un grafo finito e sia $v\in V$. Definiamo il grado $deg_{G}(v)$ di $v$ in $G$ ponendo:
+\begin{center}
+    $deg_{G}(v):=|\{e\in E\mid v\in E\}|$
+
+    \small{(o numero di lati che escono da $v$)}
+\end{center}
+
+\marginpar{20/05/21}
+\textbf{Prop:} Sia $G=(V,E)$ un grafo finito. Allora:
+\begin{center}
+    $\sum_{v\in V}\ deg_{G}(v)=2|E|$
+\end{center}
+
+\textbf{lemma delle strette di mano:} In un grafo finito, il numero di vertici di grado dispari è pari
+
+\textbf{Def:} Sia $G=(V,E)$ un grafo finito con $n$ vertici, definiamo con \textit{score} di $G$, con il simbolo
+$score(G)$, come la n-upla di interi equali ai gradi dei vertici di $G$.\\ Diremo che lo score è in \textit{forma
+canonica} se la successione è ordinata in modo non decrescente
+
+\textbf{Prop:} Siano $G$ e $G^{I}$ due grafi isomorfi, vale:
+\begin{center}
+    $score(G)=score(G^{I})$
+\end{center}
+Il contrario è falso, esistono grafi non isomorfi ma con score pari.
+
+\textbf{Grafi 2-connessi e grafi di Hamilton}
+
+\textbf{Def:} Sia $G=(V,E)$ un grafo finito con almeno 2 vertici e sia $v\in V$. definitamo $G-v$ il grafico
+ottenuto da $G$ rimuovendo $v$, ponendo:
+\begin{center}
+    $V(G-v):=V/\{v\},\quad E(G-v):=\{e\in E, v\notin V\}$
+\end{center}
+
+\textbf{Def:} un grafo $G$ si dice \textit{2-connesso} se ha almeno 3 vertici e $\forall v\in V(G)$, $G-v$ è connesso
+
+\textbf{Lemma:} ogni grafo 2-connesso è anche connesso. il contrario non vale.
+
+\textbf{Def:} Sia $G$ un grafo. UN ciclo in $G$ che attraversa tutti i vertici di $G$ è detto \textit{ciclo 
+Hamiltoniano}. Se $G$ ammette almeno un ciclo Hamiltoniano è  detto \textit{grafo Hamiltoniano}
+
+Oss: Un Hamiltoniano è  sempre un grafo finito e ha almeno 3 vertici
+
+\textbf{Lemma:} Un grafo Hamiltonianoè anche 2-connesso
+
+
 \end{document}

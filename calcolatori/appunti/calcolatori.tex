@@ -3,6 +3,9 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage{geometry}
+\geometry{margin=1.2in}
+
 
 
 
@@ -644,9 +647,155 @@ dai banchi dei registri per decidere in quale registro scrivere o dalla memoria 
 se vogliamo leggere o scrivere. Per decidere come utilizzare i vari ingressi di controllo viene 
 utilizzata un'unità specifica.
 
-informazioni di base
-assunzione: il processore lavora sincronizzandosi con i cicli di clock, assumiamo che tutte le 
-  istruzioni si svolgano in un singolo ciclio di clock
+figura slide 10
+
+\subsection{Reti logiche}
+una rete logica combinatoria consiste in un circuito di porte logiche dove l'output è una funzione statica dell'input.
+Contiene anche elementi di stato, cioé registri, memorie dati e memorie d'istruzioni. Questi elementi di stato sono detti 
+sequenziali perché l'uscita a un ingresso dipende dagli ingressi precendenti. 
+
+\textbf{Flip-flop}\\ L'elemento base per la memorizzazione dei bit è il flip-flop D-latch. Un array di latch forma Un
+registro. Un latch viene definito come asserito o non asserito in base al livello logico che possiede
+
+\subsection{Temporizzazione}
+La temporizzazione è la metodologia che determina quando i segnali possono essere letti o scritti in base al ciclo di clock.
+La più utilizzata è quella dei fronti, cioé della salita o discesa dei fronti di clock.
+
+\subsection{Data path}
+\begin{center}
+  \includegraphics[width=400px]{images/CPU_Structure.jpeg}
+\end{center}
+
+\textbf{Memoria istruzioni}\\ memoria che contiene le istruzioni
+
+\textbf{Program Counter}\\Registro che contiene l'indirizzo dell'istruzione da caricare
+
+\textbf{Sommatore (ALU)}\\ALU specializzata per incrementare in PC
+
+\textbf{ALU}\\Effettua calcoli e confronti, a un parametro di uscita speciale che viene impostato a 1 quando da un confronto
+risulta che i due elementi sono uguali
+
+\textbf{Controllore ALU}\\La ALU viene controllata tramite dei bit di controllo generati da questa unita. Questi bit
+sono determinati dai campi funz3, funz7 e dai due bit ALUop. I bit ALUop sono definiti dall'unità di controllo
+
+\textbf{Banco dei registri}\\prende in entrata i registri dove leggere/scrivere e il dato da scrivere, e in uscita rida i 
+dati letti
+
+\textbf{Unità di memoria dati}\\Questa memoria si differisce dalla memoria istruzioni per la capacità di operare sia 
+in lettura che in scrittura
+
+\textbf{Unità di estensione del segno}\\viene utilizzata per estendere il campo a 12bit a 64bit per applicare l'offset
+usato nei salti condizionali
+
+\textbf{RegWrite}\\Se abilitato scrive nel registro specificato il dato in ingresso
+
+\textbf{ALUSrc}\\Applica un'estensione del segno al secondo operando della ALU
+
+\textbf{PCSrc}\\Applica un'estensione del segno per effettuare dei salti nelle istruzioni contenute nel PCSrc
+
+\textbf{MemRead/MemWrite}\\Determina il tipo di interazione con la memoria dati
+
+\textbf{MemtoReg}\\Determina se il dato inviato al register file provenga dalla ALU o dalla memoria
+
+\textbf{Branch}\\Interagisce con il segnale di zero proveniente dalla ALU per effettuare un salto a istruzione
+
+\textbf{Unità di controllo}\\È una componente che genera tutti i segnali di controllo in base al codice operativo
+dell'istruzione ricevuta da PC. I segnali con la quale interagisce sono ALUSrc, MemtoReg, RegWrite, MemRead, 
+MemWrite, Branch, ALUOp1, ALUOp0
+
+\newpage
+\section{Pipeline}
+Il ciclo di clock è definito dalle istruzioni più lente, per esempio quelle di accesso alla memoria. Per ottimizzare
+i tempi di inattivita vengono implementate le pipelines, che permettono la paralelizzazione dei processi. 
+Generalmente il miglioramente viene calcolato come:
+\begin{center}
+  $tempo\ tra\ due\ istruzioni\ con\ pipeline\ =\ \frac{Tempo\ senza\ pipeline}{Numero\ di\ stadi}$
+\end{center}
+Dove con stati intendiamo le diverse fasi che compongono un'istruzione.\\In realtà questa regola non si può
+applicare perfettamente a causa della durata di alcune istruzione. In generale il miglioramento è inferiore 
+rispetto a quello calcolato tramite la formula.
+
+\subsection{Pipelines e architetture RISC}
+L'architettura RISC offre dei vantaggi specifici che migliorano l'implementazione delle pipelines:
+\begin{itemize}
+  \item Tutte le istruzioni hanno la stessa lunghezza, con conseguente prelievo più efficente
+  \item i codici degli operandi sono in posizione fissa. Questo permette la lettura del register file in 
+  parallelo con la decodifica dell'istruzione
+  \item gli operandi in memoria sono disponibili solo per ld e sd. Questo permette il calcolo degli indirizzi in ALU
+  \item gli accessi allineati permettono un solo ciclo di trasferimento per gli accessi in memoria
+\end{itemize}
+
+\newpage
+\subsection{Hazard}
+A causa del loro funzionamento, alcune istruzioni non possono essere eseguiti in un solo ciclo di clock. Le 
+condizioni che si generano vengono definite \textit{hazard} e possono essere di diverse tipologie
+
+\subsubsection{Hazard strutturali}
+L'hazard strutturale è una condizione dove l'archittettura stessa del processore rende impossibile l'esecuzione 
+di alcune istruzioni in pipeline. Per esempio, con una sola memoria non è possibile sia caricare che prelevare 
+operandi nello stesso ciclo di clock.
+
+\subsubsection{Hazard sui dati}
+Questa condizione si verifica quando un'istruzione necessità di dati provenienti da un'istruzione precedente. 
+quindi il processore deve fermare l'istruzione ed attendere finche il necessario dato non viene salvato
+nell'istruzione precedente. In alcuni casi il compilatore è in grado di effettuare alcune ottimizzazioni per 
+ottenere quel risultato. Una di queste ottimizzazioni è \textit{l'operation forwarding}. Nel caso abbiamo due 
+istruzioni algebriche nel quale il risultato della prima è operando della seconda, l'operation forwarding salta 
+la parte di scrittura nel registro del risultato, e lo reinserisce direttamente nella ALU. 
+
+\subsubsection{Hazard sul controllo}
+Quando viene effettuato un salto condizionato, c'è bisogno di attendere il risultato del controllo (o della 
+condizione del salto) per determinare qual'è l'istruzione successiva da caricare. Questo tempo di attesa è un 
+hazard di controllo. Maggiore è il numero di stadi di un'istruzione, maggiore è il ritardo sulla pipeline.\\
+Per risolvere questo hazard vengono usufruiti vari metodi per la previsione del salto. Uno di questi consiste
+nel caricamento dell'istruzione successiva, e nel caso le condizioni di salto siano positive, l'istruzione viene
+abortita dalla pipeline e sostituita con quelle espressa nel salto. Questo non è il metodo più efficente, infatti
+esistono circuiterie più complesse che permettono di memorizzare l'esito del branch e mantenere un comportamento
+coerente
+
+\newpage
+\section{Gerarchia di memoria}
+\subsection{Terminologia}
+\textbf{Memoria indirizzata direttamente}\\Di tipo volatile, è limitata dallo spazio di indirizzamento del processore
+e accessibile in qualsiasi momento nella memoria principale
+
+\textbf{Memoria indirizzata indirettamente}\\Di tipo permanete, possiede uno spazio di indirizzamento di tipo 
+software. Generalmente è il sistema operativo a gestire il passaggio tra memoria principale e periferica
+
+\textbf{Tempo di accesso}\\Tempo richiesto per una operazione in lettura o scrittura
+
+\textbf{Tempo di ciclo}\\Il tempo dell'intervallo tra due operazioni consecutive
+
+\textbf{Accesso casuale}\\I dati non sono ne in ordine ne condividono alcuna relazione. Accesso tipico di memorie a
+semiconduttori
+
+\textbf{Accesso sequenziale}\\L'accesso alla memoria è ordinato o semi-ordinato. Il tempo d'accesso dipende dalla
+posizione
+
+\textbf{RAM (Random Access Memory)}\\Memoria in lettura/scrittura a semiconduttori
+
+\textbf{ROM (Read Only Memory)}\\Memoria a semiconduttori in sola lettura
+
+\subsection{Tipi di memoria}
+\subsubsection{Memorie RAM}
+Le RAM memorizzano singoli bit in byte e/o word. Può supportare il parallelismo della capacità (128K $\times4$),
+questo influenza il numero di pin I/O
+
+\subsubsection{Memorie statiche (SRAM)}
+In questo tipo di memoria, i bit possono essere tenuti indefinitamente, finche è presente l'alimentazione. Sono 
+estremamente veloci e consumano poca corrente, il tutto a un costo maggiore.
+
+Sono formate da una linea word che determina l'appertura di due interruttori $T_{1}$ e $T_{2}$ che isolano 
+un latch. Infine il dato viene trasmesso tramite due linee $d$ e $d^{I}$, dove $d^{I}=NOT(d)$
+
+\subsubsection{RAM Dinamiche (DRAM)}
+Economiche e a alta densità, mantengono la carica attraverso un codensatore. Necessitano di un \textit{refresh}
+continuo per mantenere il dato, il che aumenta i consumi.
+
+È formata da un interruttore che chiude il circuito a un condensatore, da due linee di word e di bit e un \textit{
+sense amplifier}, cioé un circuito che mantiene la tensione sul condensatore. Il sense aplifier viene attivato a 
+ogni ciclo di lettura, quindi il chip di memoria contiene un circuito per una lettura periodica di tutta la memoria
+
 
 
 \end{document}
