@@ -860,4 +860,109 @@ Oss: Un Hamiltoniano è  sempre un grafo finito e ha almeno 3 vertici
 \textbf{Lemma:} Un grafo Hamiltonianoè anche 2-connesso
 
 
+\newpage
+\section{thirteenth week}
+\textbf{Foglia:} sia $G=(V,E)$ un grafico e sia $v\in V$. Diciamo che $v$ è una \textit{foglia} di $G$ se 
+$deg_{G}(v)=1$
+
+\textbf{Lemma:} Un grafo 2-connesso o hamiltoniano non possiede foglie
+
+\textbf{Lemma:} Siano $G$ e $G^{I}$ due grafi isomorfi. Valgono le seguenti affermazioni:
+\begin{itemize}
+    \item $G$ è 2-connesso solo se lo è anche $G^{I}$
+    \item $G$ è Hamiltoniano solo se lo è anche $G^{I}$
+\end{itemize}
+
+\textbf{Note:} per determinare l'isomorfismo di un grafo, possiamo verificare alcune caratteristiche:
+\begin{itemize}
+    \item $score(G)=score(G^{I})$
+    \item $G$ e $G^{I}$ sono entrambi connessi o meno. Il numero di componenti connesse è lo stesso
+    \item entrambi sono 2-connessi o meno
+    \item entrambi sono Hamiltoniani o meno
+    \item hanno lo stesso numero di sottocili
+    \item scelto un vertice di $G$ di grado $k$, allora tutti $k$ vertici collegati a $f(v)$ devono avere lo 
+    stesso score di quelli collegati a $v$
+\end{itemize}
+Se tutte queste regole sono rispettate non per forza i due grafi sono isomorfi. Il modo pià accurato per determinare
+l'isomorfismo è di generarne uno a mano 
+
+\textbf{Lemma:} Sia $n\in\mathbb{N}$ con $n\geq 1$, allora se $G=(V,E)$ è un grafo con $n$ vertici, vale:
+\begin{center}
+    $deg_{G}(v)\leq n-1\qquad\forall v\in V$
+\end{center}
+
+Corollario: Sia $n\in\mathbb{N}$ con $n\geq 1$ e sua $d=(d_{1},...,d_{n})\in\mathbb{N}^{n}$ ordinato. Se 
+$d_{n}>n-1$ allora nessun grafo avrà $d$ come score (ost 1)
+
+Oss: Siano $n,m\in\mathbb{N}/\{0\}$ e  sia $d\in\mathbb{N}^{n+m}$ in forma $(0_{1},...,0_{m},d_{1},...,d_{n})$ 
+ordinata. Definiamo $d^{I}$ come $d$ senza gli zero. Anche $d^{I}$ è score del grafo
+
+\textbf{Lemma:} Siano $n,k\in\mathbb{N}/\{0\}$ tale che $k<n$ e $h:=n-k$ e $d$ score in forma $(d_{1},...,d_{h},
+n-1_{1},...,n-1_{k})$ ordinata. Se $d_{1}<k$ allora $d$ non è score di un grafo (ost 2)
+
+\marginpar{27/05}
+\textbf{Lemma:} Sia $n\in\mathbb{N}$ con $n\geq 3$, sia $d=(d_{1},...,
+d_{n})\in\mathbb{N}^{n}$ ordinato e sia $L$:
+\begin{center}
+    $L:=|\{i\in\{1,..., n-2\}\mid d_{i}\geq 2\}|$
+\end{center}
+Se $L<d_{n-1}+d_{n}-n$, allora d non è score di un grafo (ost3)
+
+\textbf{Lemma:} Sia $n\in\mathbb{N}/\{0\}$ e $d\in\mathbb{N}^{n}$ un vettore ordinato tale che $d_{1}\leq ...\leq
+d_{n}\leq 2$. Vale:
+\begin{itemize}
+    \item se $d=(0_{1},...,0_{n-1},2)$ oppure $n\geq 2$ e $d=(0_{1},...,0_{n-2},2,2)$, allora non è un grafo
+    \item Se $d=(0,...,0)$ allora $d$ è lo score di un grafo con $n$ vertici isolati. Se esiste $m\in\mathbb{N}$
+    tale che $n\geq m\geq 3$ e $d=(0_{1},...,0_{n-m},2_{1},...,2_{m})$ allora $d$ è lo score del grafico con $n-m$
+    vertici isolati e $m$ vertici in ciclo
+\end{itemize}
+Se per $k\in\mathbb{N}$ volte lo score è pari a 1 allora il grafo è formato da $k/2$ segmenti
+
+Corollario: Se il numero di $d=1$ è pari, allora $d$ è lo score di un grafo solo se $d$ non ha le forme:
+\begin{center}
+    $d=(0,...,0,2)\quad$ oppure $\quad d=(0,...,0,2,2)$
+\end{center}
+
+\textbf{Teorema dello score}\\
+Sia $n\in\mathbb{N}$ con $n\geq 2$ e $d\in\mathbb{N}^{n}$ tale che $d_{1}\leq ...\leq d_{n}\leq n-1$. definiamo il 
+vettore ponendo:
+\begin{center}
+    $d_{i}^{I}
+    \begin{cases}
+        d_{i} & se\ i<n-d_{n}\\
+        d_{i}-1 & se\ i>n-d_{n}
+    \end{cases}
+    \qquad\forall i\in\{1,...,n-1\}$
+\end{center}
+$d$ è lo score di un grafo solo se lo è $d^{I}$
+
+\newpage
+\section{fourteenth week}
+\textbf{Alberi}\\Un grafo si dice albero se è connesso e senza cicli. Una foresta è un grafo senza cicli
+
+\textbf{Teorema:} Sia $T=(V,E)$ un grafo. Le seguenti affermazioni sono equivalenti:
+\begin{enumerate}
+    \item $T$ è un albero
+    \item Per ogni $v,\ v^{I}\in V$, esiste un unico cammino in $T$ che congiunge $v$ a $V^{I}$
+    \item $T$ è connesso e, per ogni $e\in E$, il grafo $T-e$ è sconnesso
+    \item $T$ non ha cicli e, per ogni $e\in\binom{V}{2}\backslash E$, il grafo $T+e$, definito ponendo $T+e:=(V,
+    E\cup\{e\})$, ha almeno un ciclo
+    \item $T$ è connesso e soddisfa la seguente formula di eulero:
+    \begin{center}
+        $|V|-1=|E|$
+    \end{center}
+\end{enumerate} 
+
+\textbf{Lemma:} Sia $T$ un albero finito avente almeno 2 vertici. Allora $T$ ha almeno 2 foglie
+
+Osservazione: Il precedente lemma non vale se l'albero è infinito
+
+\textbf{Teorema:} La connessione di $T$ non può essere omessa per l'applicazione della formula di eulero
+
+\textbf{Corollario:} Sia $n\in\mathbb{N}\backslash\{0\}$ e sia $d\in\mathbb{N}^{n}$. Allora esiste un albero con 
+score $d$ se e solo se:
+\begin{center}
+    $n-1=\frac{1}{2}(\sum^{n}d_{i})$
+\end{center}
+
 \end{document}

@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1621677050 "/home/marco/Documents/uni/fmi/appunti/FMI.tex" "/home/marco/Documents/uni/fmi/appunti/FMI.pdf" "FMI" 1621677050
+["pdflatex"] 1622561760 "/home/marco/Documents/uni/fmi/appunti/FMI.tex" "/home/marco/Documents/uni/fmi/appunti/FMI.pdf" "FMI" 1622561761
   "/etc/texmf/web2c/texmf.cnf" 1614952470 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk" 1615996494 12644 110c7c52377ff161b0d91edaa1aeecfe ""
-  "/home/marco/Documents/uni/fmi/appunti/FMI.aux" 1621677050 1186 fa4c964bd9f764b750056e81704a8f24 ""
-  "/home/marco/Documents/uni/fmi/appunti/FMI.tex" 1621677050 33161 a913612ca4feb5dcfd300b8a773f9aa9 ""
+  "/home/marco/Documents/uni/fmi/appunti/FMI.aux" 1622561761 1392 e0b791d45fb8fe22a6c36e1f75a02249 ""
+  "/home/marco/Documents/uni/fmi/appunti/FMI.tex" 1622561760 37812 4390ccdd1f3168416c5a8fc696ab17c5 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -67,11 +67,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1596975543 38841 5237427e4d3283e7b009b6a8b45dfdcd ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1614952478 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1619283104 1156112 4de30183ffd53b7aad759bf0db996b20 ""
-  "FMI.aux" 1621677050 1186 fa4c964bd9f764b750056e81704a8f24 "pdflatex"
-  "FMI.tex" 1621677050 33161 a913612ca4feb5dcfd300b8a773f9aa9 ""
+  "FMI.aux" 1622561761 1392 e0b791d45fb8fe22a6c36e1f75a02249 "pdflatex"
+  "FMI.tex" 1622561760 37812 4390ccdd1f3168416c5a8fc696ab17c5 ""
   (generated)
   "FMI.log"
-  "/home/marco/Documents/uni/fmi/appunti/FMI.pdf"
-  "FMI.pdf"
-  "FMI.aux"
   "/home/marco/Documents/uni/fmi/appunti/FMI.log"
+  "FMI.pdf"
+  "/home/marco/Documents/uni/fmi/appunti/FMI.pdf"
+  "FMI.aux"

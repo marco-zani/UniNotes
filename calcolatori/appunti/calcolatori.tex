@@ -509,37 +509,29 @@ effettuata su 8/16/32/64bit
 
 \newpage
 \section{ARM}
-- Advanced Risc Machine
-- usato nei sistemi embedded e in smartphone e tablet
-- 16 registri e modalità d'indirizzamento potenti
-- precisazioni, ARM è una famiglia di CPU, con ISA differenti ma simili fra loro 
+L'archittettura ARM (o Advanced Risc Machine) è usata nei sistemi embedded e in smartphone e tablet. È caratterizzato
+dall'utilizzo di 16 registri e modalità d'indirizzamento potenti. 
 
-registri
-- 16 registri a 32 bit, r0-r15, quasi tutti general purpouse (r15 non lo è)
- - alcuni registri hanno sinonimi: r13=sp(stack pointer) e r14=lr(link register)
- - Application Program Status Register (apsr) / Current Program StatusRegister (cpsr) ?
- - r15 contiene il pc(program counter) e i flags (bit 28..31)
- - flags: z | c | n | v
-  - eq/ne: equal/not equal => z = 1/0
-  - hs/lo: higher or same/lower => c = 1/0
-  - mi/pl: negativo o positivo => n = 1/0
-  - vs/vs: presenza o meno di overflow => v = 1/0
-  - hi: higher => c = 1 | z = 0
-  - ls: lower or same => c = 0 oppure z = 1
-  - ge: greater or equal => n = 1 | v = 1 oppure n = 0 | v = 0
-  - lt: less than => n = 1 | v = 0 oppure n = 0 | v = 1
-  - gt: greater than => come ge ma con z = 0
-  - le: less or equal => come lt, ma esegue anche se z = 1
+NB: ARM è una famiglia di CPU, con ISA differenti ma simili fra loro 
 
-Convenzioni di chiamata
-- r0-r3 sono registri temporanei non preservati, con più di 4 argomenti si usa lo stack
-- r4-r11 registri preservati (in alcune ABI r9 non è preservato)
-- r0-r1 valori di ritorno
+\subsection{Registri}
+I 16 registri a 32 bit, r0-r15, sono quasi tutti general purpouse (eccezion fatta per r15). Alcuni registri sono
+muniti di sinonimi: r13=sp(stack pointer) e r14=lr(link register). Il registro r15 contiene il PC e i flag 
+che sono contenuti negli ultimi 4 bit.
+ 
+\subsection{Convenzioni di chiamata}
+Le convenzioni di chiamata non fanno parte dell'archittettura, ma le varie ABI condividono determinati elementi
 
-Indirizzamento
-- istruzioni prevalentemente a 3 argomenti
- - operando sinistro = registro, operando destro = immediato o registro
-- accesso alla memoria con ldr/str (load register/store register) e ldm/stm (load/store multiple)
+I registri r0-r3 sono registri temporanei non preservati, nel caso ci siano più di 4 argomenti viene usato lo stack.
+I registri r4-r11 invece vengono preservati, e i valori di ritorno vengono immagazzinati in r0-r1
+
+
+
+\subsection{Indirizzamento}
+Le istruzioni generalemente usufruiscono di 3 argomenti:l'identificatore dell'istruzione, l'operando sinistro (registro)
+, operando destro(immediato o registro). L'accesso alla memoria avviene tramite le istruzioni ldr/str 
+(load register/store register) e ldm/stm (load/store multiple).\\Gli operandi in memoria vengono indirizzati tramite
+una base più un offset (immediato) o indice.
 
 
 
@@ -795,6 +787,171 @@ continuo per mantenere il dato, il che aumenta i consumi.
 È formata da un interruttore che chiude il circuito a un condensatore, da due linee di word e di bit e un \textit{
 sense amplifier}, cioé un circuito che mantiene la tensione sul condensatore. Il sense aplifier viene attivato a 
 ogni ciclo di lettura, quindi il chip di memoria contiene un circuito per una lettura periodica di tutta la memoria
+
+Dato che le DRAM sono molto capienti, le celle sono suddivise in righe e colonne, e i loro pin per I/O vengono 
+gestiti in modo da trasmettere sugli stessi pin sia gli indirizzi di riga e colonna. Questa divisione in righe e
+colonne viene riferita attraverso byte.
+
+Il trasferimento di dati avviene in blocchi. Per ottimizzare il processo, si evita di riselezionare la riga ad ogni
+accesso. Questo metodo è chiamato Fast Page Mode (FPM)
+
+Le DRAM vengono definite asincrone dato che l'accesso viene definito dai segnali RAS e CAS. Per questo vengono aggiunti
+dei buffer che caricano i dati per poi essere usati dalla CPU ad ogni giro di clock
+
+\textbf{Terminologia:}\\Latenza: tempo di accesso a una parola\\Velocità/banda: velocità di trasferimento in FPM
+
+\subsubsection{Double Data Rate SDRAM}
+Le DDR-SDRAM sono delle memorie sincrone che trasferiscono dati sia sul fronte positivo che negativo di clock. I
+dati pari e dispari sono organizzati in due banchi di memoria. Questa tecnica mantiene la stessa latenza raddopiando 
+la banda.
+
+\subsection{Gerarchia di memoria}
+Le memorie, come visto, hanno velocità e capacità diverse. Per ottenerle entrambe si danno al processore l'illusione 
+di avere una memoria veloce e estesa spostando dati tra tipi di memoria in base a due metodi di utilizzo:
+
+\textbf{Località temporale}\\
+Quando viene usata una locazione di memoria, è probabile che venga riutilizzata in poco tempo
+
+\textbf{Località spaziale}\\
+Quando viene usata una locazione di memoria, è probabile che vengano usate le locazioni vicine
+
+Questi dati vengono spostati fra vari livelli di memoria più (livelli alti) o meno (livelli bassi) vicini al
+processore.
+
+\subsubsection{Terminologia}
+\textbf{Blocco:} unità di informazione
+
+\textbf{Hit Rate:} Frazione degli accessi in cui trovo i dati al livello superiore
+
+\textbf{Miss Rate:} frazione degli accessi in cui non trovo i dati al livello superiore
+
+\textbf{Tempo di hit:} tempo necessario per accedere a un dato trovato al livello superiore
+
+\textbf{Penalità di miss:} tempo necessario per accedere a un dato non trovato al livello superiore
+
+\subsubsection{Cache}
+La cache è una locazione di memoria completamente trasparente al programmatore dove vengono riposti alcuni dati.
+Per determinare un indirizzo di memoria a uno di cache, viene usata la mappatura diretta, cioé ad ogni indirizzo 
+della memoria corrisponde un indirizzo preciso nella cache. Per determinare la presenza di un determinato dato viene 
+usato un \textit{tag} (che contiene una parte del dato sufficente a effettuare il riconoscimento, generalemente i 
+bit più significativi) e un bit di validità
+
+L'indirizzo di un blocco viene dato da $\frac{indirizzo\ del\ dato}{byte\ per\ blocco}$ e identificato come 
+(indirizzo blocco) modulo (numeri blocchi nella cache)
+
+\textbf{Trade-off}
+I blocchi di cache di grandi dimensioni riducono la probabilità di miss ma diminuisce l'efficacia della località
+temporale e aumenta il costo di gestione (o spostamento di byte)
+
+\textbf{Gestione delle miss}
+In caso di miss viene generato uno stallo nella pipeline per gestire il trasferimento di dati dalla memoria principale
+alla cache.
+
+Le scritture vengono gestite con la stessa logica per garantire la consistenza dei dati. Il \textit{Write-through}
+è una politica di gestione che scrive in memoria principale indipendemente dalla presenza di hit o miss. In 
+alternativa c'è il \textit{Write back}, cioé le scritture avvengono in cache e l'update in memoria principale avviene
+solo con il rimpiazzamento del blocco o accesso da parte di un altro core
+
+\subsubsection{Cache associative}
+Le cache con mappatura diretta generano miss quando delle locazioni di memoria si mappano sullo stesso blocco. Perciò
+vengono usate le cache associative.\\Le cache \textit{completamente associative } usano l'intero indirizzo di blocco come tag. 
+Per una ricerca efficente bisogna usare n compattatori pari al numero di blocchi da processare in parallelo. Questo è
+parecchio costoso in termine di hardware, perciò viene usato solo su cache molto piccole. In alternativa si usa la 
+cache \textit{set-associativa}, che consiste in una cache dove un blocco di memoria è mappato su una linea contenente n
+blocchi diversi. Sui blocchi facenti parte della linea viene effettuata una ricerca parallela
+
+Per quello che riguarda gli indirizzi, nella mappatura set-associativa, indirizzo è dato da (indirizzo blocco) modulo 
+(numero linee della cache)
+
+Nelle cache associative, quando la linea è piena viene usata una politica di sostituzione su base FIFO o Least Recently 
+Used (lettura)
+
+\newpage
+\section{I/O}
+I dispositivi di I/O sono essenziali per il funzionamento di un calcolatore. Essi devono essere eterogenei ed 
+espandibili, e rispettare prestazioni specifiche, in genere la latenza o il throughput.\\ I dispositivi sono collegati
+al processore tramite un bus
+
+\textbf{Classificazione}\\ I dispositivi I/O vengono classificati in base a comportamento, partner (uomo o macchina)
+e velocità di trasferimento
+
+\subsection{Bus}
+Come accennato i bus si occupano di connettere il processore con i dispositivi I/O. Esistono due tipi di bus:
+\begin{itemize}
+  \item Bus processore/memoria: bus corti, ad alta velocità di trasmissione
+  \item Bus I/O: bus lunghi che connettono periferiche eterogenee. Tipicamente non si connettono direttamente al 
+  processore ma a un bus processore/memoria o a un bus di sistema
+\end{itemize}
+
+\textbf{Terminologia}
+\begin{itemize}
+  \item Transazione di I/O: invio indirizzo e spedizione/ricezione dati
+  \item Input: trasferimento dati verso il processore
+  \item Output: trasferimento dati dalla memoria verso il dispositivo
+\end{itemize}
+
+\subsubsection{Bus sincrono}
+Le comunicazioni avvengono con un protocollo collegato al ciclo di clock. Questa tipologia è molto semplice da 
+implementare e molto veloce, però risulta meno robusto al drift di clock, e in più tutte le periferiche devono 
+andare a velocità di clock
+
+\subsubsection{Bus asincrono}
+In alternativa al bus sincrono si usa quello asincrono. Il suo funzionamento funziona su base di segnali chiamati 
+\textit{handshake}. Questo permette una maggiore robustezza ai ritardi e rende le periferiche indipendenti dal clock
+del processore. Come contro però risulta lento nelle interazioni e richiede una circuiteria più complessa
+
+Nelle tecnologie odierne vengono usati dei bus ibridi, ma principalmente asincroni
+
+\subsection{SO}
+Un sistema operativo deve gestire i permessi di accesso a un dispositivo I/O, fornire comandi di alto livello per
+gestire operazioni di basso livello, gestire le interruzioni generate dai dispositivi I/O e fornire l'accesso a un 
+dispositivo ai vari programmi in maniera equa.\\Per supportare tutte queste funzioni il SO deve essere in grado di 
+inviare comandi alle periferiche, permettere ai dispositivi di notificare una corretta esecuzione di un'operazione e
+consentire trasferimenti diretti di dati tra dispositivo e memoria
+
+\textbf{Comandi ai dispositivi}\\Questo avviene tramite determinate parole di controllo. L'implementazione di questo
+meccanismo funziona tramite la scrittura/lettura in specifiche locazioni di memoria (memory mapped I/O) o tramite
+alcune istruzioni speciali.\\ES:scrivendo una parola in una locazione associata al dispositivo, il sistema ignora la 
+scrittura, mentre il controllore di I/O intercetta l'indirizzo e lo converte in comando al dispositivo.
+
+\textbf{Trasmissione/Ricezione dati}\\Per la trasmissione viene usata la attesa attiva, o \textit{polling}, cioé 
+viene inviato un comando di scrittura/lettura alla periferica e poi si entra in un ciclo di attesa fino a quando
+il dato è pronto. Questo può essere applicabile quando le operazioni di I/O avvengono a una velocità predeterminata,
+in altri casi il tempo di attesa diventa troppo dispendioso per il processore. Perciò viene usato l'I/O a interruzione
+di programma (interrupt driven I/O).\\Un'interruzione I/O è un segnale usato per segnalare al processore che la 
+periferica è pronta ad effettuare il trasferimento. Queste interruzioni sono sempre asincrone e possono avere vari 
+gradi di urgenza. Il vantaggio di questo metodo è che l'interruzione arriva solamente quando il dato è pronto ad
+essere trasferito in memoria, il tutto però richiede un hardware speciale in grado di generare e gestire le 
+interruzioni. Per gestire queste interruzioni vengono generate delle eccezioni.
+
+\newpage
+\subsection{Eccezioni}
+Un'eccezione è un trasferimento non programmato del controllo del programma. Il sistema per gestire delle eccezioni 
+registra il punto di interruzione, salva lo stato e come riprendere il processo a eccezione finita. Esistono 3 tipi 
+di eccezione:
+\begin{itemize}
+  \item Interrupts: causate da eventi esterni I/O, sono asincrone e possono essere gestite facilmente nello spazio
+  tra due istruzioni
+  \item Traps (eccezioni): causate da eventi interni al programma (condizioni eccezionali, errori e fault), sono 
+  sincrone al programma e vengono gestite da un trap handler che riprova l'istruzione o abortisce il programma
+  \item Environment call/break
+\end{itemize}
+
+Le eccezioni vengono gestite tramite un Exception Handler, che gestisce l'eccezione tramite vettore d'interruzione
+o salto all'indirizzo della routine di gestione. In entrambi i casi però, l'exception handler deve preservare lo stato
+della macchina.
+
+\textbf{salto alla routine di gestione}\\Si effettua un salto nel PC a un indirizzo specifico, questo permette di
+evitare di passare dalla memoria, ma richiede che nella routine di gestione venga analizzata la causa dell'eccezione
+
+\textbf{Vettore d'interruzione}\\In una tabella vengono memorizzati gli indirizzi delle routine di gestione per ogni
+possibile causa di eccezione. Questo metodo richiede però il passaggio in memoria per prelevare l'indirizzo della 
+routine di gestione
+
+Nel momento in cui viene generata un'eccezione, lo stato della macchina può essere salvato in stack, su registri 
+ausiliari (più o meno visibili) o in registri speciali. In Risc-V vengono usati sia lo stack che dei registri 
+speciali. Quest'ultimi in particolari sono situati in un banco interno al processore chiamato Control Status Register
+(CSR)
 
 
 

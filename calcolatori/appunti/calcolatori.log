@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.24)  24 MAY 2021 20:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.4.24)  5 JUN 2021 19:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -267,7 +267,12 @@ File: images/RISC-V_RegisterConvention.jpeg Graphic file (type jpg)
 <use images/RISC-V_RegisterConvention.jpeg>
 Package pdftex.def Info: images/RISC-V_RegisterConvention.jpeg  used on input line 426.
 (pdftex.def)             Requested size: 351.31378pt x 176.68504pt.
- [15 </home/marco/Documents/uni/calcolatori/appunti/images/RISC-V_RegisterConvention.jpeg>] [16] [17] [18] [19]
+ [15 </home/marco/Documents/uni/calcolatori/appunti/images/RISC-V_RegisterConvention.jpeg>] [16] [17] [18]
+Overfull \hbox (9.14906pt too wide) in paragraph at lines 531--535
+\OT1/cmr/m/n/12 Le istruzioni gen-erale-mente usufruis-cono di 3 ar-go-menti:l'identificatore dell'istruzione,
+ []
+
+[19]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 14.49998pt.
@@ -278,9 +283,9 @@ This may cause the page layout to be inconsistent, however.
 <images/CPU_Structure.jpeg, id=82, 1190.4475pt x 744.7825pt>
 File: images/CPU_Structure.jpeg Graphic file (type jpg)
 <use images/CPU_Structure.jpeg>
-Package pdftex.def Info: images/CPU_Structure.jpeg  used on input line 666.
+Package pdftex.def Info: images/CPU_Structure.jpeg  used on input line 658.
 (pdftex.def)             Requested size: 401.50146pt x 251.18846pt.
- [23] [24 </home/marco/Documents/uni/calcolatori/appunti/images/CPU_Structure.jpeg>] [25] [26] [27] [28] [29] (/home/marco/Documents/uni/calcolatori/appunti/calcolatori.aux) ) 
+ [23] [24 </home/marco/Documents/uni/calcolatori/appunti/images/CPU_Structure.jpeg>] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] (/home/marco/Documents/uni/calcolatori/appunti/calcolatori.aux) ) 
 Here is how much of TeX's memory you used:
  2482 strings out of 482854
  34489 string characters out of 5956881
@@ -290,10 +295,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  36i,10n,45p,288b,230s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on /home/marco/Documents/uni/calcolatori/appunti/calcolatori.pdf (29 pages, 430050 bytes).
+Output written on /home/marco/Documents/uni/calcolatori/appunti/calcolatori.pdf (34 pages, 442261 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 104 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

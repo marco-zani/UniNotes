@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1621772571 "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" "/home/marco/Documents/uni/statistica/appunti/Statistica.pdf" "Statistica" 1621772571
+["pdflatex"] 1622123441 "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" "/home/marco/Documents/uni/statistica/appunti/Statistica.pdf" "Statistica" 1622123441
   "/etc/texmf/web2c/texmf.cnf" 1614952470 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk" 1615996494 12644 110c7c52377ff161b0d91edaa1aeecfe ""
-  "/home/marco/Documents/uni/statistica/appunti/Statistica.aux" 1621772571 5009 6563cc9d9b6743587a64921e0738d8cf ""
-  "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" 1621772570 39834 cb4e2ebdeb6729cdc9fc27c3cf1540ce ""
+  "/home/marco/Documents/uni/statistica/appunti/Statistica.aux" 1622123441 5009 6563cc9d9b6743587a64921e0738d8cf ""
+  "/home/marco/Documents/uni/statistica/appunti/Statistica.tex" 1622123441 39897 5c0c35e8d498f74b698b678dd02cdc91 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm" 1136768653 1536 02c06700a42be0f5a28664c7273f82e7 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -77,11 +77,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1596975543 38841 5237427e4d3283e7b009b6a8b45dfdcd ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1614952478 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1619283104 1156112 4de30183ffd53b7aad759bf0db996b20 ""
-  "Statistica.aux" 1621772571 5009 6563cc9d9b6743587a64921e0738d8cf "pdflatex"
-  "Statistica.tex" 1621772570 39834 cb4e2ebdeb6729cdc9fc27c3cf1540ce ""
+  "Statistica.aux" 1622123441 5009 6563cc9d9b6743587a64921e0738d8cf "pdflatex"
+  "Statistica.tex" 1622123441 39897 5c0c35e8d498f74b698b678dd02cdc91 ""
   (generated)
-  "Statistica.log"
   "/home/marco/Documents/uni/statistica/appunti/Statistica.log"
-  "Statistica.pdf"
   "Statistica.aux"
+  "Statistica.log"
+  "Statistica.pdf"
   "/home/marco/Documents/uni/statistica/appunti/Statistica.pdf"
