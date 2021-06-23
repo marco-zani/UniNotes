@@ -965,4 +965,76 @@ score $d$ se e solo se:
     $n-1=\frac{1}{2}(\sum^{n}d_{i})$
 \end{center}
 
+\newpage
+\section{Esercizi}
+\subsection{Dimostrazione per induzione}
+Trovo una base dell'induzione (0,1,...) e dimostro l'eguaglianza. Poi applico il passo induttivo (n+1).
+Applico l'ipotesi induttiva, cioé faccio valere l'uguaglianza in n. 
+\subsection{Sistema di congruenze}
+Es:$\begin{cases}
+    x\equiv 4 (mod\ 112)\\
+    x\equiv 20 (mod\ 50)
+\end{cases}$
+\begin{enumerate}
+    \item Compatibilità: Calcolo l'mcd dei due moduli tramite l'algoritmo di euclide e 
+    verifico che mcd divida la differenza tra i due valori. Grazie al teorema cinese del resto
+    sapremo che l'insieme delle soluzioni è vuoto o meno. Mi tengo da parte la formula (1) che
+    consiste nell'uguaglianza tra la differenza dei due valori e l'mcd dei due moduli per il loro 
+    moltiplicando
+    \begin{center}
+        $(112,50)=2\qquad 2|20-4$\\
+        $20-4=8\cdot(112,50)^{(1)}$
+    \end{center}
+    \item Calcolo di una soluzione: Proseguo con l'algoritmo di euclide e ottengo la formula (2).
+    Adesso unisco le formule (1) e (2) ottenendo una soluzione del sistema
+    \begin{center}
+        $(112,50)=50\cdot 9 - 4\cdot 112^{(2)}$\\
+        $20-4=8(9\cdot 50-4\cdot 112\Rightarrow 20-72\cdot(50)=4-32\cdot 112=-3580$
+    \end{center}
+    \item Calcolo di S: inserisco la soluzione trovata nella classe pari al mcm dei due moduli,
+    normalizzo la classe e ottengo l'insieme delle soluzioni
+    \begin{center}
+        $[112,50]=\frac{122\cdot 50}{(112,50)}=2800$\\
+        $[-3500]_{2800}=[2020]_{2800}\Rightarrow\{2020+2800k\in\mathbb{Z}\mid k\in\mathbb{Z}\}$
+    \end{center}
+\end{enumerate}
+\subsection{RSA}
+Es: $x^{25}\equiv 8(mod\ 63)$
+\begin{enumerate}
+    \item Applicabilità: verifico che l'MCD tra valore e modulo e l'MCD tra esponente e phi del modulo 
+    diano come risultato 1, se si allora RSA è applicabile
+    \begin{center}
+        $(8,63)=(2^{3},3^{2}\cdot 7)=1$\\
+        $(25,\Phi(63))=(25,36)=(5^{2},2^{2}\cdot 3^{2})=1\qquad \Phi(63)=(3^{2}-3^{1})(7^{1}-7^{0})
+        =6\cdot 6=36$
+    \end{center}
+    \item Calcolo di S: Applico l'algoritmo di Euclide al phi del modulo e l'esponente. Il risultato lo applico
+    alla classe di Phi modulo. Applico le trasformazioni e ottengo l'inverso della classe dell'esponente.
+    Utilizzo il risultato trovato e lo imposto come d. Risolvo la classe e ottengo la nostra soluzione
+    \begin{center}
+        algoritmo di euclide di 25 e 36$\rightarrow 1=13\cdot25+(-9)36$\\
+        $[1]_{36}=[13]_{36}[25]_{36}\Rightarrow [25]^{-1}_{36}=[13]_{36}$\\
+        $[8^{13}]_{63}=[8]_{63}[8^{2}]^{6}_{63}=[8]_{63}\Rightarrow S=\{8+63k\in\mathbb{Z}\mid 
+        k\in\mathbb{Z}\}$
+    \end{center}
+\end{enumerate}
+\subsection{Grafi}
+\textbf{Ostruzioni}
+\begin{itemize}
+    \item Ostruzione 1 - Se $d_{n} > n-1$, allora d non è score di un grafo
+    \item Ostruzione 2 - Se $d$ è in forma $(d_{1},...,d_{h},n-1_{1},...,n-1_{k})$ e $d_{1}<k$, allora 
+    $d$ non è score di un grafo
+    \item Ostruzione 3 - Se $d\in\mathbb{N}^{n}$ con $n\geq 3$ e sia $L=|\{i\in\{1,...,n-2\}\mid
+    d_{i}\geq 2\}|$. Se $L<d_{n-1}+d_{n}-n$, allora $d$ non è score di un grafo
+    \item Ostruzione 4 - Se $d$ possiede un numero dispari di componenti dispari, allora $d$ non è score
+    di un grafo
+\end{itemize}
+\textbf{Teorema dello score}:Applicabile se $d_{n}\leq n-1$
+
+\textbf{Formula di Eulero}: Uno score può essere un albero se rispette l'uguaglianza $|V|-1=|E|$ sapendo
+che $|E|=\frac{1}{2}\sum d_{i}$
+
+\textbf{Forzatura alla connessione/sconnessione}: Se un grafo rispetta $|E|<|V|-1$ allora è un grafo 
+sconnesso.\\Al contrario se $v_{0}\geq n - v_{n} -1$ allora è un grafo connesso
+
 \end{document}
