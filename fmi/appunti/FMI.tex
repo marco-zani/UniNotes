@@ -1019,7 +1019,21 @@ Es: $x^{25}\equiv 8(mod\ 63)$
     \end{center}
 \end{enumerate}
 \subsection{Grafi}
-\textbf{Ostruzioni}
+\textbf{Ostruzioni isomorfismi}
+\begin{itemize}
+    \item Ostruzione 1 - Se  $score(G^{I})\neq score(G^{II})$, allora non sono un isomorfismo
+    \item Ostruzione 2 - Se $G^{I}$ e $G^{II}$ hanno un numero diverso di componenti connesse, allora non sono
+    un isomorfismo
+    \item Ostruzione 3 - Se $G^{I}$ e $G^{II}$ non sono entrambi 2-connessi o meno, allora non sono un isomorfismo  
+    \item Ostruzione 4 - Se $G^{I}$ e $G^{II}$ non sono entrambi hamiltoniani o meno, allora non sono un 
+    isomorfismo
+    \item Ostruzione 5 - Se $G^{I}$ e $G^{II}$ non hanno lo stesso numero di sotto grafi n-ciclici, allora non sono
+     un isomorfismo
+    \item Ostruzione 6 - Se i vertici adiacenti a< $v^{i}\in V(G^{I})$ e $f(v^{I})$ non hanno lo stesso grado, 
+    allora non sono un isomorfismo
+\end{itemize}
+
+\textbf{Ostruzioni score}
 \begin{itemize}
     \item Ostruzione 1 - Se $d_{n} > n-1$, allora d non è score di un grafo
     \item Ostruzione 2 - Se $d$ è in forma $(d_{1},...,d_{h},n-1_{1},...,n-1_{k})$ e $d_{1}<k$, allora 
