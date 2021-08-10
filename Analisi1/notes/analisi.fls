@@ -94,7 +94,9 @@ INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
 INPUT /home/marco/Documents/uni/Analisi1/notes/images/trigon.png
 INPUT /home/marco/Documents/uni/Analisi1/notes/images/trigon.png
 INPUT /home/marco/Documents/uni/Analisi1/notes/images/trigon.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcbx1200.tfm
 INPUT /home/marco/Documents/uni/Analisi1/notes/analisi.aux
+INPUT /home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1200.600pk
 INPUT /home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb

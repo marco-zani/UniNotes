@@ -1,10 +1,12 @@
 # Fdb version 3
-["pdflatex"] 1627920999 "/home/marco/Documents/uni/Analisi1/notes/analisi.tex" "/home/marco/Documents/uni/Analisi1/notes/analisi.pdf" "analisi" 1627921012
+["pdflatex"] 1628600743 "/home/marco/Documents/uni/Analisi1/notes/analisi.tex" "/home/marco/Documents/uni/Analisi1/notes/analisi.pdf" "analisi" 1628600747
   "/etc/texmf/web2c/texmf.cnf" 1614952470 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcbx1200.600pk" 1628584765 15056 88cb7df57a48c1a01be270ba384c0eed ""
   "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1614972641 14040 8345d346c47dc2f41f6635e18b5d80ff ""
-  "/home/marco/Documents/uni/Analisi1/notes/analisi.aux" 1627920999 599 48df57ee6fe2e180aa50157b594004b2 ""
-  "/home/marco/Documents/uni/Analisi1/notes/analisi.tex" 1627921011 23437 9795c4e946e802d78ed767c0deaf285f ""
+  "/home/marco/Documents/uni/Analisi1/notes/analisi.aux" 1628600743 1859 8719e5383b28cab0b364ebfc34faad2a ""
+  "/home/marco/Documents/uni/Analisi1/notes/analisi.tex" 1628600747 66080 ad53db366c6742ec93833b3e7ace6190 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcbx1200.tfm" 1136768653 1536 c09172c8f235393e6235bb4758357c41 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -70,12 +72,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1596975543 38841 5237427e4d3283e7b009b6a8b45dfdcd ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1614952478 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1619283104 1156112 4de30183ffd53b7aad759bf0db996b20 ""
-  "analisi.aux" 1627920999 599 48df57ee6fe2e180aa50157b594004b2 "pdflatex"
-  "analisi.tex" 1627921011 23437 9795c4e946e802d78ed767c0deaf285f ""
+  "analisi.aux" 1628600743 1859 8719e5383b28cab0b364ebfc34faad2a "pdflatex"
+  "analisi.tex" 1628600747 66080 ad53db366c6742ec93833b3e7ace6190 ""
   "images/trigon.png" 1627721668 4782 3c9fee9c5c7471679374d7464f3a9da8 ""
   (generated)
   "analisi.aux"
   "analisi.log"
+  "/home/marco/Documents/uni/Analisi1/notes/analisi.log"
   "analisi.pdf"
   "/home/marco/Documents/uni/Analisi1/notes/analisi.pdf"
-  "/home/marco/Documents/uni/Analisi1/notes/analisi.log"
