@@ -1,0 +1,94 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\geometry{margin=1.2in}
+
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+
+\begin{document}
+\section{Introduzione}
+Lo sviluppo di un software segue le seguenti dinamiche: il cliente ha  un problema e dei requisiti che 
+vengono implementati nel software
+
+Un software vive, e di conseguenza si evolve, durante questa evoluzione si sono notate delle 
+caratteristiche come il cambiamento continuo, la complessità incrementale, il declino costante e la 
+crescità continua. 
+
+Il processo software, o l'insieme di attività per lo sviluppo ed evoluzione di un programma, comprende 
+specifica sviluppo convalida ed evoluzione. 
+
+Il processo segue un modello specifico (waterfall, iterative,...). A nostra disposizione abbiamo diversi 
+metodi, strumenti e standard
+
+\newpage
+\section{Processo di sviluppo}
+Il processo di sviluppo stabilisce quando e come qualcuno fa cosa, per raggiungere un determinato obiettivo
+
+\subsection{Scelta e adattamento}
+Per identificare il modello più adatto dipende da vari motivi, tra cui anche il problema da affrontare o il team di 
+sviluppo. In ongi caso le differenze principali fra i vari modelli sono: 
+\begin{itemize}
+    \item flusso delle attività
+    \item dettaglio e rigore del processo
+    \item coinvolgimento degli stake holders
+    \item autonomia del team
+    \item ...
+\end{itemize}
+
+\subsection{Modelli}
+\subsubsection{Modello a cascata}
+il processo di lavoro procede in maniera lineare, senza tornare indietro 
+\begin{center}
+    Comunicazione $\Rightarrow$ pianificazione $\Rightarrow$ modellazione $\Rightarrow$ costruzione 
+    $\Rightarrow$ deployment
+\end{center}
+Questo modello porta il vantaggio della parallelizazione, grazie alla sua struttura simile a una catenda di montaggio.
+Sfortunatamente, se durante la fase di costruzione si trova un problema nel design, necessità di ritornare alla 
+fase di modellazione, rompento il modello
+
+\subsubsection{Modello di processo incrementale}
+Questo modello utilizza sempre il processo a cascata, ma a ripetizione, con incrementi costanti durante tutta
+l'evoluzione del software. Importante da ricordare che il sistema incrementale opera sul software solo per aggiunte,
+non torna mai ad aggiornare le funzioni precedentemente implementate.
+
+\subsubsection{Modello a prototipi}
+Nel caso il cliente non conosca precisamente le specifiche richieste nel progetto, allora si può procedere per 
+prototipi. Seguendo questo modello, si entra in un ciclo di progettazione e feedback del cliente fino a quando non 
+si raggiunge un prototipo che soddisfa i bisogni del cliente.
+
+NB: viene definito nel Def ISO 13407
+
+Il prototipo non deve essere per forza un prodotto finito o funzionante, ma anche un modello finto (o mock-up).
+Generalmente si costruscono un wireframe, ossia una bozza grafica per mostrare la user expirience, e poi 
+successivamente ci si sposta sul mock-up
+
+Uno svantaggio di questo modello è che il cliente potrebbe pensare che il prototipo sia un prodotto finito, 
+e la successiva mediazione con gli sviluppatori può portare a uno sviluppo rapido e di qualità scadente.
+
+\subsubsection{Modello a spirale}
+Il modello a spirale sfrutta una ciclicità basata sul feedback del cliente, per poi riprendere le fasi di
+sviluppo partendo dai risultati del confronto
+
+\subsubsection{Sviluppo a componenti}
+In questo caso si sfruttano componenti software con funzionalità mirate e interfacce ben definite.
+I componenti più semplici risultano riusabili, ma non possono risolvere problemi complessi, per questo si può usare
+una composizione di componenti
+
+\subsubsection{Archittettura orientata ai servizi}
+Una variante dello sviluppo a componenti va a sostituire le componenti con i servizi
+
+\subsubsection{Model-driven Development}
+
+\subsection{Metodologie Agile}
+È un metodo di sviluppo che coinvolge il più possibile il committente, per ottenere una elevata reattività alle
+sue richieste.
+
+
+\end{document}

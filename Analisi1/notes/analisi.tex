@@ -836,6 +836,9 @@ $f(x)\sim g(x)\quad x\to x_{0}$ se
             $(f\cdot g)^{I}$    & $=$ & $f^{I}g +f g^{I}$             & $(\frac{1}{f})^{I}$ & $=$ & $-\frac{f^{I}}{f^{2}}$      \\
             $(\frac{f}{g})^{I}$ & $=$ & $\frac{f^{I}g-fg^{I}}{g^{2}}$ & $(f(g(x)))^{I}$     & $=$ & $f^{I}(g(x))\cdot g^{I}(x)$ \\
         \end{tabular}
+        \begin{center}
+            $(f(x))^{g(x)}=f^{g}(g^{I}ln(f)+\frac{g+f^{I}}{f})$
+        \end{center}
 
         Se $f$ e $g$ sono inverse una dell'altra: $g^{I}(x)=\frac{1}{f^{I}(g(x))}$
 
@@ -1044,7 +1047,7 @@ $sinh(x)=x+\frac{x^{3}}{3!}+\frac{x^{5}}{5!}+\frac{x^{7}}{7!}+...$
             $\frac{1}{cos^{2}(x)}=1+tg^{2}(x) $ & $(-\frac{\pi}{2},\frac{\pi}{2})+k\pi$ & $tg(x)$                         &                            \\
             $-\frac{1}{sin^{2}(x)} $            & $(0,\pi)+k\pi$                        & $cotg(x)$                       &                            \\
             $\frac{1}{\sqrt{1-x^{2}}} $         & $|x|<1 $                              & $arcsin(x) $                    & $(sin^{-1}(x))$            \\
-            $\frac{1}{1+x^{2}}$                 & $\mathbb{R}$                          & $arctg(x) $                     &                            \\
+            $\frac{1}{a^{2}+x^{2}}$                 & $\mathbb{R}$                          & $\frac{1}{a}arctg(\frac{x}{a}) $                     &                            \\
             $sinh(x) $                          & $\mathbb{R} $                         & $cosh(x) $                      &                            \\
             $cosh(x)$                           & $\mathbb{R}$                          & $sinh(x) $                      &                            \\
             $\frac{1}{cosh^{2}(x)}$             & $\mathbb{R}$                          & $tgh(x)$                        & $(tanh(x))$                \\
@@ -1234,6 +1237,49 @@ Allora gli integrali hanno lo stesso comportamento, cioé il primo integrale con
 secondo
 
 STA DIVENTANDO UN CASINO, NON SI CAPISCE NIENTE, JUMPO
+
+\newpage
+\section{Numeri complessi}
+$z=a+bi\Rightarrow(a,b)=(Re(z),Im(z))$
+
+\textbf{Algebra}\\$z=a+bi\quad w=c+di\\z+w=(a+c,b+d)\\z\cdot w=(ac-bd,bc-ad)\\z^{-1}=(\frac{a}{a^{2}+b^{2}},
+\frac{b}{a^{2}+b*{2}})$
+
+\textbf{Complesso coniugato}\\$\overline{z}=(a,-b)$
+
+\textbf{Forme}
+\begin{itemize}
+    \item Algebrica: $z=a+bi$
+    \item Trigonometrica: $z=r(cos(\theta)+i\cdot sin(\theta))$
+    \subitem $cos(\theta)=\frac{a}{r}\qquad sin(\theta)=\frac{b}{r}$
+    
+    $a$ è asse delle ascisse (x), $b$ è asse delle ordinate (y), r la distanza tra $(a,b)$ e 0 e 
+    $\theta$ l'angolo
+    
+    \item Gaussiana: $z=(a,b)$
+    \item Esponenziale: $z=re^{i\theta}$
+    \subitem $e^{i\theta}=cos(\theta)+i\cdot sin(\theta)$
+    \subitem $\overline{z}=re^{-i\theta}\qquad e^{i\pi}=-1$
+\end{itemize}
+
+\textbf{Esponenziale}
+\begin{center}
+    $z=re^{i\theta}$
+\end{center}
+$r$ è chiamato modulo, mentre $\theta$ è chiamato argomento
+
+Proprietà\\$z_{1}z_{2}=r_{1}e^{i\theta_{1}}r_{2}e^{i\theta_{2}}=r_{1}r_{2}e^{i(\theta_{1}+\theta_{2})}\\
+z^{n}=[re^{i\theta}]=r^{n}e^{in\theta}$
+
+$r=|z|:=\sqrt{a^{2}+b^{2}}\\
+\theta\in[-\pi,\pi]\quad CE:n\geq 0$
+
+Procedimento:
+\begin{enumerate}
+    \item grafico
+    \item calcolo arcotangente (arctan)
+    \item percorso mancante
+\end{enumerate}
 
 \newpage
 \section{Equazioni differenziali ordinarie}
