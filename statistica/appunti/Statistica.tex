@@ -1,13 +1,23 @@
-\documentclass[11pt, letterpaper]{article}
+\documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{fixltx2e}
+
+\usepackage{graphicx}
+
+\usepackage{geometry}
+
+\usepackage{multicol}
+\usepackage{listings}
+
+
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
-\usepackage{fancyhdr}
-\usepackage[utf8]{inputenc}
-\usepackage{geometry}
-\geometry{margin=1.2in}
+
+\geometry{margin=0.6in}
+
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
 
 \title{Statistica}
 
@@ -322,9 +332,6 @@ la funzione $\varphi_{X,Y}:\mathbb{R}^{2}\rightarrow [0,1]$ definita:
 la \textbf{densità discreta di $X$ condizionata a $Y$} è  $\varphi_{X,Y}$ definità:
 
 \newpage
-\thispagestyle{fancy}
-\chead{settima settimana}
-
 \section{Vettori aleatori misti}
 caso speciale di va discreta e va continua
 
@@ -367,8 +374,6 @@ indipendenti
 \end{center}
 
 \newpage
-\thispagestyle{fancy}
-\chead{ottava settimana}
 \section{Schema o processo di Bernoulli}
 \marginpar{21/04/21}
 
@@ -462,8 +467,6 @@ $\varphi_{x}(b):
 \end{cases}$
 
 \newpage
-\thispagestyle{fancy}
-\chead{Nona settimana}
 \marginpar{28/04/2021}
 
 \textbf{Prop:} Siano $\{a_{i}\}_{i\in\mathbb{N}},\ \{b_{i}\}_{i\in\mathbb{N}}$ interi non negativi che tendono
@@ -619,9 +622,6 @@ NB: la varianza misura la larghezza della distribuzione, al quadrato
 \end{center}
 
 \newpage
-\thispagestyle{fancy}
-\chead{Decima settimana}
-
 \section{Deviazione standard}
 Chiamiamo \textit{deviazione standard} $\sigma_{x}$ di una variabile aleatoria $X$, il 
 numero $\sigma_{x}=\sqrt{Var[X]}$\\
@@ -789,8 +789,6 @@ Le esponenziali hanno assenza di memoria, cioé per $s,t>0$:
 \end{center}
 
 \newpage
-\thispagestyle{fancy}
-\chead{undicesima settimana}
 \section{Gaussiane o Normali} $X$ è normale standard se ha densità:
 \begin{center}
      $X\sim \mathcal{N}(0,1)\Rightarrow f_{x}(x)=\frac{1}{\sqrt{2\pi}}^{(1)}\cdot e^{\frac{-x^{2}}{2}\ (2)}$
@@ -1006,8 +1004,6 @@ Oss:$bin(n,p)\sim\mathcal{N}(np,\sqrt{np(1-p)})$ purché $p$ sia lontano da 0 e 
 \end{center}
 
 \newpage
-\thispagestyle{fancy}
-\chead{Dodicesima settimana}
 
 \begin{center}
     \textbf{Statistica}
@@ -1069,9 +1065,5 @@ in media quadratica} se $\theta_{n}\xrightarrow{\mathcal{L}^{2}}\theta$
 Oss\\ Stimatori corretti ma non consistenti $(X_{1},...,X_{n})$. Allora una qualunque $X_{i}$ è stimatore della
 media $\mu\Rightarrow E[X_{i}]=\mu$. Se $\sigma^{2}=Var[X_{i}]\neq 0$ allora $P(|X_{i}-\mu|>\varepsilon)>0$ e 
 rimane tale per $n\to\infty\Rightarrow$ non conv in $P$
-
-\newpage
-\thispagestyle{fancy}
-\chead{Tredicesima settimana}
 
 \end{document}

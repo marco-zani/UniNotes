@@ -1,20 +1,25 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+
 \usepackage{graphicx}
-\usepackage{fancyhdr}
+
 \usepackage{geometry}
-\geometry{margin=1.2in}
+
+\usepackage{multicol}
+\usepackage{listings}
 
 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
+\geometry{margin=0.6in}
 
-\def\separator{\begin{center}    \rule{100pt}{0.5pt}\end{center}}
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
-
+\title{Calcolatori}
 
 \begin{document}
 
@@ -537,8 +542,7 @@ una base più un offset (immediato) o indice.
 
 
 \newpage
-\thispagestyle{fancy}
-\chead{Nona settimana}
+\rightline{Nona settimana}
 \section{Toolchain}
 La CPU funziona con un linguaggio di basso livello composto, da 1 e 0, troppo complesso da programmare. La conversione
 viene eseguita dal compilatore

@@ -1,0 +1,72 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+
+\usepackage{geometry}
+
+\usepackage{multicol}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\geometry{margin=0.6in}
+
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+\begin{document}
+\section{Database management systems}
+
+Databases are developed in a way to grant data independence, integrity and security, efficient and concurrent
+access and reduced application development time.
+
+\subsection{Data models}
+A data model are the concepts used to describe data. A schema is the description of a particular 
+collection of data.\\The most used model today is the relational model. It bases its self on the concept 
+of relations, and every relation has a schema
+
+\subsubsection{Abstraction}
+Data is defined in different schemas. The physical schema represents how the data is stored on the disk,
+the conceptual schema defines the logical structure, and a view is how users see the data.
+
+Schemas are defined using DDL (Data Definition Language) and the data is modified using DML (Data 
+Manipulation Language)
+
+\subsection{ACID}
+ACID is the list of properties that a database must ensure. To explaine them we use the example of a 
+bank transaction
+
+\subsubsection{Atomicity}
+Atomicity is a property caracterized by the all-or-nothing policy. It is applied through a log who keeps
+
+\subsubsection{Consistency}
+The databse must be consistent before and after the transaction
+
+\subsubsection{Isolation}
+multiple transactions occur independently without interference
+
+\subsubsection{Durability}
+THe changes of a successful transaction occurs even if the system failure occurs
+
+\newpage
+\section{E/R Model}
+
+\subsection{Entity}
+an entity is a real world object which is described using a set of attributes. A collection of similar
+entities is a entity set
+
+\subsection{Relations}
+It is a connetion between two or more entity sets. \\The relation can use different multiplicity, which
+are many to many, many to one and one to one. We use the wisconsin representation system, which is 
+structured like this:\\ we use an arrow to point to "one", a think arrow to represent "exactly one", a 
+line to represent "mmany to many" and a thick line for "at least one"
+
+\subsubsection{Aggregation}
+is used when we have to model a relationship involving entity sets and a relationship set
+
+\end{document}
+

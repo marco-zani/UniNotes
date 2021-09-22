@@ -1,21 +1,100 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+
 \usepackage{graphicx}
-\usepackage{fancyhdr}
+
 \usepackage{geometry}
-\geometry{margin=1.2in}
 
+\usepackage{multicol}
 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
+\geometry{margin=0.6in}
 
-\def\separator{\begin{center}    \rule{100pt}{0.5pt}\end{center}}
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
 
-
+\title{Reti}
 
 \begin{document}
+
 \section{Introduzione}
+
+La rete può essere vista come un insieme di terminali, collegamenti e nodi, che utilizzano varie tipologie di comunicazione.
+
+Alcune di queste metodologie sono i sistemi terminali (Dove si collegano tutti a un mainframe), l'architettura client/server 
+e la peer-to-peer (che rimuove o limita l'utilizzo di server)
+
+\subsection{Collegamenti}
+Le reti di accesso si generalizzano in 3 categorie: accesso residenziale, accesso aziendale e accesso mobile.
+
+L'accesso residenziale punto-punto utilizza tecnologie come la FTTH per fornire linee internet limitate a una residenziale.
+Le componenti tipiche sono il modem, il router, il firewall, il NAT e l'access point. Generamente ritroviamo tutte queste 
+componenti unite nell'unico "router" casalingo
+
+In un accesso aziendale le tecnologie aumentano, vediamo l'introduzione della LAN e collegamenti via Ethernet
+
+Infine vediamo le tecnologie wireless, che, attraverso un access point, forniscono linea attraverso l'etere
+
+\subsubsection*{Mezzi trasmissivi}
+Il mezzo fisico che connette i dispositivi rientra nella categoria dei mezzi guidati o nelle onde libere. Il mezzo guidato
+più comune è il filo di rame a doppino intrecciato (TP). Le sigle dei doppini identificano i vari tipi di schermatura, 
+la parte sinistra è la schermatura dell'intero cavo (Unshielded, Foiled, Shielded o maglia metallica) e la parte destra 
+indica il singolo doppino (Unshielded and Shielded). Questi casi possono anche essere più o meno incrociati (cross o patch)
+da un connettore all'altro. Questo permette di connettere direttamente due terminali. 
+
+
+Per I mezzi a onde libere abbiamo le microonde terrestri, le WiFi LAN, le Wide area e le satelittari. Questo tipo di 
+propagazione è più vulnerabile agli effetti dell'ambiente di propagazione
+
+\subsubsection*{Nucleo della rete}
+Il trasferimento dei dati nella rete avviene tramite commutazione di circuito o commutazione di pacchetto. Il primo metodo 
+era quello classico della rete telefonica, il che comportava l'assenza di condivisione delle risorse. La rete viene suddivisa 
+in porzioni con ripartizione della banda tramite divisione in frequenza o tempo. Nel caso le risorse non vengono utilizzate
+allora rimangono inattive
+
+\subsection{Struttura di internet}
+Internet è strutturato gerarchicamente. Nel punto più alto troviamo gli ISP di liv 1 che forniscono copertura nazionale se 
+non addirittura internazionale. Le comunicazioni fra di loro vengono considerate fra pari (peer).
+Successivamente l'ISP di livello 1 vende copertura agli ISP di liv 2, che sono in grado di comunicare con altri ISP di 
+liv 2 e un numero limitato di ISP liv 1. Infine abbiamo infine le reti di ISP di liv 3 e reti locali. Queste reti vengono 
+definite reti di ultimo salto (last hop)
+
+In queste reti sono disponibili gli IXP (Internet eXchange Point), ovvero edifici dove gli ISP di livello 2 comunicano fra 
+di loro direttamente
+
+\subsection*{Ritardi e Perdite}
+Se troppi pacchetti arrivano in un router che non riesce a processarli in tempi brevi, allora i pacchetti vengono accodati.
+Questi problemi avvengono in 4 casistiche
+
+\subsubsection*{elaborazione del nodo}
+Questi problemi avvengono a causa del controllo sugli errori del bit o per la scelta del canale d'uscita
+
+\subsubsection*{Ritardo per accodamento}
+I pacchetti si fermano nel router in attesa di trasmissione o per congestione del router
+
+\subsubsection*{Ritardo di trasmissione}
+Ritardo all'interno di un dispositivo di rete
+
+\subsubsection*{Ritardo di propagazione}
+Ritardo dato dalla trasmissione del mezzo trasmissivo tra due dispositivi di rete
+
+
+Quindi il ritardo del nodo è dato dalla somma di ritardo di elaborazione (processing delay), ritardo di accodamento 
+(queuing delay), ritardo di trasmissione (transmission delay) e ritardo di propagazione (propagation delay)
+\begin{center}
+    $d_{node}=d_{proc}+d_{queue}+d_{trans}+d_{prop}$
+\end{center}
+
+Un'altra formula importante è quella del ritaro d'accomodamento, che è dato dalla lunghezza del pacchetto per il tasso 
+medio di arrivo dei pacchetti, il tutto fratto il bitrate
+\begin{center}
+    $\frac{A\times L}{R}$
+\end{center}
+
+
+
 \end{document}

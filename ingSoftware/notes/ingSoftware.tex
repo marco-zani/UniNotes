@@ -1,16 +1,24 @@
 \documentclass[12pt, a4paper]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsmath}
+
 \usepackage{graphicx}
-\usepackage{fancyhdr}
+
 \usepackage{geometry}
-\geometry{margin=1.2in}
+
+\usepackage{multicol}
+\usepackage{listings}
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\geometry{margin=0.6in}
 
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
-
-
+\title{Ingegneria del software}
 
 \begin{document}
 \section{Introduzione}
@@ -89,6 +97,76 @@ Una variante dello sviluppo a componenti va a sostituire le componenti con i ser
 \subsection{Metodologie Agile}
 È un metodo di sviluppo che coinvolge il più possibile il committente, per ottenere una elevata reattività alle
 sue richieste.
+
+\subsubsection{Modello scrum}
+È un modello agile con l'obbiettivo di ridurre l'overhead organizzativo. È caratterizato da piccoli team di lavoro,
+costante testing e produzione di documentazione e frequenti incrementi software. 
+
+Il progetto viene diviso in piccoli blocchi di lavoro (sprint), che poi confronta i risultati con il cliente ed 
+elabora le attività dell'immediato futuro (backlog). Infine, con cadenza giornaliera, i vari gruppi si organizzano in 
+una riunione (daily scrum) per fare il punto della situazione
+
+\subsubsection{Extreme programming}
+È una prassi che si concentra su diversi punti riassumibili in feedback a scala fine, processo con/nuo, comprensione
+condivisa, benessere dei programmatori. Altri 3 punti molto importanti sono un'integrazione delle modifiche frequente,
+così da limitare i conflitti dati dal nuovo codice, un refactoring piuttosto pesante e piccole ma frequenti realeases
+
+La fase di plannign è caratterizzata dall'utilizzo delle user stories che descrivono funzionalità e caratteristiche,
+le quali vengono poi classificate e organizzate nelle tempistiche del progetto. Il cliente e il team di sviluppatori
+collaborano nella gestione e scelta delle user stories per la release successiva.
+
+Nella fase di programmazione, gli sviluppatori lavorano a coppie (con ruoli distinti) e poi il loro lavoro viene
+integrato da un team apposito a quello del resto del team. Questo genera un'integrazione continua che riduce i 
+problemi di compatibilità e interfacciamento.
+
+Infine la fase di testing si avvale di strumenti per l'automazione degli unit test, mentre la valutazione del cliente
+si limita sulle funzioni e caratteristiche globali di sistema
+
+\subsubsection{DevOps}
+Il DevOps è un modello che si applica a grandi infrastrutture che necessitano di una gestione rapida e efficente tra 
+il Development team e l'operation team. Il modello si basa sulla virtualizzazione nel cloud, su sistemi automatizati
+e metodi agile per l'interazione tra sviluppatori e sistemisti
+
+\subsection{Modularizzazione}
+L'Archittettura più diffusa è quella dei microservizi, molto ad
+
+
+\newpage
+\section{Linguaggi di modellazione}
+Un ingegnere del software per sviluppare un progetto necessità di un linguaggio comune per farsi da comprendere
+da altri ingegnieri.
+
+La scelta del linguaggio può variare in base a vari parametri come facilità d'uso, comprensibilità per non tecnici,
+formalità e precisione
+
+\subsection{Linguaggio entity-relationship}
+Usato principalmente nel mondo dei database
+
+\subsection{Business Process Modelling notation}
+Lo standard OMG per la rappresentazione dei processi business è BPMN  
+
+\subsection{Sicurezza}
+Diversi approcci SRE (Security Requirements Engineering) utilizzano dei linguaggi di modellazione, questo permette
+la creazione di documentazione più precisa e analisi automatizate. Questi linguaggi variano in base al obbiettivo che
+vogliono rappresentare 
+
+Alcuni di questo metodi usano delle basi di UML, o si concentrano sull'obbiettivo degli attaccanti
+
+\subsection{Linguaggio OCL}
+L'Object Constraint Language è un linguaggio funzionale usato per esprimere espressioni e vincoli sui modelli object
+oriented. È basato sull'utilizzo di query che vengono usate per specificare valori iniziali e derivati di un 
+attributo, o indicare la condizione di un diagramma dinamico, oppure le query applicano dei vincoli di tipo
+invariante, precondizione, postcondizione o guardia.
+
+In questo tipo di linguaggio il contesto di un'espressione è decisivo
+
+\newpage
+\section{Requisiti}
+I bisogni di un cliente possono essere espressi come scopi. Nello sviluppo di un progetto dovremmo creare delle 
+funzioni che permettano di conseguire questi scopi.
+
+Secondo Micheal Jackson, I requisiti sono la dati dalla somma di assunzioni sull'ambiente e dalle specifiche del 
+sistema
 
 
 \end{document}
