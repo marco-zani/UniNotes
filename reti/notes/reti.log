@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  21 SEP 2021 17:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  24 SEP 2021 15:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -279,20 +279,25 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [2] (/home/marco/Documents/uni/reti/notes/reti.aux) ) 
+) [2]
+Overfull \hbox (10.31111pt too wide) in paragraph at lines 112--114
+\OT1/cmr/m/n/12 Responsabile dell'instradamento dei dati tra un host e l'altro. Of-fre servizi connection-less o connection-
+ []
+
+[3] (/home/marco/Documents/uni/reti/notes/reti.aux) ) 
 Here is how much of TeX's memory you used:
- 3019 strings out of 481252
- 41429 string characters out of 5915889
+ 3020 strings out of 481252
+ 41437 string characters out of 5915889
  325852 words of memory out of 5000000
- 19943 multiletter control sequences out of 15000+600000
+ 19944 multiletter control sequences out of 15000+600000
  409593 words of font info for 50 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  68i,4n,74p,258b,146s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on /home/marco/Documents/uni/reti/notes/reti.pdf (2 pages, 60385 bytes).
+Output written on /home/marco/Documents/uni/reti/notes/reti.pdf (3 pages, 64186 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 34 PDF objects out of 1000 (max. 8388607)
+ 23 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -59,6 +59,11 @@ THe changes of a successful transaction occurs even if the system failure occurs
 an entity is a real world object which is described using a set of attributes. A collection of similar
 entities is a entity set
 
+\subsubsection*{weak entities}
+This are entities that depend to another entity. The weak entity doesn't make sense to exist by itself. 
+This entities are rappresented through a thick line around the entity and they use a thick arrow towards
+the entity they depend
+
 \subsection{Relations}
 It is a connetion between two or more entity sets. \\The relation can use different multiplicity, which
 are many to many, many to one and one to one. We use the wisconsin representation system, which is 
@@ -67,6 +72,19 @@ line to represent "mmany to many" and a thick line for "at least one"
 
 \subsubsection{Aggregation}
 is used when we have to model a relationship involving entity sets and a relationship set
+
+\subsection{Subclasses}
+it's a special case of subentity, it's represented with a triangle
+
+\subsubsection*{E/R Subclasses}
+Subclasses form a tree of one-one inheritance that use isa relationships. 
+
+\subsection{Keys}
+This are unique identifiers of an entity and are represented through an underlined attribute. They can
+be super keys (keys in general), candidate key (minimal super key) and primary key (the chosen key)
+
+\subsection{Schemas}
+
 
 \end{document}
 

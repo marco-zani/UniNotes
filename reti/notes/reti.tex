@@ -95,6 +95,30 @@ medio di arrivo dei pacchetti, il tutto fratto il bitrate
     $\frac{A\times L}{R}$
 \end{center}
 
+\subsection{Livelli di protocollo}
+Ogni protocollo viene organizzato su vari livelli in base al suo ruolo, questa strategia si chiama stratificazione e 
+permette semplificare l'identificazione di un protocollo e le sue funzioni. Inoltre le modifiche a un determinato 
+livello risulta trasparente rispetto agli altri layers.
 
+I layer sono in grado di fornire servizi al layer superiore, mentre utilizzano quelle del livello inferiore. Questi 
+servizi vengono forniti attraverso i SAP (Service Access Point). Questi layer sono 5 nella struttura Tcp/ISP
+
+\subsubsection*{Applicazione}
+Fornisce alle applicazioni i mezzi per scambiarsi i dati. A questo livello le data unit si chiamano messaggi.
+\subsubsection*{Transporto}
+Gestisce i problemi di qualità del livello di rete, applica la segmentazione e ricomposizione dei dati, multiplexing. 
+Applica anche controlli di flusso, errore e riordino dei pacchetti. Le data unit vengono chiamate segmenti
+\subsubsection*{Rete}
+Responsabile dell'instradamento dei dati tra un host e l'altro. Offre servizi connection-less o connection-oriented 
+(l'indipendenza durante l'instadazione tra un pacchetto e l'altro). Le data unit vengono chiamate pacchetti o datagrammi
+\subsubsection*{Collegamento}
+Si occupa di multiplexing, effettua controlli e correzzioni di errori e implementa il MAC (Medium Access Controll).
+Le data unit vengono chiamate frame
+\subsubsection*{Fisico}
+trasferimento dei singoli bit sul mezzo di comunicazione (elettrico, elettromagnetico, luminoso,...). Fornisce i servizi per
+creare, mantenere e distruggere le connessioni fisiche
+
+Nel modello ISO/OSI si aggiungono anche i livelli presentazione e sessione che si occupano di cifrature e 
+sincronizzazione
 
 \end{document}

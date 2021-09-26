@@ -50,6 +50,39 @@ La nostra funzione può essere anche rappresentata con $\Theta(g(n))$.
 
 \subsection{Complessità di un algoritmo}
 
+\subsection{Proprietà della notazione asintotica}
 
+\subsubsection*{Dualità}
+\begin{center}
+    $f(n) = O(g(n)) \Leftrightarrow g(n) = \Omega(f(n))$
+\end{center}
+
+\subsubsection*{Eliminazione delle costanti}
+\begin{center}
+    $f(n) = O(g(n)) \Leftrightarrow af(n) = O(g(n)),\forall a > 0 $\\
+    $f(n) = \Omega(g(n)) \Leftrightarrow af(n) = \Omega(g(n)),\forall a > 0$
+\end{center}
+
+\subsubsection*{Sommatoria}
+\begin{center}
+    $1(n) = O(g1(n)),f2(n) = O(g2(n)) \Rightarrow f1(n) + f2(n) = O(max(g1(n),g2(n)))
+    f1(n) = \Omega (g1(n)),f2(n) = \Omega (g2(n)) \Rightarrow f1(n) + f2(n) = \Omega (max(g1(n),g2(n)))$
+\end{center}
+
+\subsubsection*{Prodotto}
+\begin{center}
+    $f1(n) = O(g1(n)),f2(n) = O(g2(n)) \Rightarrow f1(n) \cdot f2(n) = O(g1(n) \cdot g2(n))$\\
+    $f1(n) = \Omega (g1(n)),f2(n) = \Omega (g2(n)) \Rightarrow f1(n) \cdot f2(n) = \Omega (g1(n) \cdot g2(n))$
+\end{center}
+
+\subsubsection*{Simmetria}
+\begin{center}
+    $f(n) = \Theta(g(n)) \Leftrightarrow g(n) = \Theta(f(n))$
+\end{center}
+
+\subsubsection*{Transitività}
+\begin{center}
+    $f(n) = O(g(n)),g(n) = O(h(n)) \Rightarrow f(n) = O(h(n))$
+\end{center}
 
 \end{document}

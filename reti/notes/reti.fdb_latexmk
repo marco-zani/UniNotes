@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1632236717 "/home/marco/Documents/uni/reti/notes/reti.tex" "/home/marco/Documents/uni/reti/notes/reti.pdf" "reti" 1632236717
+["pdflatex"] 1632491039 "/home/marco/Documents/uni/reti/notes/reti.tex" "/home/marco/Documents/uni/reti/notes/reti.pdf" "reti" 1632491039
   "/etc/texmf/web2c/texmf.cnf" 1630769332 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/marco/Documents/uni/reti/notes/reti.aux" 1632236717 351 9cda9f508298fdce34ecc9230ab926b8 ""
-  "/home/marco/Documents/uni/reti/notes/reti.tex" 1632236717 4492 e866e5b06830bb883e27ab9636a38f3b ""
+  "/home/marco/Documents/uni/reti/notes/reti.aux" 1632491039 465 5628bebf9876f0168f70aa1ba03ec372 ""
+  "/home/marco/Documents/uni/reti/notes/reti.tex" 1632491039 6209 18f3f8201f35ccceb79e9e3f6ff7b5b7 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -56,11 +56,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1630769536 125915 807ff72f6023b33a59c427bfd156a3d1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1630769537 1283513 6dc1e51836720e1353009e62bf170505 ""
-  "reti.aux" 1632236717 351 9cda9f508298fdce34ecc9230ab926b8 "pdflatex"
-  "reti.tex" 1632236717 4492 e866e5b06830bb883e27ab9636a38f3b ""
+  "reti.aux" 1632491039 465 5628bebf9876f0168f70aa1ba03ec372 "pdflatex"
+  "reti.tex" 1632491039 6209 18f3f8201f35ccceb79e9e3f6ff7b5b7 ""
   (generated)
+  "reti.aux"
+  "/home/marco/Documents/uni/reti/notes/reti.log"
   "/home/marco/Documents/uni/reti/notes/reti.pdf"
   "reti.log"
   "reti.pdf"
-  "reti.aux"
-  "/home/marco/Documents/uni/reti/notes/reti.log"

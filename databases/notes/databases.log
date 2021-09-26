@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  17 SEP 2021 09:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  24 SEP 2021 08:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -275,13 +275,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 Here is how much of TeX's memory you used:
  2972 strings out of 481252
  40875 string characters out of 5915889
- 322872 words of memory out of 5000000
+ 323872 words of memory out of 5000000
  19915 multiletter control sequences out of 15000+600000
  405246 words of font info for 33 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  68i,4n,74p,268b,104s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on /home/marco/Documents/uni/databases/notes/databases.pdf (2 pages, 31729 bytes).
+Output written on /home/marco/Documents/uni/databases/notes/databases.pdf (2 pages, 34002 bytes).
 PDF statistics:
  19 PDF objects out of 1000 (max. 8388607)
  12 compressed objects within 1 object stream

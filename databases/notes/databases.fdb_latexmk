@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1631865576 "/home/marco/Documents/uni/databases/notes/databases.tex" "/home/marco/Documents/uni/databases/notes/databases.pdf" "databases" 1631865576
+["pdflatex"] 1632465525 "/home/marco/Documents/uni/databases/notes/databases.tex" "/home/marco/Documents/uni/databases/notes/databases.pdf" "databases" 1632465525
   "/etc/texmf/web2c/texmf.cnf" 1630769332 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/marco/Documents/uni/databases/notes/databases.aux" 1631865576 1295 b3fb5ca6ae06ebcaac4dde3909ef0007 ""
-  "/home/marco/Documents/uni/databases/notes/databases.tex" 1631865575 2402 d601683ae0dc6bfd3968bc3b59fad355 ""
+  "/home/marco/Documents/uni/databases/notes/databases.aux" 1632465525 1595 cf3de6e69e5096705532e5a8dbc5cb04 ""
+  "/home/marco/Documents/uni/databases/notes/databases.tex" 1632465524 3112 03b9421f8d7d68d136196ffce43d2dad ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ""
@@ -36,11 +36,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1630769536 125915 807ff72f6023b33a59c427bfd156a3d1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1630769537 1283513 6dc1e51836720e1353009e62bf170505 ""
-  "databases.aux" 1631865576 1295 b3fb5ca6ae06ebcaac4dde3909ef0007 "pdflatex"
-  "databases.tex" 1631865575 2402 d601683ae0dc6bfd3968bc3b59fad355 ""
+  "databases.aux" 1632465525 1595 cf3de6e69e5096705532e5a8dbc5cb04 "pdflatex"
+  "databases.tex" 1632465524 3112 03b9421f8d7d68d136196ffce43d2dad ""
   (generated)
-  "databases.aux"
-  "/home/marco/Documents/uni/databases/notes/databases.log"
-  "databases.pdf"
   "databases.log"
+  "/home/marco/Documents/uni/databases/notes/databases.log"
+  "databases.aux"
   "/home/marco/Documents/uni/databases/notes/databases.pdf"
+  "databases.pdf"
