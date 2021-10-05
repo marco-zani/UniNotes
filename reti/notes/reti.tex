@@ -121,4 +121,137 @@ creare, mantenere e distruggere le connessioni fisiche
 Nel modello ISO/OSI si aggiungono anche i livelli presentazione e sessione che si occupano di cifrature e 
 sincronizzazione
 
+\subsubsection{Data units}
+In un sistema con $N$ layers, i dati trasmessi compongono una $N$-SDU, o una Service Data Unit di layer $N$, dove viene poi
+incapsulata dalle Data Unit di livello inferiore formando una PDU (Protocoll DU).\\Man mano che la PDU scende nei layer 
+vengono aggiunti diversi header, che successivamente vengono disassemblate dal ricevitore. A causa delle dimensioni della
+PDU possiamo segmentarla in PDU di dimensione ridotta oppure unire diverse PDU di piccole dimensioni in un singolo messaggio
+
+\subsection{Sicurezza}
+Internet non è stato pensato con il pallino della sicurezza. Attraverso internet, gli attaccanti sono in grado di inviare 
+virus, worms, e trojans, senza contare programmi di spionaggio e botnets. C'è anche la possibilità di anilisi dei pacchetti
+in transito sulla rete (packet sniffing), o l'invio di pacchetti con un indirizzo di origine falso (IP Spoofing) o il 
+reinvio di pacchetti sensibili (Record-and-Playback)
+
+\newpage
+\section{Livello applicazione}
+\subsection{Architetture delle applicazioni di rete}
+\subsubsection*{Archittettura client server}
+I server sono host sempre attivi e con indirizzo fisso, mentre il client può disconnettersi, avere link dinamici e 
+non comunicare direttamente con altri client.\\Questa archittettura ha la difficolta della scalabilità.
+
+\subsubsection*{Peer-to-peer}
+Non viene usato un server sempre attivo, ma vengono usate coppie di host con la capacità di diventare inattivi o usare indirizzi
+dinamici. Questa archittettura è facile da scalare ma difficile da gestire
+
+\subsubsection*{Ibridi}
+Le versioni ibride sono molto differenti fra loro, ma prendendo in esempio skype, utilizza chiamate peer-to-peer, ma un 
+server centralizzato per la ricerca degli indirizzi
+
+\subsubsection*{Cloud}
+Un'insieme di tecnologie in grado di gestire dati con risorse distribuite in rete. Tutti i dati sono memorizzate in server
+farm
+
+\subsection{Processi comunicanti}
+all'interno dello stesso host, due processi comunicano utilizzando schemi interprocesso. I processi client e server esprimono
+processi che danno inizio alla comunicazione o attendono di essere contattato.
+
+\subsubsection*{Socket}
+Un processo invia e riceve da una socket (o porta). Viene pressupposto che esista un'infrastruttura esterna in grado di 
+trasportare il messaggio fino alla socket destinataria.
+
+Per la communicazione oltre all'indirizzo IP viene anche esplicitata la porta sulla quale comunica in maniera da identificare
+il processo ricevente
+
+\subsection{Protocolli a livello applicazione}
+Esistono una marea di protocolli, ma principalmente si dividono in protocolli proprietari, come skype, o protocolli
+di dominio pubblico, come http,smtp,...
+
+\subsection{Interazione con il livello di trasporto}
+Il livello di applicazione usa diversi servizi dal livello inferiore, come la gestione della perdita di dati, il quantitativo
+di throughput, e servizi di sicurezza come la cifratura.
+
+\subsection{Protocolli}
+\subsubsection{HTTP}
+Protocollo a modello client/server, dove il client esegue richieste di oggetti web e il server risponde con gli oggetti richiesti.
+HTTP usa una connessione TCP sulla porta 80. HTTP è un protocollo stateless, ovvero senza che il server tenga informazioni sulle
+richeiste del client.
+
+Le connessioni HTTP sono sia persistenti che non, ossia possono inviare un singolo oggetto come molteplici. La comunicazione
+generalmente segue questa falsa riga:
+\begin{enumerate}
+    \item il client inizializza una connessione TCP con il server
+    \item Il server accetta la connessione
+    \item Il client invia un richiesta con l'url della risorsa
+    \item Il server risponde inoltrando l'oggetto richiesto e chiude la connessione
+    \item il client riceve il file HTML e trova il riferimento agli oggetti richiesti
+\end{enumerate}
+Il tempo di propagazione e ritorno tra due host viene chiamato Round Trip Time (RTT).
+
+Le connessioni non persistenti richiedono 2RTT per oggetto, l'hoverhead del SO per ogni connessione e connessioni TCP parallele.
+Mentre nelle connessioni persiste il server lascia la porta aperta permettendo di spostare i messaggi all'interno della stessa 
+connessione.
+
+HTTP usa due messaggi: richiesta e risposta.\\La richiesta è formata da una riga di richiesta (GET, POST, PUT, DELETE) e delle 
+righe di intestazione e il corpo dell'entità.\\La risposta è formata dalla riga di stato, righe di intestazione e dati.
+
+Una pagina web è costituita da oggetti e un file base scritto in html. Ogni oggetto è referenziato da un URL (Uniform Resource 
+Location)
+
+HTTP utilizza i cookies per mantenere dati come autorizzazioni, stato delle sessioni, raccomandazioni. I cookie permettono
+ai siti di imparare molte cose sugli utenti.\\Utilizzano quattro componenti: una riga nell'intestazione dei messaggi di 
+richiesta e risposta, un file mantenuto sul sistema del client e un database sul sito
+
+Un'altro servizio è quello della cache web, ossia un sistema che soddisfa la richiesta del client senza coinvolgere il server.
+Il client viene configurato per effettuare richieste a un proxy, nel momento in cui il proxy possiede già la risorsa richiesta,
+risponde direttamente al client, se no inoltra la richiesta al server d'origine.\\Tutto questo processo permette di ridurre 
+la latenza e il traffico internet
+
+HTTP 2.0 è un'evoluzione focalizzata sulle prestazioni con l'obiettivo di utilizzare un'unica connessione dai browsers a 
+un server.\\Si basa su SPDY, un protocollo livello applicazione con l'obiettivo di trasmettere contenuti con la minima 
+latenza tramite multiplexing, priorità delle richieste e compressione dell'header HTTP.
+
+Il framing binario in HTTP 2.0 usa la stessa semantica ma una codifica diversa, con messaggi più piccoli e codificati in 
+binario
+
+\subsubsection*{Frames}
+
+\subsection{DNS}
+È un database distribuito che permette agli host di risolvere i nomi (o tradurre da nome a indirizzo). Questo struttura 
+decentralizzata permette hal servizio di gestire un maggior volume del traffico e di essere più resistente a guasti.
+
+La struttura gerarchica divide i server DNS authoritativi alla base per poi venire gestito dal DNS di dominio (.com,.org,...)
+o server TLD (Top-Level-Domain). Infine il punto più alto viene gestito da un server root del DNS.\\
+Esistono anche i DNS locali. Non fanno propriamente parte della gerarchia, ma ogni società dispone di un default name server.
+
+Quando i server root vengono contattati dai DNS locali, possono rispondere con la mappatura richiesta, ma se non possiede
+la mappatura, allora si occuperà di contattare il server autorizzato che possiede le informazioni richieste.\\ Una volta 
+che un server impara una mappatura, essa viene tenuta in cache per un certo periodo di tempo.
+
+I dati che vengono contenuti nel DNS vengono chiamati RR, o Resource Record, e contengono nome, valore, tipologia e TTL.
+
+I messaggi DNS compongono query e risposte con lo stesso formato. L'itestazione contiene un valore d'identificazione della
+query, i flag (query, aswer, richieste di ricorsione...). Nei contenuti abbiamo la domanda, l'RR di risposta, il server di 
+competenza e informazioni aggiuntive.
+
+\subsection{Condivisione P2P}
+Una distribuzione P2P è molto più efficente rispetto alla gestione del singolo server. Un modello molto usato è bitTorrent.
+Esso usa un server per tenere traccia dei peer che partecipano, e i torrent, o gruppi di peer che si scambiano parti di un 
+file. Il file viene diviso in diversi chunk (generalmente 256kb) e distribuito a diversi peer vicini (o neighbors) durante
+il download.
+
+La parte di corrispondenza tra le informazioni e la posizione di un host è una Hash table distribuita
+
+In un servizio completamente distribuito viene definito query flooding, dato che senza un server centrale, rischia di 
+riempire la rete. Infatti la query viene inoltrata sulla rete e rediretta ai peer vicini finche non viene trovato il
+destinatario
+
+L'unione tra un indice centralizzato e query flooding è la copertura gerarchica, in questo caso ad alcuni peer viene 
+assegnato il ruolo di leader di un gruppo e gestiscono le query per conto dei peer sottoposti.
+
+
+
+
+
+
 \end{document}

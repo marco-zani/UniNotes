@@ -1234,10 +1234,12 @@ STA DIVENTANDO UN CASINO, NON SI CAPISCE NIENTE, JUMPO
 \section{Numeri complessi}
 $z=a+bi\Rightarrow(a,b)=(Re(z),Im(z))$
 
-\textbf{Algebra}\\$z=a+bi\quad w=c+di\\z+w=(a+c,b+d)\\z\cdot w=(ac-bd,bc-ad)\\z^{-1}=(\frac{a}{a^{2}+b^{2}},
-\frac{b}{a^{2}+b*{2}})$
+\textbf{Algebra}\\$z=a+bi\quad w=c+di\\z+w=(a+c,b+d)\\z\cdot w=(ac-bd,bc+ad)\\z^{-1}=(\frac{a}{a^{2}+b^{2}},
+\frac{-b}{a^{2}+b^{2}})\\\frac{z}{w}=\frac{ac+bd}{c^2+d^2}+\frac{-ad+bc}{c^2+d^2}i$
 
 \textbf{Complesso coniugato}\\$\overline{z}=(a,-b)$
+
+\textbf{Modulo del complesso}\\$|z|=\sqrt{a^2+b^2}$
 
 \textbf{Forme}
 \begin{itemize}
@@ -1253,6 +1255,17 @@ $z=a+bi\Rightarrow(a,b)=(Re(z),Im(z))$
     \subitem $e^{i\theta}=cos(\theta)+i\cdot sin(\theta)$
     \subitem $\overline{z}=re^{-i\theta}\qquad e^{i\pi}=-1$
 \end{itemize}
+
+\textbf{Proprietà}
+\begin{center}
+\begin{tabular}{l l}
+    $\overline{(\overline{z})}=z$ & $\overline{z\cdot w}=\overline{z}\cdot\overline{w}$\\
+    $\overline{z\pm w}=\overline{z}\pm\overline{w}$ & $\overline{\frac{1}{w}}=\frac{1}{\overline{w}}$\\
+    $z\cdot\overline{z}=|z|$ & $|\lambda z|=|\lambda||z|$\\
+    $\frac{1}{z}=\frac{\overline{z}}{|z|^{2}}=\frac{a}{a^{2}+b^{2}}-\frac{b}{a^{2}+b^{2}}i$
+    
+\end{tabular}
+\end{center}
 
 \textbf{Esponenziale}
 \begin{center}
