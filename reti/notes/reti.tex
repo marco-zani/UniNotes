@@ -209,12 +209,59 @@ la latenza e il traffico internet
 
 HTTP 2.0 è un'evoluzione focalizzata sulle prestazioni con l'obiettivo di utilizzare un'unica connessione dai browsers a 
 un server.\\Si basa su SPDY, un protocollo livello applicazione con l'obiettivo di trasmettere contenuti con la minima 
-latenza tramite multiplexing, priorità delle richieste e compressione dell'header HTTP.
+latenza tramite multiplexing, priorità delle richieste e compressione dell'header HTTP. Tutte le connessioni HTTP/2
+sono persistenti
 
 Il framing binario in HTTP 2.0 usa la stessa semantica ma una codifica diversa, con messaggi più piccoli e codificati in 
-binario
+binario. Tutte le comunicazioni in una singola connessione TCP può portare molteplici stream di byte, ognuno con identificativo 
+univoco. Ogni stream trasmette vari messaggi che sono composti a loro volta da frames, la più piccola unità di 
+comunicazione. Questi frames possono essere interposti e riassemblati tramite il loro identificatore
 
-\subsubsection*{Frames}
+Grazie al nuovo livello di framing binario,  HTTP/2 consente l'uso del multiplexing, dove client e server possono dividere
+i messaggi in frame indipendenti, di intervallarli e ricomporli a destinazione. Con questo metodo l'ordine dei frames 
+diventa critico per le prestazioni, infatti agli streams viene assegnato un peso da 1 a 256 con la quale l'host può
+definire degli alberi di priorità per l'invio dei frames
+
+Ultima funzionalità è quella del server push, ossia che il server è in grado di inviare ulteriori risorse collegate a quella
+richiesta dal client con un'unica query. In questo modo le risorse necessarie per far funzionare un'applicazione web vengono
+inviate con un solo messaggio di risposta, risparmiando risorse e tempo al server
+
+\subsection{FTP}
+È un protocollo di tipo client/server che permette il trasferimento di file. Il servizio usufruisce della porta 21
+
+\subsection{Posta elettronica}
+Nella posta elettronica abbiamo 3 componenti principali: l'agente utente, il server di posta e il protocollo.
+
+L'agente utente, o mail reader, si occupa di composizione, editing e lettura dei messaggi memorizzati sul server. Il server
+di posta contiene la coda dei messaggi, la casella di posta e gestisce il protocollo di comunicazione tra server e server
+per inviare e ricevere mails
+
+\subsubsection{SMTP}
+questo protocollo usa connessioni tcp persistenti per trasferire in modo affidabile le mail in maniera diretta. Il 
+trasferimento è gestito in 3 fasi: handshake, trasferimento dei messaggi e chiusura.
+I comandi sono composti in un testo ascii 7 bit, e le risposte tramite codici di stato ed espressioni.\\ La porta
+usata è 465
+
+Per l'utilizzo di messaggi multimediali, viene aggiunta l'estensione MIME
+
+\subsubsection*{Protocolli d'accesso alla posta}
+Mentre SMTP gestisce il trasferimento tra un server e l'altro, POP,IMAP e HTTP vengono usati dall'agente utente per accedere
+al servizio di posta
+\subsubsection{POP3}
+POP è un protocollo senza stato che gestisce le autorizzazioni e i download. Esso offre varie modalità come scarica e cancella
+o scarica e mantieni per mantenere i messaggi su più client.\\La porta è la 995
+\subsubsection{IMAP}
+IMAP è un protocollo più complesso di POP3, con più funzioni e la possibilità di manipolare messaggi sul server.
+IMAP tiene tutti i messaggi sul server, e permette all'utente di organizzarli in cartelle. IMAP inoltre mantiene 
+lo stato dell'utente tra le varie sessioni.\\La porta è la 993
+
+\subsubsection{TLS}
+È un protocollo crittografico sulla comunicazione che fornisce autenticazione, integrità e confidenzialità. Il processo è 
+composto da una prima negoziazione sull'algoritmo da utilizzare, poi vieno lo scambio delle chiavi e l'autenticazione. Il 
+resto della comunicazione avviene con una cifratura simmetrica e autenticazione dei messaggi.
+
+La sua evoluzione è STARTTLS che cifra la connessione sulle porte originali. Viene usata soprattutto tra Mail Transfer
+Agents (MTAs) nel trasporto di una mail tra un provider e l'altro.
 
 \subsection{DNS}
 È un database distribuito che permette agli host di risolvere i nomi (o tradurre da nome a indirizzo). Questo struttura 
@@ -250,8 +297,20 @@ L'unione tra un indice centralizzato e query flooding è la copertura gerarchica
 assegnato il ruolo di leader di un gruppo e gestiscono le query per conto dei peer sottoposti.
 
 
+\subsection{Cloud computing}
+È un'archittettura che prevede diversi server reali ad alta affidabilità e fisicamente locati in un data center del
+provider del servizio. In questo modo le caratteristiche fisiche sono irrilevanti per l'utente, a differenza di 
+sicurezza, privacy e continuità di servizio
 
+\subsubsection*{Content Delivery Networks}
+Una CDN costruisce una rete overlay per la distribuzione di contenuti, utilizzando il concetto chiave di disponibilità
+dei dati il più vicino possibile agli utenti. Questo metodo ottimizza le prestazioni di rete, riduce la latenza e 
+evita i colli di bottiglia.\\Sfrutta due metodi: Enter deep, dove gli ISP installano server in tutto il mondo, e Bring 
+home, con meno server, ma installati negli IXP
 
-
+\subsubsection*{DASH}
+Dynamic Adaptive Streaming over HTTP. È un servizio di streaming multimediale che divide i video in chunk e che 
+permette al client di riceve chunk dello stesso video a server diversi, in modo da ottimizzare la visualizzazione
+e ridurre i ritardi
 
 \end{document}

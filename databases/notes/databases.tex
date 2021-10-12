@@ -99,7 +99,26 @@ A condition must be true for any instance of the database.
 
 Keys can be contraints because no distinct tuples can have the same values 
 
+\newpage
+\section{Relational algebra}
+The manipulation and retrieval of data from a database is managed through query language. A mathematical query language
+i the relation algebra, an operational query language.
 
+The basic operations are:
+\begin{itemize}
+    \item Selection ($\sigma$): selects a subset of rows from relation 
+    \item Projection ($\pi$): selects the columns from relation
+    \item Cross-product ($\times$): allows to combine two relations
+    \item Set difference (-) 
+    \item Union ($\cup$)
+\end{itemize}
+there are also other sub-operators:
+\begin{itemize}
+    \item Renomination ($\rho$, $\rightarrow$)
+    \item Join ($\Join$) or theta join: the union on determined conditions
+    \item Equijoin: a join on only equalities
+    \item Natural join: is a equijoin on all common fields
+\end{itemize}
 
 
 \end{document}

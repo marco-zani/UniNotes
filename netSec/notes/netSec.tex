@@ -131,6 +131,35 @@ With the arrival of the internet, new issues with passwords have been discovered
 services, phishing and the need to reset forgotten passwords. They have been made some attempts to outsource the authentication
 to third party services, and smartphones increase security using the two factors authentication.
 
+\subsection{User authentication and digital identity}
+When logging on to a computer you enter username (announcing who you are) and password (proving to be who you claim to be). This
+type of authentication is called \textbf{user authentication}, in this case, \textbf{by password}.
+
+BOOTSTRAPING
+
+The process of identity proofing follows 3 steps:
+\begin{itemize}
+    \item Resolution: collection of data/evidence called Personal Identifiable Information (PII)
+    \item Validation: processing of the evidence by an authoritative source, searching for coherence of the information and 
+    complaiance against standards
+    \item Verification: the evidence is verified and the user is allowed to proceed
+\end{itemize}
+There are different levels of certainty of one user identification, these are called Identity Assurance Levels (IALs), and 
+are divided in 3 levels. With IAL 1, all attributes are self-asserted by the user or should be treated as self-asserted.
+at level 2 requires either remothe or in-person identification. Lastly, at third level, is required the verification by
+an authorized representative.
+
+\subsection{Attacks and mitigations}
+One way to get a password is to guess it. This opens the way to two attack types: the brute force, which tries all possible 
+combinations of symbols, and the smarter dictionary, which uses a list of commonly used passwords.\\This type of attacks
+can't be prevented, but the probability to be successful can be reduced. The mitigations are:
+\begin{itemize}
+    \item change default passwords
+    \item forbid commonly used passwords
+    \item limit the number of attempts
+    \item don't use password hints or knowledge based
+\end{itemize}
+
 
 
 
