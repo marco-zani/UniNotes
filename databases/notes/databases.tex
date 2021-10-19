@@ -120,6 +120,29 @@ there are also other sub-operators:
     \item Natural join: is a equijoin on all common fields
 \end{itemize}
 
+\newpage
+\section{SQL}
+A basic SQL query is composed by relation-list, target-list and qualification and it follows this strategy:
+\begin{itemize}
+    \item Compute the cross-product of relation-list (FROM)
+    \item discard resulting tuples if they fail qualifications (SELECT)
+    \item delete attributes that are not in target-list (WHERE)
+\end{itemize}
+SQL is also capable of nesting queries. This is done by adding the operator IN in the WHERE section, and the nested query inside.
+It can be also used the operator EXISTS to let the inner query use parameters from the outer query.
+parentesis
+
+\subsubsection{Operators LIKE and AS}
+LIKE is used in string matching, it uses \% to represent multiple characters and \_ just for one. To generate new name fields
+is also used the operator AS
+
+\subsubsection{UNION and INTERSECT} 
+UNION can be used to unite two compatible sets of tuples, meanwhile INTERSECT computes the intersection between the tuples
+
+\subsubsection{Agregate Operators}
+SQL offers various extentions to relational algebra, such as COUNT, SUM, AVG, MAX and MIN
+
+
 
 \end{document}
 

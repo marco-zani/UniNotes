@@ -313,4 +313,25 @@ Dynamic Adaptive Streaming over HTTP. È un servizio di streaming multimediale c
 permette al client di riceve chunk dello stesso video a server diversi, in modo da ottimizzare la visualizzazione
 e ridurre i ritardi
 
+\newpage
+\section{Livello di trasporto}
+I servizi e protocolli di trasporto forniscono la comunicazione tra host differenti. Dal lato invio il livello di 
+trasporto scinde i messaggi in segmenti e lo passa al livello di rete,passando la comunicazione logica tra host,
+mentre dal lato di ricezione riassembla i messaggi e li passa al livello applicazione, passando la comunicazione 
+logica tra processi.
+
+\subsection{Multiplexing e demultiplexing}
+Il multiplexing al trasmettitore gestisce i dati da diverse socket con l'aggiunta di un header PCI, mentre il 
+demultiplexing usa le PCI per consegnare i segmenti alle socket giuste
+
+\subsection{TCP}
+È un protocollo affidabile, con consegne nell'ordine originario. Implementa controllo di congestione, flusso e 
+setup della connessione.
+
+NB: controllo di flusso opera sulla ricezione dell'host, mentre il controllo di congestione opera sulla 
+trasmissione in rete
+
+\subsection{UDP}
+È un protocollo best-effort, con consegne senza ordine
+
 \end{document}
