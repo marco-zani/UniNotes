@@ -158,7 +158,36 @@ can't be prevented, but the probability to be successful can be reduced. The mit
     \item forbid commonly used passwords
     \item limit the number of attempts
     \item don't use password hints or knowledge based
+    \item incourage the use of password generators and managers
 \end{itemize}
+
+\subsubsection*{Spoofing}
+Password spoofing is the use of programs with fake login interfaces that captures user and password when a legittimate user 
+gets bamboozled. The countermeadure is to implement mutual authentication between user and OS
+
+\subsubsection*{Phishing}
+an attacker impersonates the system to trick a unser into releasing sensible data. It can also use social engineering 
+
+\subsubsection*{Credential stuffing}
+Is the use of information from compromised databases to be applied on other services
+
+\subsubsection*{Password file protection}
+To maintain confidentiality and integrity the file could use cryptographic protection, access controll enforced by the OS,
+and further measures to slow dictionary attacks
+
+\subsection{Hashing and salting}
+The Hash is a one way function easy to compute but hard to reverse. Password usually get stored in the form of hash.
+The characteristics of an hash function are the easy computation, compression, one-way and collision resistance.
+
+NB: strong collision resistance is the property to be improbable to produce 2 messages with the same hash code. This can 
+be problematic if your storing passwords. Weak collision is when two passwords retrieve the same hash in the login. This 
+could lead to an exploit of the system security
+
+The principal algoritms in use are RIPEMD-160 and SHA-256 (others have been cracked like MD4, MD5, SHA-1). 
+Hashing can be broken through the use of dictionary or rainbow (hash dictionaries) attacks.
+
+To increase the security salting has been introduced to the hashes. Salting is the practice of appending random values
+to the end of the password before hashing
 
 
 

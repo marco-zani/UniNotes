@@ -328,10 +328,84 @@ demultiplexing usa le PCI per consegnare i segmenti alle socket giuste
 È un protocollo affidabile, con consegne nell'ordine originario. Implementa controllo di congestione, flusso e 
 setup della connessione.
 
-NB: controllo di flusso opera sulla ricezione dell'host, mentre il controllo di congestione opera sulla 
+NB: controllo di flusso opera sulla ricezione dell'host, mentre il controllo di congestione opera sulla m
 trasmissione in rete
 
 \subsection{UDP}
-È un protocollo best-effort, con consegne senza ordine
+Lo User Datagram Protocol è un protocollo best-effort, infatti i segmenti possono essere perduti o consegnati 
+in ordine scorretto. UDP inoltre è un protocollo connection-less, quindi senza handshake e segmenti gestiti
+indipendentemente dagli altri
+
+\subsubsection{Checksum UDP}
+Per controllare che il segmento sia giunto senza errori viene fatta la somma delle parole e calcolato il 
+complemento a 1 del risultato. questo valore viene poi inserito nel campo checksum del segmento UDP. Al ricevente
+basta poi rieffettuare la somma e sommare il checksum, se il risultato ha tutti i bit a 1, non è stato rilevato 
+errore, se no il contrario. 
+
+\subsection{trasferimento dati affidabile}
+\subsubsection{ARQ}
+L'Automatic Repeat reQuest è una classe di protocolli con lo scopo di recuperare le perdite di pacchetti.
+Tra questi abbiamo:
+\begin{itemize}
+    \item Stop&wait
+    \item Go-back-N
+    \item selective repeat
+    \item TCP
+    \item Protocollo MAC
+\end{itemize}
+
+\subsubsection*{Stop&wait}
+Il trasmettitore, dopo aver inviato il primo segmento, attende un ACK da parte del ricevente. Se non riceve
+l'ACK entro un timeout, allora reinvia la PDU. Il ricevitore può scegliere di non inviare l'ACK in caso la PDU
+risulti errata o in disordine.
+
+\subsubsection*{Pipelining}
+Questo metodo afferma che il trasmettitore consideri l'esistenza di ACK "in volo", cioé inviati ma non ancora 
+ricevuti. Il selective repeat e go-back-N usano questa tecnologia. 
+
+Alcuni termini utili sono:
+\begin{itemize}
+    \item finestra di trasmissione: l'insieme di PDU che vengono inviate dal trasmettitore senza aver ricevuto 
+    l'ACK
+    \item Finestra di ricezione: insieme di PDU che il ricevitore può accettare e immagazzinare
+    \item puntatore low: puntatore al primo pacchetto della finestra di trasmissione
+    \item puntatore up: puntatore all'ultimo pacchetto già trasmesso
+\end{itemize}
+
+Gli ACK utilizzati possono essere di diverso tipo: ACK individuale, ACK cumulativo (ho ricevuto fino a n), ACK
+negativo (NACK) e piggybacking (ACK inseriti dentro altre PDU)
+
+\subsubsection*{Go-back-N e selective repeat}
+Il Go-back-N invia cumuli da N pacchetti, e il ricevente invia solo ACK cumulativi. Il timeout è impostato sulla
+base del pacchetto più vecchio. Nel selective repeat invece il ricevente invia ACK dei singoli pacchetti. Con
+questo metodo il mittente deve tenere un timer per ogni pacchetto 
+
+\subsection{TCP}
+Parliamo di un protocollo point-to-point, full-duplex, orientato alla connessione che implementa pipelining e
+un flusso controllato e affidabile.
+
+La struttura contiene campi come l'ACK, checksum, finestra di ricezione (RWND), lunghezza massima del segmento 
+(MSS), retransmission timeOut (RTO) e flag di controllo della connessione.
+
+Il setup della connessione avviene seguendo specifici passaggi:a
+    \item Host A invia un segmento con flag SYN=1, nel pacchetto è contenuto porta sorgente, destinazione e 
+    numero di sequenza iniziale
+    \item Host B invia un ACK con flag SYN=1 e ACK=1, nel pacchetto contiene in valori precedenti più il numero
+     di ACK
+    \item Host A  risponde con un segmento con flag ACK=1, il pacchetto non contiene numero di sequenza
+\end{enumerate}
+La chiusura della connessione invece è bidirezionale e usufruisce del flag FIN=1 con relativo ACK da entrambi gli
+host. Esiste anche la chiusura tear down, più brusca, che usa il flag RST=1 per resettare la connessione
+
+\subsubsection{Controllo di flusso}
+Questo meccanismo permette al ricevitore di controllare la velocità di trasmissione del mittente.
+
+Nel caso TCP, il ricevitore comunica le dimensioni della propria finestra di ricezione tramite il campo RWND. 
+Il mittente, ricevuti i dati, si riadegua per non mandare in overflow in buffer del ricevente.
+
+\subsection{Principi del controllo di congestione}
+Con congestione intendiamo il fenomeno in cui la rete riceve più pacchetti di quelli che riesce a gestire.
+Questo comporta la perdita di pacchetti e ritardi
+
 
 \end{document}
