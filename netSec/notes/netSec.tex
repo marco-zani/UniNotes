@@ -189,6 +189,14 @@ Hashing can be broken through the use of dictionary or rainbow (hash dictionarie
 To increase the security salting has been introduced to the hashes. Salting is the practice of appending random values
 to the end of the password before hashing
 
+\subsection{Extensions for password based authentication}
+Multi factor authentication is characterized by the addition of some properties like knowledge, possession or inherence.
+The most common is two factor authentication (2FA) 
+
+\subsubsection{Time based one time passwords}
+it uses an algoritm to generate the same number on the server and the host, then the user sends the value that is shown 
+by the host, and if the two number are equals, the user is authorized. This methods still hase some weaknesses, like the
+value could be phished and replayed, or the algoritm could be stolen and used by the attacker to create new OTP
 
 
 

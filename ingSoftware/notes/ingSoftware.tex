@@ -204,6 +204,35 @@ sequenze vengono chiamate scenari e possono riguardare un caso base (di successo
 Il processo di creazione di uno schema richiede l'individuazione degli attori e degli scenari, e successivamente La
 creazione di relazioni tra i due
 
+\subsection{Sequence diagram}
+This diagram shows how objects collaborate between them. It's composed typicaly by time (or the progression of it), 
+messages (the communications between two objects) and the focus of control (the period while an object is performing an
+action)
+
+\subsection{State machine diagram}
+It describes the sequence of states and action an element can proceed. It's composed of a start and stop states and
+transitions divided in events, guards and actions. The action happen on entry, exit and while (do) in a state.
+
+They can be semplified in a hierachical decomposition, but this causes information losses and cluttering
+
+\subsection{Activity diagrams}
+It follows the same logic of the state machine diagram, but adds forks, joins and decisions. They could be
+separated in swinlanes to show who is the actor of that action.
+
+\subsection{Diagramma di contesto}
+Modella l'interazione tra il software e entità esterne, tipicamenti sistemi superiori, subordinati, paritari e
+gli attori
+
+La costruzione segue le seguenti fasi:
+\begin{enumerate}
+    \item identificazione dei flussi d'informazione
+    \item identificazione delle entità esterne
+    \item rappresentazione del sistema da sviluppare
+    \item rappresentazione delle entità esterne
+    \item collegamento dei flussi d'informazione
+\end{enumerate}
+Successivamente si può anche individuare la tipologia di sistemi e attori
+
 
 
 \end{document}
