@@ -405,7 +405,27 @@ Il mittente, ricevuti i dati, si riadegua per non mandare in overflow in buffer 
 
 \subsection{Principi del controllo di congestione}
 Con congestione intendiamo il fenomeno in cui la rete riceve più pacchetti di quelli che riesce a gestire.
-Questo comporta la perdita di pacchetti e ritardi
+Questo comporta la perdita di pacchetti e ritardi.
+
+Un modello a code comprende un lista d'attesa per un server. Il tasso di frequenza d'arrivo è il numero medio
+di pacchetti in arrivo in un lasso di tempo, mentre il tasso di frequenza di servizio è quanto velocemente 
+vengono processati
+
+\subsubsection{Cause e costi della congestione}
+una congestione può rientrare in 3 categorie:
+\begin{itemize}
+    \item Buffer infiniti
+    \subitem  nessuna perdita, ma più il tasso di arrivo si avvicina a quello di servizio più aumentano i ritardi
+    \subitem costo: ritardi molto elevati
+    \item Ritardi dovuti lla congestione: timeout
+    \subitem costo: spreco di risorse dato da ritrasmissioni inutili
+    \item pacchetti scartati a causa della congestione
+    \subitem costo: ritrasmissioni, questo porterebbe a un maggior lavoro per ottenere lo stesso thorughput percepito
+    a livello applicazione
+\end{itemize}
+
+\subsection{Controllo della congestione in TCP}
+
 
 
 \end{document}

@@ -198,6 +198,110 @@ it uses an algoritm to generate the same number on the server and the host, then
 by the host, and if the two number are equals, the user is authorized. This methods still hase some weaknesses, like the
 value could be phished and replayed, or the algoritm could be stolen and used by the attacker to create new OTP
 
+Smartphones are widely used in MFA, they can provide additional mobile systems to generate password codes, but they also 
+represent vulnerabilities thanks to weak protection of text messages, SIM cloning and the event that the smartphone gets 
+stolen
+
+\subsection{Assurance level (NIST)}
+\begin{enumerate}
+    \item requires at least single factor authentication, provides some assurance the claimant controls the authenticator
+    \item requires two factor authentication, provides high confidence that the claimant controls the authenticator
+    \item requires proof of possession, providing very high confidence that the claimant controls the authenticator
+\end{enumerate}
+
+\subsection{Outsourcing authentication}
+Securing efficiently the authentication on a system cn be difficult for smaller organizations, so he solution is to 
+delegate authentication to trusted third party providers. 
+
+Single Sign On (SSO) is one method the uses outsourcing. It's a mechanism that collects your password on the first
+login, and automatically repeats it on the successives logins. This increases the usabilty of a system and allows the 
+use of more complex password, at the cost of just one password to compromise.\\This mechanism is also an example of the balance
+between convenience and security
+
+\newpage
+\section{Cryptography}
+\subsection{Definitions}
+\begin{itemize}
+    \item Cryptography is the science and study of secret writing
+    \item Cryptanalysis is the science and study of methods of breaking ciphers
+    \item Cryptology is the combination of cryptography and cryptanalysis
+    \item Cryptosystem is the combination of:
+    \subitem $E$ is an encryption algoritm
+    \subitem $D$ is a decryption algoritm
+    \subitem $M$ is a set of plain texts
+    \subitem $K$ is the set of keys
+    \subitem $C$ is the set of ciphertexts
+    \subsubitem we can define $E$ and $D$ as $E:M\times K\to C$ and $D:C\times K\to M$
+    \item Kerckhoff's principle: the algoritm should not be the secret, but the key
+\end{itemize}
+
+\subsubsection{Keys}
+Are one input to a cryptographic algorithm and the most important part to keep secret. the set of all the possible keys
+is called keyspace, and the variance of a key is measured with entropy. Key are important because they're computationally
+secure 
+
+During a connection is common to change the key to limit the amount of data that could be compromised with a single key.
+So having a strong distribution system is essential 
+
+Cryptography is just one part to make a system secure, the keys must stored securely
+
+\subsection{Encryption}
+The encryption process can be applied on blocks of same lenght or stream of data. The transformation could be through:
+\begin{itemize}
+    \item Substitution: each element is mapped into another element
+    \item Transposition: elements are rearranged
+\end{itemize}
+
+\subsubsection{Caesar cipher (ROTk)}
+It's an algoritm based on rotation, matematicaly:
+\begin{center}
+    $E(x)=(x+k)(mod\ 26)\qquad x\in P$\\
+    $D(x)=(x-k)(mod\ 26)\qquad x\in C$
+\end{center}
+it's one of the easiest cipher to break
+
+\subsubsection{Vigenere cipher}
+it's an evolution of the Caesare cipher, it uses the same principle but instead of rotating with the same value, it's
+used a repeated key
+
+\subsubsection{Columnar cipher}
+The message is written on rows of a table with fixed column lenght defined by the key (the empty spaces are filled with
+nulls). In the end the columns are scrambled based on the key and the message gets rewritten from each column
+
+\subsection{Modern encryption}
+With the invention of computers, the algoritms had to evolve because they were too easy to brute force. In this way, new 
+methods arise 
+
+\subsection{Symmetric keys}
+A single key is used to encrypt and decrypt and is share between all intended receivers. it is categorized in two types: 
+stream cyphers and block cyphers. One detail on block cyphers they use both substitution an transposition through S-boxes
+to obtain confusion and P-boxes to obtain diffusion. This two properties are responsable of the dependency of the key and 
+the fact the if we change one bit, the entire message cyphertext changes
+
+\subsubsection*{Stream ciphers}
+converts plaintext one bit at a time with xor and the key. it's more efficient and it's used for realtime applications
+
+\subsubsection*{Block ciphers}
+breaks the message in successive blocks and enciphers them with the same key
+
+\subsubsection{Feistel}
+also called DES, it's a block cipher and follows these procedure
+\begin{enumerate}
+    \item splits the blocks in two
+    \item applies substitution to one half, and the output is xored with the other half
+    \item it swaps the two halves
+\end{enumerate}
+
+\subsubsection{AES}
+it's the successor to DES. The encryption process is based on a series of table lookups and xor operations. The difference 
+with DES is that the encryption and decryption algorithms are separately implemented, even if closely related. It also
+mounts larger keys
+
+\subsection{Asymmetric keys}
+
+
+
+
 
 
 \newpage
@@ -218,6 +322,21 @@ value could be phished and replayed, or the algoritm could be stolen and used by
     \subitem The GDPR encapsulates a risk based approach to privacy
     \item Security is not purely technical, human factors play a crucial role
     \subitem Hence the importance of security awareness and security training to improve the security posture
+\end{itemize}
+\subsection{Passwords and authentication}
+\begin{itemize}
+    \item Authentication amounts to verifying the identity of a user, process, or device, often
+    as a prerequisite to allowing access to resources in an information system
+    \item Here we focused on user authentication
+    \item Passwords are one of the most widespread and accepted method for user
+    authentication despite their shortcomings
+    \item Adequate security mechanisms should be put in place to protect stored passwords
+    \subitem Hashing & salting, access control, ...
+    \item Authentication is only one phase of the identity management lifecycle
+    \subitem Also other phases (e.g., identity proofing) may have weaknesses
+    \item Given the importance and difficulty of identity management, it is frequently
+    outsourced to trusted third parties with advantages and disadvantages also from
+    the viewpoint of security (and privacy)
 \end{itemize}
 
 
