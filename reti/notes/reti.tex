@@ -425,7 +425,68 @@ una congestione può rientrare in 3 categorie:
 \end{itemize}
 
 \subsection{Controllo della congestione in TCP}
+Esistono diversi tipi di approcci alla congestione in TCP:
+\begin{itemize}
+    \item controllo di congestione end-to-end
+    \item controllo di congestione assistito dalla rete
+\end{itemize}
+Gli algoritmi utilizzati da TCP sono:
+\begin{itemize}
+    \item In assenza di perdite:
+    \subitem Slow start
+    \subitem Congestion avoidance
+    \item In caso di perdite:
+    \subitem Fast retransmit
+    \subitem Fast recovery
+\end{itemize}
 
+\subsubsection{AIMD}
+L'Additive Increase Multiplicative Decrease è un approccio in cui il mittente aumenta il tasso di trasmissione 
+cercando di occupare più banda possibile, finche non si rilevano perdite. Praticamente si aumenta la finestra di 
+1 MSS ogni RTT finché non ci sono perdite, e successivamente si riduce la finestra della metà. Questo metodo 
+garantisce più equità fra le sessioni
+
+\subsubsection{Slow start e Congestion avoidance}
+Nello Slow start, per ogni ACK ricevuto, aumento la finestra di congestione di 1 MSS. Nel momento in cui supero 
+la soglia di congestione, entro in modalità congestion avoidance. In questa modalità, per ogni RTT in cui 
+ricevo tutti gli ACK attesi, aumento la finestra di congestione di 1 MSS
+
+\subsubsection{Fast retransmit e fast recovery}
+Alla ricezione del terzo ACK duplicato ritrasmetto il segmento indicato dall'ACK ed entro nella fase di fast 
+recovery. Abbasso la soglia dello slow start 
+
+
+
+
+\newpage
+\section{Livello di rete}
+\subsection{Visione d'insieme}
+Le due operazioni principali a livello di rete sono il forwarding e il routing. La prima è un'operazione con scala
+locale che sposta un pacchetto dall'entrata all'uscita di un router, mentre la seconda è a scala globale e
+determina il percorso che il pacchetto deve seguire. Le due parti si suddividono nel data plane e control plane,
+le logiche locali e globali del router
+
+\subsection{Il router}
+possiamo dividere il router in processore (software, control plane) e porte d'ingresso, uscita e sistema di
+commutazione ad alta velocità (hardware, data plane)
+
+\subsubsection{Porte d'ingresso}
+Composte da terminazione di linea, protocollo di ricezione e buffer, utilizzano gli header per indirizzare
+i pacchetti alla porta d'uscita corretta tramite le tabelle di inoltro, cercando di non introdurre ritardi 
+ulteriori
+
+\subsubsection{Sistemi di commutazione}
+Usano tre strutture: a memoria, a bus e a matrice. La commutazione a memoria è la più vecchia e utilizzava la 
+CPU per l'indirizzamento. La commutazione a bus usa un bus dati condiviso per trasmettere il datagrammi alle 
+uscite. Infine la commutazione a matrice usufruisce di punti di intercocnnessione tra line d'ingresso ed uscita
+
+\subsubsection{Porte d'ingresso ed uscita}
+un commutatore più lento delle porte causa accodamenti agli ingressi. Quando un datagramma al primo posto 
+della coda blocca quelli successivi è chiamato Head of line (HOL). Alle porte d'uscità invece vengono
+applicate delle politiche di scheduling. La dimensione dei buffer è definita nella RFC 3439, ossia un RTT
+generico moltiplicato per la velocità del link, il tutto diviso dalla radice del numero di flussi disponibili
+
+\suubsubsection{meccanismi di scheduling}
 
 
 \end{document}

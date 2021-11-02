@@ -298,9 +298,33 @@ with DES is that the encryption and decryption algorithms are separately impleme
 mounts larger keys
 
 \subsection{Asymmetric keys}
+It's the base for a secure communication without sharing a secret key. It uses one way functions, those are function
+easy to compute but difficult to reverse. This is also supported by trapdoor oneway functions, which use a key to 
+easily invert the original function.
 
+During the communication are used two keys, one to encode and another to decode. The two keys are different but 
+mathematically related, although one key doesn't allow to determine the other one.\\The public key is available
+to everyone the owner wants, and the private key is kept secret. Then the sender encrypts the message with the pubblic 
+key of the receiver, which decrypts using his private key.
 
+This mechanism can also be used as a digital signature. A private key is unique, so a host can encode something with his
+private key so that the receiver can verify using the sender public key.This also ensures non repudiation 
+that the receiver 
 
+\subsubsection{RSA}
+Is the most used in key exchange, digital signature and encryption of small blocks of data. It uses variable sized 
+encryption blocks and a variable size key. As a mathematical trick it uses the factorization to prime numbers
+
+See FMI
+
+\subsubsection{DH}
+It uses 
+BALZO TATTICOù
+
+\newpage
+\section{PKI and TLS}
+The public key crypto are more secure and supply high levels of integrity, confidentiality and non repudiation.
+All at the cost of efficiency and the lacking of authentication. PKC is the solution to this cons.
 
 
 
@@ -331,7 +355,7 @@ mounts larger keys
     \item Passwords are one of the most widespread and accepted method for user
     authentication despite their shortcomings
     \item Adequate security mechanisms should be put in place to protect stored passwords
-    \subitem Hashing & salting, access control, ...
+    \subitem Hashing, salting, access control
     \item Authentication is only one phase of the identity management lifecycle
     \subitem Also other phases (e.g., identity proofing) may have weaknesses
     \item Given the importance and difficulty of identity management, it is frequently
