@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1634284525 "/home/marco/Documents/uni/databases/notes/databases.tex" "/home/marco/Documents/uni/databases/notes/databases.pdf" "databases" 1634284525
+["pdflatex"] 1637688040 "/home/marco/Documents/uni/databases/notes/databases.tex" "/home/marco/Documents/uni/databases/notes/databases.pdf" "databases" 1637688040
   "/etc/texmf/web2c/texmf.cnf" 1630769332 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1614972641 14040 8345d346c47dc2f41f6635e18b5d80ff ""
-  "/home/marco/Documents/uni/databases/notes/databases.aux" 1634284525 2361 10a40a132d37cca53edb994b65ef5efd ""
-  "/home/marco/Documents/uni/databases/notes/databases.tex" 1634284524 5622 a9cba59e7b98091c3c131d77690b0e17 ""
+  "/home/marco/Documents/uni/databases/notes/databases.aux" 1637688040 3057 b7f693d7d299feaf20678bdab09ee7c0 ""
+  "/home/marco/Documents/uni/databases/notes/databases.tex" 1637688039 7774 e40b1065e9a9f5f58fc148bb1fc3b241 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -58,11 +58,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1630769536 125915 807ff72f6023b33a59c427bfd156a3d1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1630769537 1283513 6dc1e51836720e1353009e62bf170505 ""
-  "databases.aux" 1634284525 2361 10a40a132d37cca53edb994b65ef5efd "pdflatex"
-  "databases.tex" 1634284524 5622 a9cba59e7b98091c3c131d77690b0e17 ""
+  "databases.aux" 1637688040 3057 b7f693d7d299feaf20678bdab09ee7c0 "pdflatex"
+  "databases.tex" 1637688039 7774 e40b1065e9a9f5f58fc148bb1fc3b241 ""
   (generated)
-  "databases.log"
-  "/home/marco/Documents/uni/databases/notes/databases.log"
+  "databases.pdf"
   "databases.aux"
   "/home/marco/Documents/uni/databases/notes/databases.pdf"
-  "databases.pdf"
+  "/home/marco/Documents/uni/databases/notes/databases.log"
+  "databases.log"

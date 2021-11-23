@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  29 OCT 2021 13:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  19 NOV 2021 16:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -307,7 +307,7 @@ Overfull \hbox (7.8741pt too wide) in paragraph at lines 93--95
 []\OT1/cmr/m/n/12 Further dif-fi-cul-ties come from the ever ex-tend-ing at-tack sur-face and the ac-qui-si-tion of cyber-intelligence
  []
 
-[3] [4] [5] [6] [7] [8] [9] [10] [11] (/home/marco/Documents/uni/netSec/notes/netSec.aux) ) 
+[3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] (/home/marco/Documents/uni/netSec/notes/netSec.aux) ) 
 Here is how much of TeX's memory you used:
  4367 strings out of 481252
  60701 string characters out of 5915889
@@ -317,10 +317,10 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  68i,4n,74p,273b,263s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/marco/Documents/uni/netSec/notes/netSec.pdf (11 pages, 76718 bytes).
+Output written on /home/marco/Documents/uni/netSec/notes/netSec.pdf (14 pages, 84085 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 71 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

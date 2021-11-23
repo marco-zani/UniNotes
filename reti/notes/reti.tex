@@ -347,14 +347,14 @@ errore, se no il contrario.
 L'Automatic Repeat reQuest è una classe di protocolli con lo scopo di recuperare le perdite di pacchetti.
 Tra questi abbiamo:
 \begin{itemize}
-    \item Stop&wait
+    \item Stop\&wait
     \item Go-back-N
     \item selective repeat
     \item TCP
     \item Protocollo MAC
 \end{itemize}
 
-\subsubsection*{Stop&wait}
+\subsubsection*{Stop\&wait}
 Il trasmettitore, dopo aver inviato il primo segmento, attende un ACK da parte del ricevente. Se non riceve
 l'ACK entro un timeout, allora reinvia la PDU. Il ricevitore può scegliere di non inviare l'ACK in caso la PDU
 risulti errata o in disordine.
@@ -387,7 +387,8 @@ un flusso controllato e affidabile.
 La struttura contiene campi come l'ACK, checksum, finestra di ricezione (RWND), lunghezza massima del segmento 
 (MSS), retransmission timeOut (RTO) e flag di controllo della connessione.
 
-Il setup della connessione avviene seguendo specifici passaggi:a
+Il setup della connessione avviene seguendo specifici passaggi:
+\begin{enumerate}
     \item Host A invia un segmento con flag SYN=1, nel pacchetto è contenuto porta sorgente, destinazione e 
     numero di sequenza iniziale
     \item Host B invia un ACK con flag SYN=1 e ACK=1, nel pacchetto contiene in valori precedenti più il numero
@@ -453,10 +454,29 @@ ricevo tutti gli ACK attesi, aumento la finestra di congestione di 1 MSS
 
 \subsubsection{Fast retransmit e fast recovery}
 Alla ricezione del terzo ACK duplicato ritrasmetto il segmento indicato dall'ACK ed entro nella fase di fast 
-recovery. Abbasso la soglia dello slow start 
+recovery. Abbasso la soglia dello slow start e ricomincio a salire in maniera adittiva fino all'arrivo di un ACK
+valido. A quel punto passa in congestion avoidance
 
+NB: throughput tcp: $<\frac{MSS}{RTT}\cdot\frac{1}{\sqrt{p}}$
 
+\subsubsection{Controllo di congestione - CUBIC}
+CUBIC fa variare la lunghezza della finestra di congestione secondo una funzione cubica del tempo. Per 
+compabilità con TCP, CUBIC  si comporta come TCP standard in una rete con RTT brevi 
 
+\subsubsection{BBR}
+Bottleneck Bandwidth and ROundtrip propagation time è un algoritmo che si basa sull'RTT e la banda sul 
+bottleneck.\\È un protocollo progettato per rispondere a una congestione effettiva piuttosto che alla 
+perdita di pacchetti, ed è implementato solo sui server (Server-side algorithm).
+
+Oltre che ad evitare congestioni, BBR presenta anche riduzioni significative della latenza
+
+\subsubsection{QUIC}
+QUIC mira ad essere equivalente a tcp ma con una latenza inferiore. Basato su UDP con un overhead ridotto,
+sfrutta l'handshake iniziale di TLS per inviare anche i dati necessari per i pacchetti futuri.
+
+Ogni flusso è controllato separatamente, in maniera che lo stack di protocollo non è fermato da un singolo 
+flusso.\\Inoltre, QUIC usa degli identificatori di connessione, che risultano indipendenti al cambio di rete,
+al contrario di TCP che si rallenta per ripristinare le connessioni
 
 \newpage
 \section{Livello di rete}
@@ -486,7 +506,48 @@ della coda blocca quelli successivi è chiamato Head of line (HOL). Alle porte d
 applicate delle politiche di scheduling. La dimensione dei buffer è definita nella RFC 3439, ossia un RTT
 generico moltiplicato per la velocità del link, il tutto diviso dalla radice del numero di flussi disponibili
 
-\suubsubsection{meccanismi di scheduling}
+\subsubsection{meccanismi di scheduling}
+Lo scheduling avviene per meccanismo FIFO, ma nel momento in cui la coda si riempie, vengono usati 3 metodi per
+lo scarto dei pacchetti: tail drop (scarto pacchetti in arrivo), priority drop e random drop
+
+\subsection{Protocollo IP}
+\subsubsection{Datagramma}
+I campi del pacchetto ip sono: VER (versione), lunghezza header, tipo di servizio, lunghezza totale, id, flag,
+offset, TTL, protocollo superiore, checksum, ip sorgente, ip destinazione, opzioni ip, padding
+
+\subsubsection{frammentazione}
+Ciascuna rete diversa può richiedere una MTU, o limite dati massimo di trasmissione, specifica, perciò il router
+frammenta i datagrammi e li invia impostando il flag che indica la frammentazione e il campo offset specificando
+come concaternare i frammenti. Inoltre copia i campi necessari dall'header originale.\\I flag che vengono usati 
+sono D (do not fragment) e M (more fragments comming)
+
+La frammentazione a livello IP è disabilitata su internet per mitigare gli attacchi di overlapping fragments, 
+DDos di riempimento di memoria e errori di assemblaggio dei frammenti
+
+\subsubsection{indirizzi IP}
+gli host e router devono usare le stesse convenzioni, l'indirizzo IP pubblico deve essere unico, ogni
+interfaccia ha un indirizzo IP
+
+Gli indirizzi IP sono generalmente divisi in due parti: 
+\begin{itemize}
+    \item Prefisso: l'identificatore della rete (NetID)
+    \item suffisso: identifica l'interfaccia di rete (HostID)
+\end{itemize}
+in passato venivano usate diverse classi di indirizzi, con diverse lunghezze dei prefissi
+
+Le autorità per l'assegnazione degli indirizzi sono l'ICANN (Internet Corporation for Assigned Names and Numbers)
+che usano i registrar per consentire agli ISP di gestire blocchi di indirizzi
+
+\subsubsection{Indirizzamento classless}
+Il metodo classless permette agli ISP di assegnare prefissi di rete che permettono di gestire numeri specifici 
+di host. Quindi per determinare la dimensione del prefisso si utilizzano le maschere di rete, ossia 32 bit 
+impostati a 1 fino al prefisso. Questo metodo permette un uso efficente dell'AND logico per determinare il NetID.
+\\La notazione /x è chiamata notazione CIDR
+
+L'inoltro con CIDR usufruisce della subnet per determinare la rete e l'interfaccia ad essa collegata
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \end{document}

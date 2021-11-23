@@ -90,9 +90,9 @@ be super keys (keys in general), candidate key (minimal super key) and primary k
 it's the most used model thanks to the characteristic to be easier and faster than other models.
 
 \subsubsection*{Definitions}
-a relational database is a set of relations, which are made of instances, or tables, and schemas, which specifies name 
-of the relation, and name plus type of each column. In the tables, rows equals to the cardinality and are called tuples,
-the fields are called degrees
+a relational database is a set of relations, which are made of instances, or tables, and schemas, which specifies
+name of the relation, and name plus type of each column. In the tables, rows equals to the cardinality and are 
+called tuples,the fields are called degrees
 
 \subsection{Integrity contraints}
 A condition must be true for any instance of the database.
@@ -101,8 +101,8 @@ Keys can be contraints because no distinct tuples can have the same values
 
 \newpage
 \section{Relational algebra}
-The manipulation and retrieval of data from a database is managed through query language. A mathematical query language
-i the relation algebra, an operational query language.
+The manipulation and retrieval of data from a database is managed through query language. A mathematical query
+language i the relation algebra, an operational query language.
 
 The basic operations are:
 \begin{itemize}
@@ -128,22 +128,65 @@ A basic SQL query is composed by relation-list, target-list and qualification an
     \item discard resulting tuples if they fail qualifications (SELECT)
     \item delete attributes that are not in target-list (WHERE)
 \end{itemize}
-SQL is also capable of nesting queries. This is done by adding the operator IN in the WHERE section, and the nested query inside.
-It can be also used the operator EXISTS to let the inner query use parameters from the outer query.
+SQL is also capable of nesting queries. This is done by adding the operator IN in the WHERE section, and the nested 
+query inside. It can be also used the operator EXISTS to let the inner query use parameters from the outer query. 
 parentesis
 
 \subsubsection{Operators LIKE and AS}
-LIKE is used in string matching, it uses \% to represent multiple characters and \_ just for one. To generate new name fields
-is also used the operator AS
+LIKE is used in string matching, it uses \% to represent multiple characters and \_ just for one. To generate new
+name fields is also used the operator AS
 
 \subsubsection{UNION and INTERSECT} 
-UNION can be used to unite two compatible sets of tuples, meanwhile INTERSECT computes the intersection between the tuples
+UNION can be used to unite two compatible sets of tuples, meanwhile INTERSECT computes the intersection between the
+tuples
 
 \subsubsection{Agregate Operators}
 SQL offers various extentions to relational algebra, such as COUNT, SUM, AVG, MAX and MIN
 
 \subsection{Deductive Databases}
+TO apply recursevly
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Indexing}
+On datastorage, Disk can retrieve random pages at fixed cost, but must be organazied. This is called file
+organization, or the mothod of arranging a file of records. Indexes are the data structures that allow to 
+find records ids.Indexes are organized through trees or hashing.\\Alternatively, other file organizations 
+can be heap files or sorted files.
+
+An index contains a collection of data entries $x*$ with a key value of $x$. Any field of a relation can be the
+search key for an index.
+
+\subsubsection{B+ tree indexes}
+Data entries are contained in the leaves of a tree and are chained to one another. Non-leaf pages have index 
+entries used to direct searches
+
+\subsubsection{Hash-based indexes}
+Better suited for equality selection, this indexes are a collection of buckets (primary pages with zero or more
+overflow pages) which contain data entries. It's also implemented an hashing function that retrieves the buckets
+where a record belongs. 
+
+\subsection{Alternatives for data entry $x$ in index}
+we can store the data record with key value $x$, rids of data record or list of rids of data records.
+
+In the first alternative, the index structure is a file organization of data records. At most one index on a 
+collection of data records can use this alternative, otherwise the data is duplicated. If data records are 
+very large, the number of pages is high, this implies also lage size of the auxiliary information
+
+With the other alternatives data entries are much smaller than data records, so more efficient for large data 
+records. The third alternative is even more compact
+
+\subsection{Clustered and unclustered indexes}
+An index can be categorized in primary vs secondary, and clustered vs unclustered. These second classification
+differs for a sorted or unsorted heap file with all the data records
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Page = P
+tuple record = Tr
+space of R = Pr = \#P
+cardinality of R = |R|
+cardinality of attribute (distinct) = |R.a|
 
 
 

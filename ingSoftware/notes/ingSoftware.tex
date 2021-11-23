@@ -204,6 +204,7 @@ sequenze vengono chiamate scenari e possono riguardare un caso base (di successo
 Il processo di creazione di uno schema richiede l'individuazione degli attori e degli scenari, e successivamente La
 creazione di relazioni tra i due
 
+\section{Diagrammi}
 \subsection{Sequence diagram}
 This diagram shows how objects collaborate between them. It's composed typicaly by time (or the progression of it), 
 messages (the communications between two objects) and the focus of control (the period while an object is performing an
@@ -233,6 +234,90 @@ La costruzione segue le seguenti fasi:
 \end{enumerate}
 Successivamente si può anche individuare la tipologia di sistemi e attori
 
+
+\subsection{Progettazione architetturale}
+A differenza del diagramma di contesto, questo tipo di progettazione si concentra sulla descrizione del 
+sistema, in particolare al come deve essere realizzato.\\Il risultato di di questa fase è il documento di 
+progetto, composto dal progetto architetturale (dove descrive come il sistema è suddiviso in sotto sistemi)
+e il progetto dettagliato (le descrizioni dei singoli sotto sistemi)
+
+\subsubsection{Architettura}
+L'architettura è un'astrazione che permette di
+\begin{itemize}
+    \item Valutare l'efficacia del design e le eventuali alternative
+    \item definire l'organizzazione del software
+    \item avere un modello di riferimento per il progetto  e la comunicazione con gli stakeholders
+\end{itemize}
+Permette quindi la comunicazione delle parti interessate con un design partecipativo in modo da ridurre
+i rischi durante il progetto
+
+\subsubsection{Stili architetturali}
+Gli insiemi di uno stile architteturale sono le componenti, i connettori e i vincoli
+
+\subsubsection{Stili di controllo}
+Si occupano del flusso di controllo tra sottosistemi e si dividono in controlli centralizzati e controlli 
+basati su eventi
+
+\subsubsection{Raffinamento}
+Definito il contesto si passa a una fase di specifica del sistema o raffinamento, dove si approfondiscono
+le componenti che compongono il sistema.
+
+Questo passaggio avviene tramite l'astrazione delle procedure e il raffinamento progressivo dei dettagli di 
+basso livello.\\L'astrazione è di tipo:
+\begin{itemize}
+    \item Strutturale: descrizione dell'aggregazione delle componenti
+    \item Procedurale: descrizione della sequenza d'istruzioni di una funzione
+    \item Dati: collezione di dati che descrivono un oggetto
+\end{itemize}
+
+\subsubsection{Modularità}
+La suddivisione di un software in moduli rende il codice più comprensibile e mantenibile. Questo permette
+di ottenere l'indipendeza funzionale, ossia massima coesione interna ai moduli e minimo grado di 
+accoppiamento tra moduli Questo metodo produce l'identificazione di un'architettura dei moduli (o structure
+chart).\\Il metodo migliore per la creazione di moduli è il divide et impera
+
+\subsubsection{Coesione}
+Nella modularità, le funzioni possono essere concentrati in un singolo modulo o sparse fra tanti. La 
+coesione è la misura che valuta quanto una funzione è svolta internamente a un singolo modulo o necessità 
+di appoggi. Presenta sette livelli:
+\begin{enumerate}
+    \item Casuale: nessuna relazione
+    \item Logica: elementi correlati, di cui uno viene selezionato dal modulo chiamante
+    \item Temporale
+    \item Procedurale
+    \item Comunicazionale: elementi correlati da una sequenza eseguita nella stessa struttura dati
+    \item Informazionale: ogni elemento ha del codice indipendente e un punto d'ingresso e d'uscita nella 
+    stessa struttura dati
+    \item Funzionale: tutti gli elementi sono correlati da una singola funzione
+\end{enumerate}
+
+\subsubsection{Coupling}
+Esprime la forza di interconnessione fra moduli in 5 livelli:
+\begin{enumerate}
+    \item Content: riferimento diretto al contenuto di un'altro modulo
+    \item Common: due moduli che accedono alla stessa struttura dati
+    \item Control: un modulo controlla l'esecuzione di un'altro
+    \item Stamp: due moduli che si passano come argomento una struttura dati della quale usano alcuni elementi
+    \item Data: due moduli che si passano argomenti omogenei, cioé che usano tutti gli elementi
+\end{enumerate}
+
+\subsubsection{Riusabilità}
+Questo proprietà si riferisce all'utilizzo di componenti in differenti prodotti, riducendo costi e tempi di 
+produzione. Si può applicare a moduli software, frameworks, design patterns e archittetture software
+
+\subsection{Diagramma delle componenti}
+Modella le relazioni tra i componenti di alto livello di un sistema. È formato da entità e interfaccie fornite
+o richieste.
+
+Le fasi di progettazione sono: 
+\begin{enumerate}
+    \item Identificare le componenti del sistema
+    \item identificare le interfacce appropriate per ogni componente
+    \item Collegare le interfacce che interagiscono fra di loro
+    \item Caratterizzare il dato trasmesso dalle interfacce tramite etichette
+\end{enumerate}
+
+\newpage
 \section{Businness Process Modeling Notation}
 A businness process is a set of activities that jointly realize a businness goal. This requires that organizations 
 specify their flows of work.

@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1635514734 "/home/marco/Documents/uni/reti/notes/reti.tex" "/home/marco/Documents/uni/reti/notes/reti.pdf" "reti" 1635514734
+["pdflatex"] 1637686004 "/home/marco/Documents/uni/reti/notes/reti.tex" "/home/marco/Documents/uni/reti/notes/reti.pdf" "reti" 1637686005
   "/etc/texmf/web2c/texmf.cnf" 1630769332 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1614972641 14040 8345d346c47dc2f41f6635e18b5d80ff ""
-  "/home/marco/Documents/uni/reti/notes/reti.aux" 1635514734 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/home/marco/Documents/uni/reti/notes/reti.tex" 1635514734 27781 61e570ab98da627757e35d6a77ffd262 ""
+  "/home/marco/Documents/uni/reti/notes/reti.aux" 1637686005 5852 22a465ae6be8ed44064aa958c7197bb7 ""
+  "/home/marco/Documents/uni/reti/notes/reti.tex" 1637686003 31429 e06102602cb9fc5c2b3f394cc9b364f4 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -27,6 +27,8 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1248133631 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty" 1583617216 6501 4011d89d9621e0b0901138815ba5ff29 ""
@@ -58,11 +60,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1630769536 125915 807ff72f6023b33a59c427bfd156a3d1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1630769537 1283513 6dc1e51836720e1353009e62bf170505 ""
-  "reti.aux" 0 -1 0 "pdflatex"
-  "reti.tex" 1635514734 27781 61e570ab98da627757e35d6a77ffd262 ""
+  "reti.aux" 1637686005 5852 22a465ae6be8ed44064aa958c7197bb7 "pdflatex"
+  "reti.tex" 1637686003 31429 e06102602cb9fc5c2b3f394cc9b364f4 ""
   (generated)
+  "/home/marco/Documents/uni/reti/notes/reti.pdf"
+  "/home/marco/Documents/uni/reti/notes/reti.log"
+  "reti.pdf"
   "reti.log"
   "reti.aux"
-  "/home/marco/Documents/uni/reti/notes/reti.log"
-  "/home/marco/Documents/uni/reti/notes/reti.pdf"
-  "reti.pdf"
