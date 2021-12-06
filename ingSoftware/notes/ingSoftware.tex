@@ -318,7 +318,7 @@ Le fasi di progettazione sono:
 \end{enumerate}
 
 \newpage
-\section{Businness Process Modeling Notation}
+\subsection{Businness Process Modeling Notation}
 A businness process is a set of activities that jointly realize a businness goal. This requires that organizations 
 specify their flows of work.
 
@@ -335,7 +335,7 @@ software system, the data they exchange and manipulate, and the various systems.
 \end{itemize}
 
 
-\subsection{Events}
+\subsubsection{Events}
 Non-interrupt events are rappresented with a dotted line.
 \begin{itemize}
     \item Message 
@@ -352,7 +352,7 @@ Non-interrupt events are rappresented with a dotted line.
     \item Multiple parallel 
 \end{itemize}
 
-\subsection{Tasks}
+\subsubsection{Tasks}
 Tasks, or activities, is a work performed within a businnes process. Are divided in tasks, subprocesses (+)
 and call activities (thick line)
 
@@ -388,7 +388,7 @@ These are references to external processes or to recall processes already define
     \item Script Call Activity
 \end{itemize}
 
-\subsection{Gateways}
+\subsubsection{Gateways}
 
 \begin{itemize}
     \item Exclusive Gateways
@@ -400,5 +400,24 @@ These are references to external processes or to recall processes already define
     \subitem Parallel Event-based Gateways to start a process
 \end{itemize}
 
+\newpage
+\subsection{Diagramma delle classi}
+Il diagramma delle classi differenzia le varie componenti con i loro attributi e operazioni, in più rappresenta 
+le relazioni fra classi e relative informazioni come molteplicità e ruoli.\\
+I vari attributi e operazioni di una classe mostrano anche il loro stato, cioé se pubblico (+), protetto (\#)
+e privato (-).
+
+Alcune associazioni possono diventare aggregazioni nel caso delle classi "fanno parte" di altre classi più estese.
+Le aggregazioni possono anche evolversi in composizioni, dove le classi dipendenti all'aggregazione non possono 
+esistere da sole. Altre componenti del diagramma possono essere i vincoli e gli attributi derivati. 
+
+Le classi possono anche essere di tipo associativo, dove arrichiscono le informazioni date da altre classi alla 
+quale sono collegate, o anche di tipo astratto
+
+Il processo per la creazione del diagramma è:
+\begin{enumerate}
+    \item Identificare le classi: definirne gli attributi e le operazioni
+    \item Stabilire associazioni: descrivere anche molteplicità e dipendenze
+\end{enumerate}
 
 \end{document}

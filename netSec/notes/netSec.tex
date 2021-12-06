@@ -457,6 +457,100 @@ generated for every connection. On the other side this doesn't allow for authent
 Authenticated Encryption with Associated Data (AEAD) cyphers.
 
 \newpage
+\section{Single Sign On, SAML, SPID, CIE}
+\subsection{SSO}
+
+SSO operates inside of security domains, or applications trusting a common security token for authentication.\\
+The basic concept is:
+\begin{enumerate}
+    \item an user access the application
+    \item the service provider refers for authentication with the identity provider
+    \item the identity provider ask the user for credential and after the user is authenticated, provides 
+    authentication evidence to the service provider
+    \item the service provider gives to the user an authentication token
+\end{enumerate}
+
+Using this system, the credential never leave the authentication domain, but the service provider must trust 
+the authentication domain, plus the authentication transfer must be protected
+
+\subsection{SAML}
+The Security Assertion Markup Language is a common language and flow between systems that want to provide an SSO 
+experience, and it's XML based.
+
+SAML distinguishes two main entities: and identity provider, who authenticates the user and provides authorisation 
+information, and the service provider, which relies on the information provided by the IsP. IdP e SP share 
+metadata in any form and mean possible, sharing at least the entity ID and the cryptographic keys.\\
+There are also federations, or groups of entities, which establish the initial trust among resources.
+
+The authentication flow follows this procedure:
+\begin{enumerate}
+    \item A user tries to access an SP
+    \item The user is redirected to a Discovery Service
+    \subitem it allowes the user to choose the IdP
+    \item The user goes back to the SP with the ID of the IdP
+    \item The user is redirected to the IdP
+    \item the Authentication is performed
+    \item THe user goes back to the SP with the authentication
+\end{enumerate}
+
+NB: SAML can support other resources, and resources can support multiple SAML profiles. The most used is 
+redirect
+
+SAML is composed of the authentication context, metadata and the main content, which is it self composed 
+of profiles, bindings, protocols and assertions.
+
+\subsubsection*{Assertions}
+The assertion are a set of statements made by the authority,
+and is classified in authentication assertion (which describes the issuer, the issued, validity period,...), 
+attribute assertion (defining specific details about the subject) and authorization assertion (defines what the
+subject is entitled to do)
+
+\subsubsection*{Protocols}
+This section defines the communication and cryptographic protocols used for the exchange
+
+\subsubsection*{Bindings}
+SAML uses a mechanism called SAML binding to transport the messages between the actors. There are various types 
+like SAML URI, HTTP redirect, HTTP POST,...
+
+\subsubsection*{Profiles}
+The combination of protocols, assertions and binding define a profile which creates a federation and enables 
+federated SSO. This profiles can be Web browser SSO, Single Logout, artifact resolution...
+
+The two types of web SSO are \\ IsP initiated SSO
+\begin{enumerate}
+    \item A user is challenged to supply credentials to the IdP site
+    \item The user provides credentials and a local security context is created
+    \item The user accesses to the SP through the IdP, which triggers the SSO service to be called
+    \item The SSO service builds a SAML assertion
+    \item The browser issues an HTTP POST request to send the SAML to the SP
+    \item Final access is allowed or denied to the user by the SP
+\end{enumerate}
+
+The opposite is a SP initiated SSO
+\begin{enumerate}
+    \item A user attempts to access a resource on the SP
+    \item The SP sends a redirect in response 
+    \item The SSO service checks for a pre-existing logon security context, if missing requires the user to
+    provide credentials
+    \item The user provides a valid credentials and a local security context is created
+    \item The IdP creates a SAML assertion 
+    \item The browser issues an HTTP POST request to the SP
+    \item The access is allowed or denied to the user
+\end{enumerate}
+
+\subsubsection{Authentication Context}
+It indicates how a user athenticated at an IdP. It can be required by an SP to enstablish a level of assurance
+(LOA)
+
+\subsubsection{Metadata}
+A SAML metadata document describes a SAML deployment which is used to enstablish trust and interoperability.
+The minimum required is the entity ID, cryptographic keys and protocols endpoints (bindings and URLs). It's 
+important to remember that the keys are both used for encryption and digital signature. In this case is 
+required that each party knows each other in advance
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
 \section{Wrap-up}
 \subsection{Security in perspective}
 \begin{itemize}

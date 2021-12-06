@@ -544,10 +544,119 @@ di host. Quindi per determinare la dimensione del prefisso si utilizzano le masc
 impostati a 1 fino al prefisso. Questo metodo permette un uso efficente dell'AND logico per determinare il NetID.
 \\La notazione /x è chiamata notazione CIDR
 
-L'inoltro con CIDR usufruisce della subnet per determinare la rete e l'interfaccia ad essa collegata
+L'inoltro con CIDR usufruisce della subnet per determinare la rete e l'interfaccia ad essa collegata. In caso 
+di multiple corrispondenze si usufruisce della regola del longest prefix matching
+
+I router usufruiscono di una tabella di routing per definire ad ogni interfaccia quali reti sono collegate
+
+\subsubsection{Indirizzi pubblici e privati}
+La maggioranza di indirizzi IP è pubblica e vengono gestiti dagli ISP, mentre invece per le reti a gestione 
+privata vengono riservati 3 intervalli di indirizzi:
+\begin{itemize}
+    \item 10.0.0.0/8 (fino a 10.255.255.255)
+    \item 172.16.0.0/12 (fino a 172.31.255.255)
+    \item 192.168.0.0/16 (fino a 192.168.255.255)
+\end{itemize}
+
+\subsubsection{Indirizzi speciali}
+Ecco un elenco di indirizzi speciali in IPv4:
+\begin{itemize}
+    \item Indirizzi di rete
+    \subitem Usati come riferimento ad una rete, impostano tutti i bit HostID a 0
+    \item Indirizzi broadcast di una rete
+    \subitem Sono indirizzi broadcast che possono essere inoltrati da un router a una determinata rete. Si 
+    ottengono settando tutti i bit HostID a 1
+    \item Indirizzo broadcast di una rete locale
+    \subitem 255.255.255.255: Usato per la comunicazione broadcast locale, non viene inoltrato dai router  
+    \item Indirizzo sconosciuto
+    \subitem 0.0.0.0: Usato per determinare indirizzi non validi o non ancora assegnati, come all'inizio 
+    di un discovery DHCP 
+    \item Indirizzo di loopback
+    \subitem 127.0.0.1: Usato da un host per comunicare con se stesso. Per esempio viene usato per testare le 
+    app di rete 
+    \item Indirizzi multicast
+    \subitem Usati per inviare pacchetti a un gruppo di host, iniziano tutti con 1110 (224.0.0.0$\to$
+    239.255.255.255). Il traffico multicast è minimo, molto spesso bloccato su internet
+    \item Indirizzi link-local
+    \subitem 169.254.0.0/16: una sottorete usata per le comunicazioni quando un host non riesce a trovare 
+    un indirizzo IP
+    \item Indirizzi per router
+\end{itemize}
+
+
+\subsubsection{Network Address Translation}
+Per connettere reti con indirizzo privato a internet, vengono usate due tecnologie: un proxy (dispositivo con un 
+indirizzo pubblico e uno privatio che fa da middleman) e il NAT, ossia un apparato che si interfaccia a internet 
+e effettua una mappatura degli indirizzi privati convertiti in porte dell'indirizzo pubblico.\\
+NAT offre 60 mila connessioni simultanee grazie alle porte a 16 bit.
+
+\subsubsection{ARP}
+L'Address Resolution Protocol viene utilizzato per trovare l'indirizzo MAC asseggnato ad un determinato indirizzo
+IP. Il funzionamento si basa su una richiesta in broadcast fatta dal mittente alla ricerca di un destinatario 
+specifico. Se un host corrisponde a quel destinatario risponde con il suo indirizzo MAC, se no scarta il messaggio.
+
+Per evitare di floodare la rete con richieste ARP, le risposte vengono salvate in memoria, e in caso di nuove 
+corrispondenze, le vecchie risposte vengono sovrascritte o scartate dopo 30 secondi
+
+Una macchina può anche essere configurata come ProxyARP, ossia una macchina che inoltra i messaggi ARP 
+su un'altra rete spacciandosi come host mittente. Questo sistema permette di gestire sottoreti come una rete 
+unica
+
+\subsubsection{ICMP}
+Questo è un protocollo usato per la gestione e manutenzione delle reti. Funziona in simbiosi con IP dato che 
+IP usa ICMP per segnalare gli errori, e ICMP usa IP per trasportare i messaggi.
+Questi messaggi sono molteplici, ognuno con il proprio ruolo. Alcuni esempi sono destination unreachable, time
+exceeded, redirect...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
+\section{Data link}
+Gli host e i router si comportano come nodi di una rete, mentre gli archi sono i vari link, che possono 
+essere sia cablati che wireless. \\I pacchetti di livello data link sono chiamati frame. 
 
+Il compito di questo livello è il trasporto da un nodo all'altro, nonostante i link possono essere di 
+vari tipi e con protocolli (con i relativi servizi) diversi. \\Nello specifico, la creazione di un 
+frame avviene tramite:
+\begin{itemize}
+    \item Incapsulamento di un datagramma in frame, con relativi header e trailer
+    \item Fornitura di un meccanismo d'accesso al canale di comunicazione
+    \item Identificazione di mittente e destinatario tramire indirizzo MAC 
+\end{itemize}
+Viene anche implementato un controllo di errore per le connessioni con alti tassi d'errore.\\ Altri
+servizi offerti dal livello datalink sono il controllo di flusso, correzzione d'errore e comunicazione
+half/full-duplex
+
+Il livello datalink viene implementato dall'adattatore di rete all'interno di un host
+
+\subsection{Rilevamento di errori}
+Nel datagramma, oltre che il controllo di parità, esiste il campo EDC (Error Detection and Correction) 
+che contiene il numero di bit ridondanti inseriti. 
+
+Viene usato CRC (Cyclic Redundancy Check), ossia l'algoritmo più efficente per il rilevamento di errore
+
+
+%%%%%%%%% ANALISI CRC %%%%%%%%%
+
+\subsection{Tipi di collegamento}
+Nel momento in cui due o più trasmissioni partono simultaneamente da nodi diversi si può generare un'interferenza.
+Per questa ragione è necessario un protocollo di accesso multiplo ad un mezzo. Questi protocolli si chiamano MAC
+(Multiple Access Control) e rientrano in tre tipi di classi:
+\begin{itemize}
+    \item Ripartizione delle risorse del canale (cioé creando sotto canali)
+    \item ad accesso casuale
+    \item A turni intelligenti
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{CSMA}
+il Carrier Sense Multiple Access è un tipo di approccio a un canale dove si "ascolta" prima di iniziare la 
+trasmissione
+
+Si definisce come CSMA 0-persistente (non persistente) quando un nodo, cercando di trasmettere su un canale
+occupato, attende un quantitativo di tempo casuale prima di ritentare la trasmissione. Un'altra versione è
+CSMA 1-persistente, dove il nodo attende finché il canale non è libero per poter trasmettere. In caso di 
+collisione, il nodo attente un tempo casuale prima di ripetere la procedura
 
 \end{document}

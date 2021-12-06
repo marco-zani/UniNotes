@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1637686004 "/home/marco/Documents/uni/reti/notes/reti.tex" "/home/marco/Documents/uni/reti/notes/reti.pdf" "reti" 1637686005
+["pdflatex"] 1638777574 "/home/marco/Documents/uni/reti/notes/reti.tex" "/home/marco/Documents/uni/reti/notes/reti.pdf" "reti" 1638777574
   "/etc/texmf/web2c/texmf.cnf" 1630769332 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk" 1614972641 14040 8345d346c47dc2f41f6635e18b5d80ff ""
-  "/home/marco/Documents/uni/reti/notes/reti.aux" 1637686005 5852 22a465ae6be8ed44064aa958c7197bb7 ""
-  "/home/marco/Documents/uni/reti/notes/reti.tex" 1637686003 31429 e06102602cb9fc5c2b3f394cc9b364f4 ""
+  "/home/marco/Documents/uni/reti/notes/reti.aux" 1638777574 6852 8490e67dfee5c413ac358378485fc760 ""
+  "/home/marco/Documents/uni/reti/notes/reti.tex" 1638777573 37308 a7a9c79646051d56adc162a2c2435c53 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -60,11 +60,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1630769536 125915 807ff72f6023b33a59c427bfd156a3d1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1630769537 1283513 6dc1e51836720e1353009e62bf170505 ""
-  "reti.aux" 1637686005 5852 22a465ae6be8ed44064aa958c7197bb7 "pdflatex"
-  "reti.tex" 1637686003 31429 e06102602cb9fc5c2b3f394cc9b364f4 ""
+  "reti.aux" 1638777574 6852 8490e67dfee5c413ac358378485fc760 "pdflatex"
+  "reti.tex" 1638777573 37308 a7a9c79646051d56adc162a2c2435c53 ""
   (generated)
-  "/home/marco/Documents/uni/reti/notes/reti.pdf"
-  "/home/marco/Documents/uni/reti/notes/reti.log"
   "reti.pdf"
-  "reti.log"
+  "/home/marco/Documents/uni/reti/notes/reti.log"
   "reti.aux"
+  "/home/marco/Documents/uni/reti/notes/reti.pdf"
+  "reti.log"
