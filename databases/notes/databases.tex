@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 
 \usepackage{graphicx}
+\usepackage{mathtools}
 
 \usepackage{geometry}
 
@@ -12,6 +13,7 @@
 \usepackage{amssymb}
 
 \geometry{margin=0.6in}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
 
 \setlength{\parindent}{0em}
@@ -44,7 +46,7 @@ bank transaction
 Atomicity is a property caracterized by the all-or-nothing policy. It is applied through a log who keeps
 
 \subsubsection{Consistency}
-The databse must be consistent before and after the transaction
+The database must be consistent before and after the transaction
 
 \subsubsection{Isolation}
 multiple transactions occur independently without interference
@@ -180,15 +182,181 @@ records. The third alternative is even more compact
 An index can be categorized in primary vs secondary, and clustered vs unclustered. These second classification
 differs for a sorted or unsorted heap file with all the data records
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Cost Teory}
+Definitions:
+\begin{itemize}
+    \item Page: Is the size of one unit inside a hard drive. It's denoted with $p$
+    \item Record size: is the size of a tuple, denoted with $t_{R}$
+    \item Pages of relations: is the number of pages occupied by the records of a single relation. it's denoted with $P_{R}$
+    \item Cardinality of a relation: is the number of records of a single cardinality, is denoted with $|R|$
+    \item Cardinality of an attribute: is the number of distinct values inside an attribute. Is denoted with $R.A$
+\end{itemize}
 
-Page = P
-tuple record = Tr
-space of R = Pr = \#P
-cardinality of R = |R|
-cardinality of attribute (distinct) = |R.a|
+This definitions can be used to determin other data
+
+\begin{center}
+    \# Records of $R$ per page:\\ $\lfloor \frac{P}{t_{R}}\rfloor = \lfloor \frac{PageSize}{t_{TupleSize}}\rfloor$
+
+    Size of R:\\ $\ceil{\frac{|R|}{\lfloor\frac{P}{t_{R}}\rfloor}} \times p = \ceil{\frac{\# Tuples}{\# TuplesPerPage}} \times p$
+\end{center}
+
+\subsection{Cost}
+Every action of I/O on the database requires time, by definitiono we will say that an action of writing and reading will cost 1.
+The other tipes of action are:
+
+\subsubsection*{Scan}
+Is the operation of reading a relation, his cost is equal to the pages of a relation
+
+\subsubsection*{Sorting}
+The cost of sorting the data depends on the number of memory buffers that the database can use. If only 3 buffers are avaiable 
+the cost is equal to:
+\begin{center}
+    $2\times N\times (\lceil log_{2}N\rceil+1)$
+\end{center}
+where $N$ is the number of pages that a relation occupies.\\In case more than 3 buffers are avaiable then the cost is
+\begin{center}
+    $2\times N\times (\lceil log_{B-1}\lceil\frac{N}{B}\rceil\rceil+1)$
+\end{center}
+where $B$ is the number of buffers avaiable
+
+\subsubsection*{Index lookup}
+the cost of using an index is denoted with $L$, and is equal to 1.2 in a hash index, meanwhile, for a B-tree the cost equals 
+to $log_{s}|R.A|$, where $s$ equals to the maximum amount of children a node can have.
+
+The retrieval of unclustered data equals to $L + |R_{A=x}|$, meanwhile the retrieval of clustered data is 
+$L + \frac{|R_{A=x}|}{\lfloor\frac{P}{t_{R}}\rfloor}$ or $L + \# pages\ occupied\ by\ the\ tuples$
+
+\subsubsection*{Selectivity factor}
+This is the amount of records expected to respect a given condition. These records are denoted as $Rc$. The selectivity
+factor is denoted as:
+\begin{center}
+    $f = \frac{|R_{A=x}|}{|R|}$ 
+\end{center}
+
+\subsubsection*{Update}
+The cost equals to the index lookup plus the reading and writing of the page, or 
+\begin{center}
+    $L + \# pages\ with\ the\ updated\ records\times 2$    
+\end{center}
+
+\subsection{Joins}
+We will use the relation $R$ and $S$
+\subsubsection*{Nested loop join}
+The cost equals to $P_{R}+P_{S}\times P_{R}$
+
+\subsubsection{Sort Merge Join}
+The cost equals to the Cost of sorting $R$ plus the cost of sorting $S$ plus $P_{R}+P_{S}$
+
+\subsubsection*{Hash join}
+This join uses a hash map to make the action more efficient. The cost equals to $3\times(P_{R}+P_{S})$
+
+\subsubsection*{Index nested loops join}
+This method uses the index of the second relation to make the join more efficient, if the index doesn't exist, then
+this method is not usable. The cost equals to:
+\begin{center}
+    $P_{R}+|R|\times$(index lookup cost + cost of retrieveng the qualifying records)
+\end{center}
 
 
+\subsection{Query plans}
+A query can be converted in tree composed of relational algebra operations, which is used to compute in advance the 
+cost of the query. Every query can generate different trees, so it's the database role to determine the most 
+efficient. This action is called optimization.
+
+Some operations don't need to wait for the final result, but they can use records as they arrive. This operations are
+called \textbf{On-the-fly} operations. Other operations don't even need to use records but only their indexes, so 
+they are called \textbf{Index-only} operations
+
+
+\newpage
+\section{Functional dependencies and normal forms}
+\subsection{Functional Dependencies}
+In a relation, it happens frequently that some information is repeated in a pattern. In this case we say a 
+specific attribute functionally determines the values of other attributes. This constraints are called functional 
+dependecies.
+
+More specifically, a functional dependency is expressed as $X\to Y$ if $X,Y\subseteq U$ and if 
+$t_{1}[X]=t_{2}[X] \Rightarrow t_{1}[Y]=t_{2}[Y]$
+
+\subsection{Decomposition}
+Functional dependencies help identify redundancy of information. To reduce redundancy, a relation can be decomposed
+in two different relations, which are then reunited with a join. This can not be always be applied because some 
+relations can lead to a lossy decomposition.\\We say that a decomposition is a lossless decomposition when there 
+is no loss of information when replacing the relation
+\begin{center}
+    $<R(U),F>\ \Rightarrow\ <R_{1}(X_{1}),F_{1}>,...,<R_{n}(X_{n}),F_{n}>$\\$U=X_{1}\cup ...\cup X_{n}$
+\end{center}
+
+Decomposition is not always more efficient, to properly apply a decomposition it must respect this properties:
+\begin{itemize}
+    \item The decomposition must be lossless
+    \item redundancies must be eliminated
+    \item The functional dependencies of the original schemas should be preserved
+\end{itemize}
+
+This property are all respected in the schema normal form
+
+\subsubsection*{Closure of a set of functional dependencies}
+Given a set of functional dependencies, some are logically implied. We say that a set $F$ of FD logically implies 
+a FD $X\to Y$ if every instance that satisfies $F$ also satisfies $X\to Y$. The set of all FD implied by $F$ is the
+closure of $F$, denoted as $F^{+}$
+
+To compute the closure of a set, we use the Armstrong's Axioms:
+\begin{itemize}
+    \item \textbf{Reflexive rule}: if $Y\subseteq X$, then $X\to Y$
+    \item \textbf{Augmentation rule}: if $X\to Y$, then $XZ\to YZ$
+    \item \textbf{Transitivity rule}: if $X\to Y$ and $Y\to Z$, then $X\to Z$
+    \item \textbf{Union rule}: if $X\to Y$ and $X\to Z$, then $X\to YZ$
+    \item \textbf{Decomposition rule}:if $X\to YZ$, then $X\to Y$ and $X\to Z$
+\end{itemize}
+
+\subsubsection*{Closure of a set of attributes}
+Denoted as $(X)^{+}$ is the set of all attributes that can be determined by $X$. This can be used to determine
+if $X$ si a superkey, a minimal key or nothing at all, if it respects the property $(X)^{+}=U.X \to U$
+
+NB: Some dependencies are defined as trivial when $X\to Y,\ Y\subseteq X$
+
+\subsection{Normal Form}
+The normal form of a relation is determined when all dependencies $X\to Y$ in $F^{+}$ are listed, with the exception
+of trivial dependencies ($X$ is superkey of $R$)
+
+\subsubsection*{Minimal cover}
+A simpler version to computing the closure of $F$ is computing the minimal cover. The minimal cover follows this
+properties: 
+\begin{itemize}
+    \item $F^{+}_{min}=F^{+}$
+    \item all FD in $F_{min}$ are of form $X\to A$
+    \item if we modify $F_{min}$, then $F^{+}_{min}\neq F^{+}$
+\end{itemize}
+
+To compute a minimal cover we follow these steps:
+\begin{itemize}
+    \item Normalize each $X\to ABC...$ to $X\to A$, $X\to B$,...
+    \item if $XA\to B$ and $A\in (X)^{+}$, then is redundant and can be removed
+    \item remove the remaining redundancies
+\end{itemize}
+
+\subsubsection*{Algoritm for normal form decomposition}
+\begin{itemize}
+    \item Choose some FD that violates the NF conditions
+    \item Compute $Y=(X)^{+}/X$ and $Z=U/XY$
+    \item contruct two relation schemas
+    \subitem $<R_{1}(XY),(\Pi_{XY}F^{+})_{min}>,<R_{2}(XZ),(\Pi_{XZ}F^{+})_{min}>$
+    \item if not in normal form, then decompose again
+\end{itemize}
+
+\subsubsection*{Third normal form}
+If when for all $\alpha\to\beta$ in $F^{+}$ at least one of the following properties holds:
+\begin{itemize}
+    \item $\alpha\to\beta$ is trivial
+    \item $\alpha$ is superkey of $R$
+    \item each attribute $A$ in $\beta-\alpha$ is contained in a candidate key for $R$
+\end{itemize}
+then the relation is in third normal form
+
+\subsubsection*{Cover}
+$G$ is a cover of $F$ when $F^{+}=G^{+}$. When is composed of only elementary FDs is called canonical cover
 
 \end{document}
 

@@ -659,4 +659,14 @@ occupato, attende un quantitativo di tempo casuale prima di ritentare la trasmis
 CSMA 1-persistente, dove il nodo attende finché il canale non è libero per poter trasmettere. In caso di 
 collisione, il nodo attente un tempo casuale prima di ripetere la procedura
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{802.11b}
+divide 2.4 GHz a 2.485GHz in 11 canali. Quando un Host deve associarsi a un AP, ascolta su tutti i canali
+alla ricerca di frame chiamati beacon, contententi SSID e MAC dell'AP. Poi l'host sceglie l'AP al quale 
+associarsi, si autentica e generalmente ottiene l'IP da DHCP.
+
+Questo meccanismo è chiamato scansione passiva, quella attiva si attua quando è l'host che invia un probe 
+request aspettandosi un responde dagli AP prima di iniziare l'associazione
+
 \end{document}

@@ -546,7 +546,38 @@ It indicates how a user athenticated at an IdP. It can be required by an SP to e
 A SAML metadata document describes a SAML deployment which is used to enstablish trust and interoperability.
 The minimum required is the entity ID, cryptographic keys and protocols endpoints (bindings and URLs). It's 
 important to remember that the keys are both used for encryption and digital signature. In this case is 
-required that each party knows each other in advance
+required that each party knows each other in advance.
+
+\subsection{SAML Security}
+Only providing assertion to enstablish trust may lead to man-in-the-middle or replay attacks. SAML fights this 
+vulnerabilities by relieng on a Public Key infrastructure. It also uses SSL/TLS to grant authentication and 
+confidentiality, and the use of XML Signature improves the message integrity.\\ Other mechanism used are
+expiration timers and unique identifiers for the messages
+
+Reguarding privacy instead, SAML uses persisten pseudonyms and one-time identifiers between an identity and a
+service provider and creates a specific authentication context in which the user is allowed to use only certain 
+operations
+
+\subsection{National Identity Infrastructures - Spid}
+The Spid is based on SAML 2.0 and is managed by the AGency for Digital Italy (AgID).\\The trust is achieved
+thorugh the intermediation of the agency, a third party guarantor, a process of accreditation of digital 
+identity providers, attribute authorities and service providers. 
+
+All the entities that have passed the accreditation process are listed in the federation registry. For each record
+is stored the SAML identifier, name of the subject, type of entity, URL to the service provider's metadata and a 
+list of qualified attributes.
+
+\subsubsection{CIE}
+Used to store personal information, the eletronic Id Card is provided with a NFC cip with encryption
+
+\subsection{European Identity Infrastructure}
+An european service used for identification between nations of the EU. Uses various eIDAS-Nodes to connect the 
+different country's services. The communication between a connector and a service relies on SAML
+
+Currently EIDAS is under discussion with a focus on digital wallets, or a user controlled app that permits to 
+select what personal information to share with a service. This gives self-sovereign identity, decentralized 
+identifiers and verifiable credentials.\\Currently the EU is developing a European Self-Sovereign Identity Framework,
+or ESSIF, with the use of decentralized identifiers and european blockchain services.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -583,6 +614,19 @@ required that each party knows each other in advance
     \item Given the importance and difficulty of identity management, it is frequently
     outsourced to trusted third parties with advantages and disadvantages also from
     the viewpoint of security (and privacy)
+\end{itemize}
+\subsection{SAML}
+\begin{itemize}
+    \item SAML allows service providers to outsource identity management and focus on
+    their core business
+    \subitem Reduced administration burden
+    \subitem Improved interoperability, usability, security and privacy
+    \item SAML profiles are useful use case scenarios
+    \subitem Web SSO most widely adopted
+    \subitem SSO has increasing importance and is gaining wider and wider adoption
+    \item SAML is ideal starting point to build infrastructures for digital identity management
+    \subitem Key enablers in an increasing digital world (SPID, eIDAS)
+    \subitem First line of defense against attackers
 \end{itemize}
 
 
