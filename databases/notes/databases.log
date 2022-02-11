@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  19 JAN 2022 12:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.9.4)  4 FEB 2022 11:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -100,4 +100,231 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \tag@help=\toks19
 \row@=\count197
 \column@=\count198
-\maxfields@
+\maxfields@=\count199
+\andhelp@=\toks20
+\eqnshift@=\dimen146
+\alignsep@=\dimen147
+\tagshift@=\dimen148
+\tagwidth@=\dimen149
+\totwidth@=\dimen150
+\lineht@=\dimen151
+\@envbody=\toks21
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count266
+\l_MT_multwidth_dim=\dimen152
+\origjot=\skip55
+\l_MT_shortvdotswithinadjustabove_dim=\dimen153
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen154
+\l_MT_above_intertext_sep=\dimen155
+\l_MT_below_intertext_sep=\dimen156
+\l_MT_above_shortintertext_sep=\dimen157
+\l_MT_below_shortintertext_sep=\dimen158
+\xmathstrut@box=\box49
+\xmathstrut@dim=\dimen159
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count267
+\Gm@cntv=\count268
+\c@Gm@tempcnt=\count269
+\Gm@bindingoffset=\dimen160
+\Gm@wd@mp=\dimen161
+\Gm@odd@mp=\dimen162
+\Gm@even@mp=\dimen163
+\Gm@layoutwidth=\dimen164
+\Gm@layoutheight=\dimen165
+\Gm@layouthoffset=\dimen166
+\Gm@layoutvoffset=\dimen167
+\Gm@dimlist=\toks23
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count270
+\mult@box=\box50
+\multicol@leftmargin=\dimen168
+\c@unbalance=\count271
+\c@collectmore=\count272
+\doublecol@number=\count273
+\multicoltolerance=\count274
+\multicolpretolerance=\count275
+\full@width=\dimen169
+\page@free=\dimen170
+\premulticols=\dimen171
+\postmulticols=\dimen172
+\multicolsep=\skip56
+\multicolbaselineskip=\skip57
+\partial@page=\box51
+\last@line=\box52
+\maxbalancingoverflow=\dimen173
+\mult@rightbox=\box53
+\mult@grightbox=\box54
+\mult@gfirstbox=\box55
+\mult@firstbox=\box56
+\@tempa=\box57
+\@tempa=\box58
+\@tempa=\box59
+\@tempa=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\c@minrows=\count276
+\c@columnbadness=\count277
+\c@finalcolumnbadness=\count278
+\last@try=\dimen174
+\multicolovershoot=\dimen175
+\multicolundershoot=\dimen176
+\mult@nat@firstbox=\box94
+\colbreak@box=\box95
+\mc@col@check@num=\count279
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count280
+\l__pdf_internal_box=\box96
+) (/home/marco/Documents/uni/databases/notes/databases.aux)
+\openout1 = `databases.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
+LaTeX Font Info:    ... okay on input line 23.
+ (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count281
+\scratchdimen=\dimen177
+\scratchbox=\box97
+\nofMPsegments=\count282
+\nofMParguments=\count283
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count284
+\MPscratchDim=\dimen178
+\MPnumerator=\count285
+\makeMPintoPDFobject=\count286
+\everyMPtoPDFconversion=\toks25
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(43.36243pt, 510.78302pt, 43.36243pt)
+* v-part:(T,H,B)=(43.36243pt, 758.32199pt, 43.36243pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=510.78302pt
+* \textheight=758.32199pt
+* \oddsidemargin=-28.90756pt
+* \evensidemargin=-28.90756pt
+* \topmargin=-65.90756pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+LaTeX Font Info:    Trying to load font information for U+msa on input line 111.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 111.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] (/home/marco/Documents/uni/databases/notes/databases.aux) ) 
+Here is how much of TeX's memory you used:
+ 3608 strings out of 481252
+ 51959 string characters out of 5915889
+ 341996 words of memory out of 5000000
+ 20520 multiletter control sequences out of 15000+600000
+ 412400 words of font info for 62 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 81i,4n,88p,284b,168s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/marco/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /home/marco/Documents/uni/databases/notes/databases.pdf (13 pages, 143746 bytes).
+PDF statistics:
+ 96 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

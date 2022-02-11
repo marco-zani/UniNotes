@@ -96,10 +96,10 @@ a relational database is a set of relations, which are made of instances, or tab
 name of the relation, and name plus type of each column. In the tables, rows equals to the cardinality and are 
 called tuples,the fields are called degrees
 
-\subsection{Integrity contraints}
+\subsection{Integrity constraint}
 A condition must be true for any instance of the database.
 
-Keys can be contraints because no distinct tuples can have the same values 
+Keys can be constraint because no distinct tuples can have the same values 
 
 \newpage
 \section{Relational algebra}
@@ -122,6 +122,17 @@ there are also other sub-operators:
     \item Natural join: is a equijoin on all common fields
 \end{itemize}
 
+One complex operation is the division, which aswers questions in the format of "find ALL ... that ...",
+and it follows this concept:
+\begin{center}
+    $A/B$ contains all $x$ tuples such that for every $y$ tuple in $B$, there is a $xy$ tuple in A\\
+    OR\\
+    For $A/B$, compute all $x$ values that are not `disqualified’ by some $y$ value in $B$
+
+    $\pi_{x}(A)\ -\ \pi_{x}((\pi_{x}(A)\times B)-A)$
+\end{center}
+ 
+
 \newpage
 \section{SQL}
 A basic SQL query is composed by relation-list, target-list and qualification and it follows this strategy:
@@ -134,16 +145,33 @@ SQL is also capable of nesting queries. This is done by adding the operator IN i
 query inside. It can be also used the operator EXISTS to let the inner query use parameters from the outer query. 
 parentesis
 
+NB: "at least one" equals to \texttt{ distinct}
+
 \subsubsection{Operators LIKE and AS}
 LIKE is used in string matching, it uses \% to represent multiple characters and \_ just for one. To generate new
 name fields is also used the operator AS
+
+fast renomination like \texttt{FROM table t} is using what are called range variables
+
+To compare a field with a set of values is used \texttt{[operation] ANY/ALL(query)}. You can also check if a 
+tuple is inside another query with \texttt{WHERE x IN/EXISTS}
 
 \subsubsection{UNION and INTERSECT} 
 UNION can be used to unite two compatible sets of tuples, meanwhile INTERSECT computes the intersection between the
 tuples
 
+NB: \texttt{UNIQUE} is used for "exactly one"
+
 \subsubsection{Agregate Operators}
 SQL offers various extentions to relational algebra, such as COUNT, SUM, AVG, MAX and MIN
+
+NB: \texttt{HAVING} allowes to add other constraints on the grouping operators, it can be completed with
+\texttt{EVERY}
+
+\subsubsection{Limitations}
+it can be used, during the table creation, the operator \texttt{CONSTRAINTS/CHECK} to apply constraints when
+adding data to a table. To manage constraints that work between table is used \texttt{CREATE ASSERTION...}.
+Also \texttt{TRIGGER} can be created
 
 \subsection{Deductive Databases}
 TO apply recursevly

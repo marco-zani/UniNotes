@@ -21,6 +21,9 @@
 
 \begin{document}
 
+\tableofcontents
+\newpage
+
 \section{Introduzione}
 
 La rete può essere vista come un insieme di terminali, collegamenti e nodi, che utilizzano varie tipologie di comunicazione.
@@ -605,10 +608,224 @@ unica
 \subsubsection{ICMP}
 Questo è un protocollo usato per la gestione e manutenzione delle reti. Funziona in simbiosi con IP dato che 
 IP usa ICMP per segnalare gli errori, e ICMP usa IP per trasportare i messaggi.
-Questi messaggi sono molteplici, ognuno con il proprio ruolo. Alcuni esempi sono destination unreachable, time
-exceeded, redirect...
+Questi messaggi sono molteplici, ognuno con il proprio ruolo, ma si dividono in due classi principali: quelli
+usati per recuperare informazioni sullo status della rete e quelli per segnalare errori. Alcuni esempi sono
+destination unreachable, time exceeded, redirect...
+Particolarità dei messaggi ICMP è che nel generarsi di un errore, nessun messaggio viene inviato, in modo da evitare
+la congestione della rete
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{DHCP}
+È un protocollo basato su UDP per l'assegnazione automatica dell'indirizzo IP a un host sprovvisto, e di riabilitare
+indirizzi non utilizzati da un certo periodo di tempo. La procedura è come segue:
+\begin{enumerate}
+    \item L'host invia un messaggio DHCP discover per identificare i server DHCP nella rete
+    \item Il server DHCP risponde con un DHCP offer
+    \item L'host richiede un indirizzo con un DHCP request al server selezionato
+    \item Il server invia un DHCP ack
+\end{enumerate}
+Nel caso il client non trovi alcun server DHCP, allora può scegliere casualmente un indirizzo tra 169.254.0.1 e
+169.254.255.254, controllare se è occupato e in caso contrario, impostarlo come indirizzo di rete locale
+
+L'assegnazione di un indirizzo con DHCP vale solo per un periodo limitato. Questo prestito viene definito come lease,
+e, al suo termine, permette di spostare gli indirizzi IP prestati tra quelli utilizzabili. Generalmente un client
+può chiedere l'aggiornamento dell'indirizzo IP o l'estensione del lease.\\Il DHCP è in grado di restituire anche 
+nome e IP di un server DNS
+
+Il formato del messaggio DHCP contiene i campi:
+\begin{itemize}
+   \item YOUR IP ADDRESS: contiene l'IP offerto al client
+   \item SERVER IP ADDRESS, SERVER HOST NAME
+   \item ROUTER IP ADDRESS: contiene l'indirizzo del default gateway
+   \item altri campi come: OP, HTYPE, HLEN, FLAGS, HOPS, TRANSACTION IDENTIFIER, SECOND ELAPSED
+\end{itemize}
+
+\subsubsection{IPv6}
+La funzione di IPv6 usa un header fisso a 40 byte e proibisce la frammentazione. La sua funzione è quella di estendere
+la quantità di indirizzi, velocizzare l'elaborazione dei datagrammi e facilitare la gestione del servizio.\\Altre 
+modifiche rispetto a IPv4 è la rimozione del checksum, la rimozione delle option nell'header e spostate nel campo
+"NEXT HEADER" e implementazione di ICMPv6.
+
+L'indirizzo IPv6 è formato da 128 bit con notazione esadecimale, utilizza i due punti per separare gli otteti e 
+permette di riassumere gli indirizzi con due regole:
+\begin{itemize}
+    \item dove presenti multipli zeri consecutivi, possono essere accorciati con un singolo 0
+    \subitem f108:0083:b00c $\Rightarrow$ f108:83:b00c 
+    \item i gruppi consecutivi di zeri si riassumono con due due punti di fila, ma una volta sola
+    \subitem  f108:0000:0000:b00c $\Rightarrow$ f108::b00c
+\end{itemize}
+
+Per permettere una transizione graduale da IPv4 a IPv6, è stato implementato il tunneling, ossia la possibilità di
+incapsulare dei datagrammi IPv6 in datagrammi IPv4
+
+Il pacchetto contiene i campi:
+\begin{itemize}
+    \item FLOW LABEL
+    \item PRIORITY 
+    \item NEXT HEADER
+\end{itemize}
+
+gli indirizzi speciali sono: 
+\begin{itemize}
+    \item ::/128: non specificato, o "questo computer"
+    \item ::1/128: indirizzo di loopback
+    \item ::ffff:0:0/96: indirizzo IPv4 mappato su IPv6
+    \item ff00::/8: multicast
+    \item fe80:::/10: linklocal unicast
+\end{itemize}
+
+\subsection{Protocolli di instradamento}
+Un percorso di routing viene definito come efficente in base a diverse metriche come il percorso a costo più basso, 
+più veloce o meno congestionato.
+
+Una rete può essere espressa come un grafo dove i nodi sono i router e gli archi i link. Ad ogni arco viene assegnato 
+un costo (congestio, numero di salti,...) e il costo di percorso corrisponde alla somma di tutti gli archi necessari 
+per collegare il nodo A al nodo B. Per determinare qual'è il percorso migliore vengono usati gli algoritmi di routing.\\
+Gli algoritmi possono essere divisi in vari tipi in base se le informazioni sugli altri router sono globali o
+distribuite e se i percorsi sono statici o dinamici (cambiano raramente o spesso):
+\begin{itemize}
+    \item informazioni globali: tutti i router conoscono la topologia e costi della rete. Implica algoritmi a 
+    "link state"
+    \item informazioni distribuite: i router conoscono le informazioni dei router collegati a loro e il calcolo del
+    percorso è iterativo. Implica algoritmi a "distance vector"
+\end{itemize}
+
+\subsubsection{Algoritmo di Dijkstra}
+è un algoritmo link state che presuppone che tutti i nodi conoscano la topologia e i costi della rete.
+
+NB: qualche notazione:
+\begin{itemize}
+    \item $c(x,y)$: costo del link tra $x$ e $y$
+    \item $D(v)$ costo del percorso verso $v$
+    \item $p(v)$: predecessore di $v$ 
+    \item $N'$ insieme di nodi con cammino a costo minimo già determinato
+\end{itemize}
+
+Il funzionamento dell'algoritmo è come consegue:
+\begin{center}
+    
+\begin{tabular}{l}
+    \texttt{INIZIALIZZAZIONE}\\
+    \texttt{N'=\{u\}}\\
+    \texttt{for all nodes v}\\
+    \texttt{ if(v è  adiacente a u)}\\
+    \texttt{ \ then D(v)=c(u,v)}\\
+    \texttt{ else D(v)=$\infty$   }\\\\
+    \texttt{LOOP}\\
+    \texttt{ Trova w non contenuto in N' tale che D(w) è  minimo}\\
+    \texttt{ Aggiungi w a N'}\\
+    \texttt{ Aggiorna D(v) per tutti i nodi v adiacenti a w e non contenuti in N'}\\
+    \texttt{ if(D(w)+c(w,v)<D(v) then)}\\
+    \texttt{ \ D(v)=D(w)+c(w,v)}\\
+    \texttt{ \ p(v)=w}\\
+    \texttt{ end if}\\
+    \texttt{UNTIL(tutti i nodi sono contenuti in N')}\\
+    \end{tabular}
+\end{center}
+
+Questo algoritmo possiede una complessità di O($n^{2}$) con implementazioni più efficenti che posso scendere fino
+a O($n*log(n)$)
+
+\subsubsection*{Internet e gli AS}
+Internet è formata da sottoreti con diversi propritari. Queste reti dovrebbero essere amministrativamente autonome
+e capace di collegarsi a tutte le altre reti. Per questo i router sono organizzati in autonomous systems
+
+\subsubsection{OSPF}
+Open Shortest Path First è un protocollo link state che calcola i percorsi usando l'algoritmo di Dijkstra.
+I suoi pacchetti aggiornano gli altri router usando indirizzi multicast.
+
+Procedure:
+\begin{itemize}
+    \item protocollo di "Hello": messaggi di mantenimento e controllo deil'up-state dei link
+    \item protocollo di "Exchange": usato per informare nuovi router della topologia della rete
+    \item protocollo di "Flooding": informa tutti i router di un cambio di link nella rete
+\end{itemize}
+
+OSPF implementa anche una versione gerarchica usata nelle reti con molti router. Questa versione presenta due livelli:
+le backbone e le reti di area. In questo modo i router conoscono solo la topologia della propria area e uno 
+shortest path verso le altre reti. I router che interfacciano un area con la backbone vengono chiamati router di 
+bordo, e applicano OSPF solo per i router all'interno dell'area di backbone
+
+\subsubsection{Distance Vector Routing}
+È un algoritmo distribuito che non richiede la conoscenza della topologia della rete, ma solo i router confinanti.
+Il modello usato è quello di Bellman-Ford 
+
+NB: Notazione:
+\begin{itemize}
+    \item $N$: insieme dei vicini
+    \item $R$: tabella di inoltro
+    \item $D$: vettore con tutte le distanze
+\end{itemize}
+
+Algoritmo per il nodo $x$:
+\begin{center}
+    \begin{tabular}{l}
+        \texttt{INIZIALIZZAZIONE}\\
+        \texttt{Per tutti i vicini n$\in N_{x}$:}\\
+        \texttt{ $R_{x}$[n].cost=c(x,n),$R_{x}$[n].nexthop=n, $R_{x}$.time=adesso}\\
+        \texttt{Ogni T secondi:}\\
+        \texttt{ invia $D_{x}$=[(d, $R_{x}$[d].cost) tale che d $\in R_{x}$] a tutti i vicini in $N_{x}$}\\
+        \texttt{Quando si riceve un vettore $D_{y}$ dal vicino y:}\\
+        \texttt{ Per ogni (d,c)$\in D_{x}$:}\\
+        \texttt{ \ if d$\notin$ R or c + c(x,y)<R[d].cost or y=R[d].nexthop}\\
+        \texttt{ \ \ R[d].cost = c + c(x,y)}\\
+        \texttt{ \ \ R[d].nexthop = y}\\
+        \texttt{ \ \ R[d].time = adesso }\\
+    \end{tabular}
+\end{center}
+
+Distance vector nel libro:
+\begin{center}
+    \begin{tabular}{l}
+        \texttt{INIZIALIZZAZIONE}\\
+        \texttt{Per tutte le destinazioni y $\to$ $D_{x}$(y)=c(x,y)}\\
+        \texttt{Per tutti i vicini w, e tutte le destinazioni y $\to D_{w}$(y)=?}\\
+        \texttt{Per ogni vicino w $\to$ invia $D_{x}=[D_{x}$(y):y in $N_{x}$] a w}\\
+        \texttt{LOOP}\\
+        \texttt{Aspetto finche il costo verso un vicino non cambia o non ricevo $D_{w}$ da w}\\
+        \texttt{Per ogni destinazione y:}\\
+        \texttt{ $D_{x}$(y)=min$_{v}$\{c(x,v)+D$_{v}$(y)\}}\\
+        \texttt{ next-hop$_{x}$=argmin$_{v}$\{c(x,v) + D$_{v}$(y)\}}\\
+        \texttt{if D$_{x}$(y) è cambiato per una qualsiasi destinazione y:}\\
+        \texttt{ invia D$_{x}$=[D$_{x}$(y):y in N$_{x}$] a tutti i vicini}\\
+        \texttt{forever}\\
+    \end{tabular}
+\end{center}
+
+L'algoritmo permette di attuare cambiamenti positivi alla rete in fretta, ma quelli negativi lentamente
+
+Può succedere con questo metodo che si generi un count to infinity: Se un router A raggiunge un router 
+C tramite il router B, e il collegamento BC cade, B chiederà ad A una nuova route verso C, che A 
+conosce attraverso B con un costo x. Allora B aggiorna la sua routing table per costare 2x, e 
+aggiornando A farà aumentare il suo costo di 2x, portandolo a 3x, e così via all'infinito.\\
+Per risolvere questo problema si possono usare diverse tecniche:
+\begin{itemize}
+    \item Impostare un massimo numero di hop
+    \item Split Horizon: quando un nodo manda gli aggiornameti a un nodo ignora quelli ricevuti da esso
+    \item Poisoned reverse: il nodo A dice a B che la distanza da Z è infinita
+\end{itemize}
+
+Attenzione che in base alla topologia e ordine dei messaggi, lo split horizon e poisoned reverse non sono 
+sempre ottimali
+
+\subsection{RIP}
+Il Routing Information Protocol è un protocollo intra-AS a livello applicazione che implementa il distance
+vector. Risulta così facile da implementare e gestire ma vale solo su reti di dimensioni limitate e può
+risultare lento in convergenza.\\Il costo viene definito dal numero di hop, al massimo 15. Ogni 30 secondi
+e al variare delle tabelle di routing, viene inviato un RIP advertisement contenente fino a 25 sottoreti
+e la distanza rispetto a Ciascuna sottorete
+
+NB: usa UDP, porta 520, multicast 224.0.0.9
+
+Nel momento in cui un router va offline per oltre 180 secondo viene considerato guasto dai nodi vicini.
+Le tabelle vengono quindi modificate e inoltrate ai router vicini. Infine viene applicato i poisoned 
+reverse
+
+\subsubsection*{Confronto link state e distance vector}
+In complessita dello scambio di messaggi DV semplifica il processo, ma estende il tempo di convergenza
+rispetto a LS, e si potrebberò generare cicli. Inoltre in caso di "rottura" del router, DV potrebbe 
+propagare gli errori attraverso la rete.\\Concludendo LS risulta più robusto rispetto a DV, anche se 
+computazionalmente più pesante
+
 
 \newpage
 \section{Data link}
@@ -648,25 +865,150 @@ Per questa ragione è necessario un protocollo di accesso multiplo ad un mezzo. 
     \item A turni intelligenti
 \end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{TDMA}
+Time Division Multiple Access permette di accedere a un canale fisico a turni. Ogni nodo ottiene un intervallo
+(o frame) definito per comuncare, al di fuori non è permesso, anche se non c'è alcuna comunicazione
+
+\subsubsection{FDMA}
+Frequency Division Multiple Access separa lo spettro del canale in sotto bande. Lo spartizionamento è simile a
+TDMA
+
+\subsubsection{CDMA}
+Code Division Multiple Access separa le risorse assegnando un codice a ogni nodo. Questo codice è definito da
+bit con durata minore rispetto a quelli dei dati
+
+\subsection{Protocolli ad accesso casuale}
+Si occupano di definire come rilevare e recuperare da uno stato di collisione
+
+\subsubsection{Slotted ALOHA}
+I nodi possono comunicare a intervalli ben precisi, nel momento in cui viene registrata una collisione, viene 
+definito da ogni nodo un tempo di attesa casuale prima di riprovare la trasmissione. \\
+Questo metodo decentralizzato è molto elementare, ma allo stesso tempo molto inefficente, molte occasioni 
+di comunicazione vengono bruciate. L'efficenza si aggira intorno allo 0.368
+
+\subsubsection{ALOHA puro}
+Non implementando la sincronizzazione, risulta ancora più semplice e incline alle collisioni e sprechi.
+L'efficenza scende a 0.184
 
 \subsection{CSMA}
-il Carrier Sense Multiple Access è un tipo di approccio a un canale dove si "ascolta" prima di iniziare la 
-trasmissione
+Il Carrier Sense Multiple Access si occupa di comunicare solo nel momento in cui il canale risulta libero.
+Può avere diversi livelli di persistenza:
+\begin{itemize}
+    \item 0-persisente (o non persistente): se trova il canale occupato attende un tempo casuale prima di
+    ritentare la connessione
+    \item 1-persistente: attende finché non si libera il canale, se si verifica una collisione attende un 
+    tempo casuale prima di riaplicare la procedura
+    \item p-persistente: attende il canale libero, e con una probabilità p trasmette, se no attende un
+    tempo casuale prima di riaplicare la procedura
+\end{itemize}
 
-Si definisce come CSMA 0-persistente (non persistente) quando un nodo, cercando di trasmettere su un canale
-occupato, attende un quantitativo di tempo casuale prima di ritentare la trasmissione. Un'altra versione è
-CSMA 1-persistente, dove il nodo attende finché il canale non è libero per poter trasmettere. In caso di 
-collisione, il nodo attente un tempo casuale prima di ripetere la procedura
+CSMA definisce un "periodo di vulnerabilità", ossia la somma del tempo di propagazione e rilevazione 
+dell'occupazione del canale che compone un intervallo di tempo dove un nodo potrebbe comunicare 
+non avendo ancora rilevato che il canale è occupato provocando una collisione.\\
+Insomma, CSMA si usa quando il tempo di propagazione è minore rispetto a quello di trasmissione
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{CSMA/CD e CSMA/CA}
+La Collision Detection di CSMA permette di rilevare rapidamente le collisioni e interrompere la trasmissione.
+Questo risulta più arduo nelle connessioni wireless piuttosto che cablate. Di conseguenza si implementa il 
+Collision Avoidance
 
-\subsubsection{802.11b}
-divide 2.4 GHz a 2.485GHz in 11 canali. Quando un Host deve associarsi a un AP, ascolta su tutti i canali
-alla ricerca di frame chiamati beacon, contententi SSID e MAC dell'AP. Poi l'host sceglie l'AP al quale 
-associarsi, si autentica e generalmente ottiene l'IP da DHCP.
+\subsubsection{Protocolli MAC "a turni"}
+\subsubsection*{Polling}
+Un nodo "master" da il permesso ai nodi "slave" per comunicare. Comporta alta latenza, occupazione del canale
+e single point of failure nel master
+\subsubsection*{Token passing}
+sfrutta il passaggio sequenziale di un token per permettere la comunicazione. Possiede problemi di latenza e 
+single point of failure nel token
 
-Questo meccanismo è chiamato scansione passiva, quella attiva si attua quando è l'host che invia un probe 
-request aspettandosi un responde dagli AP prima di iniziare l'associazione
+\subsection{IEEE 802 e ethernet}
+Il gruppo IEEE 802 ha sviluppato alcuni degli standard più importanti nel campo delle reti: 802.1 LAN, 802.3
+Ethernet, 802.8 fibre ottiche, 802.11 WLAN, 802.15 PAN...
 
+La struttura del frame ethernet avvolge il pacchetto di livello superiore con 7 byte usati per la 
+sincronizzazione del clock tra ricevitore e trasmettitore. Dopo di che contiene indirizzo MAC del destinatario
+e del mittente (in questo ordine) e in fondo il CRC
+
+Ethernet non implementa ne controllo di connessione ne ACK per il recupero di frame persi, è compito dei 
+protocolli di livello superiore di controllare. Per il controllo delle collisioni, è implementato un 
+CSMA/CD p-persistente.
+
+Gli standard di internet variano in base ai mezzi fisici e velocità di trasmissione, ma protocollo MAC e 
+formato sono costanti
+
+\subsection{Switch Ethernet}
+Questi dispositivi di livello 2 usano il MAC per memorizzare e inoltrare frame Ethernet. Sono anche 
+dispositivi ad autoapprendimento (plug and play) e trasparenti, ossia gli host non sanno della loro presenza.\\
+Gli switch sono anche in grado di separare i domini di collisione dato che ogni host può essere direttamente
+collegate allo switch
+
+Gli switch implementano tabelle di inoltro che contengono indirizzo MAC e relativa interfaccia dello switch.
+Queste tabelle autoapprendono ogni volta che ricevono un pacchetto ethernet da un nuovo mittente su un'interfaccia
+Nel caso il destinatario non sia conosciuto, allora flodda tutte le interfaccie tranne quella mittente
+
+\subsubsection{Spanning Tree Protocol}
+Anche gli switch sono vulnerabili ai loop, per questo è stato creato un protocollo che partendo dal grafo della 
+rete ne restituisce un albero. Per raggiungere questo obbiettivo ogni switch è identificato con un ID 
+formato da bit impostati dall'amministratore seguiti dal MAC address. Il protocollo imposta come radice il 
+dispositivo con l'ID più basso
+
+Gli switch si passano Bridge Protocol Data Unit contenenti ID e costo del link. In base a questi valori lo 
+switch decide la sua radice. Infine le BPDU vengono inviate con "l'invecchiamento" dell'ultima BPDU arriavata
+per aggiornare lo stato della rete.\\ Le porte dello switch con STP possono prendere 3 stati: Root, Blocked
+e Designated
+
+\subsubsection{VLAN}
+Gli host possono essere suddivisi in LAN diverse per vari motivi, come spartizione del carico e separazione dei
+domini di broadcast e intenti. Questa suddivisione può essere gestita tramite software con le VLAN.\\
+Le VLAN fondamentalmente raggruppano vari porte in una singola rete. Questa tecnologia ha portato alla 
+stesura di un nuovo standard Ethernet, l'802.1Q. Questo standard aggiunge alcuni campi tra cui VLAN ID
+
+\subsection{IEEE 802.11 - WiFi}
+\subsubsection{Elementi e terminologie}
+\begin{itemize}
+    \item Host wireless
+    \item stazione base: ponte tra etere e rete cablata
+    \item collegamento wireless: gestito dai vari protocolli
+    \item modalità infrastrutturata: permette il passaggio di un host da una stazione base all'altra
+    \item modalità ad hoc: non ci sono stazioni base e gli host comunicano solo nel loro raggio di copertura
+\end{itemize}
+
+\subsubsection{Archittettura di riferimento}
+\begin{itemize}
+    \item Stazione wireless (STA): host
+    \item Basic Service Set (BSS): gruppo di STA connessi allo stesso canale radio
+    \item Access Point (AP): Stazione base
+    \item Sistema di distribuzione
+    \item Extended Service Set (ESS): unisce più BSS in un unica rete logica
+    \item Portale: verso altre reti
+\end{itemize}
+
+\subsubsection{Scansione passiva e attiva}
+Un host per connettersi a un AP deve esaminare tutti i canali disponibili e communicare con frame speciali chiamati
+beacons. Questo meccanismo può essere diviso in due tipologie: quella passiva, dove è l'AP a inviare i beacon e 
+l'host richiede all'AP se può connettersi. In quella attiva invece, è l'host a inviare "probe request" ed è poi 
+l'AP ad offrire la connesione.
+
+\subsubsection{Trasmissione e collision detection}
+I segnali wireless sono meno potenti e subiscono molte più interferenze, anche dallo stesso segnale, per via 
+delle proprietà fisiche della trasmissione radio. Un'antenna non può neanche trasmettere e ricevere 
+contemporaneamente. 
+
+Per ovviare questi problemi, le STA si contendono il canale d'accesso ogni volta che devono trasmettere. Possono 
+comunicare solo se il canale rimane libero per un tempo definito Distributed Inter-Frame Space (DIFS) e attende
+un tempo casuale in caso di canale occupato. Gli ACK vengono inviati in un atro intervallo di tempo minore, il
+Short Inter-Frame Space (SIFS). Gli ACK vengono usati anche per determinare le collisioni
+
+Può succedere però che un host sia in grado di comunicare con l'AP, ma non con un altro host per via di un
+ostacolo tra i due. Per questo viene usato un handshake specifico con RTS (Request To Send) e CTS (Clear To 
+Send). Al seguito di un CTS, viene notificato agli altri STA della trasmissione imminente, rimuovendo il 
+problema del terminale nascosto
+
+\subsubsection{Frame 802.11}
+Il frame contiene 4 campi per gli indirizzi, che possono contenere:
+\begin{enumerate}
+    \item MAC del ricevitore
+    \item MAC del trasmettitore
+    \item MAC del router al quale l'AP è collegato
+    \item usato solo nelle reti ad hoc
+\end{enumerate}
 \end{document}

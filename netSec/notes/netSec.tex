@@ -39,7 +39,7 @@ or glory), different capabilities and objectives. This details compone the model
 adversary
 
 \subsubsection*{Mitigation}
-To mitigate a threat, various strategies are aviable, reguarding people, processes and technologies.
+To mitigate a threat, various strategies are aviable, regarding people, processes and technologies.
 This controls are classified in preventive, detective and corrective.\\What conditionates which tactic 
 to select is risk management, or the process to identify the probability of an attack and the extention 
 of the subsequent damage
@@ -102,7 +102,7 @@ deniability. This two cases are a conflict of privacy and security because one v
 
 \subsection{Legal constraints}
 The GDPR (General Data Protection Regulation) is a regulation that applies all european companies and non european companies
-that process europeans personal data. It protects all the data reguarding genetic, metal, cultural, economic and social identities.
+that process europeans personal data. It protects all the data regarding genetic, metal, cultural, economic and social identities.
 When it's not followed it applies penalities like fines up to 20 million euros or the 4\% of annual global revenue of a company.
 The GDPR requires that products, systems and processes follow privacy-by-design concepts and a risk-based approach to cybersecurity 
 
@@ -554,7 +554,7 @@ vulnerabilities by relieng on a Public Key infrastructure. It also uses SSL/TLS 
 confidentiality, and the use of XML Signature improves the message integrity.\\ Other mechanism used are
 expiration timers and unique identifiers for the messages
 
-Reguarding privacy instead, SAML uses persisten pseudonyms and one-time identifiers between an identity and a
+regarding privacy instead, SAML uses persisten pseudonyms and one-time identifiers between an identity and a
 service provider and creates a specific authentication context in which the user is allowed to use only certain 
 operations
 
@@ -578,6 +578,71 @@ Currently EIDAS is under discussion with a focus on digital wallets, or a user c
 select what personal information to share with a service. This gives self-sovereign identity, decentralized 
 identifiers and verifiable credentials.\\Currently the EU is developing a European Self-Sovereign Identity Framework,
 or ESSIF, with the use of decentralized identifiers and european blockchain services.
+
+\newpage
+\section{Access Control}
+The access control is composed of various mechanism and actors, but we will focus on the subject, or entity, the 
+access control module and the policy decision point (or PDP). This elements (with the exception of the subject)
+are contained inside an outer and an inner boundary. 
+
+Some remarks regarding the access control isolation boundaries: 
+\begin{itemize}
+    \item The outer boundary prevents the by-passing of the guard who authorizes all resources request
+    \item the inner boundar protects the integrity of the audit log
+\end{itemize}
+
+NB: Principle of least priviledge: every subject must be able to access only the information and resources 
+necessary for its legittimate purpose
+
+NB: Need to know principle: a process should have access only to the needed object, been able to make only the needed
+operation and only during the needed time
+
+NB: Domain of protection: a set of objects and access rights
+
+\subsubsection*{AC definition}
+An AC is a process which grants or denies access to resources and data of a system. Its purpose is to protect 
+resources from unauthorized access by using, depending on the context, various AC policies, or set of rules
+
+\subsubsection*{Structured approach}
+A structured approach to the AC divides policies a the higher level, followed by model and enforcement. In this case 
+policies represent how they are specified, model models the meaning and enforcement how policies are implemented.
+
+This method is usefull for implementing the use of automated reasoning to perform security analysis and to 
+separate concerns
+
+NB: Confused deputy: during a privilege escalation attack, the attacker does not have access to a resource, so 
+it uses another subject, which has access, as an intermediary for read or modifying the data
+
+\subsection{AC models}
+\subsubsection{AC matrix}
+The ACM lists all subjects and resources, and for each cell lists the permitted actions 
+
+\subsubsection{Discretionary AC}
+DAC policies are determinated by the owner user, this way no central entity is needed. This method is typically used 
+in OSs.\\
+To simplify administration, large organization arrange users in groups, and determine the policies based on the group
+and not the single user🇮🇹
+
+DAC offers the pros of flexibility and a more intuitive implementation. On the other hand, the protective state of 
+resources is subjective to the owner and vulnerable to user's mistakes. DAC are also vulnerable to trojans, or 
+malicious software unknowingly executed by users with their user priviledge
+
+\subsubsection{Mandatory AC}
+This policies are managed by a central identity which decides who can do what and on which resources. sharing
+is enforced by the use of security labels and somethimes legal requirements.
+
+All this points leads to a multi-level security model. This model has the objective of preventing the release of 
+sensitive information to untrusted users.\\With this system, information is labeled with a sensitivity label, which 
+joins a linear ordered set of sensitivity values (example: unclassified $\to$ confidential $\to$ topsecret) and the 
+category to which the information belongs.\\When a resource is created, is the resource creator that applies a
+sensitivity label bases on some criteria.\\
+In multy level security, also the user is assigned clearance (or categorized) based on the security level and 
+a set of need-to-know categories. 
+
+After having defined sensitivity labels and clearances, the AC compares them and if the user has access to the data
+based on the No Read Up and No Write Down properties: the first one declares that for accessing data you need to 
+be on a higher or equal clearance level than the object. The second one instead says that higher level 
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
