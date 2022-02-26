@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1632402132 "/home/marco/Documents/uni/algoritmi/notes/algoritmi.tex" "/home/marco/Documents/uni/algoritmi/notes/algoritmi.pdf" "algoritmi" 1632402132
+["pdflatex"] 1645892192 "/home/marco/Documents/uni/algoritmi/notes/part1/algoritmi.tex" "/home/marco/Documents/uni/algoritmi/notes/part1/algoritmi.pdf" "algoritmi" 1645892193
   "/etc/texmf/web2c/texmf.cnf" 1630769332 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/marco/Documents/uni/algoritmi/notes/algoritmi.aux" 1632402132 491 c07e44e9a2febcf274b87eae7d2e7578 ""
-  "/home/marco/Documents/uni/algoritmi/notes/algoritmi.tex" 1632402132 3096 25f037bb5a89ee7a8b10df5b8c7150ce ""
+  "/home/marco/Documents/uni/algoritmi/notes/part1/algoritmi.aux" 1645892193 491 c07e44e9a2febcf274b87eae7d2e7578 ""
+  "/home/marco/Documents/uni/algoritmi/notes/part1/algoritmi.tex" 1645892192 3106 0727b5a2dd82dd4ee88b35f8b15345bb ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -58,11 +58,11 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1630769536 125915 807ff72f6023b33a59c427bfd156a3d1 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1630769537 1283513 6dc1e51836720e1353009e62bf170505 ""
-  "algoritmi.aux" 1632402132 491 c07e44e9a2febcf274b87eae7d2e7578 "pdflatex"
-  "algoritmi.tex" 1632402132 3096 25f037bb5a89ee7a8b10df5b8c7150ce ""
+  "algoritmi.aux" 1645892193 491 c07e44e9a2febcf274b87eae7d2e7578 "pdflatex"
+  "algoritmi.tex" 1645892192 3106 0727b5a2dd82dd4ee88b35f8b15345bb ""
   (generated)
-  "/home/marco/Documents/uni/algoritmi/notes/algoritmi.pdf"
-  "/home/marco/Documents/uni/algoritmi/notes/algoritmi.log"
-  "algoritmi.pdf"
   "algoritmi.log"
+  "algoritmi.pdf"
+  "/home/marco/Documents/uni/algoritmi/notes/part1/algoritmi.log"
+  "/home/marco/Documents/uni/algoritmi/notes/part1/algoritmi.pdf"
   "algoritmi.aux"
