@@ -1,0 +1,103 @@
+{
+  "main": {
+    "id": "b09a1b14989a3150",
+    "type": "split",
+    "children": [
+      {
+        "id": "19097727e0165607",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Analisi/Formulario.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c56504418b07dc85",
+    "type": "split",
+    "children": [
+      {
+        "id": "a54b66be49997b26",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "57c56dbc57e679c9",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5c7d4403499f81fb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "fisica",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 178
+  },
+  "right": {
+    "id": "c70d1888273df7e2",
+    "type": "split",
+    "children": [
+      {
+        "id": "b5cb52b58d82e0aa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "852b4cff3d47edd9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Analisi/Formulario.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "19097727e0165607",
+  "lastOpenFiles": [
+    "Analisi/Formulario.md",
+    "Analisi/Procedimenti.md",
+    "Fog/6-Resource orchestration.md",
+    "Fog/4-Cloud Networking.md",
+    "OSs/10-Memoria virtuale.md",
+    "OSs/9-Gestione della memoria.md",
+    "OSs/11-Memoria dei dischi.md",
+    "OSs/12-Filesystem.md",
+    "13-Filesystem.md",
+    "OSs/10Memoria centrale.md"
+  ]
+}
