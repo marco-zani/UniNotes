@@ -1,0 +1,140 @@
+{
+  "main": {
+    "id": "e596c8dc1076f267",
+    "type": "split",
+    "children": [
+      {
+        "id": "5f986bacbcfa3b2c",
+        "type": "leaf",
+        "state": {
+          "type": "pdf",
+          "state": {
+            "file": "pdf/4-Crypto_Application-2p.pdf"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e19a7d1991004c5e",
+    "type": "split",
+    "children": [
+      {
+        "id": "01c163e88f8787f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d4805ab64e812bf4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "4cd779b963a7cfd3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "14b27e4e497e0672",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9ebbfc8c88ff5da7",
+    "type": "split",
+    "children": [
+      {
+        "id": "9b87f6ca4c40fce3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f451aa462c65d116",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "pdf/4-Crypto_Application-2p.pdf",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "dde3a7a9a742ca2d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "pdf/4-Crypto_Application-2p.pdf",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0e1d11e6223dc21c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "1c6c0f2d3fd9d82d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "pdf/4-Crypto_Application-2p.pdf"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "5f986bacbcfa3b2c",
+  "lastOpenFiles": [
+    "4-Cryptography.md",
+    "pdf/3-Crypto_Intro-2p.pdf",
+    "2022-08-12.md",
+    "3-Authentication.md",
+    "pdf/2-AuthN-I-2p.pdf",
+    "1-Introduction.md",
+    "pdf/5-AuthN-II-2p.pdf"
+  ]
+}
