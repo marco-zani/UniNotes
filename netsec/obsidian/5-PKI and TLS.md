@@ -1,67 +1,97 @@
-The public key crypto are more secure and supply high levels of integrity, confidentiality and non repudiation.
-All at the cost of efficiency and the lacking of authentication. PKC is the solution to this cons.
+# Introduction
+The public key crypto, while **providing integrity, confidentiality and non repudiation**, still **lacks authentication and efficiency**. Additional **infrastructure is required**
 
-# Digital signature
-Some data that vouches the origin and integrity of a message, it uses the private key to "sign" the message so that the recipient can use the public key of the sender to verify the origin. This system used hash fucntion to enable the signature, but today hash functions are considered deprecated, plus this method still doesn't guarantee the real identity of the user
+## Digital signature
+Data that has be **signed with the private key** so that the recipient can use the **public key** of the sender to **verify its origin**. 
+
+This system used hash function for the **signature**, but today **hash functions are considered deprecated**, plus they **don't guarantee the identity** of the user
 
 # Public Key infrastructure
-The main requirements on the public key are to be bound on the identity of the party controlling the private key and that this bound is still valid. These two requirements can be satisfied via PKI.
+**PKI requires** that the public key is bounded to the **correct identity** and that this bound is **still valid**. 
 
-The initial proposal to bound public keys and identities were bulletin boards. In IoT the public key were hardcoded in the software and in internet applications is widely spread the use of digital certificates signed by a Trusted Third Party (TTP)
+The initial proposal to bound public keys and identities were bulletin boards. But the widely spread solution is the **use of digital certificates signed by a Trusted Third Party** (TTP)
 
-The PKI binds the entity to the public key through a process of registration and issuance by a Certificate Authority (CA). Then is the Registration Authority that assures a valid and correct registration. The last component of the PKI is the Validation Authority who provides informations of the entity on behalf of the CA
+> [!info]- Case of IOT
+> The public key is hardcoded in the software. This prevents any form of scalability and flexability
+
+## Composition
+
+The PKI is composed of 3 enitities:
+- The **Certificate Authority** (CA), who **provides the digital certificate** 
+- The **Registration Authority**, who **verifies information** for a valid registration.
+- The **Validation Authority**, who **checks the validity** for a requested certificate
+
+Additional components are the **Certificate Distribution System** (CDS), which **contains the repository of certificates** and the **Certificate Revocation List** (CRL), and the **Cryptographic Practices Statement** (CPS), a declaration of all **security requirements** issued in the certificate
 
 ## Digital Certificates
-This certificates bind a public key and a person/service/hardware component/... and it contains the issuer, the subject (or user), the public key and the digital signature of the issuer.
+A certificate contains the issuer, the subject (or user), the public key and the digital signature of the issuer.
 
-The certificates are stored in a certificate distribution system, togheter with the Certificate Revocation List
-
-(CRL)
-
-Proccedure to obtain a certificate:
-1. The user generates a public and private key-pair or is assigned one by some authority
-2. The user requests the certificate to the CA server
-3. The CA answers with the certificate including public key and digital signature
-4. The user gathers the information required by the CA
-5. The user send a certificate request (CSR) to the CA including public key and additional data. The request is digitally signed by the user
-6. The CA verifies the identity of the user and generates a certificate binding the user identity with his public key
-7. The CA issues the certificate signed by the CA to the user
+#### Procedure to obtain a certificate
+1. The user **generates** or is assigned a public and private **key-pair** 
+2. The user **requests the certificate** to the CA server
+3. The CA **answers with the certificate** including public key **and digital signature**
+4. The user **gathers the information** required by the CA
+5. The user **send a certificate request** (CSR) to the CA including public key and additional data.
+	- The request is digitally signed by the user
+6. The CA **verifies the identity** of the user and **generates a certificate binding** the user identity with his public key
+7. The CA **issues the certificate** signed by the CA to the user
 
 ## Requirements on PKI
-- The TTP must be able to check a party identity
-- The relying parties shall be able to check the time and general validity of the certificate
-	- One way to do this is through CRLs, the other is through the OCSP, or Onlne Certificate Status Protocol
-- The cryptographic software of the relying party must be updated according to the latest known vulnerabilities. The software validating certificates shall also work correctly
+- The TTP must be **trustworthy** and **able to check** a party **identity and validity**
+- The **relying parties** shall be able to **check the time and general validity** of the certificate
+	- One way to do this is through **CRLs** or the  **Online Certificate Status Protocol** (OCSP)
+		- **CRLs** are more **efficient** but can miss time windows, meanwhile **OCSP** is always **up to date** but requiring high badwidth
+- The cryptographic software and service software of the relying party must be **updated according to the latest known vulnerabilities**
 
 # SSL and TLS
 The Secure Sockets Layer and his successor the Transport Layer Security are protocols developed to secure comunications between client and server
 
-## TLS in the browser
-His goal is to provide the user with identity of page origin. HTTPS (HTTP + TLS) provides the authentication of the web server and bidiractional encryption against man-in-the-middle, eavesdropping and tampering attacks while protecting privacy and integrity of exchanged data
+#### TLS in the browser
+His goal is to **provide** the user with **identity of page origin**. HTTPS (HTTP + TLS) provides the **authentication** and **bidiractional encryption**, **preventing man-in-the-middle**, eavesdropping and tampering attacks.
+It also provide **privacy and integrity** 
 
-## TLS overview
-TLS is composed of two main protocols: the handshake protocoll which consist in the use of the public key criptography tto share a secret simmetric key between client and server, and the record protocol which uses the key obtained through the handshake to encrypt the communication. It also uses some additional protocols like the Change Cipher Protocol to switch to simmetric key encryption, and the Alert Protocol to report failures
+## TLS
+TLS uses **asymmetric cryptography** for **authentication** and **key exchange**, then **symmetric cryptography for confidentiality, integrity and authenticity during communication**
+This solution are divided in the **handshake and record protocols**.
 
-The handshake protocol step by step:
-1. The clients sends a hello message containing the supported cipher suite
-	- A cypher suite is the set of algoritms used to secure a network connection
-		- They usually include key exchange, bulk encryption and message authentication code algoritms
-		- it also can include signatures and authentication algorithms to authenticate server and clint
-2. The server answers with a hello message containg the chosen protocol and cipher suite, plus the session ID
-3. IF the client has requested an authenticated connection, the server must send an X.509 certificate.
-	- it is also the step with the server key exchange
-4. the client verifies the server certificate and answers with his own certificate and his part in the client key exchange
-	- the key exchange contains the pre-master key which is used to calculate the master key
-	- the master key is obtainad using a pseudo random function
-5. The server sends a change cipher spec, which determins the beginning of the use of the new cipher
-	- it's also sent the finished, or an hash generated from the entire handshake, used to signal the completition of the algoritm
-6. At this point every message is sent using the shared key
+During the **handshake**, a set of cryptographic **algorithms is chosen**, the **digital certificates are validated** and the **shared secret enstablished**
 
-TLS provides authentication for both server and client by encrypting the clint's choosen key with the server public key, then the server uses the public key of the client to decrypt the data sent by the client in phase 4. If this exchange fails, the session terminates.
-This entire communication is encrypted, this provides confidentiality within the session.
-Lastly TLS uses a Message Authentication Code (MAC) to provide data integrity. The MAC uses an algorithm composed of cryptographic functions which are similar to hash functions and digital signatures but use differetn security requirements
+It also uses some **additional protocols** like the **Change Cipher Protocol** to **switch to simmetric key encryption**, and the **Alert Protocol** to report failures
 
-## TLS Vulnerabilities
+#### TLS handshake procedure
+1. The clients sends a **hello message** containing the supported **cipher suite**
+	- A cypher suite usually **includes key exchange**, **bulk encryption** and **message authentication algoritms**
+2. The server answers with the **chosen protocol** and **cipher suite**, plus the **session ID**
+3. The **server sends his random server string** used for generating the master key
+	- **IF requested**, the server must send an **X.509 certificate** for an authenticated connection.
+4. The client **choses a pre-master key**, sends it to the server and uses it to calculate the master key
+	- the client **verifies the server certificate** and **sends his own certificate** 
+5. The server determins the **beginning** of the use of the **chosen cipher**
+	- it's also **sends a finished flag**, an **hash** generated from the entire handshake, used to signal the completition of the algoritm
+6. **The communication is now crypted**
+
+```mermaid
+sequenceDiagram
+	Client->>Server: Client Hello
+	Server->>Client: Server Hello
+	Server->>Client: Certificate, <br /> Server key exchange, <br /> certificate request
+	Client->>Server: Certificate, <br /> Client key exchange, <br /> certificate verify, Finished
+	Server->>Client: Finished
+	Client->>Server: Application data
+	Server->>Client: Application data
+```
+
+#### TLS and authentication
+TLS provides authentication for both server and client by **encrypting data** (the pre-master key for the client and the random server string) with the **respective receiver's public key** and **decoding** it with his **own private key**. 
+If this **exchange fails**, the **session terminates**.
+
+#### TLS and confidentiality
+This **entire communication is encrypted**, this provides confidentiality within the session.
+
+#### TLS and integrity
+ TLS **uses a Message Authentication Code** (MAC) to provide data integrity. The MAC uses an **algorithm** composed of cryptographic functions which are **similar to hash functions and digital signatures** but use different security requirements
+
+#### TLS Vulnerabilities
 TLS suffers in securities issues because of logical flaws, compatibility with old cipher suites and implementation issues
 
 RC4NOMORE: An attack born in 2017, it used guesses and observation of occurences of the cipher RC4 to authenticate as the victim

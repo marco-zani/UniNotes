@@ -4,12 +4,26 @@
     "type": "split",
     "children": [
       {
-        "id": "5f986bacbcfa3b2c",
+        "id": "fa8cf3d96578587b",
         "type": "leaf",
+        "dimension": 57.31182795698925,
         "state": {
           "type": "pdf",
           "state": {
             "file": "pdf/4-Crypto_Application-2p.pdf"
+          }
+        }
+      },
+      {
+        "id": "5f986bacbcfa3b2c",
+        "type": "leaf",
+        "dimension": 42.68817204301075,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "5-PKI and TLS.md",
+            "mode": "source",
+            "source": false
           }
         }
       }
@@ -25,7 +39,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d4805ab64e812bf4",
+            "id": "c010ecf23b9ab572",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -38,7 +52,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "public",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -46,36 +60,50 @@
                 "sortOrder": "alphabetical"
               }
             }
-          },
-          {
-            "id": "14b27e4e497e0672",
-            "type": "leaf",
-            "state": {
-              "type": "starred",
-              "state": {}
-            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "9ebbfc8c88ff5da7",
     "type": "split",
     "children": [
       {
-        "id": "9b87f6ca4c40fce3",
+        "id": "17df1727b0e59e78",
         "type": "tabs",
         "children": [
           {
-            "id": "f451aa462c65d116",
+            "id": "ab36dbc10f71d7e7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "5-PKI and TLS.md"
+              }
+            }
+          },
+          {
+            "id": "c549d896b7f65568",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "07f4b311e625f12f",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pdf/4-Crypto_Application-2p.pdf",
+                "file": "5-PKI and TLS.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -87,52 +115,33 @@
             }
           },
           {
-            "id": "dde3a7a9a742ca2d",
+            "id": "1d87d09cf997e68d",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "pdf/4-Crypto_Application-2p.pdf",
+                "file": "5-PKI and TLS.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
-          },
-          {
-            "id": "0e1d11e6223dc21c",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              }
-            }
-          },
-          {
-            "id": "1c6c0f2d3fd9d82d",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "pdf/4-Crypto_Application-2p.pdf"
-              }
-            }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
+    "width": 253.5,
     "collapsed": true
   },
   "active": "5f986bacbcfa3b2c",
   "lastOpenFiles": [
-    "4-Cryptography.md",
-    "pdf/3-Crypto_Intro-2p.pdf",
-    "2022-08-12.md",
+    "pdf/4-Crypto_Application-2p.pdf",
+    "5-PKI and TLS.md",
     "3-Authentication.md",
+    "2022-08-14.md",
+    "pdf/3-Crypto_Intro-2p.pdf",
+    "4-Cryptography.md",
+    "2022-08-12.md",
     "pdf/2-AuthN-I-2p.pdf",
     "1-Introduction.md",
     "pdf/5-AuthN-II-2p.pdf"
