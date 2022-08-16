@@ -6,22 +6,22 @@
       {
         "id": "fa8cf3d96578587b",
         "type": "leaf",
-        "dimension": 57.31182795698925,
+        "dimension": 60.91586794462193,
         "state": {
           "type": "pdf",
           "state": {
-            "file": "pdf/4-Crypto_Application-2p.pdf"
+            "file": "pdf/5-AuthN-II-2p.pdf"
           }
         }
       },
       {
         "id": "5f986bacbcfa3b2c",
         "type": "leaf",
-        "dimension": 42.68817204301075,
+        "dimension": 39.08413205537806,
         "state": {
           "type": "markdown",
           "state": {
-            "file": "5-PKI and TLS.md",
+            "file": "6-Single Sign On, SAML, SPID, CIE.md",
             "mode": "source",
             "source": false
           }
@@ -82,7 +82,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "5-PKI and TLS.md"
+                "file": "6-Single Sign On, SAML, SPID, CIE.md"
               }
             }
           },
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "5-PKI and TLS.md",
+                "file": "6-Single Sign On, SAML, SPID, CIE.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "5-PKI and TLS.md",
+                "file": "6-Single Sign On, SAML, SPID, CIE.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -135,15 +135,15 @@
   },
   "active": "5f986bacbcfa3b2c",
   "lastOpenFiles": [
-    "pdf/4-Crypto_Application-2p.pdf",
     "5-PKI and TLS.md",
-    "3-Authentication.md",
-    "2022-08-14.md",
-    "pdf/3-Crypto_Intro-2p.pdf",
-    "4-Cryptography.md",
-    "2022-08-12.md",
-    "pdf/2-AuthN-I-2p.pdf",
+    "6-Single Sign On, SAML, SPID, CIE.md",
+    "pdf/5-AuthN-II-2p.pdf",
+    "pdf/6-AC-I-2p.pdf",
+    "pdf/9-Privacy-GDPR-2p.pdf",
+    "pdf/8-WebIoTApp_Security-2p.pdf",
+    "pdf/7-AC-II-2p.pdf",
+    "7-Access Control.md",
     "1-Introduction.md",
-    "pdf/5-AuthN-II-2p.pdf"
+    "pdf/4-Crypto_Application-2p.pdf"
   ]
 }

@@ -1,1 +1,7 @@
-{}
+{
+  "enabledCssSnippets": [
+    "mermaid"
+  ],
+  "theme": "obsidian",
+  "cssTheme": ""
+}

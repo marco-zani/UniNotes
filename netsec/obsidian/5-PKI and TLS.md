@@ -92,27 +92,34 @@ This **entire communication is encrypted**, this provides confidentiality within
  TLS **uses a Message Authentication Code** (MAC) to provide data integrity. The MAC uses an **algorithm** composed of cryptographic functions which are **similar to hash functions and digital signatures** but use different security requirements
 
 #### TLS Vulnerabilities
-TLS suffers in securities issues because of logical flaws, compatibility with old cipher suites and implementation issues
+> [!info]+ NB
+> Important is the role of **nonces**, 32-**bytes composed of random values and the time**. Nonces are sent, as **identifiers**, with hello messages **to avoid replay attacks**
 
-RC4NOMORE: An attack born in 2017, it used guesses and observation of occurences of the cipher RC4 to authenticate as the victim
+List of vulnerabilities:
+- **RC4NOMORE**:  it abused a weak cipher (RC4) by **observing occurences and guessing tokens** to authenticate as the victim
+- **Poodle**:  The attacker asks the server to **downgrade** the connection **to SSL 3.0**, then uses an exploit of SSL 3.0 to **act a Man-In-The-Middle**
+- **Bleichenbacher attack**: a vulnerability of SSL, uses the **server response to guess the pre-master secret**. In TLS is fixed as decryption failures are hidden from the attacker
+	- **ROBOT**: Return Of Bleichenbacher's Oracle Threat, uses the same principle but aplied to RSA cryptography
+- **Heartbleed**: **abuses the extension heartbeat** which kept connections open. The message was **composed of data and datalenght**, from which the server replayed with the same message. But **if the data was shorter than the data lenght**, the server would fill the missing space with data from his memory (**memory leak**), which could have contained sensible information
 
-Poodle: an exploit of SSL 3.0. The attacker impersonates the server to downgrade the connection to SSL 3.0, then uses a vulnerability of the protocol to break the entire thing
-
-Bleichenbacher attack: a vulnerability of SSL, it guesses the padding by looking at the server response. In TLS is fixed as decryption failures are hidden from the attacker
-
-Heartbleed: find in the extension heartbeat which kept connections open. The message was composed of the data and datalenght, from which the server replayed with the same message. But if the data was shorter than the declared lenght, the server would fill the missing space with data from his memory, which could have contained sensible information
-
-All this vulnerabilities were using the weakness of the ciphers or failures in the logic, which in successive updates were patched. Right now the best mitigations for TLS vulnerabilities are proper configuration of the TLS server
+All this vulnerabilities were using the **weakness of the ciphers or logic failures**, which in successive updates were patched. Right now the **best mitigation** for TLS vulnerabilities are **proper configuration of the TLS server**
 
 ## TLS 1.3
 This new version containes:
-- Clean-up: removal of unsafe or unused feature, like a smaller cipher suites Poodle
-- Security: application of modern techniques
-- Privacy: more extensive encryption
-- Performance: Faster handshake (1 RTT and 0 RTT)
-- Backwards compatability
+- **Clean-up**: removal of unsafe or unused feature, like a **smaller cipher suites pool**
+- **Security**: application of **modern techniques**
+- **Privacy**: **more extensive encryption**
+- **Performance**: **Faster handshake** (1 RTT and 0 RTT)
+- **Backwards compatability**
 
-NB: forward secrecy or perfect forward secrecy is the property that session keys will not be compromised even if long-term secrets are compromised
+The faster handshake is achieved by managing the **key exchange with the hello message** and by **ditching RSA and imposing diffie-hellman** for all communication.
+It's also **possible to recall data from a previous connection**, enstablishing a 0 round trip-time connection
+
+TLS 1.3 only uses encryption algorithms that **support forward secrecy**
+> [!info]+ NB
+> **Forward secrecy**, or perfect forward secrecy, is the property that session keys will not be compromised even if long-term secrets are compromised
+> In short, it **protects past sessions against future compromises of other keys**
 
 ## Ephemeral Diffie-Hellman
-This variant of the normal DH from the fact that DH uses the same private key. In EDH, a temporary DH key is generated for every connection. On the other side this doesn't allow for authentication, in fact, in TLS is used Authenticated Encryption with Associated Data (AEAD) cyphers.
+This variant of DH that **generates a temporary DH key for every connection**, enabling forward secrecy. 
+On the other side this **doesn't allow for authentication**, so **TLS is uses Authenticated Encryption with Associated Data (AEAD)** cyphers, an extension that guarantees confidentiality, integrity and authenticity

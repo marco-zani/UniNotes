@@ -1,29 +1,49 @@
 # SSO
-SSO operates inside of security domains, or applications trusting a common security token for authentication.
-The basic concept is:
-1.  an user access the application
-2. the service provider refers for authentication with the identity provider
-3. the identity provider ask the user for credential and after the user is authenticated, provides authentication evidence to the service provider
-4. the service provider gives to the user an authentication token
+The concept is to create a system to allow sharing of security tokens between security domains. This allowes for a **more agile system** and **less password fatigue**
 
-Using this system, the credential never leave the authentication domain, but the service provider must trust the authentication domain, plus the authentication transfer must be protected
+The basic concept is:
+1.  an **user access** the application
+2. the service provider asks **redirects** authentication **to the identity provider**
+3. the identity provider **ask the user for credential** and, if successful, **provides authentication evidence** to the service provider
+4. the service provider **gives** to the user an **authentication token**
+
+Using this system, the service provider **must trust** the authentication domain **and use protected communication**. This allowes the **credential to never leave the authentication domain**
 
 # SAML
-The Security Assertion Markup Language is a common language and flow between systems that want to provide an SSO experience, and it's XML based.
+The Security Assertion Markup Language is a **XML based standard** used to provide an SSO experience
 
-SAML distinguishes two main entities: and identity provider, who authenticates the user and provides authorisation information, and the service provider, which relies on the information provided by the IsP. IdP e SP share metadata in any form and mean possible, sharing at least the entity ID and the cryptographic keys.
-There are also federations, or groups of entities, which establish the initial trust among resources.
+SAML distinguishes two main entities: 
+- the **identity provider**, who **authenticates** the user **and provides authorisation information**
+- the **service provider**, which **relies on the information** provided by the IsP. 
 
-The authentication flow follows this procedure:
-1.  A user tries to access an SP
-2.  The user is redirected to a Discovery Service
+IdP e SP share  **any type of metadata**, but **at least the entity ID and the cryptographic keys**.
+
+The **authentication flow** follows this procedure:
+1.  A user tries to **access** an SP
+2.  The user is **redirected to a Discovery Service**
 	-  it allowes the user to choose the IdP
-3.  The user goes back to the SP with the ID of the IdP
-4.  The user is redirected to the IdP
-5.  the Authentication is performed
-6.  The user goes back to the SP with the authentication
+3.  The user obtaines the **ID of the IdP**
+4.  The user is **redirected to the IdP**
+5.  the **Authentication** is performed
+6.  The user goes **back to the SP with the authentication**
 
-NB: SAML can support other resources, and resources can support multiple SAML profiles. The most used is redirect
+```mermaid
+sequenceDiagram
+	participant IP as Identity Provider
+	participant U as User
+	participant SP as Service Provider
+	participant DS as Discovery Service
+	U->>SP: access to service
+	SP->>DS: redirection
+	DS->>U: IP id
+	U->>IP: redirection and authentication
+	IP->>SP: authentication info	
+```
+
+> [!info]+ NB
+> SAML can support various platforms and SAML profiles. The most used profile is **redirect**
+
+## SAML Composition
 
 SAML is composed of the authentication context, metadata and the main content, which is it self composed of profiles, bindings, protocols and assertions.
 
@@ -45,9 +65,23 @@ IsP initiated SSO
 1.  A user is challenged to supply credentials to the IdP site
 2. The user provides credentials and a local security context is created
 3. The user accesses to the SP through the IdP, which triggers the SSO service to be called
-4. The SSO service builds a SAML assertion
+4. The SSO service builds a SAML assertion**
 5. The browser issues an HTTP POST request to send the SAML to the SP
 6. Final access is allowed or denied to the user by the SP
+
+```mermaid
+sequenceDiagram
+	participant IP as Identity Provider
+	participant B as Browser
+	participant SP as Service Provider
+	IP->>B: Challenge for<br />credentials
+	B->>IP: User login
+	B->>IP: Select remote resource
+	IP->>B: Signed HTML form 
+	B->>SP: POST signed
+	SP->>B: Supply resource	
+
+```
 
 The opposite is a SP initiated SSO
 1.  A user attempts to access a resource on the SP
