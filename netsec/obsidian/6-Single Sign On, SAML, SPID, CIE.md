@@ -44,30 +44,28 @@ sequenceDiagram
 > SAML can support various platforms and SAML profiles. The most used profile is **redirect**
 
 ## SAML Composition
-
-SAML is composed of the authentication context, metadata and the main content, which is it self composed of profiles, bindings, protocols and assertions.
+![[SAML.png]]
 
 #### Assertions
-The assertion are a set of statements made by the authority, and is classified in authentication assertion (which describes the issuer, the issued, validity period,...), attribute assertion (defining specific details about the subject) and authorization assertion (defines what the subject is entitled to do)
+Assertions are the **claims made by the authority**. This claims can be divided in three categories:
+- **authentication assertion**: describes the **authentication process** of the user
+- **attribute assertion**: defines **information** reguarding the subject
+- **authorization assertion**: defines an **action** that the user is entitled to
 
 #### Protocols
-This section defines the communication and cryptographic protocols used for the exchange
+It defines the communication and cryptographic **protocols used for the exchange of SAML assertions**
 
 #### Bindings
-SAML uses a mechanism called SAML binding to transport the messages between the actors. There are various types like SAML URI, HTTP redirect, HTTP POST,...
+It's the **type of communication** used to transport the messages **between the actors**. There are various types like SAML URI, **HTTP redirect**, HTTP POST,...
 
 #### Profiles
-The combination of protocols, assertions and binding define a profile which creates a federation and enables federated SSO. This profiles can be Web browser SSO, Single Logout, artifact resolution...
+Profiles combine all components to **create a federation**.  The **most common profiles are Web browser SSO and Single Logout**
 
-The two types of web SSO are :
-
-IsP initiated SSO
-1.  A user is challenged to supply credentials to the IdP site
-2. The user provides credentials and a local security context is created
-3. The user accesses to the SP through the IdP, which triggers the SSO service to be called
-4. The SSO service builds a SAML assertion**
-5. The browser issues an HTTP POST request to send the SAML to the SP
-6. Final access is allowed or denied to the user by the SP
+##### IsP initiated SSO
+1.  A user has an **active login session** in a site
+2. The user is **redirected** to a partner website being part of the **same federation**
+3. The **first site behaves as the identity provider** and **asserts** to the service provider the **user authentication and attributes**
+4. The **SP** uses the received information to **create a local session** for the user
 
 ```mermaid
 sequenceDiagram
@@ -83,38 +81,86 @@ sequenceDiagram
 
 ```
 
-The opposite is a SP initiated SSO
-1.  A user attempts to access a resource on the SP
-2. The SP sends a redirect in response
-3. The SSO service checks for a pre-existing logon security context, if missing requires the user to provide credentials
-4. The user provides a valid credentials and a local security context is created
-5. The IdP creates a SAML assertion
-6. The browser issues an HTTP POST request to the SP
-7. The access is allowed or denied to the user
+##### SP initiated SSO
 
-## Authentication Context
-It indicates how a user athenticated at an IdP. It can be required by an SP to enstablish a level of assurance (LOA)
+> [!info]+ NB
+> Is the most common scenario
 
-## Metadata
-A SAML metadata document describes a SAML deployment which is used to enstablish trust and interoperability. The minimum required is the entity ID, cryptographic keys and protocols endpoints (bindings and URLs). It's important to remember that the keys are both used for encryption and digital signature. In this case is required that each party knows each other in advance.
+1.  A user accesses to SP public resources without a login
+2. The **user tries to access privileged resources** and is **redirected** to the IP
+3. The IP challenges and **authenticates** the user
+4. The **IP sends to the SP the assertions** used to validate the user
 
-# SAML Security
-Only providing assertion to enstablish trust may lead to man-in-the-middle or replay attacks. SAML fights this vulnerabilities by relieng on a Public Key infrastructure. It also uses SSL/TLS to grant authentication and confidentiality, and the use of XML Signature improves the message integrity.
-Other mechanism used are expiration timers and unique identifiers for the messages
+```mermaid
+sequenceDiagram
+	participant SP as Service Provider
+	participant B as Broser
+	participant IP as Identity Provider
+	B->>SP: Accesses resources
+	SP->>IP: Redirects the user<br />with AuthnRequest
+	IP->>B: Challenges for<br />credentials
+	B->>IP: User login
+	IP->>B: Signed response
+	B->>SP: POST signed response
+	SP->>B: Supplies resources
+```
 
-regarding privacy instead, SAML uses persisten pseudonyms and one-time identifiers between an identity and a service provider and creates a specific authentication context in which the user is allowed to use only certain operations
+#### Authentication Context
+It indicates **how a user athenticated** at an IdP and with **which level of assurance** (LOA)
 
-# National Identity Infrastructures - Spid
-The Spid is based on SAML 2.0 and is managed by the AGency for Digital Italy (AgID).
-The trust is achieved thorugh the intermediation of the agency, a third party guarantor, a process of accreditation of digital identity providers, attribute authorities and service providers.
+#### Metadata
+A SAML metadata is used to describe SP, IP and the SAML deployment, **enstablishing trust**. 
+The **least required data** is
+- **entity ID**
+- **cryptographic keys**
+- **protocols endpoints** (bindings and URLs).
+For authentication, **SAML messages** must be **digitally signed** and **each party must knows each other** in advance.
 
-All the entities that have passed the accreditation process are listed in the federation registry. For each record is stored the SAML identifier, name of the subject, type of entity, URL to the service provider's metadata and a list of qualified attributes.
+## SAML Security and privacy
+SAML can be **vulnerable to man-in-the-middle or replay attacks**. To avoid these attacks, it **relies on a Public Key infrastructure**. SAML **uses SSL/TLS  and XML Signature** within the HTTP POST binding
+
+Other mechanism used are **expiration timers** and **unique identifiers** for the messages
+
+To guarantee **privacy**, SAML uses **persistent pseudonyms** and **one-time identifiers**, plus it limits the authentication context to the bare minimum for the operations required by the user
+
+# National Identity Infrastructures 
+## Spid
+The Spid is **SAML 2.0 based** and is managed by the Agency for Digital Italy (AgID).
+
+The **trust is achieved thorugh the intermediation of the agency**, the process of accreditation of digital identity providers, attribute authorities and service providers, **and the shared standard of security policies** guaranteed by SPID
+
+**All the entities** that have passed the accreditation process **are listed in the federation registry** and **for each record is stored**:
+- the SAML **identifier**
+- **name** of the subject
+- **type** of entity
+- URL to the service provider's **metadata** 
+- list of qualified **attributes**.
 
 ## CIE
-Used to store personal information, the eletronic Id Card is provided with a NFC cip with encryption  
+Used to **store encrypted personal information**, the eletronic Id Card is provided with a **NFC cip** 
 
 # European Identity Infrastructure
-An european service used for identification between nations of the EU. Uses various eIDAS-Nodes to connect the different country's services. The communication between a connector and a service relies on SAML
+An european service used for identification between nations of the EU. 
+```mermaid
+flowchart TD
+	U(User)
+	W(Foreign Website)
+	C(eIDAS-Connector)
+	S(eIDAS-Service)
+	U--connects-->W-.->C-.->S
+	S==>U
+	U==Authentication==>S-.->C-.->W
+	
+```
 
-Currently EIDAS is under discussion with a focus on digital wallets, or a user controlled app that permits to select what personal information to share with a service. This gives self-sovereign identity, decentralized identifiers and verifiable credentials.
-Currently the EU is developing a European Self-Sovereign Identity Framework, or ESSIF, with the use of decentralized identifiers and european blockchain services.
+Country's services are **connected through eIDAS-Nodes**. The node to which a **service connects** is defined as **eIDAS-Connector**, meanwhile, the **node providing authentication**, is called **eIDAS-Service**.
+The communication between a connector and a service relies on **SAML**
+
+## EIDAS vulnerabilty
+In 2019 was found a **bypass for the signature verification** of new nodes implemented through the eIDAS-Node Integration Package. This allowed to **send manipulated SAML with forged certificates** to vulnerable Nodes
+
+## EIDAS today
+Currently EIDAS is under discussion with a **focus on digital wallets**,  empowering the citizen to **selectively share his data**. 
+
+This aims to **self-sovereign identity**, **decentralized identifiers** and **verifiable credentials**.
+Currently the EU is developing an **European Self-Sovereign Identity Framework**, or ESSIF, with the use of decentralized identifiers and european **blockchain services**.

@@ -10,7 +10,7 @@
         "state": {
           "type": "pdf",
           "state": {
-            "file": "pdf/5-AuthN-II-2p.pdf"
+            "file": "pdf/8-WebIoTApp_Security-2p.pdf"
           }
         }
       },
@@ -21,7 +21,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "6-Single Sign On, SAML, SPID, CIE.md",
+            "file": "8-Web and IOT security.md",
             "mode": "source",
             "source": false
           }
@@ -82,7 +82,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "6-Single Sign On, SAML, SPID, CIE.md"
+                "file": "8-Web and IOT security.md"
               }
             }
           },
@@ -103,7 +103,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "6-Single Sign On, SAML, SPID, CIE.md",
+                "file": "8-Web and IOT security.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -120,7 +120,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "6-Single Sign On, SAML, SPID, CIE.md",
+                "file": "8-Web and IOT security.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,17 +133,17 @@
     "width": 253.5,
     "collapsed": true
   },
-  "active": "5f986bacbcfa3b2c",
+  "active": "ab36dbc10f71d7e7",
   "lastOpenFiles": [
-    "5-PKI and TLS.md",
-    "6-Single Sign On, SAML, SPID, CIE.md",
-    "pdf/5-AuthN-II-2p.pdf",
-    "pdf/6-AC-I-2p.pdf",
-    "pdf/9-Privacy-GDPR-2p.pdf",
+    "3-Authentication.md",
+    "pdf/2-AuthN-I-2p.pdf",
+    "8-Web and IOT security.md",
     "pdf/8-WebIoTApp_Security-2p.pdf",
-    "pdf/7-AC-II-2p.pdf",
+    "pdf/9-Privacy-GDPR-2p.pdf",
     "7-Access Control.md",
-    "1-Introduction.md",
-    "pdf/4-Crypto_Application-2p.pdf"
+    "pdf/7-AC-II-2p.pdf",
+    "pdf/6-AC-I-2p.pdf",
+    "6-Single Sign On, SAML, SPID, CIE.md",
+    "pdf/5-AuthN-II-2p.pdf"
   ]
 }
