@@ -1,0 +1,95 @@
+{
+  "main": {
+    "id": "21882fb330d0f0c5",
+    "type": "split",
+    "children": [
+      {
+        "id": "93a91780270c4444",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "5-SQL.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d2bf8acab1b8d5c4",
+    "type": "split",
+    "children": [
+      {
+        "id": "70bdc94c402e0cd4",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "66c9a0ea1a87c3b1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5b8df87ef727619d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "398e5567c1dce985",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6a16f9829947f0f2",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "5-SQL.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 235
+  },
+  "right": {
+    "id": "629c46dcb0582812",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "93a91780270c4444",
+  "lastOpenFiles": [
+    "4-Relational algebra.md",
+    "5-SQL.md",
+    "Assignment1.pdf",
+    "Assignment1.md",
+    "3-Relational model.md",
+    "2-ER model.md",
+    "1-Database management systems.md",
+    "7-Cost theory.md",
+    "8-Functional dependencies and normal forms.md",
+    "6-Indexing.md"
+  ]
+}

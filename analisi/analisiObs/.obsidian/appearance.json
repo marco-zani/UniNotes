@@ -1,0 +1,8 @@
+{
+  "cssTheme": "Minimal",
+  "enabledCssSnippets": [
+    "minimalBold",
+    "mermaid"
+  ],
+  "accentColor": ""
+}

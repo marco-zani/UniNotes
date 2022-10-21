@@ -1,0 +1,9 @@
+.mermaid svg { 
+  max-width: 100%; 
+  height: auto;
+}
+
+.note {
+    stroke: #000000;
+    fill: #ffffff;
+}

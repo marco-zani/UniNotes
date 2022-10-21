@@ -1,0 +1,14 @@
+-   [Attack patterns for Identity Management protocols](https://st.fbk.eu/teaching/projects/2022-2023#attack-patterns-for-identity-management-protocols)
+	- **Prerequisites:** Preferably basic knowledge of Java.
+-   [Enhancing TLSAssistant analysis capabilities](https://st.fbk.eu/teaching/projects/2022-2023#enhancing-tlsassistant-analysis-capabilities)
+	- **Prerequisites:**
+		-   Experience with Python 3 development
+		-   Basic knowledge of the TLS protocol
+		-   Problem-solving
+-   [Threat Modeling for Electronic Voting](https://st.fbk.eu/teaching/projects/2022-2023#threat-modeling-for-electronic-voting)
+	- **Prerequisites:** An undergraduate course in information security is required for notions of confidentiality, integrity, and availability. Knowledge of Python would be highly recommended.
+- Trusted Execution Environments for Advanced Data Protection
+	- **Prerequisites:**
+		-   Basic knowledge of IT security
+		-   Basic knowledge of cryptography from cryptography-related courses
+		-   Basic knowledge of object-oriented programming languages (i.e., Kotlin)

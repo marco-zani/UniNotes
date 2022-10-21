@@ -1,0 +1,9 @@
+{
+  "cssTheme": "Minimal",
+  "enabledCssSnippets": [
+    "mermaid",
+    "minimalBold"
+  ],
+  "accentColor": "",
+  "showViewHeader": true
+}

@@ -9,8 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8-Web and IOT security.md",
+            "file": "1-ARM Cortex architecture.md",
             "mode": "source",
+            "backlinks": false,
             "source": false
           }
         }
@@ -69,47 +70,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "8-Web and IOT security.md"
-              }
-            }
-          },
-          {
-            "id": "c549d896b7f65568",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              }
-            }
-          },
-          {
-            "id": "07f4b311e625f12f",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "8-Web and IOT security.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "1d87d09cf997e68d",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "8-Web and IOT security.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "file": "1-ARM Cortex architecture.md"
               }
             }
           }
@@ -121,6 +82,8 @@
   },
   "active": "b31fd66c90981b31",
   "lastOpenFiles": [
+    "0-Introduction.md",
+    "1-ARM Cortex architecture.md",
     "7-Access Control.md",
     "6-Single Sign On, SAML, SPID, CIE.md",
     "5-PKI and TLS.md",
@@ -128,8 +91,6 @@
     "3-Authentication.md",
     "2-Security in perspective.md",
     "pdf/4-Crypto_Application-2p.pdf",
-    "pdf/3-Crypto_Intro-2p.pdf",
-    "pdf/2-AuthN-I-2p.pdf",
-    "pdf/5-AuthN-II-2p.pdf"
+    "pdf/3-Crypto_Intro-2p.pdf"
   ]
 }

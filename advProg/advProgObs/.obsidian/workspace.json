@@ -1,0 +1,123 @@
+{
+  "main": {
+    "id": "e596c8dc1076f267",
+    "type": "split",
+    "children": [
+      {
+        "id": "c841ee2ac599e5ad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b31fd66c90981b31",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "8-Lifetimes.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4663ef856a5ae525",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "2-Ownership.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e19a7d1991004c5e",
+    "type": "split",
+    "children": [
+      {
+        "id": "01c163e88f8787f1",
+        "type": "tabs",
+        "dimension": 48.18652849740933,
+        "children": [
+          {
+            "id": "c010ecf23b9ab572",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "4cd779b963a7cfd3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "public",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "12eeeae8ba29eeb7",
+        "type": "tabs",
+        "dimension": 51.813471502590666,
+        "children": [
+          {
+            "id": "ab36dbc10f71d7e7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "2-Ownership.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 220
+  },
+  "right": {
+    "id": "9ebbfc8c88ff5da7",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 253.5,
+    "collapsed": true
+  },
+  "ribbon": {
+    "mostRecentAction": ""
+  },
+  "active": "4663ef856a5ae525",
+  "lastOpenFiles": [
+    "1-Basics.md",
+    "9-Traits.md",
+    "8-Lifetimes.md",
+    "7-Maps.md",
+    "2-Ownership.md",
+    "4-Structs.md",
+    "3-Enums.md",
+    "7-Access Control.md",
+    "6-Single Sign On, SAML, SPID, CIE.md",
+    "5-PKI and TLS.md"
+  ]
+}

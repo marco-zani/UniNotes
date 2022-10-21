@@ -1,0 +1,94 @@
+{
+  "main": {
+    "id": "d36d06b1d6c47e38",
+    "type": "split",
+    "children": [
+      {
+        "id": "1460af55ee6e2ff3",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Definizioni.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "bee24cac9b3de4d9",
+    "type": "split",
+    "children": [
+      {
+        "id": "f6f28ceea7025700",
+        "type": "tabs",
+        "dimension": 42.82945736434108,
+        "children": [
+          {
+            "id": "be911111a90c7b25",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "c42ffd4198ff4805",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "d920a3a49627f4d3",
+        "type": "tabs",
+        "dimension": 57.17054263565892,
+        "children": [
+          {
+            "id": "102173862d0b40b5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Definizioni.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a7d60629e204ad39",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "1460af55ee6e2ff3",
+  "lastOpenFiles": [
+    "Formulario.md",
+    "Definizioni.md",
+    "Procedimenti.md",
+    "Esercizi da rivedere.md",
+    "Studio delle funzioni.md",
+    "Note sugli esami.md"
+  ]
+}

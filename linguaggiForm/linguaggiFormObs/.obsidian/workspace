@@ -1,0 +1,96 @@
+{
+  "main": {
+    "id": "e596c8dc1076f267",
+    "type": "split",
+    "children": [
+      {
+        "id": "2430e880bfeb71ae",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "3-Lexical analysis.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e19a7d1991004c5e",
+    "type": "split",
+    "children": [
+      {
+        "id": "01c163e88f8787f1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c010ecf23b9ab572",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "4cd779b963a7cfd3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "public",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "2283492d59e17f06",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ab36dbc10f71d7e7",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "3-Lexical analysis.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 248
+  },
+  "right": {
+    "id": "9ebbfc8c88ff5da7",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 253.5,
+    "collapsed": true
+  },
+  "active": "2430e880bfeb71ae",
+  "lastOpenFiles": [
+    "2-Properties of free languages.md",
+    "1-Generative grammar.md",
+    "0-Introduction.md",
+    "7-Access Control.md",
+    "6-Single Sign On, SAML, SPID, CIE.md",
+    "5-PKI and TLS.md",
+    "4-Cryptography.md",
+    "3-Authentication.md",
+    "2-Security in perspective.md",
+    "pdf/4-Crypto_Application-2p.pdf"
+  ]
+}

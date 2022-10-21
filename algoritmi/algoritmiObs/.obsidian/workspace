@@ -1,0 +1,90 @@
+{
+  "main": {
+    "id": "50cb62cd830944fa",
+    "type": "split",
+    "children": [
+      {
+        "id": "35c6e26f019d34d6",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "parte1/1-Analisi degli algoritmi.md",
+            "mode": "source",
+            "backlinks": false,
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4661e638d020a366",
+    "type": "split",
+    "children": [
+      {
+        "id": "5a00f9a697e85098",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0576e4a7e6c6669f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "1f91450b203d4684",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5bc4fc25e52f922b",
+    "type": "split",
+    "children": [
+      {
+        "id": "14d5ff0545d52fa7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9bd4a7b00863e925",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "parte1/1-Analisi degli algoritmi.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "35c6e26f019d34d6",
+  "lastOpenFiles": [
+    "parte1/0-Introduzione.md",
+    "parte1/1-Analisi degli algoritmi.md",
+    "parte2/Algoritmi p2.md"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "enabledCssSnippets": [
+    "mermaid",
+    "minimalBold"
+  ],
+  "theme": "obsidian",
+  "cssTheme": "Minimal",
+  "baseFontSize": 18
+}

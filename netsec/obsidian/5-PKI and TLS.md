@@ -21,6 +21,21 @@ The PKI is composed of 3 enitities:
 - The **Registration Authority**, who **verifies information** for a valid registration.
 - The **Validation Authority**, who **checks the validity** for a requested certificate
 
+```mermaid
+flowchart LR
+	U[User]
+	W[WebSite]
+	subgraph CA domain
+		RA[Registration<br/>Authority]
+		CA[Certification<br/>Authority]
+		VA[Validation<br/>Authority]
+	end
+
+	U-->RA-->CA-->U
+	CA-->VA
+	U-->W-->VA-->W
+```
+
 Additional components are the **Certificate Distribution System** (CDS), which **contains the repository of certificates** and the **Certificate Revocation List** (CRL), and the **Cryptographic Practices Statement** (CPS), a declaration of all **security requirements** issued in the certificate
 
 ## Digital Certificates

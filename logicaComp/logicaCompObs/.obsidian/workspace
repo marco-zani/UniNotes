@@ -4,13 +4,14 @@
     "type": "split",
     "children": [
       {
-        "id": "b31fd66c90981b31",
+        "id": "337e8475dc06cdcc",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "8-Web and IOT security.md",
+            "file": "1-Modelling.md",
             "mode": "source",
+            "backlinks": false,
             "source": false
           }
         }
@@ -50,17 +51,9 @@
             }
           }
         ]
-      }
-    ],
-    "direction": "horizontal",
-    "width": 300
-  },
-  "right": {
-    "id": "9ebbfc8c88ff5da7",
-    "type": "split",
-    "children": [
+      },
       {
-        "id": "17df1727b0e59e78",
+        "id": "180e0395103c895f",
         "type": "tabs",
         "children": [
           {
@@ -69,47 +62,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "8-Web and IOT security.md"
-              }
-            }
-          },
-          {
-            "id": "c549d896b7f65568",
-            "type": "leaf",
-            "state": {
-              "type": "tag",
-              "state": {
-                "sortOrder": "frequency",
-                "useHierarchy": true
-              }
-            }
-          },
-          {
-            "id": "07f4b311e625f12f",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "8-Web and IOT security.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": true
-              }
-            }
-          },
-          {
-            "id": "1d87d09cf997e68d",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "8-Web and IOT security.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
+                "file": "1-Modelling.md"
               }
             }
           }
@@ -117,10 +70,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 253.5
+    "width": 300
   },
-  "active": "b31fd66c90981b31",
+  "right": {
+    "id": "9ebbfc8c88ff5da7",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 253.5,
+    "collapsed": true
+  },
+  "active": "337e8475dc06cdcc",
   "lastOpenFiles": [
+    "1-Modelling.md",
     "7-Access Control.md",
     "6-Single Sign On, SAML, SPID, CIE.md",
     "5-PKI and TLS.md",
@@ -129,7 +91,6 @@
     "2-Security in perspective.md",
     "pdf/4-Crypto_Application-2p.pdf",
     "pdf/3-Crypto_Intro-2p.pdf",
-    "pdf/2-AuthN-I-2p.pdf",
-    "pdf/5-AuthN-II-2p.pdf"
+    "pdf/2-AuthN-I-2p.pdf"
   ]
 }
