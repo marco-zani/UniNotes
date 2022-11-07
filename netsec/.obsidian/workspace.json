@@ -1,0 +1,138 @@
+{
+  "main": {
+    "id": "c0a0da21b7640570",
+    "type": "split",
+    "children": [
+      {
+        "id": "8edc0dc963ffa640",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fa0bc51c048e68a5",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "de0fac8e782f872d",
+    "type": "split",
+    "children": [
+      {
+        "id": "dad86a1b1ad380a3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "36bb6cf06274b0dc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ef8daab434481e14",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ea6e602511d74dba",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c0f535de4a2c81f0",
+    "type": "split",
+    "children": [
+      {
+        "id": "c493c0e1132a17e9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3167288a04463e31",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "4ba36f387b6da781",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1e8c9599f232e3fc",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "7a0a7c9687be93ca",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "fa0bc51c048e68a5",
+  "lastOpenFiles": [
+    "obsidian/5-PKI and TLS.md",
+    "obsidian/3-Authentication.md",
+    "obsidian/2-Security in perspective.md",
+    "obsidian/1-Introduction.md"
+  ]
+}

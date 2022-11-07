@@ -7,9 +7,6 @@
 $sin(x):(-\infty,+\infty)\to[-1,1]$
 ```functionplot
 ---
-title: 
-xLabel: 
-yLabel: 
 bounds: [-3.4,3.4,-1,1]
 disableZoom: false
 grid: true

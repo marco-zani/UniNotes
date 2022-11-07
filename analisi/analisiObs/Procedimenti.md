@@ -31,7 +31,7 @@ $$
 - infine applico 1/(f'(x))
 
 # continuità con parametro
-risolvo il limite (molto probabilmente con taylor) e porto a sinistra la a
+Devo avere le due funzioni con lo stesso rapporto incrementale, quindi eseguo la derivata di entrambi e equivalgo
 
 # Integrali
 #### integrali per sostituzione
@@ -58,4 +58,13 @@ DIO RICORDA CHE 1/e^(x) È UGUALE A e^(-x)
 Nel caso in cui l'equazione sia nella forma 
 $$
 y^{I}+a(x)y(x)=f(x)
+$$
+# Procedimenti algebrici
+## Moltiplico radice per 1/1
+$$\sqrt{x^2+5x}-x=(\sqrt{x^2+5x}-x)\cdot\frac{\sqrt{x^2+5x}+x}{\sqrt{x^2+5x}+x}=\frac{x^2+5x-x^2}{\sqrt{x^2+5x}-x}$$
+## Raccolgo all'elemento di grado maggiore
+$$\frac{x}{x^2+5x}=\frac{x}{x^2(1+\frac{5}{x})}$$
+## Swap pornotattico nucleare
+$$
+\frac{sin(x^4)}{x^2}=\frac{sin(x^4)}{x^2}\cdot\frac{x^4}{x^4}=\frac{sin(x^4)}{x^4}\cdot\frac{x^4}{x^2}
 $$

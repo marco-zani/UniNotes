@@ -124,5 +124,8 @@ The denotation function is callded **interpretation function**
 > [!warning] da finire (1.3.3-pag 5)
 
 # Set theory
+A set is a collection of elements with common characteristics described by a set of rules
+
+
 # Formal reasoning
 # Using models

@@ -68,9 +68,15 @@ Risulta applicabile la formula di pareggio: $e^{i\theta}=cos(\theta)+i\cdot sin(
 Più numeri complessi possono riportare alla medesima equazione, questi sono definiti radici n-esime e rispecchiano l'equazione $z^n=a$ 
 Per trovare le radici si usa la forma esponenenziale e la seguente formula
 $$z=r\cdot e^{i\theta}\qquad allora\qquad \sqrt[n]{z}=\sqrt[n]{r}\cdot e^{i\left(\frac{\theta+2k\pi}{n}\right)} $$
-> [!warning] da finire
+Dato un polinomio $P(x)$ e $\alpha$ radice di $z$, allora $P$ è divisibile da $z-\alpha$ 
+#### Teorema fondamentale dell'algebra
+Ogni polinomio complesso di grado $n$ ha $n$ radici complesse. Nel caso $P$ contenga coefficienti reali allora ho radici reali o coppie coniugate di radici complesse: $$(x-\alpha)(x-\alpha)=x^2-2ax+a^2+b^2$$
+Ogni polinomia è prodotto di fattori irriducibili di grado 1 o 2 che rappresentano eventuali radici reali o complesse coniugate
 
 # Limiti
+
+> [!warning] NON SI FANNO I LIMITI A PEZZI
+
 Il limite di una successione può tendere a un valore, a $\pm\infty$ o non esistere. Nel caso tenda a un valore, può arrivare da sinistra o destra ($x^{+}/x^{-}$)
 ## Fatti generali dei limiti
 $$l_{+\infty}\quad n^{\alpha}=+\infty\quad\alpha>0\qquad\qquad l_{+\infty}\quad n^{\alpha}=0\quad\alpha<0$$
@@ -140,7 +146,13 @@ date le funzioni $f_1(x)=g(x)w_1(x)$ e $f_2<(x)=g(x)w_2(x)$
 [[Formulario#Sviluppi dell'o-piccolo]]
 
 ## Hopital
-butta tutto in derivata
+> [!warning] poco usato, meglio [[#Formula di Taylor]]
+
+Volendo calcolare il limite $\overset{\mathcal{L}}{x_0}\quad\frac{f(x)}{g(x)}$ ben definito, ma indeterminato ($\frac{0}{0}$, $\frac{\pm\infty}{\pm\infty}$). Allora:
+$$\overset{\mathcal{L}}{x_0}\quad\frac{f^I(x)}{g^I(x)}=l\qquad\Rightarrow\qquad\overset{\mathcal{L}}{x_0}\quad\frac{f(x)}{g(x)}=l$$
+
+> [!info]- NB
+> Se il limite delle derivate non esiste, allora non posso applicare il teorema
 
 
 # Derivate
@@ -156,6 +168,31 @@ Una funzione è derivabile se il limite con $h\to0$ esiste, ossia i limiti sinis
 $$f(x_0+h)=f(x_0)+f^I(x_0)h+o(h)\qquad \text{se }h\to0$$
 ## Regole di derivazione
 [[Formulario#Regole di derivazione]]
+
+## Formula di Taylor
+Data una funzione che tende a $0$, esiste un polinomio in forma $P(x_0)+o(x^a),\ x\to0$ in grado di approssimare la funzione
+
+> [!info]- Resto di Peano
+> la parte $o(x^a)$ è definita resto di peano
+
+$P_n(x)$ deriva dalla formula:
+$$\frac{f(0)}{0!}+\frac{f^I(0)}{1!}x+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^k)\qquad\text{oppure}\qquad \sum^n_{k=0}{\frac{f^{(k)}(0)}{k!}x^k}+o(x^k)$$
+
+> [!info]- Utile
+> Data $f(x)$, quanto vale la derivata terza nel punto $0$?
+> I coefficienti di sviluppo di Taylor al grado $x^3$ sono la nostra derivata diviso $3!$, quindi devo moltiplicare Taylor per $3!$
+
+#### Tabella degli sviluppi di Taylor
+[[Formulario#Forma compatta]]
+
+#### Algebra di Taylor
+[[Formulario#Algebra degli sviluppi di Taylor]]
+
+### Taylor nel punto $x_0\neq 0$ 
+$$
+f(x)=\sum\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n + o((x-x_0)^n)
+$$
+
 # Integrali
 #### indefiniti e definiti
 Un integrale si definisce indefinito se non viene calcolato in un intervallo specifico

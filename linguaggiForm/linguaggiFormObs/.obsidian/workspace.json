@@ -4,20 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "444cb5a05bbe1368",
+        "id": "15634bac667881ef",
         "type": "tabs",
         "children": [
           {
-            "id": "2430e880bfeb71ae",
+            "id": "5a183ca798c953f7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "3-Lexical analysis.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -69,9 +64,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "3-Lexical analysis.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -88,20 +81,17 @@
     "width": 253.5,
     "collapsed": true
   },
-  "ribbon": {
-    "mostRecentAction": ""
-  },
-  "active": "2430e880bfeb71ae",
+  "active": "5a183ca798c953f7",
   "lastOpenFiles": [
+    "3-Lexical analysis.md",
+    "4-regolar languages and lexical analysis.md",
+    "5-Parsing.md",
     "2-Properties of free languages.md",
     "1-Generative grammar.md",
     "0-Introduction.md",
     "7-Access Control.md",
     "6-Single Sign On, SAML, SPID, CIE.md",
     "5-PKI and TLS.md",
-    "4-Cryptography.md",
-    "3-Authentication.md",
-    "2-Security in perspective.md",
-    "pdf/4-Crypto_Application-2p.pdf"
+    "4-Cryptography.md"
   ]
 }

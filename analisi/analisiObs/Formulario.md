@@ -59,14 +59,15 @@ $$
 \overset{\mathcal{L}}{+\infty}\quad\frac{\sqrt[n]{n!}}{n}=+\infty
 $$
 $$
-\overset{\mathcal{L}}{+\infty}\quad\frac{(log(x))^a}{n^b}=0
+\overset{\mathcal{L}}{+\infty}\quad\frac{(log(x))^a}{x^b}=0
 \qquad\qquad
 \overset{\mathcal{L}}{0^+}\quad x\cdot log(x)=0
 $$
 ## Sviluppi dell'o-piccolo
 $$sin(x)=x+o(x)\qquad cos(x)=1-\frac{x^2}{2}+o(x^2)\qquad tan(x)=x+o(x)$$
-$$e^x=1+x+o(x)\qquad log(1+x)=x+o(x)$$
+$$e^x=1+x+o(x)\qquad log(1+x)=x+o(x)\qquad (1+x)^\alpha=1+\alpha x+o(x)$$
 $$arcsin(x)=x+o(x)\qquad arctan(x)=x+o(x)$$
+
 # Derivate
 $$
 	\frac{\Delta y}{\Delta x}=\frac{f(x_{0}+h)-f(x_{0})}{h}
@@ -74,55 +75,50 @@ $$
 
 #### Derivate fondamentali
 $$
-	f(x)=constante \qquad\Rightarrow\qquad f^{I}(x)=0
+	f(x)=constante \quad\Rightarrow\quad f^{I}(x)=0
+	\qquad\qquad\qquad 
+	f(x)=x^{a} \quad\Rightarrow\quad f^{I}(x)=ax^{a-1}
 $$
 $$ 
-	f(x)=x^{a} \qquad\Rightarrow\qquad f^{I}(x)=ax^{a-1}
+	f(x)=a^{x} \quad\Rightarrow\quad f^{I}(x)=a^{x}ln(a)
+	\qquad\qquad\qquad 
+	f(x)=e^{x} \quad\Rightarrow\quad f^{I}(x)=e^{x}
 $$
 $$ 
-	f(x)=a^{x} \qquad\Rightarrow\qquad f^{I}(x)=a^{x}ln(a)
-$$
-$$ 
-	f(x)=e^{x} \qquad\Rightarrow\qquad f^{I}(x)=e^{x}
-$$
-$$ 
-	f(x)= log_{a}(x) \qquad\Rightarrow\qquad f^{I}(x)=\frac{1}{x\ ln(a)}
-$$
-$$ 
+	f(x)= log_{a}(x) \quad\Rightarrow\quad f^{I}(x)=\frac{1}{x\ ln(a)}
+	\qquad\qquad\qquad
 	f(x)=ln(x) \qquad\Rightarrow\qquad f^{I}(x)=\frac{1}{x}
 $$
 $$ 
-	f(x)=|x| \qquad\Rightarrow\qquad f^{I}(x)=\frac{|x|}{x}
+	f(x)=|x| \quad\Rightarrow\quad f^{I}(x)=\frac{|x|}{x}
+	\qquad\qquad\qquad 
+	f(x)=sin(x) \quad\Rightarrow\quad f^{I}(x)=cos(x)
 $$
 $$ 
-	f(x)=sin(x) \qquad\Rightarrow\qquad f^{I}(x)=cos(x)
+	f(x)=cos(x) \quad\Rightarrow\quad f^{I}(x)=-sin(x)
+$$
+$$
+	f(x)=tan(x) \quad\Rightarrow\quad f^{I}(x)=\frac{1}{cos^{2}(x)}
 $$
 $$ 
-	f(x)=cos(x) \qquad\Rightarrow\qquad f^{I}(x)=-sin(x)
+	f(x)=cot(x) \quad\Rightarrow\quad f^{I}(x)=-\frac{1}{sin^{2}(x)}
+$$
+$$
+	f(x)=arcsin(x) \quad\Rightarrow\quad f^{I}(x)=\frac{1}{\sqrt{1-x^{2}}}
 $$
 $$ 
-	f(x)=tan(x) \qquad\Rightarrow\qquad f^{I}(x)=\frac{1}{cos^{2}(x)}
+	f(x)=arccos(x) \quad\Rightarrow\quad f^{I}(x)=-\frac{1}{\sqrt{1-x^{2}}}
+$$
+$$
+	f(x)=arctan(x) \quad\Rightarrow\quad f^{I}(x)=\frac{1}{1+x^{2}}
 $$
 $$ 
-	f(x)=cot(x) \qquad\Rightarrow\qquad f^{I}(x)=-\frac{1}{sin^{2}(x)}
+	f(x)=arccot(x) \quad\Rightarrow\quad f^{I}(x)=-\frac{1}{1+x^{2}}
 $$
-$$ 
-	f(x)=arcsin(x) \qquad\Rightarrow\qquad f^{I}(x)=\frac{1}{\sqrt{1-x^{2}}}
 $$
-$$ 
-	f(x)=arccos(x) \qquad\Rightarrow\qquad f^{I}(x)=-\frac{1}{\sqrt{1-x^{2}}}
-$$
-$$ 
-	f(x)=arctan(x) \qquad\Rightarrow\qquad f^{I}(x)=\frac{1}{1+x^{2}}
-$$
-$$ 
-	f(x)=arccot(x) \qquad\Rightarrow\qquad f^{I}(x)=-\frac{1}{1+x^{2}}
-$$
-$$ 
-	f(x)=sinh(x) \qquad\Rightarrow\qquad f^{I}(x)=cosh(x)
-$$
-$$ 
-	f(x)=cosh(x) \qquad\Rightarrow\qquad f^{I}(x)=sinh(x)
+	f(x)=sinh(x) \quad\Rightarrow\quad f^{I}(x)=cosh(x)
+	\qquad\qquad
+	f(x)=cosh(x) \quad\Rightarrow\quad f^{I}(x)=sinh(x)
 $$
 
 #### Regole di derivazione
@@ -149,7 +145,7 @@ $$
 $$
 #### Retta tangente al grafico
 $$y=f(x_0)+f^I(x_0)(x-x_0)$$
-# Sviluppi di taylor
+	# Sviluppi di taylor
 $$
 f(x)=\sum^{n-1}_{i=0}\frac{f^{(i)}(x_{0})}{i!}(x-x_{0})^{i}+R_{n}(x)	
 $$
@@ -170,9 +166,11 @@ sin(x)=\sum^{\infty}_{n=0}\frac{(-1)^{n}}{(2n+1)!}\ x^{2n+1}
 \qquad\qquad
 cos(x)=\sum^{\infty}_{n=0}\frac{(-1)^{n}}{(2n)!}\ x^{2n}
 $$
+per seno e coseno iperbolico togliere $(-1)^n$
 $$ 
 	arctan(x)=\sum^{\infty}_{n=0}(-1)^{n}\frac{x^{2n+1}}{2n+1}
 $$
+$$(1+x)^-1=\sum^n_{k=0}{(-1)^kx^k}$$
 ##### Forma estesa
 $$
 e^{x}=1+x+\frac{x^{2}}{2}+\frac{x^{3}}{6}+\frac{x^{4}}{24}+\frac{x^{5}}{120}
@@ -184,6 +182,10 @@ $$
 ___
 $$
 (1+x)^{a}=1+ax+\frac{a(a-1)}{2}x^{2}+\frac{a(a-1)(a-2)}{6}x^{3}+\cdot\cdot\cdot
+$$
+___
+$$
+(1+x)^{-1}=1-x+x^2-x^3+x^4-x^5+...
 $$
 ___
 $$
@@ -220,11 +222,15 @@ $$
 f(x)+g(x)=P_{n}(x)+Q_{n}(x)+o(x^{n})
 $$
 $$
-f(x)g(x)=[P_{n}(x)+o(x^{n})]\cdot[Q_{n}(x)+o(x^{n})]
+f(x)g(x)=P_{n}(x)\cdot Q_{n}(x) + o(x^n)
 $$
 $$
 f(g(x))=P_{n}(q_{n}(x))
 $$
+
+> [!warning]+ Attenzione alla funzione interna!
+> Se la funzione interna non tende a $0$ allora non posso applicare Taylor nel punto 0
+
 
 # Integrali
 #### Proprietà dell'integrale
@@ -306,7 +312,7 @@ $$
 - $(3x^{2}+1)^{2}=(e^{x}+4)^{2}\qquad\Rightarrow\qquad 3x^{2}+1=e^{x}+4$
 
 #### Logaritmi
-$$ log_{a}(\frac{b}{c})=log_{a}(b) - log_{a}(c) $$
+$$ log_{a}(\frac{b}{c})=log_{a}(b) - log_{a}(c)\qquad\qquad x=e^{log(x)}$$
 #### Radici 
 $$
 \sqrt[n]{a}\sqrt[n]{b}=\sqrt[n]{ab}\qquad\qquad\sqrt[n]{\sqrt[m]{a}}=\sqrt[n\cdot m]{a}
