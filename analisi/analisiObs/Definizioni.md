@@ -14,10 +14,10 @@ Dato l'insieme A possiamo definire le seguenti nozioni come:
 Se esistono, **massimo e minimo coincidono gli gli estremi superiori e inferiori**
 
 # Studio di funzione
-## Assioma di continuità
+#### Assioma di continuità
 Dati due intervalli non intersecati, allora esistono uno o più elementi **separatori** tra i due. Non vale nell'insieme dei razionali
 
-## Suriettività e iniettività
+#### Suriettività e iniettività
 Una funzione è detta **surriettiva** se la linea della **funzione passa per ogni y** compreso nel dominio.
 Una fuzione è detta **iniettiva** se un **solo f(x) porta ad un eventuale y** (per esempio, non la parabola)
 
@@ -26,6 +26,84 @@ $$
 f(x_{1})=f(x_{2})\qquad f(x)=y
 $$
 Una funzione è **invertibile se bigiettiva**
+
+#### Teorema di esistenza degli zeri
+DAta una funzione $f$ continua in $[a,b]$. Se $f$ assume valori di segno opposto agli estremi, allora esiste $\epsilon\in(a,b)$ tale che $f(\epsilon)=0$ 
+##### 1a variante
+Posso sostituire $0$ con un punto $\lambda$, quindi con $a < \lambda < b$ , esiste $c$ con $f(c)=\lambda$ 
+##### 2a variante
+trovati $L$ e $l$ come limite superiore e inferiore di $f$ e $\lambda$ tale che $l<\lambda<L$ allora esiste $c\in(a,b)$ tale che $f(c)=\lambda$
+
+
+> [!info]+ NB
+> Data una funzione $f$ continua , se $\overset{\mathcal{L}}{+\infty}\  f(x)=\pm\infty$ e $\overset{\mathcal{L}}{-\infty}\  f(x)=\mp\infty$, allora f$f$ è surgettiva
+
+## Studio locale delle funzioni
+#### Monotonia 1
+Data una derivta prima maggiore di 0, allora esiste un intervallo in cui la funione è monotalmente crescente, vale il contrario per una monotona decrescente
+
+Nel caso $f^I(x_0)= 0$ allora $f(x_0)$ è un **punto stazionario**. Un punto stazionario può rappresentare un minimo locale, un massimo locale, un punto di flesso (tangende orizzontale ascendente/discendente) o un comportamente patologico (un casino)
+
+#### Criterio derivate successive
+cerco la prima derivata succesiva diversa da 0, $f^{(k)}(x_0)$. Allora:
+- se $k$ pari e $f^{(k)}(x_0)>0$, allora $x_0$ è minimimo locale
+- se $k$ pari e $f^{(k)}(x_0)<0$, allora $x_0$ è massimo locale
+- se $k$ dispari e $f^{(k)}(x_0)>0$, allora $x_0$ è flesso ascendente
+- se $k$ dispari e $f^{(k)}(x_0)>0$, allora $x_0$ è flesso discendente
+
+#### Teorema di Weierstrass
+
+> [!important]+ Punti di massimo e di minimo
+> $M=max\{f(x)\}$ indica il valore massimo che $f(x)$ può raggiungere all'interno dell'intervallo in cui è definito. $m=min\{f(x)\}$ invece rappresenta il minimo 
+
+Sia $f$ una funzione in un intervallo $[a,b]$. Allora esistono sempre MAX e MIN
+
+##### 1a variante di Weierstrass
+Data una funzione $f$ continua e periodica, allora esiste un MAX e un MIN
+##### 2a variante di Weierstrass
+Sia $f$ continua e $\overset{\mathcal{L}}{\pm\infty}\ f(x)=+\infty$, allora esiste minimo. Se $\overset{\mathcal{L}}{\pm\infty}\ f(x)=-\infty$, allora esiste massimo.
+
+#### Weierstrass (cont.)
+I punti di MAX o min si posizionno in 3 categorie:
+- punti $x_0$ tali che $f^I(x_0)=0$
+- punti $x_0$ tali che $f^I(x_0)$ non esiste
+- estremi dell'intervallo
+
+#### Teorema di Rollo
+Data una funzione continua in $[a,b]$ e derivabile in $(a,b)$ e con $f(a)=f(b)$, allora esiste un punto $y$ tale che $f^I(y)=0$
+
+#### Teorema di Cauchy
+Date due funzioni $f$ e $g$ continue in $[a,b]$ e derivabili in $(a,b)$. Allora esiste un $\epsilon\in(a,b)$ tale che:
+$$(f(b)-f(a))g^I(\epsilon)=(g(b)-g(a))f^I(\epsilon)$$
+inoltre, supponendo che $g^I(x)\neq 0$ per ogni $x\in(a,b)$, allora:
+$$\frac{f(b)-f(a)}{g(b)-g(a)}=\frac{f^I(\epsilon)}{g^I(\epsilon)}$$
+#### Teorema di Lagrange 
+Data una funzione continua in $[a,b]$ e derivabile in $(a,b)$. Allora esiste $\epsilon\in(a,b)$ tale che $f(b)-f(a)=f^I(\epsilon)(b-a)$, quindi:
+$$\frac{f(b)-f(a)}{b-a}=f^I(\epsilon)$$
+#### 2° teorema di monotonia
+Data una funzione $f$ continua in $[a,b]$ e derivabile in $(a,b)$, allora:
+- se $f^I(x)>0$ per ogni $x\in(a,b)$, allora $f$ è strettamente crescente
+- se $f^I(x)\geq0$ per ogni $x\in(a,b)$, allora $f$ è debolmente crescente
+
+#### 3° teorema di monotonia
+Data funzione $f$ continua in $[a,b]$ e derivabile in (a,b). Se $f^I(x)\geq 0$ per ogni $x\in(a,b)$ e non esiste intervallo in cui $f^I$ è uguale a $0$, allora $f$ è strettamente crescente
+
+## Studio globale delle funzioni
+1. Simmetrie ($f(-x)=f(x)$)
+2. Insieme di definizione e continuità ($x\neq ...$) ($(a,b)\cup(b,c)$)
+3. Limiti agli estremi dell'insieme di definizione ($\overset{\mathcal{L}}{\to a}$,$\overset{\mathcal{L}}{\to c}$,$\overset{\mathcal{L}}{\to b^\pm}$)
+4. Studio derivate (dove esiste? con che segno?) ($f^I=0$,$f^I<0$,$f^I>0$) (_++|--|++_)
+5. Asintoti (orizzontali, verticali, obliqui)
+
+#### Asintoti
+**Orizzontale**: se $\overset{\mathcal{L}}{\pm\infty}\ f(x)=l$ 
+**Verticale**:  se $\overset{\mathcal{L}}{a^\pm}\ f(x)=\pm\infty$ 
+**Obliqui**:  ipotizzando $y=mx+n$ asintoto obliquo di $f$, allora  $\overset{\mathcal{L}}{\pm\infty}\ (f(x)-mx-n)=0$, quindi per individuare le parti: $m=\overset{\mathcal{L}}{\pm\infty}\ \frac{f(x)}{x}$,  $m=\overset{\mathcal{L}}{\pm\infty}\ f(x)-mx$
+
+
+> [!info]+ NB
+> se $f(x)\to\infty$ per $x\to\infty$, allora con $\overset{\mathcal{L}}{\infty}\ \frac{f(x)}{x}$ posso applicare l'hopital (in quanto $\frac{\infty}{\infty}$), quindi $m=f^I(x)$
+
 
 # Numeri complessi 
 ## Forma cartesiana

@@ -33,7 +33,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Definizioni.md"
+                "file": "Formulario.md"
               }
             }
           }
@@ -103,10 +104,10 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "6cfa22d586af38ec",
+  "active": "974d770322bd3a46",
   "lastOpenFiles": [
-    "Formulario.md",
     "Definizioni.md",
+    "Formulario.md",
     "Studio delle funzioni.md",
     "Procedimenti.md",
     "Note sugli esami.md",
