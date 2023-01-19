@@ -4,32 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "b4100cc50c334c1b",
+        "id": "1c568d6ce16b139e",
         "type": "tabs",
         "children": [
           {
-            "id": "93a91780270c4444",
+            "id": "3b8b0114242794f0",
             "type": "leaf",
             "state": {
-              "type": "pdf",
+              "type": "markdown",
               "state": {
-                "file": "Assignment1.pdf"
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "dccef372e888a768",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "c1deaf6d01785fe5",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "ER_217645.pdf"
+                "file": "8-Functional dependencies and normal forms.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
               }
             }
           }
@@ -83,7 +70,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "ER_217645.pdf"
+                "file": "8-Functional dependencies and normal forms.md"
               }
             }
           }
@@ -91,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 235,
-    "collapsed": true
+    "width": 235
   },
   "right": {
     "id": "629c46dcb0582812",
@@ -102,17 +88,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "c1deaf6d01785fe5",
+  "active": "3b8b0114242794f0",
   "lastOpenFiles": [
+    "7-Cost theory.md",
+    "8-Functional dependencies and normal forms.md",
+    "4-Relational algebra.md",
+    "6-Indexing.md",
     "Assignment1.pdf",
+    "ER_217645.pdf",
     "ER_pdf.png",
     "5-SQL.md",
-    "4-Relational algebra.md",
     "3-Relational model.md",
-    "2-ER model.md",
-    "1-Database management systems.md",
-    "difesaDiFerro.md",
-    "Assignment1.md",
-    "temp.md"
+    "2-ER model.md"
   ]
 }

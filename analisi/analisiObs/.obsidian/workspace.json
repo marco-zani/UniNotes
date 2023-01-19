@@ -26,7 +26,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Formulario.md",
+                "file": "Definizioni.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Formulario.md"
+                "file": "Definizioni.md"
               }
             }
           }
@@ -106,9 +106,9 @@
   },
   "active": "974d770322bd3a46",
   "lastOpenFiles": [
-    "Definizioni.md",
-    "Formulario.md",
     "Studio delle funzioni.md",
+    "Formulario.md",
+    "Definizioni.md",
     "Procedimenti.md",
     "Note sugli esami.md",
     "Esercizi da rivedere.md"

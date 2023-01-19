@@ -56,9 +56,9 @@ in order of priority:
 3. suppose that one atomic proposition is true, then in the case of **OR**s we can close the brakes
 
 # Tableau
-1. apply not to the entire proposition
+1. apply not to the entire proposition if searching for validity, else you're testing for validity
 2. apply tableu transformation 
-3. search for closed branches for satisfability, we search for open brances instead for excluding validity
+3. if searching for satisfability, an open branch confirms it, instead if we are searching for validity, an open branch denies it
 
 ## Tableu transformations
 ![[tableuDiagram.jpg]]

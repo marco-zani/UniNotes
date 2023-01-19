@@ -4,7 +4,6 @@
 # sorgente passarne il nome come variabile, ad esempio:
 # make -f mf-backup FOLDER=... 
 
-hello:
-	@echo "compilando..."
-	@g++ Cfile.cpp
-	@./a.out
+
+$(NAME):main.c
+	@gcc -o counter main.c

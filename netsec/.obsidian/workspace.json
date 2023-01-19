@@ -11,8 +11,12 @@
             "id": "fa0bc51c048e68a5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "obsidian/8-Web and IOT security.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "obsidian/8-Web and IOT security.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "obsidian/8-Web and IOT security.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "obsidian/8-Web and IOT security.md"
+              }
             }
           }
         ]
@@ -128,7 +136,7 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "fa0bc51c048e68a5",
+  "active": "36bb6cf06274b0dc",
   "lastOpenFiles": [
     "obsidian/5-PKI and TLS.md",
     "obsidian/3-Authentication.md",

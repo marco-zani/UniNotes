@@ -53,7 +53,7 @@ The cost equals to the index lookup plus the reading and writing of the page, or
 We will use the relation $R$ and $S$
 
 #### Nested loop join
-The cost equals to $P_{R}+P_{S}\times P_{R}$
+Corresponds to the cross product, the cost equals to $P_{R}+P_{S}\times P_{R}$
 
 #### Sort Merge Join
 The cost equals to the Cost of sorting $R$ plus the cost of sorting $S$ plus $P_{R}+P_{S}$
@@ -65,6 +65,13 @@ This join uses a hash map to make the action more efficient. The cost equals to 
 This method uses the index of the second relation to make the join more efficient, if the index doesn't exist, then this method is not usable. The cost equals to:
 
 > $P_{R}+|R|\times$(index lookup cost + cost of retrieveng the qualifying records)
+
+The resulting formula, for unclustered indexes, is, given $\delta$ as the selectivity factor:
+> $P_{R}+|R|\times(L + \delta\cdot|S|)$ 
+
+For clustered indexes:
+	$$P_{R}+|R|\times(L + \frac{\delta\cdot|S|}{\frac{P}{t_s}})$$
+One important details are joins with intermidiate result, we need to keep scanning them because they aren't neither sorted or indexed
 
 ## Query plans
 A query can be converted in tree composed of relational algebra operations, which is used to compute in advance the cost of the query. Every query can generate different trees, so it's the database role to determine the most efficient. This action is called optimization.

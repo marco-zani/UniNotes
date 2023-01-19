@@ -1,0 +1,7 @@
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+    "files.associations": {
+        "*.rmd": "markdown",
+        "stdio.h": "c"
+    }
+}

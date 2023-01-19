@@ -4,15 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "15634bac667881ef",
+        "id": "cf98a869e9129641",
         "type": "tabs",
         "children": [
           {
-            "id": "5a183ca798c953f7",
+            "id": "d13f4f741344a51b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "canvas",
+              "state": {
+                "file": "LFC.canvas",
+                "viewState": {
+                  "x": -66.15999999999988,
+                  "y": 1359.279999999995,
+                  "zoom": 0,
+                  "snapToGrid": false
+                }
+              }
             }
           }
         ]
@@ -64,7 +72,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "LFC.canvas"
+              }
             }
           }
         ]
@@ -81,17 +91,24 @@
     "width": 253.5,
     "collapsed": true
   },
-  "active": "5a183ca798c953f7",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "d13f4f741344a51b",
   "lastOpenFiles": [
-    "3-Lexical analysis.md",
     "4-regolar languages and lexical analysis.md",
+    "LFC.canvas",
+    "Canvas_contents/ExamExercises.pdf",
+    "Canvas_contents/schema.pdf",
+    "Canvas_contents/appunti.pdf",
+    "Canvas_contents/ripassoEsame.pdf",
+    "3-Lexical analysis.md",
     "5-Parsing.md",
     "2-Properties of free languages.md",
-    "1-Generative grammar.md",
-    "0-Introduction.md",
-    "7-Access Control.md",
-    "6-Single Sign On, SAML, SPID, CIE.md",
-    "5-PKI and TLS.md",
-    "4-Cryptography.md"
+    "1-Generative grammar.md"
   ]
 }
