@@ -1,0 +1,9 @@
+{
+	"nodes":[
+		{"id":"f9edbc48bfb7cd76","x":-136,"y":56,"width":400,"height":400,"type":"file","file":"2-Cloud ecosystem.md"},
+		{"id":"cb021d3d81fee54e","x":-326,"y":-257,"width":250,"height":60,"type":"text","text":"cokds"}
+	],
+	"edges":[
+		{"id":"f36cb9d219273965","fromNode":"cb021d3d81fee54e","fromSide":"bottom","toNode":"f9edbc48bfb7cd76","toSide":"top"}
+	]
+}

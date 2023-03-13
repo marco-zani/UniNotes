@@ -1,19 +1,19 @@
 {
   "main": {
-    "id": "21882fb330d0f0c5",
+    "id": "401cdfea71639f34",
     "type": "split",
     "children": [
       {
-        "id": "d109ca7e3a8a50ff",
+        "id": "e83aec9e691c2ecd",
         "type": "tabs",
         "children": [
           {
-            "id": "b8d7cd10b07737c7",
+            "id": "e2bd3be8365c28b9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6-Functional dependencies and normal forms.md",
+                "file": "0-Introduction.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -21,35 +21,44 @@
             }
           },
           {
-            "id": "3ff665b6880f6e90",
+            "id": "86682fdbfdb67436",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "databaseCanvas.canvas",
-                "viewState": {
-                  "x": -766.869851893005,
-                  "y": 57.05064718210992,
-                  "zoom": -0.11754031148352002
-                }
+                "file": "1-Data, Features, Models.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5078dba14fa176c8",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.1.16"
               }
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "d2bf8acab1b8d5c4",
+    "id": "94e2c7fd47e66092",
     "type": "split",
     "children": [
       {
-        "id": "70bdc94c402e0cd4",
+        "id": "820cb1d2a4985ade",
         "type": "tabs",
         "children": [
           {
-            "id": "66c9a0ea1a87c3b1",
+            "id": "3969c7c30e238071",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -59,7 +68,7 @@
             }
           },
           {
-            "id": "5b8df87ef727619d",
+            "id": "9e8c35016494a1c3",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -74,31 +83,32 @@
             }
           }
         ]
-      },
+      }
+    ],
+    "direction": "horizontal",
+    "width": 202.5
+  },
+  "right": {
+    "id": "8001d0a4bfe66e61",
+    "type": "split",
+    "children": [
       {
-        "id": "398e5567c1dce985",
+        "id": "eb6b621712cb239e",
         "type": "tabs",
         "children": [
           {
-            "id": "6a16f9829947f0f2",
+            "id": "7d658f2d298816f5",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "6-Functional dependencies and normal forms.md"
+                "file": "1-Data, Features, Models.md"
               }
             }
           }
         ]
       }
     ],
-    "direction": "horizontal",
-    "width": 235
-  },
-  "right": {
-    "id": "629c46dcb0582812",
-    "type": "split",
-    "children": [],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
@@ -110,17 +120,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b8d7cd10b07737c7",
+  "active": "5078dba14fa176c8",
   "lastOpenFiles": [
-    "5-Cost theory.md",
-    "databaseCanvas.canvas",
-    "4-SQL.md",
-    "3-Relational algebra.md",
-    "2-ER model.md",
-    "1-Database management systems.md",
-    "ER_217645.pdf",
-    "6-Functional dependencies and normal forms.md",
-    "3-Relational model.md",
-    "6-Indexing.md"
+    "0-Introduction.md",
+    "1-Data, Features, Models.md"
   ]
 }

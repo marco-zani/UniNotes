@@ -1,4 +1,3 @@
-# Virtualization
 The **first datacenters had most servers idle** because of the inability of OSs to provide isolated ambients for multiple services (One application per server). To solve this, it has been implemented the virtualization of multiple servers inside the same physical machine
 
 >Virtualisation broadly describes the seperation of a service  from the underlying physical delivery of that service
@@ -18,30 +17,18 @@ easier disaster recovery |
 rapid deployment of new servers |
  
 
-## Definitions
+# Definitions
 
-#### Layering
+## Layering
 Used to simplify system complexity, in virtualization it **separates hardware, software, OS, libraries and applications**. The interfaces who manage the communication between layers are:
  -  Application Program Interface (**API**)
 	-  defines the set of instruction the HW can execute giving access to the ISA
  -  Application Binary Interface (**ABI**)
 	-  the application and libraries modules used to **access the HW**
  -  Instruction Set Architecture (**ISA**)
-	 - the list of **instruction executable by the hardware**
-  
+	 - the list of **instruction executable by the hardware**  
 
-#### Other definitions
-**Virtual Machine**: 
-Software emulation of a physical machine
-
-**Host OS**:
-OS running on the physical machine
-
-**Guest OS**:
-OS running on the VM
-  
-
-#### Hypervisor (VMM)
+## Hypervisor (VMM)
 Is the **software** in charge of the **virtualization**, meaning **assigns resources** to each VM while **guaranteering that different VM won't overlapt**.
 
 In practice are **stripped-down OS**, with a set of native drivers to manage hardware. The Virtual Machine Monitor must satisfy three characteristics:
@@ -50,20 +37,18 @@ In practice are **stripped-down OS**, with a set of native drivers to manage har
  -  Should have the **complete control** of the physical resources
  
 
-#### Other definitions
-**Virtual Hardware**: 
-HW provided by the VMM with the same characteristics of a given HW profile
-
-**Virtualized Components**:
-the virtual CPU, memory and I/O
+## Other definitions
+- **Virtual Machine**: Software emulation of a physical machine
+- **Host OS**: OS running on the physical machine
+- **Guest OS**: OS running on the VM
+- **Virtual Hardware**: HW provided by the VMM with the same characteristics of a given HW profile
+- **Virtualized Components**: the virtual CPU, memory and I/O
   
 
-## CPU Virtualization
-
+# CPU Virtualization
 When a VMM assigns a CPU to the VM, it might use a different ISA from the physical architecture, so **we need to emulate the CPU instead of virtualising it**. This might result is **lesser efficient** VM.
   
-
-#### X86
+## X86
 In the X86 world we have **three levels of virtualization**:
  -  **Full virtualization**
  -  **Paravirtualization**
@@ -71,16 +56,26 @@ In the X86 world we have **three levels of virtualization**:
 
 X86 defines **4 priviledge ring levels**, ascending from 0 to 3 from most priviledged (level 0 is reserved for the kernel) to less priviledged. This is used to implement **two models**: **0/1/3** and **0/3/3** (VMM/guest OS/applications).
 Using this system allowes the definition of different types of instructions:
+
  -  **Privileged instruction**: If run in the wrong context **will generate a trap**. Can't be executed by the guest OS
+
+ > [!important]- Context switch
+> When a priviledged instruction is executed, the OS must interveen and execute a context switch, which consist in changing the ring level, executing the instruction and return to the previous level. **The entire operation is cost heavy**
+
  -  **Sensitive instruction**: An instruction **leaking information** about the physical state of the CPU
-	-  all sensitive instructions must be privileged instructions
+	-  all sensitive instructions are privileged instructions
 
 
-#### Traps
+## Traps
 A trap is **when an user mode instruction must be handled in kernel mode**, by the hardware exception handler vector.
 They occur with **exceptions**, **system calls** or **hardware interrupts**.
 
-This allowed to develop the **Trap&Emulate paradigm**: the **guest OS executes a privileged instruction**, which launches a trap and **is intercepted by the VMM**, who **emulates** the privileged instruction if legitimate. So, if the trap is **caused by an application**, it is **passed to the guest OS**. If it's **caused by the guest OS**, the **VM state must be adjusted**. All traps must be handled by the VMM
+#### Trap&Emulate
+This allowed to develop the **Trap&Emulate paradigm**: the **guest OS executes a privileged instruction**, which launches a trap and **is intercepted by the VMM**, who **emulates** the privileged instruction if legitimate.
+
+So, if the trap is **caused by an application**, it is **passed to the guest OS**. If it's **caused by the guest OS**, the **VM state must be adjusted**.
+
+All traps must be handled by the VMM
 
 With the different cases:
  -  **System call**
@@ -90,15 +85,16 @@ With the different cases:
  -  **HW Interrupt**
 	-  The CPU traps to the interrupt handler of the VMM which **jumps it to the guest OS interrupt handler**
 
+#### x86 notes
 **x86 is difficult to virtualize** because every privileged instruction is more **timeconsuming** and **can lead to incorrect emulation** of behaviors. The major **solutions** are changing the OS with paravirtualization or the dinamic detection of sensitive instructions, but the **most common is hardware supported virtualization**, which makes all sensitive instruction priviledged.
 
-#### Dynamic Binary Translation (DBT)
+## Dynamic Binary Translation (DBT)
 DBT is the fully virtualized approach which **translates non virtualizable ISA at run-time**. This system is compatible (doesn't require specific HW or OSs) and can improve the performances by **adopting caching techniques**
 
 VMware created a system which inspected the code of the guest OS and modify it with safe instructions. This determined lesser interventions of the VMM during execution
 
 
-#### Para-Virtualization (PV)
+## Para-Virtualization (PV)
 The **guest OS is modified** and knows that it's running on a VM, and in some cases, **knows it has to give control to the VMM**. Non-virtualizable syscalls are replaced with **hypervisor calls**, which doesn't trigger traps.
 
 The **guest OS** is **depriviledged** (RING 1) and is introduced to **efficient mechanisms to communicate with the hypervisor**:
@@ -108,7 +104,7 @@ The **guest OS** is **depriviledged** (RING 1) and is introduced to **efficient 
 Paravirtualization results more performant thanks to a simpler implementation, but **not all OS are compatable**, only modifiable ones
 
 
-#### Hardware assisted vitualization (HVM)
+## Hardware assisted vitualization (HVM)
 To provide a more efficient and easier to implement virtualization, hardware support like **intel VT-X** and **AMD SVM** are introduced.
 The idea behind HVM is to avoid sensitive instructions by **providing a new running mode**, **VMX** (Virtual Machine eXtensions) which provides **two new operating levels, root** and **non-root** mode, that enables a higher class of privilege over the existing four rings
 
@@ -116,71 +112,71 @@ Intel VTx implements the **switch between root modes** (with the relative regist
 
 In summary, **HVM reduces virtualization overhead and minimizes VMM intervention**
 
-#### CPU virtualization summary
+## CPU virtualization summary
 - **DBT** is highly compatable but **slow**
 - **paravirtualization** has high performance but on a **selection of OSs**
 - **HVM** is the **most used** technique
 
 
-## Memory virtualisation
+# Memory virtualisation
 Each OS keeps tables to **translate virtual memory in physical memory**, this is called **memory paging**. In x86 this is **managed by** the HW through the **Memory Management Unit** (**MMU**)
 
 **Processes use virtual addresses** (or **Logical Page Numbers**, LPNs), and the **MMU translates them to physical** (**PPNs**). It's also used a **cache for recent pages** called **TLB** (Translation Lookaside Buffer). It uses a **hit or miss system** to quickly access data
 
 This method is simple, optimized and garantees isolation
 
-#### Shadow page table
+## Shadow page table
 To **translate the guest OS virtual address to the host physical address**, we implement a shadow table, which **keeps track of the mapping** between guest virtual address and host physical address. **This buffer is managed by the hypervisor** which **intercepts accesses** to this table and behaves accordingly 
 
-#### EPT/RVI
+## EPT/RVI
 The **shadow page table requires an overhead**, to avoid it, Intel/AMD introduced **Extended Page Table/Rapid Virtualization Indexing**. With this tecnology, the VMM keeps the **mappings** in a nested level, which **are exposed to the CPU**. It's then **the hardware who double walks the pages** to find the corrispondent physical address. 
 
 This **removes** the requirement of a **shadow table**, but **increases the cost of a single page walk**. For this reason, the **TLB cache is more critical**
 
 For **optimization**, **TLBs use a identifier** (**Tagged TLB**) for each virtual processor, enabling them to access the same TLB at the same time
 
-## I/O virtualization
+# I/O virtualization
 Based on the type of device or if the OS is shared/dedicated, we define several Techniques
 
-#### Device emulation
+## Device emulation
 The **VMM gives** to the guest OS all **the specifications of a emulated device**, which **determines the drivers used** by the guest OS. Is than the **VMM** job to **remap the communication** with the physical device
 
 This approach is simple, but at **cost of I/O latency and** load on the **CPU**
 
 
-#### Para-virtualized device
+## Para-virtualized device
 It uses dedicated drivers added as external modules. Modern **drivers are provided by the hypervisors**
 
 One **example** is the **memory ballooning**, which is used to **communicate the guest memory occupation to the hypervisor**, to allow it to over-commit memory across several guests
 
-#### Direct assignment
+## Direct assignment
 Also called **device pass-through**, allowes the guest to **directly connect to the device**. This **limits the use of a single device to a single VM**
 
 This might sound easy but it requires a difficult implementation thanks to the **risk of memory corruption and difficulties in mapping**
 
-#### Dedicated HW
+## Dedicated HW
 **IOMMU** works **like the MMU** but remapped for **direct assignment of I/O devices**
 
 Another technology, **SR-IOV, allowes VMs to share the same devices**, especially network cards. The multiplexing is managed by the hardware
 
-## Hypervisor architectures
+# Hypervisor architectures
 Type-1 and type-2 hypervisors are designed for **performance or easiness of deployment**, but hybrids are possible
 
-#### Type-1
+## Type-1
 **Direclty conneted to the HW**, it provides the best performance. It is **basically an OS stripped of all unnecessary components**.
 Having proper drivers for all HW might be difficult
 
 Most common examples are Vmware ESXi, Xen, Microsoft Hyper-V
 
-#### Type-2
+## Type-2
 It **runs like an application** on top of the host OS. The most common examples are VirtualBox and VMware workstation
 
 
-#### Hybrid architecture
+## Hybrid architecture
 With this technology, **the host OS is itself the hypervisor**, so it **can occupy both roles**.
 KVM uses a hybrid approach.
 
-## OS-level virtualization
+# OS-level virtualization
 advantages | disadvantages
 ----|----
 support for different OSs | additional overhead 
@@ -188,7 +184,7 @@ excellent isolation | need to keep the guest OS up-to-date
 individual execution environment | higher booting time
 
 
-#### Lightweight virtualizzation
+## Lightweight virtualizzation
 The objective is to create a **system scalable, elastic and isolated** but while **consuming less resources**. This is more appropriate for when classical VM aren't required or when we need to be **scalable both vertically and horizontally** (more VMs and more machines)
 
 With OS-level virtualization, the **linux kernel is the hypervisor**, and the **VMs are replaced by virtual environments** (or containers)
@@ -199,7 +195,7 @@ The **isolation aspect** is very **critical** because of the uses of the contain
 The most used technologies are linux cgroups and namespaces, linux containers and Docker. 
 
 
-#### Linux cgroups
+## Linux cgroups
 This technology allowes the **limit and isolation of resources** usage of processes. It's composed of two parts: a **kernel feature** and **user-space tools**
 
 Here's the list of **cgroup features**:
@@ -209,7 +205,7 @@ Here's the list of **cgroup features**:
 - **control**: like **freezing**, **checkpointing** and **restarting** processes
 
 
-#### Linux namespaces
+## Linux namespaces
 **Similar to cgroups, but** it limits the processes **groups to not see each other**. It allowes to create distinct virtual environments
 
 Types of namespaces
@@ -226,35 +222,35 @@ Cgroup| control groups
 
 **Both cgroups and name spaces** are limited by the fact that they **provide their services to a single machine, not to an entire datacenter**. Plus they are difficult to use and don't guarantee portability
 
-#### Process namespace
+## Process namespace
 **In linux, all process originate in a single tree**. Some processes can operate on processes under them. Thanks to PID namespace, **we can have different trees isolated** one another.
 It works by giving to the root process of a new tree, his own PID 1
 
 
-#### Network namespace
+## Network namespace
 This type of name space **allowes** processes to use **different network setups** thanks to the use of **virtual network interfaces** (or veth). This veths can span multiple namespaces and are **responsable of crossing namespace border** and connecting to other namespaces or the network.
 
 This communication **works in a pipe-like connection** and allowes both sides to be provided with an IP address
 
-#### Other namespaces
+## Other namespaces
 - **Mount namespace** allowes new file systems with relative disk partitions, mount points...
 - **UTS namespace**, bo', **deprecated**
 - **User namespace** allowes a process to have root priviledges within the name space
 - **IPC namespace**, for inter-process communication
 - **cgroup namespace** is used to virtualize the view for cgroup files and mounts
 
-## Linux containers
+# Linux containers
 Containers provide lightweight virtualisation at OS-level by **running multiple isolated Linux systems sharing the same kernel**
 
 Basically, inside the box they look like a machine, but outside they **look like normal processes**. Containers do not emulate hardware and security is not a given feature
 
 
-#### Characteristics
+## Characteristics
 Compared to a VM, containers are **lighter and faster, but less isoltated**, secure and do not provide the usage of different OSs
 
 Containers are also more **agile for** application creation and **deployment**,  **portable** for cloud and OS distribution 
 
-## LXC
+# LXC
 Is the **union of cgroups, namespaces and other** features:
 - kernel namespaces (isolation)
 - chroots
@@ -268,20 +264,20 @@ LXC is used because it takes the features of the subcomponents but uses **each o
 The only **limitations** are in **checkpointing and migration**, and not guaranteed resource isolation and portability
 
 
-## Docker
+# Docker
 Docker provides a **lighweight, portable and self-contained package** focused on **application deployment** and execution that runs everywhere
 
 Docker works on **seperation of environments, resource sandboxing** (with cgroups and namespaces), **transparent networking** and provides a **unified environment** for applications handling
 
 If the app works locally, it works everywhere. Docker also separates the concerns of a developer or a DevOps
 
-#### Docker vs LXC
+## Docker vs LXC
 docker is optimized for application's deployment, is portable and has a simplified interface but more powerfull management tools
 
 Other features are automatic building, union file system, versioning, component re-use, sharing, better documentation and integration with other services
 
 
-#### Docker functioning
+## Docker functioning
 Docker images are templates used for creating an instance called container.
 
 All images are stored in a registry either public or private
@@ -303,13 +299,13 @@ to manage containers
 - `docker cp`
 
 
-#### Docker network
+## Docker network
 Docker **automatically implements a private network** attached to the **linuxbridge** with all the appropriate routing tables and ip addresses. Connectivity is provided when at least one port is exposed to the outside
 
 The **Container Network Model** is implemented through the **libnetwork component**, which decides ip addresses and endpoint configurations
 
 
-#### Union file system
+## Union file system
 For isolation and portability, **containers can/must replicate** entire **file systems**, resulting in a bigger container size
 
 UNF mounts multiple directories to the root and follows a **layer model**: **writable higher layers and read-only lower layers**. When modifing data, it **only modifies copied files on the higher layer** and substitutes a file with a **whiteout when deleting**
@@ -320,7 +316,7 @@ This way **only differences are stored** and container size is reduced
 
 
 
-## Summary
+# Summary
 **Lightweight virtualisation** is more used thanks to:
 - **more** resource **efficiency**
 - **reduced** operating **costs**

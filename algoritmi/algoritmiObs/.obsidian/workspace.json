@@ -1,37 +1,22 @@
 {
   "main": {
-    "id": "21882fb330d0f0c5",
+    "id": "50cb62cd830944fa",
     "type": "split",
     "children": [
       {
-        "id": "d109ca7e3a8a50ff",
+        "id": "cc44fcc49b527f27",
         "type": "tabs",
         "children": [
           {
-            "id": "b8d7cd10b07737c7",
+            "id": "4c119cb4abbb132e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "6-Functional dependencies and normal forms.md",
+                "file": "Programmazione dinamica.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "3ff665b6880f6e90",
-            "type": "leaf",
-            "state": {
-              "type": "canvas",
-              "state": {
-                "file": "databaseCanvas.canvas",
-                "viewState": {
-                  "x": -766.869851893005,
-                  "y": 57.05064718210992,
-                  "zoom": -0.11754031148352002
-                }
               }
             }
           }
@@ -41,15 +26,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d2bf8acab1b8d5c4",
+    "id": "4661e638d020a366",
     "type": "split",
     "children": [
       {
-        "id": "70bdc94c402e0cd4",
+        "id": "5a00f9a697e85098",
         "type": "tabs",
         "children": [
           {
-            "id": "66c9a0ea1a87c3b1",
+            "id": "0576e4a7e6c6669f",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -59,7 +44,7 @@
             }
           },
           {
-            "id": "5b8df87ef727619d",
+            "id": "1f91450b203d4684",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -76,16 +61,16 @@
         ]
       },
       {
-        "id": "398e5567c1dce985",
+        "id": "e648e36d28b97eca",
         "type": "tabs",
         "children": [
           {
-            "id": "6a16f9829947f0f2",
+            "id": "9bd4a7b00863e925",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "6-Functional dependencies and normal forms.md"
+                "file": "Programmazione dinamica.md"
               }
             }
           }
@@ -93,10 +78,10 @@
       }
     ],
     "direction": "horizontal",
-    "width": 235
+    "width": 210.5
   },
   "right": {
-    "id": "629c46dcb0582812",
+    "id": "5bc4fc25e52f922b",
     "type": "split",
     "children": [],
     "direction": "horizontal",
@@ -110,17 +95,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b8d7cd10b07737c7",
+  "active": "4c119cb4abbb132e",
   "lastOpenFiles": [
-    "5-Cost theory.md",
-    "databaseCanvas.canvas",
-    "4-SQL.md",
-    "3-Relational algebra.md",
-    "2-ER model.md",
-    "1-Database management systems.md",
-    "ER_217645.pdf",
-    "6-Functional dependencies and normal forms.md",
-    "3-Relational model.md",
-    "6-Indexing.md"
+    "parte1/1-Analisi degli algoritmi.md",
+    "Programmazione dinamica.md",
+    "Untitled.canvas",
+    "Untitled.md",
+    "parte1/0-Introduzione.md",
+    "parte2/Algoritmi p2.md"
   ]
 }

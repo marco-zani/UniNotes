@@ -1,4 +1,4 @@
--   [Attack patterns for Identity Management protocols](https://st.fbk.eu/teaching/projects/2022-2023#attack-patterns-for-identity-management-protocols)
+   [Attack patterns for Identity Management protocols](https://st.fbk.eu/teaching/projects/2022-2023#attack-patterns-for-identity-management-protocols)
 	- **Prerequisites:** Preferably basic knowledge of Java.
 -   [Enhancing TLSAssistant analysis capabilities](https://st.fbk.eu/teaching/projects/2022-2023#enhancing-tlsassistant-analysis-capabilities)
 	- **Prerequisites:**

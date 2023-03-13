@@ -4,7 +4,7 @@ Cloud computing is defined by **deployment model**, **delivery models**, **infra
 
 Thanks to the NIST reference model, we identify, as **actors of cloud computing** services, the following:
 - the **service consumer**
-- the **broker**, which **manages relationships between providers and consumers**
+- the **broker**, **intermediary** between providers and consumers
 - the **service provider**
 - the **auditor**, which makes independent assessment of the performance and security of a cloud service
 - the **carrier**, which **provides connectivity**
@@ -49,7 +49,7 @@ they determine the ownership, size and access to cloud services
 **Developed for the general public or a lange industry** group by an organisation selling the service. The resources and infrastructure are managed by the provider. It uses a multi-tenancy model
 
 ####  Private cloud
-**Used only by an organisation**, is developed by the consuming oranisation or another party. **Resources** are **located on or off-premise** based on the company preference
+**Used only by an organisation**, is developed by the consuming organisation or another party. **Resources** are **located on or off-premise** based on the company preference
 
 ####  Community cloud
 Used by a **group of organisations with common** concern (like policies or security considerations), is managed by the organisations or a third party
@@ -77,14 +77,19 @@ Composed of interconnected servers with high speed connection, it **offers** com
 The user chooses an availability zone and **instance type**, which **determines the hardware's specs**. Then a Virtual Machine is installed on a located system and a IP address is provided (through DHCP). The user is able to interact through an AWS Management console, SDK libraries or raw REST requests.
 
 Some examples of AWS services:
+##### Computing
 - **EC2** - **Elastic Cloud** Computing
-   -  web service for **launching applications** under various OS
+   -  Manages virtual machine instances by selecting hardware, images and network configurations
+   - The instances are differentiated by family, generation and size
+##### Storage
 - **S3** - Simple **Storage** System
    -  Service used to store large amount of data
 - **EBS** - Elastic **Block Store**
    -  Provides block storage **to EC2 instances**, which sees them as disks
+##### Databases
 - **SimpleDB**
 - **SQS** - Simple **Queue** Service
+##### Cloud management
 - **CloudWatch**
    - **Monitoring** infrastructure used by developers and sys admins 
 
