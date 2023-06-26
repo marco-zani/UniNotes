@@ -4,47 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "e83aec9e691c2ecd",
+        "id": "c9df2541e9f42798",
         "type": "tabs",
         "children": [
           {
-            "id": "e2bd3be8365c28b9",
+            "id": "49b1b171eed09f17",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0-Introduction.md",
+                "file": "14-Diffusion Models.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
-              }
-            }
-          },
-          {
-            "id": "86682fdbfdb67436",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "1-Data, Features, Models.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5078dba14fa176c8",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.1.16"
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -81,6 +57,30 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "d7f2838efe63b91a",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "915ee6522257b84f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7d658f2d298816f5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "14-Diffusion Models.md"
+              }
+            }
           }
         ]
       }
@@ -91,24 +91,7 @@
   "right": {
     "id": "8001d0a4bfe66e61",
     "type": "split",
-    "children": [
-      {
-        "id": "eb6b621712cb239e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "7d658f2d298816f5",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "1-Data, Features, Models.md"
-              }
-            }
-          }
-        ]
-      }
-    ],
+    "children": [],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
@@ -120,9 +103,30 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5078dba14fa176c8",
+  "active": "49b1b171eed09f17",
   "lastOpenFiles": [
+    "12-Clustering.md",
+    "14-Diffusion Models.md",
+    "13-GANs VAEs.md",
+    "9-Decision Trees and random forest.md",
+    "8-SVM.md",
+    "-Regularization.md",
+    "1-Data, Features, Models.md",
+    "2-ML Basics.md",
     "0-Introduction.md",
-    "1-Data, Features, Models.md"
+    "7-Regularization.md",
+    "4-Linear model.md",
+    "10-Neural networks.md",
+    "3-K-nearest neighbor.md",
+    "6-Gradient descent.md",
+    "images/convex_functions.png",
+    "5-Beyond binary classification.md",
+    "images/OVA_ambiguity.png",
+    "images/over-under-fitting.png",
+    "images/under-fitting.png",
+    "images/over/under-fitting.png",
+    "images/over",
+    "images/distances.png",
+    "images"
   ]
 }

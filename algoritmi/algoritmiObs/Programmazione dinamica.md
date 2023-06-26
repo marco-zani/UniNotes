@@ -5,13 +5,12 @@ Alcuni problemi ricalcolano sotto-problemi già calcolati. La soluzione è memor
 
 [Immagine slide 3]
 
-
 > [!example]+ Domino
 > l gioco del domino è basato su tessere di dimensione 2 × 1. Scrivere  
 un algoritmo efficiente che prenda in input un intero n e restituisca il  
 numero di possibili disposizioni di n tessere in un rettangolo 2 × n
->
-> $DP[n]=\begin{cases}1&n\leq1\\T(n-1)+T(n-2)+1 &n>1 \end{cases}$
+>$$DP[n]=\begin{cases}1&n\leq1\\T(n-1)+T(n-2)+1 &n>1 \end{cases}$$
+> Per semplificare la comprensione, noi partiamo dalla casistica più piccola, e man mano che procediamo, andiamo a sommare i risultati già calcolati per le dimensioni risultanti nel caso noi effettuiamo una determinata azione
 
 La risoluzione è bottom-up, dal più facile al più difficile, salvando i risultati
 

@@ -4,16 +4,34 @@
     "type": "split",
     "children": [
       {
-        "id": "4a77b65e74f1a75a",
+        "id": "fe144340f5b1caa9",
         "type": "tabs",
+        "dimension": 66.4179104477612,
         "children": [
           {
-            "id": "caa2e6b14f6929d0",
+            "id": "be98e8cabab41ccb",
+            "type": "leaf",
+            "state": {
+              "type": "pdf",
+              "state": {
+                "file": "lab.pdf"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "cfcd722b01af7eed",
+        "type": "tabs",
+        "dimension": 33.582089552238806,
+        "children": [
+          {
+            "id": "515077100f2a52aa",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "3-Virtualization.md",
+                "file": "8-Laboratory Theory.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -42,6 +60,14 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "6cdf548918442635",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       },
@@ -55,7 +81,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "3-Virtualization.md"
+                "file": "lab.pdf"
               }
             }
           },
@@ -78,7 +104,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 202.5
+    "width": 202.5,
+    "collapsed": true
   },
   "right": {
     "id": "b2e53d8a102ae068",
@@ -95,17 +122,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "caa2e6b14f6929d0",
+  "active": "be98e8cabab41ccb",
   "lastOpenFiles": [
-    "Untitled.canvas",
-    "3-Virtualization.md",
-    "2-Cloud ecosystem.md",
-    "notes.md",
-    "7-Laboratory Theory.md",
-    "1-Introduction.md",
-    "6-Resource orchestration.md",
-    "Fog&Cloud.pdf",
+    "8-Laboratory Theory.md",
+    "lab.pdf",
+    "5-Cloud storage.md",
     "4-Cloud Networking.md",
-    "5-Cloud storage.md"
+    "3-Virtualization.md",
+    "Fog&Cloud.pdf",
+    "CloudProj.pdf",
+    "2-Cloud ecosystem.md",
+    "7-Security.md",
+    "6-Resource orchestration.md",
+    "notes.md",
+    "Untitled.canvas",
+    "1-Introduction.md"
   ]
 }

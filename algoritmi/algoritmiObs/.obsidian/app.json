@@ -3,8 +3,12 @@
     "pageSize": "A5",
     "landscape": false,
     "margin": "2",
-    "downscalePercent": 100
+    "downscalePercent": 80
   },
   "showInlineTitle": false,
-  "spellcheck": false
+  "spellcheck": true,
+  "spellcheckLanguages": [
+    "it"
+  ],
+  "alwaysUpdateLinks": true
 }

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "cc44fcc49b527f27",
+        "id": "64418de5b362a083",
         "type": "tabs",
         "children": [
           {
-            "id": "4c119cb4abbb132e",
+            "id": "34ca7afcdd6e19c4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Programmazione dinamica.md",
+                "file": "Formulario.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -57,6 +57,14 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "c2f1f3f1312a81c4",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       },
@@ -70,7 +78,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Programmazione dinamica.md"
+                "file": "Formulario.md"
               }
             }
           }
@@ -78,7 +86,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 210.5
+    "width": 210.5,
+    "collapsed": true
   },
   "right": {
     "id": "5bc4fc25e52f922b",
@@ -95,13 +104,37 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4c119cb4abbb132e",
+  "active": "34ca7afcdd6e19c4",
   "lastOpenFiles": [
-    "parte1/1-Analisi degli algoritmi.md",
+    "cpp/exam",
+    "cpp/exam.cpp",
+    "8- Strutture dati speciali.md",
+    "7-Analisi ammortizzata.md",
+    "6-divide-et-impera.md",
+    "Formulario.md",
+    "5-hashing.md",
+    "4-Grafi.md",
+    "3-Alberi.md",
+    "2.5-Strutture dati.md",
+    "2-Analisi delle funzioni.md",
+    "1-Analisi degli algoritmi.md",
     "Programmazione dinamica.md",
+    "0-Introduzione.md",
+    "cpp/sorting",
+    "8-Strutture dati speciali.md",
+    "-Insiemi e dizionari.md",
+    "cpp/graphs",
+    "cpp/graphs.cpp",
+    "images/componenti_connesse.png",
+    "images",
+    "cpp/b-trees",
+    "cpp/b-trees.cpp",
     "Untitled.canvas",
-    "Untitled.md",
-    "parte1/0-Introduzione.md",
+    "cpp/trees.cpp",
+    "-Scelta della struttura dati.md",
+    "-Algoritmi Greedy.md",
+    "cpp/greedy.cpp",
+    "cpp/a.out",
     "parte2/Algoritmi p2.md"
   ]
 }

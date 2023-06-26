@@ -16,7 +16,7 @@ Heuristics
 - Specific case (most of the time)
 
 # Resource allocation in cloud
-Becouse energy consumption is one of the highest operational cost for a datacenter,
+Because energy consumption is one of the highest operational cost for a datacenter,
 the objective is to **minimize the energy cost**, which translates to **minimizing** the number of **active servers**
 
 #### Static allocation
@@ -29,7 +29,7 @@ It's used a controller to respond to over/under-load at runtime and reallocates 
 
 Live migration corresponds to the **movement of VMs** from one physical machine to the other **without service disruption**. This is done by minimizing downtime and the number of Service Level Agreement violations
 
-A migration is triggerd when server utilization exceeds or falls under a certain threshold. The condition of a server is monitored in seconds intervals and data sent to a buffer. Then, a control process, checks every 5 minutes if there is an overload or underload situation. If detected, it migrates to other servers selected by their volume.
+A migration is triggered when server utilization exceeds or falls under a certain threshold. The condition of a server is monitored in seconds intervals and data sent to a buffer. Then, a control process, checks every 5 minutes if there is an overload or underload situation. If detected, it migrates to other servers selected by their volume.
 This mechanism is called **reactive control**
 
 An extension of reactive control is **proactive control** which, for **avoiding unnecessary migrations**, tries to **forecasts** if the server's usage anomaly could continue or is unforseen spike. It uses double exponential smoothing on data collected at one minute intervals to forecast the server usage

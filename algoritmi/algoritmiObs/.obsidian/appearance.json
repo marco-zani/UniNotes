@@ -1,10 +1,7 @@
 {
-  "enabledCssSnippets": [
-    "mermaid",
-    "minimalBold"
-  ],
+  "enabledCssSnippets": [],
   "theme": "obsidian",
-  "cssTheme": "Minimal",
+  "cssTheme": "",
   "baseFontSize": 18,
-  "accentColor": ""
+  "accentColor": "#4bd2bc"
 }

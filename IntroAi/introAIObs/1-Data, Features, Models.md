@@ -5,7 +5,14 @@
 > For preprocessing we mean noise filtering, feature extraction and normalization. Dimensionality reduction instead means feature selection and projection
 
 # Examples and features
-An example is a single piece of data. An algorithm can't natively interpret an example, so we use features (charatteristics) of an example. Features determin labels
+An **example** is a single piece of **data**. An algorithm can't natively interpret an example, so we use **features** (**characteristics**) of an example. Features determine **labels**
+Labels are used by the model to determine if a prediction is successful
+
+## Classification
+Learning is based on the generalization of data
+
+## Training & test set
+We use a probabilistic model of learning based on data generating distribution. Which means that both training and testing data will come from the same pool containing an higher amount of probable cases and lower improbable cases
 
 # Supervised learning
 builds a model based on labeled examples
@@ -39,8 +46,19 @@ Given the data we provide no labels
 Part of pre-processing, needed to remove unusual or atypical data
 
 ## Dimensionality reduction
-We reduce the amount of variables to obtain a more senseful data set
+We reduce the amount of variables to obtain a more sensefull data set
 
 # Reinforcement learning
-Concept: An agent learns from the enviromnet by interacting with it receiveng rewards for performing actions
-In other words: given a sequence of states and a reward for completing that sequence, learn to predic the action to take for a single state
+Concept: An agent learns from the environment by interacting with it receiving rewards for performing actions
+In other words: given a sequence of states and a reward for completing that sequence, learn to predict the action to take for a single state
+
+# Additional variations
+## variation in data availability
+#### semi-supervised
+#### active learning
+## How data is made available
+#### Online vs offline learning
+## Model type
+#### Generative vs discriminative model
+#### Parametric vs non-parametric
+

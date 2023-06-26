@@ -2,7 +2,7 @@
 The challenges of cloud storage are:
 - **reliability** at the lowest possible cost
 - **concurrent data access** , solved thanks to data replication but requires
-- Maintaning **consistency** between different copies of data
+- Maintaining **consistency** between different copies of data
 - reduce **access time** and supporting multimedia accessing
 
 ### Storage models
@@ -23,17 +23,26 @@ A DBMS is a software that controls access to the database, but in the cloud we n
 
 
 # Block storage
+Base foundation for other solutions
+
+## Storage area network
+Used for connecting storage devices between each other and with servers. This way servers only need to know the logical address
+
 ## Open stack Cinder
 It implements services and libraries to provide **access to block storage** resources. It's used to provide persistent external storage to VMs and containers
 
 
-# Distributed file systems
+# File systems
 A file system controls how data (file and directories) is stored and retrieved
 
 #### Unix File System (UFS)
-Unix uses a **layered** and **hierachical** design to provide flexibility and scalability to the filesystem. Is also used metadata to mantain the filesystem philosophy 
+Unix uses a **layered** and **hierarchical** design to provide flexibility and scalability to the file system. Is also used metadata to maintain the file system philosophy 
+
+Is based on the Inode data structure
 
 The layering divides the physical organization in the lower layers, and in the upper layers is placed the logical organization
+
+## Distributed FS
 
 #### Network File System (NFS)
 The design objective is to integrate the existing semantics for the UFS in a client-server model while allowing clients to be supported on different OSs.
@@ -78,7 +87,7 @@ To elect a reliable master, consensus must be reached
 - **Coarse-grained** locks: locks with long lease time
 
 #### Systematic approach to locking
-Two approaches are available: **delegating to clients** the implementation of a consensun algorithm or **crate a locking service** to which the clients depend. The second solution is **easier to maintain** and achieves **high availabilty**, but can generate **scalability issues**
+Two approaches are available: **delegating to clients** the implementation of a consensus algorithm or **crate a locking service** to which the clients depend. The second solution is **easier to maintain** and achieves **high availabilty**, but can generate **scalability issues**
 
 ## Chubby
 Is a **lock service** seveloped by google which provides an **interface** focused on providing availability and reliabilty. It uses **PAXOS** with lease timers for asynchonous consensus
@@ -102,6 +111,14 @@ Chubby is a distributed lock service for coarse-grained synchronization fo ditri
 His usage consist in electing a primary server, provide a name service, a standard repository for files and known locations for metadata
 
 # Distributed databases
+
+
+> [!info]+ BASE
+> Is the evolution of ACID properties:
+> - Basically Available (swaps consistency for availability)
+> - Soft state (Data can be out sync for a small period of time. Swaps consistency for performance)
+> -  Eventually consistent (the system will eventually converge to an agreed written value)
+
 
 ## Google Big Table
 GBT is a flexible and high permance distributed storage system. it's different from a database, it's a  **multi-dimensional sorted map**.
