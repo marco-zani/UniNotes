@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "64418de5b362a083",
+        "id": "16fe9aa85a74428d",
         "type": "tabs",
         "children": [
           {
-            "id": "34ca7afcdd6e19c4",
+            "id": "472b351b42653533",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Formulario.md",
+                "file": "9-Programmazione dinamica.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -78,7 +78,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Formulario.md"
+                "file": "9-Programmazione dinamica.md"
               }
             }
           }
@@ -104,25 +104,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "34ca7afcdd6e19c4",
+  "active": "472b351b42653533",
   "lastOpenFiles": [
+    "images/schemaProblemi.png",
+    "images/Screenshot_20230715_160643.png",
+    "11-Algoritmi Greedy.md",
+    "15-Problemi NP completi.md",
+    "13-Backtracking.md",
+    "12-Ricerca locale.md",
+    "10-Scelta della struttura dati.md",
+    "9-Programmazione dinamica.md",
+    "8- Strutture dati speciali.md",
+    "16-Soluzioni a problemi intrattabili.md",
+    "-Insiemi e dizionari.md",
+    "2.5-Strutture dati.md",
+    "14-Algoritmi probabilistici.md",
+    "Formulario.md",
     "cpp/exam",
     "cpp/exam.cpp",
-    "8- Strutture dati speciali.md",
     "7-Analisi ammortizzata.md",
     "6-divide-et-impera.md",
-    "Formulario.md",
     "5-hashing.md",
     "4-Grafi.md",
     "3-Alberi.md",
-    "2.5-Strutture dati.md",
     "2-Analisi delle funzioni.md",
     "1-Analisi degli algoritmi.md",
-    "Programmazione dinamica.md",
     "0-Introduzione.md",
     "cpp/sorting",
     "8-Strutture dati speciali.md",
-    "-Insiemi e dizionari.md",
     "cpp/graphs",
     "cpp/graphs.cpp",
     "images/componenti_connesse.png",
@@ -131,10 +140,7 @@
     "cpp/b-trees.cpp",
     "Untitled.canvas",
     "cpp/trees.cpp",
-    "-Scelta della struttura dati.md",
-    "-Algoritmi Greedy.md",
     "cpp/greedy.cpp",
-    "cpp/a.out",
     "parte2/Algoritmi p2.md"
   ]
 }
