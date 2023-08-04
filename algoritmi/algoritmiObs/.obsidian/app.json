@@ -7,8 +7,6 @@
   },
   "showInlineTitle": false,
   "spellcheck": true,
-  "spellcheckLanguages": [
-    "it"
-  ],
+  "spellcheckLanguages": null,
   "alwaysUpdateLinks": true
 }
