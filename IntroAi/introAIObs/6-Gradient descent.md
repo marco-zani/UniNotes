@@ -37,12 +37,13 @@ The idea is to have a differentiable function to use as an indication for the co
 ## Surrogate loss function
 Their objective is to provide an upper bound to the actual loss function. 
 We define the actual label as $y$ and the predicted label $y'$ 
-|name|function|
-|:--:|:--:|
-|0/1 loss|$l(y,y')=1[yy'\leq0]$|
-|Hinge|$l(y,y')=max(0,1-yy')$|
-|Exponential|$l(y,y')=exp(-yy')$|
-|Squared loss|$l(y,y')=(y-y')^2$|
+
+| Name | Function |
+| :---: | :---: |
+| 0/1 loss | $l(y,y')=1[yy'\leq0]$|
+| Hinge | $l(y,y')=max(0,1-yy')$|
+| Exponential|$l(y,y')=exp(-yy')$|
+| Squared loss|$l(y,y')=(y-y')^2$|
 
 # Gradient descent
 

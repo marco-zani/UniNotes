@@ -7,7 +7,6 @@
 # Examples and features
 An **example** is a single piece of **data**. An algorithm can't natively interpret an example, so we use **features** (**characteristics**) of an example. Features determine **labels**
 Labels are used by the model to determine if a prediction is successful
-
 ## Classification
 Learning is based on the generalization of data
 
