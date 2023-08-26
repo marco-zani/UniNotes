@@ -25,14 +25,14 @@ Usiamo come per esempio la trasformazione delle stringhe
 
 Come primo passaggio convertiamo le singole lettere in binario, poi possiamo applicare:
 - Estrazione: estraiamo una sotto-stringa dal binario
-	- Questo però ha un'altra probabilità di generare conflitti
+	- Questo però ha un'alta probabilità di generare conflitti
 - XOR: Possiamo effettuare la somma bit a bit su sotto-insiemi della stringa 
 	- Questo può generare conflitti in caso di anagrammi
 - Divisione: Applichiamo il modulo al numero risultante
 	- Usando il modulo di $m$, meglio se $m$ grande, primo e distante dalla potenze di 2 e 10
 
 #### Metodo della moltiplicazione (Knuth)
-Prendiamo $m$ come potenza di 2 (meglio numeri primi grandi e distanti da 2 e 10) e $C$ come costante tra 0 e 1 (esclusi). La formula corrisponde a:
+Prendiamo $m$ come potenza di 2  e $C$ come costante tra 0 e 1 (esclusi). La formula corrisponde a:
 $$\lfloor m\cdot(C\cdot k-\lfloor C\cdot k\rfloor)\rfloor$$
 Questo metodo però manca dell'avalanche effect (cambio un valore cambia tutto l'hash) 
 
@@ -49,6 +49,7 @@ Per l'inserimento degli elementi bisogna consultare la coda della cella, mentre 
 
 #### Costi
 Considerando $n$ come numero di chiavi, $m$ capacità della tabella, $\alpha=n/m$ fattore di carico:
+
 |azione|costo|
 |--|--|
 |hashing|$\Theta(1)$|

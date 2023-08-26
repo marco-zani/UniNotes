@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
 
-
 using namespace std;
 
 class Node {
@@ -13,11 +12,18 @@ class Node {
 
 class Edge{
     public: 
+     int capacity;
      Node * source;
      Node * destination;
      Edge(Node * src, Node * dst){
         source = src;
         destination = dst;
+        capacity = 1;
+     }
+     Edge(Node * src, Node * dst, int w){
+        source = src;
+        destination = dst;
+        capacity = w;
      }
 };
 
@@ -185,6 +191,7 @@ class Graph {
     }
 };
 
+/* 
 int main(int argc, char const *argv[]) {
     Graph g = Graph();
 
@@ -224,3 +231,4 @@ int main(int argc, char const *argv[]) {
 
     return 0;
 }
+ */

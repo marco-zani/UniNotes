@@ -95,7 +95,7 @@ Questo esercizio è simile al precedente, ma invece che considerare un piccolo p
 Quindi, in questo caso, se scegliamo un oggetto, il valore è aggiunto in una matrice con come righe la capienza
 $$DP[i][c]=\begin{cases}0&i=0\ or\ c=0\\-\infty&c<0\\max(DP[i-1][c-w[i]]+p[i], DP[i-1][c])&else\end{cases}$$
 In codice:
-```
+```python
 DP[][] = new int[n][C]
 foreach [cell in DP[i][] ]{
 	cell = 0

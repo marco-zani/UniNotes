@@ -1,4 +1,4 @@
-b# Definizioni
+# Definizioni
 ## Modelli di calcolo
 La **complessità** corrisponde alla relazione tra dimensione dell'input e il tempo impiegato dall'algoritmo
 

@@ -1,1 +1,7 @@
-{}
+{
+    "files.associations": {
+        "*.rmd": "markdown",
+        "tuple": "cpp",
+        "vector": "cpp"
+    }
+}

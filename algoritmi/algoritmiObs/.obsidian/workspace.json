@@ -4,16 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "16fe9aa85a74428d",
+        "id": "323a74d112807f95",
         "type": "tabs",
         "children": [
           {
-            "id": "472b351b42653533",
+            "id": "37f37e1eeb7f438f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "8- Strutture dati speciali.md",
+                "file": "Preparazione orale.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "67fa9c402ce93e5c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "330de93a500a7681",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "11-Algoritmi Greedy.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -78,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "8- Strutture dati speciali.md"
+                "file": "Preparazione orale.md"
               }
             }
           }
@@ -86,7 +105,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 210.5
+    "width": 210.5,
+    "collapsed": true
   },
   "right": {
     "id": "5bc4fc25e52f922b",
@@ -102,7 +122,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -120,43 +142,47 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "472b351b42653533",
+  "active": "37f37e1eeb7f438f",
   "lastOpenFiles": [
     "11-Algoritmi Greedy.md",
     "10-Scelta della struttura dati.md",
+    "Preparazione orale.md",
     "9-Programmazione dinamica.md",
-    "images/schemaProblemi.png",
-    "images/Screenshot_20230715_160643.png",
-    "15-Problemi NP completi.md",
-    "13-Backtracking.md",
-    "12-Ricerca locale.md",
     "8- Strutture dati speciali.md",
-    "16-Soluzioni a problemi intrattabili.md",
-    "-Insiemi e dizionari.md",
-    "2.5-Strutture dati.md",
-    "14-Algoritmi probabilistici.md",
-    "Formulario.md",
-    "cpp/exam",
-    "cpp/exam.cpp",
-    "7-Analisi ammortizzata.md",
     "6-divide-et-impera.md",
     "5-hashing.md",
     "4-Grafi.md",
     "3-Alberi.md",
+    "7-Analisi ammortizzata.md",
+    "2.5-Strutture dati.md",
     "2-Analisi delle funzioni.md",
     "1-Analisi degli algoritmi.md",
     "0-Introduzione.md",
-    "cpp/sorting",
-    "8-Strutture dati speciali.md",
-    "cpp/graphs",
+    "16-Soluzioni a problemi intrattabili.md",
+    "15-Problemi NP completi.md",
+    "Esercizi esami.md",
+    "14-Algoritmi probabilistici.md",
+    "Formulario2.md",
+    "esercizi LCS.md",
+    "esercizi DP.md",
+    "12-Ricerca locale.md",
+    "13-Backtracking.md",
+    "Formulario.md",
+    "cpp/backTrack",
+    "cpp/backTrack.cpp",
+    "cpp/maxFlux",
+    "cpp/maxFlux.cpp",
+    "cpp/shortestPath",
     "cpp/graphs.cpp",
+    "cpp/graphs.Hpp",
+    "cpp/graphs.h",
+    "cpp/shortestPath.cpp",
+    "cpp/a.out",
+    "images/schemaProblemi.png",
+    "images/Screenshot_20230715_160643.png",
+    "-Insiemi e dizionari.md",
+    "8-Strutture dati speciali.md",
     "images/componenti_connesse.png",
-    "images",
-    "cpp/b-trees",
-    "cpp/b-trees.cpp",
-    "Untitled.canvas",
-    "cpp/trees.cpp",
-    "cpp/greedy.cpp",
-    "parte2/Algoritmi p2.md"
+    "Untitled.canvas"
   ]
 }

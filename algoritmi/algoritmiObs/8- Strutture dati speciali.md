@@ -129,11 +129,26 @@ Si basano sull'elezione di un elemento come rappresentate dell'insieme al quale 
 ## Operazioni fondamentali
 #### Creare n insiemi disgiunti
 #### merge()
+Unisce le componenti dei due insiemi disgiunti forniti
 #### find()
+Ritorna il rappresentante della componente specificata
 
 ## Implementazioni
 #### Implementazione con liste
-#### Implementazione con albero
+Ogni elemento della lista (esclusa la guardia) contiene l'oggetto e due puntatori, uno al rappresentante e l'altro all'elemento successivo
 
+Con questa implementazione il find è immediato $O(1)$ (ritorna il puntatore al rappresentante), mentre il merge consiste nel modificare tutti i puntatori al rappresentante della lista appesa ($O(n^2)$ costo pessimo, $O(n)$ costo ammortizzato)
+#### Implementazione con albero
+In questo caso invece, ogni nodo possiede l'oggetto e il puntatore al padre, dove la radice è il rappresentante (e punta a se stessa)
+
+Qui il merge diventa più efficiente, basta impostare il nuovo rappresentante come padre del vecchio rappresentante ($O(1)$), mentre il find richiede di risalire tutto l'albero, quindi nel caso pessimo $O(n)$
+## Tecniche euristiche
+Queste tecniche offrono una soluzione approssimata, e sono usate per risolvere un problema velocemente o dare una soluzione nel caso una perfetta non esista
+#### Euristica del peso
+Usata nelle liste, consiste nel tenere registrata la lunghezza della lista, e di appendere la lista più corta a quella più lunga 
+#### Euristica del rango
+Usata con gli alberi, consiste nell'appendere l'albero di altezza inferiore a quello di altezza superiore, confrontando i ranghi. In caso di alberi di pari rango, questo aumenta di $1$ nel nuovo albero
+#### Euristica della compressione dei cammini
+Si appiattiscono gli alberi con ogni ricerca in modo da avere come padre di tutti i nodi il rappresentante
 ## Problema delle connessioni
 Trovare le componenti connesse di un grafo non orientato dinamico

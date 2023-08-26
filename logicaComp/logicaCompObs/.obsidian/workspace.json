@@ -4,40 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d502b01307df4897",
+        "id": "6550d6f726c1b888",
         "type": "tabs",
         "children": [
           {
-            "id": "ba45ada8a3315d39",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "4-Description logic.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "136fc883566c4f15",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "337e8475dc06cdcc",
-            "type": "leaf",
-            "state": {
-              "type": "pdf",
-              "state": {
-                "file": "appunti/gik98-logics-unitn.pdf"
-              }
-            }
-          },
-          {
-            "id": "a560cb36ad1414e1",
+            "id": "a654d326c6bd99a4",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -49,8 +20,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -79,13 +49,21 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "public",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
               }
+            }
+          },
+          {
+            "id": "9ad1d3a61c167151",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
             }
           }
         ]
@@ -125,13 +103,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a560cb36ad1414e1",
+  "active": "a654d326c6bd99a4",
   "lastOpenFiles": [
     "1-Modelling.md",
+    "2-Propositional logic.md",
     "4-Description logic.md",
     "appunti/gik98-logics-unitn.pdf",
     "3-First order logic.md",
-    "2-Propositional logic.md",
     "appunti/1.5 Tipi di Logiche e Ragionamento.pdf",
     "7-Access Control.md",
     "6-Single Sign On, SAML, SPID, CIE.md",

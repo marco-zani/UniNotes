@@ -1,4 +1,3 @@
-
 # Ammortizzazione
 È un metodo di analisi della complessità nel caso pessimo. È un analisi deterministica, su molteplici operazioni e si basa sul concetto che le operazioni meno costose vadano ad ammortizzare le operazioni più costose ma poco frequenti
 

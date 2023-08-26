@@ -23,36 +23,36 @@ Dato un grafo, il sotto grafo che comprende tutti i nodi ed è un albero, è def
 >Una soluzione è ottima se il costo di un nodo risulta unguale o inferiore alla somma del nodo precendete più il costo dell'arco
 
 #### Generico
-```
-%vettore delle distanze
+```c
+//vettore delle distanze
 	int[N] d
-% elemento precedente
+// elemento precedente
 	int[N] T 
-% è inserito?
+// è inserito?
 	boolean[N] b 
-% inizializzo
+// inizializzo
 	foreach u ∈ G.V() − {s} do  
 		T [u] = nil  
 		d[u] = +∞  
 		b[u] = false
-% nodo sorgente  
+// nodo sorgente  
 	T [s] = nil  
 	d[s] = 0  
 	b[s] = true
 
 
 	while not S.isEmpty() do  
-	(2) int u = S.extract()  
-	b[u] = false  
-	foreach v ∈ G.adj(u) do  
-	if d[u] + G.w(u, v) < d[v] then  
-	if not b[v] then  
-	(3) S.add(v)  
-	b[v] = true  
-	else  
-	(4) % Azione da svolgere nel caso v sia già presente in S  
-	T [v] = u  
-	d[v] = d[u] + G.w(u, v)  
+		int u = S.extract()  
+		b[u] = false  
+		foreach v ∈ G.adj(u) do  
+		if d[u] + G.w(u, v) < d[v] then  
+		if not b[v] then  
+		(3) S.add(v)  
+		b[v] = true  
+		else  
+		(4) // Azione da svolgere nel caso v sia già presente in S  
+		T [v] = u  
+		d[v] = d[u] + G.w(u, v)  
 	return (T, d)
 ```
 #### Dijkstra
