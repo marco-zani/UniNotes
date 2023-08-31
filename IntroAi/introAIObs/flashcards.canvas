@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"cbfd4a0211a9152d","x":-368,"y":-366,"width":228,"height":246,"type":"text","text":"# supervised learning\n- classificazione\n- regressione (trovare un valore)\n- ranking (il migliore)"},
+		{"id":"0ee7b01ea42021df","x":-60,"y":-360,"width":250,"height":235,"type":"text","text":"# Unsupervised learning\n- clustering\n- anomaly detection\n- dimensionality reduction"},
+		{"id":"fc62d35160393bdb","x":260,"y":-360,"width":250,"height":208,"type":"text","text":"# distribuzione probabilistica\nTanti elementi probabili e pochi elementi improbabili"}
+	],
+	"edges":[]
+}

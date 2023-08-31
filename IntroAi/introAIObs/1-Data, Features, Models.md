@@ -11,7 +11,7 @@ Labels are used by the model to determine if a prediction is successful
 Learning is based on the generalization of data
 
 ## Training & test set
-We use a probabilistic model of learning based on data generating distribution. Which means that both training and testing data will come from the same pool containing an higher amount of probable cases and lower improbable cases
+We define both sets using a probabilistic distribution, meaning higher amount of probable data and lower amounts of improbable data (plenty of red apples, little to none blue apples)
 
 # Supervised learning
 builds a model based on labeled examples

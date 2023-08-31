@@ -1,4 +1,3 @@
-# Support vector machines
 ## Large margin classifiers
 Using a linear model, we define as margin the distance between the two closest elements of the different labels and the line
 
@@ -27,8 +26,11 @@ subject to:$$y_i(w\cdot x_i+b)\geq1-\varsigma_i\qquad \forall i,\ \varsigma_i\ge
 $$\varsigma_i\begin{cases}0&&y_i(w\cdot x_i+b)\geq1&(correctly\ classified)\\1-y_i(w\cdot x_i+b)&& y_i(w\cdot x_i+b)<1&(incorrectly\ classified) \end{cases}$$
 Which leads to $\varsigma_i=max(0,1-yy')$ where $yy' = y_i(w\cdot x_i +b)$ 
 
+We can apply the form of loss functions to the hinge loss:
+- Hinge: $l(y,y')=max(0,1-yy')$
+- Squared: $(l(y,y')=(y-y')^2)$
+- 0/1 : $l(y,y')=1[yy'\leq0]$
 
-> [!warning] slide 40-41
 
 # Non linearly separable data
 ## Dual problem
