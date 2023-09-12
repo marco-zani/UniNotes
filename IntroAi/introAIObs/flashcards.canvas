@@ -1,8 +1,10 @@
 {
 	"nodes":[
-		{"id":"cbfd4a0211a9152d","x":-368,"y":-366,"width":228,"height":246,"type":"text","text":"# supervised learning\n- classificazione\n- regressione (trovare un valore)\n- ranking (il migliore)"},
-		{"id":"0ee7b01ea42021df","x":-60,"y":-360,"width":250,"height":235,"type":"text","text":"# Unsupervised learning\n- clustering\n- anomaly detection\n- dimensionality reduction"},
-		{"id":"fc62d35160393bdb","x":260,"y":-360,"width":250,"height":208,"type":"text","text":"# distribuzione probabilistica\nTanti elementi probabili e pochi elementi improbabili"}
+		{"id":"829411b21810c72c","type":"text","text":"GAN\nissues:\ntraining stability: doesn't converge\nmode collapse: just copies\nvanishing gradient: discriminator too strong","x":108,"y":61,"width":250,"height":60},
+		{"id":"cbfd4a0211a9152d","type":"text","text":"# supervised learning\n- classificazione\n- regressione (trovare un valore)\n- ranking (il migliore)","x":-368,"y":-366,"width":228,"height":246},
+		{"id":"0ee7b01ea42021df","type":"text","text":"# Unsupervised learning\n- clustering\n- anomaly detection\n- dimensionality reduction","x":-60,"y":-360,"width":250,"height":235},
+		{"id":"fc62d35160393bdb","type":"text","text":"# distribuzione probabilistica\nTanti elementi probabili e pochi elementi improbabili","x":260,"y":-360,"width":250,"height":208},
+		{"id":"1927c0e05968431c","type":"text","text":"# k-NN\nfunctioning: lazy learner classifier based on the detection of the closest elements through a distance calculus function\nuse cases: less than 20 features, large amounts of data\nvariants: weighted k-NN, k-decision tree\nadvantages: easy to program, fast training, can learn complex function while being accurate\ndisadvantages: slow performance, highly susceptible to anomalies, curse of dimensionality, accuracy depends on the picking of $k$ and $p$","x":-298,"y":8,"width":298,"height":632}
 	],
 	"edges":[]
 }

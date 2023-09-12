@@ -56,5 +56,8 @@ Dato un grafo, il sotto grafo che comprende tutti i nodi ed è un albero, è def
 	return (T, d)
 ```
 #### Dijkstra
+**Funziona solo con pesi positivi**
+L'algoritmo funziona sfruttando code con priorità
+
 #### Bellman-Ford-Moore
 Accetta pesi negativi

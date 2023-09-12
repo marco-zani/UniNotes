@@ -72,6 +72,14 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "889b073178d5c602",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       },
@@ -112,14 +120,14 @@
   },
   "active": "b8d7cd10b07737c7",
   "lastOpenFiles": [
-    "5-Cost theory.md",
     "databaseCanvas.canvas",
+    "1-Database management systems.md",
     "4-SQL.md",
     "3-Relational algebra.md",
     "2-ER model.md",
-    "1-Database management systems.md",
-    "ER_217645.pdf",
     "6-Functional dependencies and normal forms.md",
+    "5-Cost theory.md",
+    "ER_217645.pdf",
     "3-Relational model.md",
     "6-Indexing.md"
   ]

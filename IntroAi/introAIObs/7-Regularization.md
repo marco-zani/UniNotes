@@ -33,6 +33,6 @@ So we get:
 - L$p$: $w_j=w_j+\eta(lossFunc-\lambda cw_j^{p-1})$
 
 # Summary
-- L1 is more sparse by requires gradient descent
+- L1 is more sparse but requires gradient descent
 - L2 with some loss function can solve the problem directly
 - Lp doesn't shrink weight enough

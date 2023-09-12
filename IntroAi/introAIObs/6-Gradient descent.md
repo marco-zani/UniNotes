@@ -8,7 +8,6 @@
 # Some notation
 ## Indicator function
 $$1[x]=\cases{1&if\ x=True\\0&if\ x=False}$$
-> [!info]- Title
 ## Vector notation
 A **list of features** of an example will be represented with the vector $x$
 $j$ will index the feature ($x_j$ is the $j°$ feature of example $x$) and $i$ as index of all examples ($x_i$ is the $i°$ example) 

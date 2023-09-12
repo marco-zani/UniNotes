@@ -51,7 +51,7 @@ Act of moving from data from the hypothesis space to the entire probabilistic di
 - apply regularization
 - inject noise
 - augment the quantity of data
-- average predictions made by models trained separatly
+- average predictions made by models trained separately
 - apply data transformation
 ## Regularization
 Adding to the error function a $\Omega(f)$ term which simplifies the function form

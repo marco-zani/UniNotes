@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "9-Programmazione dinamica.md",
+                "file": "10-Scelta della struttura dati.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -78,7 +78,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "9-Programmazione dinamica.md"
+                "file": "10-Scelta della struttura dati.md"
               }
             }
           }
@@ -106,14 +106,14 @@
   },
   "active": "472b351b42653533",
   "lastOpenFiles": [
+    "9-Programmazione dinamica.md",
+    "10-Scelta della struttura dati.md",
     "images/schemaProblemi.png",
     "images/Screenshot_20230715_160643.png",
     "11-Algoritmi Greedy.md",
     "15-Problemi NP completi.md",
     "13-Backtracking.md",
     "12-Ricerca locale.md",
-    "10-Scelta della struttura dati.md",
-    "9-Programmazione dinamica.md",
     "8- Strutture dati speciali.md",
     "16-Soluzioni a problemi intrattabili.md",
     "-Insiemi e dizionari.md",
