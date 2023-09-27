@@ -60,4 +60,28 @@ Dato un grafo, il sotto grafo che comprende tutti i nodi ed è un albero, è def
 L'algoritmo funziona sfruttando code con priorità
 
 #### Bellman-Ford-Moore
-Accetta pesi negativi
+Accetta pesi negativi, ma è più pesante:
+1. Si crea una coda contenente il nodo di partenza
+2. si calcola il peso dei nodi adiacenti
+3. se è inferiore questi vengono inseriti nella coda
+4. si passa all'elemento successivo
+
+Il dettaglio è che nel momento in cui un nodo viene aggiornato con un peso inferiore, questo viene reinserito nella coda
+
+##### Cicli negativi
+Bellman ford raggiungere i cammini minimi in $n-1$ iterazioni, dove $n$ è il numero di vertici. Se alla $n$-esima iterazione c'è un miglioramento, questo determina la presenza di cicli negativi
+
+#### Floyd-Warshall
+##### Cammini k-vincolati
+Rappresentati come $p_{xy}^k$, dove $x y$ sono i due vertici, sono i cammini che attraversano al massimo $k$ nodi tra i due vertici
+
+Usando $d^k$ come matrice della distanza tra i nodi:
+$$d^k[x][y]=\begin{cases}w(x,y) & k=0\\min(d^{k-1}[x][y],d^{k-1}[x][k]+d^{k-1}[k][y])&k>0\end{cases}$$
+##### Algoritmo
+Oltre a $d$ calcoliamo anche la matrice $T$ che conserva i predecessori del cammino minimo ($T[x][y]$ -> predecessore di $y$ del cammino minimo tra $x$ e $y$)
+
+##### Chiusura transitiva
+È il grafo $G^*$ derivato da $G$ dove è presente un arco tra due vertici solo se esiste un cammino tra i due in $G$
+
+La matrice di adiacenza è denotata come $M^n$, definita come:
+$$M^k[x][y]=\begin{cases}M[x][y] & k=0\\ M^{k-1}[x][y]\ or\ (M^{k-1}[x][k]\ and\ M^{k-1}[k][y])& k>0\end{cases}$$
