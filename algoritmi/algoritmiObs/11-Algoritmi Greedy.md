@@ -12,10 +12,6 @@ Non tutti i problemi hanno una soluzione greedy
 > [!Important]+ Metodo per le dimostrazioni
 > Ipotizziamo una soluzione ottima rispettando la nostra scelta greedy. Successivamente ipotizziamo una soluzione ottima senza considerare la scelta ottima secondo l'elemento greedy
 
-> [!warning] proseguire alla slide 57 (forse slide 66 può aiutare)
-
-
-
 # Problema degli intervalli pesati
 Dati degli intervalli, trovare l'insieme di intervalli di cardinalità massima
 ## Teorema
@@ -53,6 +49,16 @@ Simile al problema che abbiamo esaminato in precedenza, con la differenza che si
 La soluzione risulta immediata: basta dividere il prezzo per il peso, e ordinare gli oggetti in questo modo, quando raggiungiamo il limite della capienza dello zaino, dividiamo l'ultimo oggetto di valore massimo in modo da farlo stare nello zaino
 
 # Problema della compressione
+Dati dei caratteri con le loro rispettive frequenze, è possibile creare una codifica che usa il numero minimo di caratteri per rappresentare un testo
+
+Questa codifica viene costruita usando un albero e l'algoritmo che segue:
+1. aggiungere tutti i nodi a una lista
+2. selezionare i 2 nodi di frequenza minore e rimuoverli dalla lista
+3. aggiungere un nodo con frequenza pari ai due nodi rimossi
+4. collegare i nodi rimossi a quello aggiunto come figli destro e sinistro
+5. ripetere dal punto 2 fino a rimanere con un solo nodo nella lista
+
+In questo modo, il passaggio tra il nodo di sinistra a quello di destra è decretato dallo 0 o 1 della codifica, e il percorso per raggiungere il carattere è il codice rappresentativo
 
 # Albero di copertura di peso minimo
 ## Definizioni
@@ -62,7 +68,8 @@ La soluzione risulta immediata: basta dividere il prezzo per il peso, e ordinare
 - un arco leggero è l'arco di peso minore tra tutti gli archi che attraversano il taglio
 - un arco è sicuro se rispetta l'insieme o è un arco leggero
 ## Algoritmo di kruskal
-Si usano gli archi di peso minimo e che connettono alberi distinti della foresta
-
+Si usano gli archi di peso minimo e che connettono alberi distinti della foresta. 
+Il costo di complessità è $O(m\ log\ n)$ 
+ 
 ## Algoritmo di Prim
 Parte da una radice, è aggiunge l'arco leggero dell'albero che va a generare

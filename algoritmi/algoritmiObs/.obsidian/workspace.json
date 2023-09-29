@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "11-Algoritmi Greedy.md",
+                "file": "8- Strutture dati speciali.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -78,7 +78,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "11-Algoritmi Greedy.md"
+                "file": "8- Strutture dati speciali.md"
               }
             }
           }
@@ -86,8 +86,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 210.5,
-    "collapsed": true
+    "width": 210.5
   },
   "right": {
     "id": "5bc4fc25e52f922b",
@@ -123,11 +122,11 @@
   },
   "active": "472b351b42653533",
   "lastOpenFiles": [
+    "11-Algoritmi Greedy.md",
     "10-Scelta della struttura dati.md",
     "9-Programmazione dinamica.md",
     "images/schemaProblemi.png",
     "images/Screenshot_20230715_160643.png",
-    "11-Algoritmi Greedy.md",
     "15-Problemi NP completi.md",
     "13-Backtracking.md",
     "12-Ricerca locale.md",

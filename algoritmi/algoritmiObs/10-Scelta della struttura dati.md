@@ -59,6 +59,16 @@ Dato un grafo, il sotto grafo che comprende tutti i nodi ed è un albero, è def
 **Funziona solo con pesi positivi**
 L'algoritmo funziona sfruttando code con priorità
 
+L'algoritmo funziona sfruttando code con priorità:
+1. Inizializzazione
+	1. si imposta tutti gli elementi del vettore delle distanze a infinito
+	2. si imposta il punto di partenza a 0
+2. Esecuzione dell'algoritmo
+	1. Si ricerca il minimo e lo visita
+	3. Si somma il peso del nodo al costo degli archi che portano ai vicini
+	4. Se il costo è minore del costo del nodo adiacente, si aggiorna il peso
+	5. si visitano i nodi adiacenti
+
 #### Bellman-Ford-Moore
 Accetta pesi negativi, ma è più pesante:
 1. Si crea una coda contenente il nodo di partenza
