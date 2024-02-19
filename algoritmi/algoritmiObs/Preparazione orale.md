@@ -275,8 +275,54 @@ Questo algoritmo permette di trovare la lunghezza dei cammini minimi fra tutte l
 - Da un vertice a tutti gli altri
 - Tra tutte le coppie di vertici
 # Algoritmi greedy
+## Problemi
+#### Intervalli pesati
+Questa variante richiede ritornare il numero massimo di intervalli indipendenti, senza alcun valore associato.
+
+La soluzione ingorda ordina in tempo di fine, seleziona il primo elemento e il primo successivo. Si ripete fino a fine dell'intervallo
+
+Dimostrazione:
+Supponiamo una soluzione ottimale $A[i..j]$ e $k$ un intervallo in $A$, allora $A[i..k]$ e $A[k..j]$ sono sotto soluzioni ottimali
+#### Problema del resto
+Dare il resto con il minor numero di monete
+
+La soluzione è usare sempre il taglio più alto inferiore al resto che si deve dare
+
+Dimostrazione
 # Ricerca locale
+#### Definizioni
+- Vincolo sulla capacità
+- Simmetria opposta
+- Conservazione del flusso
+## Algoritmo delle reti residue (Ford-Fulkerson)
+Consiste ripetere la ricerca di un cammino verso il pozzo, e qundo trovato di invertire i flussi con una quantità pari alla capienza massima del cammino trovato. Quando non si trovano più cammini allora si ha raggiunto il flusso massimo
+
+La complessità consiste nella somma del numero di vertici e archi moltiplicata per il flusso massimo
 # Backtracking
+Utile per i problemi "trova una soluzione"
+## Algoritmi
+#### Jarvis
+Seleziona il punto più a "sinistra" e calcola la linea retta che lo attraversa verticalmente, da li individua il punto ad un angolo minore e ricalcola la linea che attraversa entrambi i punti. Ripete fino a tornare al punto originale
+#### Graham
+Seleziona il punto più basso e ordina i punti in base all'angolo rispetto al punto selezionato e la retta orizzontale, e inserisce i primi due. Da qui aggiungiamo verifichiamo se i prossimi punti sono interni all'inviluppo rispetto alla retta passante per per gli ultimi due punti. Se si gli ignoriamo, se no eliminiamo l'ultimo vertice e aggiungiamo il nuovo. Ripete finché non finiscono i vertici
+
+## Problemi
+#### Problemi elementari
+Stampa di tutti i sotto-insiemi possibili o le permutazioni di un insieme. 
+#### $k$-Sottoinsiemi
+sono i sotto-insiemi di dimensione $k$
+#### Subset sum
+Sotto-insieme di somma $k$
+#### Le regine
+Consiste nell'ottenere tutti i modi piazzare $n$ regine in una scacchiera $n\times n$ senza conflitti.
+#### Sudoku
+#### Knight tour
+Ritorna una serie di mosse che permettano a un cavallo di attraversare una scacchiera $n\times n$ senza visitare due volte una cella
+#### Generazione labirinti
+#### Inviluppo convesso
+Dati dei punti in un piano, disegnare un poligono senza angoli convessi
+
+Si risolve con l'algoritmo di Jarvis o di Graham
 # Algoritmi probilistici
 # Problemi NP completi
 # Soluzioni a problemi intrattabili

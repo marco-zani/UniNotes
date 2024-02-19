@@ -32,7 +32,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "11-Algoritmi Greedy.md",
+                "file": "14-Algoritmi probabilistici.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -97,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Preparazione orale.md"
+                "file": "14-Algoritmi probabilistici.md"
               }
             }
           }
@@ -142,11 +142,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "37f37e1eeb7f438f",
+  "active": "330de93a500a7681",
   "lastOpenFiles": [
+    "13-Backtracking.md",
+    "Preparazione orale.md",
+    "12-Ricerca locale.md",
     "11-Algoritmi Greedy.md",
     "10-Scelta della struttura dati.md",
-    "Preparazione orale.md",
     "9-Programmazione dinamica.md",
     "8- Strutture dati speciali.md",
     "6-divide-et-impera.md",
@@ -165,8 +167,6 @@
     "Formulario2.md",
     "esercizi LCS.md",
     "esercizi DP.md",
-    "12-Ricerca locale.md",
-    "13-Backtracking.md",
     "Formulario.md",
     "cpp/backTrack",
     "cpp/backTrack.cpp",
