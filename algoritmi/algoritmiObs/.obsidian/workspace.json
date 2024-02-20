@@ -32,7 +32,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "14-Algoritmi probabilistici.md",
+                "file": "16-Soluzioni a problemi intrattabili.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -97,7 +97,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "14-Algoritmi probabilistici.md"
+                "file": "Preparazione orale.md"
               }
             }
           }
@@ -142,12 +142,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "330de93a500a7681",
+  "active": "37f37e1eeb7f438f",
   "lastOpenFiles": [
-    "13-Backtracking.md",
+    "16-Soluzioni a problemi intrattabili.md",
+    "15-Problemi NP completi.md",
     "Preparazione orale.md",
-    "12-Ricerca locale.md",
+    "14-Algoritmi probabilistici.md",
     "11-Algoritmi Greedy.md",
+    "13-Backtracking.md",
+    "12-Ricerca locale.md",
     "10-Scelta della struttura dati.md",
     "9-Programmazione dinamica.md",
     "8- Strutture dati speciali.md",
@@ -160,10 +163,7 @@
     "2-Analisi delle funzioni.md",
     "1-Analisi degli algoritmi.md",
     "0-Introduzione.md",
-    "16-Soluzioni a problemi intrattabili.md",
-    "15-Problemi NP completi.md",
     "Esercizi esami.md",
-    "14-Algoritmi probabilistici.md",
     "Formulario2.md",
     "esercizi LCS.md",
     "esercizi DP.md",

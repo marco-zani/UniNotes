@@ -301,6 +301,7 @@ La complessità consiste nella somma del numero di vertici e archi moltiplicata 
 # Backtracking
 Utile per i problemi "trova una soluzione"
 ## Algoritmi
+<div style="page-break-after: always;"></div>
 #### Jarvis
 Seleziona il punto più a "sinistra" e calcola la linea retta che lo attraversa verticalmente, da li individua il punto ad un angolo minore e ricalcola la linea che attraversa entrambi i punti. Ripete fino a tornare al punto originale
 #### Graham
@@ -323,6 +324,55 @@ Ritorna una serie di mosse che permettano a un cavallo di attraversare una scacc
 Dati dei punti in un piano, disegnare un poligono senza angoli convessi
 
 Si risolve con l'algoritmo di Jarvis o di Graham
-# Algoritmi probilistici
+# Algoritmi probabilistici
+## Definizioni
+#### Tipologia
+- Monte Carlo: probabilmente corretto
+- Las vegas: Corretto probabilmente in poco tempo
+## Algoritmi
+#### Fermat
+Applica la formula matematica $b^{n-1}\ mod\ n=1$, se falso, sicuramente non è primo. Questo viene applicato ripetutamente con diverse basi $b$
+<div style="page-break-after: always;"></div>
+
+#### Miller-Rabin
+Verifica due proprietà:
+- Che $b^m\ mod\ n=1$ e che per ogni $i<b$, $b^{m\cdot 2^i}\ mod\ n=n-1$
+- che il mcm di $n$ e $b$ sia $1$
+Da qui $b$ può essere o testimone che $n$ non è primo, o strong liar che $n$ è falsamente primo. Gli strong liars sono $\frac{1}{4}$ dell'insieme
+## Problemi
+#### Numeri primi
+Riuscire a determinare se un numero è primo e in caso contrario ritornare i fattori che lo compongono
+
+Si applicano Fermat e Miller-Rabin
+#### Espressione polinomiale nulla
+#### Bloom filters
+Uniscono la struttura dinamica di una tabella hash con la dimensione ridotta dei Bit set
+
+Quando si verifica se un elemento fa parte del bloom filter, i valori di ritorno sono:
+- Sicuramente non è presente
+- potrebbe essere presente
+#### Trovare l'elemento in posizione $k$
+Possiamo usare un algoritmo las vegas che sfrutta l'algoritmo di quicksort. Quello che facciamo è applicare la funzione ricorsiva dell'algoritmo, ma non richiamiamo la funzione per la parte del pivot che non contiene la posizione $k$. Il caso pessimo è $O(n^2)$, ma statisticamente ci impiega $O(n)$
 # Problemi NP completi
+## Definizioni
+- Riduzione polinomiale: Se si può convertire un input in tempo polinomiale
+- $\mathbb{P}$: La classe di problemi risolvibili in un tempo polinomiale
+- $\mathbb{NP}$: La classe di problemi in cui si può dimostrare che un istanza sia corretta in tempo polinomiale
+- $\mathbb{NP}$-hard: Se tutti i problemi $\mathbb{NP}$ sono riduzione polinomiale del problema
+- $\mathbb{NP}$-completo: sia $\mathbb{NP}$-hard che $\mathbb{NP}$
+	- Problemi $\mathbb{NP}$-completi: cricca, TSP, programmazione lineare 0/1, copertura esatta di problemi, partizione, somma di sottoinsieme, zaino, circuito hamiltoniano
+- Teorema di Cook-Levin: Sat è $\mathbb{NP}$-completo
+## Problemi
+#### Colorazione dei grafi
+Colorare i nodi di un grafo in modo che nessuno dei nodi sia connesso a un nodo dello stesso colore
+<div style="page-break-after: always;"></div>
+
+#### Insieme indipendente
+i nodi di grafo senza alcun arco che li colleghi tra loro
+#### Copertura dei vertici
+L'insieme minimi di nodi in grado di connettere tutti i nodi
+#### SAT
+Se una formula booleana può essere vera
+La variante 3-sat presenta 3 variabili booleane
+
 # Soluzioni a problemi intrattabili
