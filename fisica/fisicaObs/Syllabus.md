@@ -1,0 +1,137 @@
+- Metodo Scientifico
+- Unità del sistema internazionale
+	- Grandezze fisiche
+	- Incertezza di misura
+	- Cifre significative e Arrotondamenti
+- Cinematica
+	- Legge oraria del moto
+	- Velocità media e istantanea
+	- Accelerazione
+	- Accelerazione Gravitazionale
+	- Integrale della velocità
+	- Grandezze vettoriali
+	- Velocità e accelerazione istantanea in più dimensioni
+	- Moto circolare uniforme
+	- Inerzia
+		- Primo principio di inerzia
+		- Secondo principio di inerzia: Esperimenti carrelli
+	- Forza di gravità
+	- Forza Peso
+	- Piano inclinato
+	- Forza di attrito
+	- Attrito statico e dinamico
+	- Carrucola
+	- Lavoro
+	- Esempio: Lancio sasso in aria
+	- Forza non costante
+	- Potenza (istantanea e media)
+	- Forza conservativa e non
+	- Scelta origine del sistema di riferimento
+	- Energia Potenziale e cinetica
+	- Bilancio energetico
+	- Energia Meccanica
+	- Moto armonico
+	- Equazione differenziale armonica
+	- Forza Elastica
+	- Calcolo molla con piccole contrazioni
+	- Massa puntiforme su traiettoria circolare
+- Termodinamica
+	- Energia interna
+	- Gas Ideale
+	- La Pressione
+	- La Costante di Boltzmann
+	- Equazione di stato di gas perfetti
+	- Energia interna media in un gas perfetto monoatomico
+	- Equipartizione dell'energia cinetica
+	- Principi della termodinamica
+	- Calore
+	- Primo principio della termodinamica
+	- Conduzione
+	- Convezione
+	- Irraggiamento
+	- Sistema Isolato
+	- Trasformazioni termodinamiche
+	- Trasformazione isocora
+	- Trasformazione adiabatica
+	- Trasformazione isoterma
+	- Capacità termica
+	- Calore specifico
+	- Esperimento di Joule
+	- Calore latente
+	- Stati della materia
+	- Centro di massa
+	- Esempio Sole Terra
+	- Esempio raggio Sole
+	- Urti e conservazione della quantità di moto
+	- Urto perfettamente anaelastico
+	- Esperienza di Joule (Espansione Libera)
+	- Calore Specifico di un processo
+	- Relazione di Mayer
+	- Grafici pV
+	- Cicli Termodinamici
+	- Cliclo termico/Macchina termica
+	- Ciclo frigorifero/Macchina frigorifera
+	- Calore ceduto e calore assorbito
+	- Lavoro subito e lavoro effettuato
+	- Rendimento di una macchina termica
+	- Reversibilità di una trasformazione
+	- Ciclo di Carnot
+	- Rappresentazione macchina termica
+	- Rappresentazione macchina frigorifera
+	- Secondo principio della termodinamica
+	- Dimostrazione per assurdo Teorema di Carnot
+	- Entropia
+	- Esercizi di termodinamica
+- Introduzione all'elettromagnetismo
+	- Autoenergia
+	- Carica di prova e campo elettrico
+	- Carica puntiforme
+	- Energia elettrostatica delle cariche
+	- Densità lineare superficiale e volumica di carica
+	- Esercizio atomo di idrogeno
+	- Passaggio al continuo (PAC)
+	- Esperimento di Rutherford
+	- Distribuzione dicarica su un anello
+	- Circuitazione Flusso
+	- Angolo solido
+	- Teorema delle superfici di Gauss
+	- Esempi ed Esercizi
+	- Campo elettrico di un piano indefinito di carica
+	- Conduttori
+	- Induzione
+	- Induzione Completa
+	- Capacità
+	- Conduttore cavo
+	- Schermo elettrostatico
+	- Schermatura e induzione completa (cavo dentro cavo)
+	- Protezione dagli sbalzi
+	- Condensatore piano
+	- Condensatore sferico
+	- Condensatore cilindrico
+	- Energia immagazzinata in un condensatore
+	- La Corrente Elettrica
+	- Legge della conservazione della carica
+	- Regime stazionario
+	- Legge di Ohm ed esercizi
+	- La Potenza Elettrica e l'effetto Joule
+	- Resistenze in serie e in parallelo
+	- Campo non conservativo e forza elettromotrice
+	- Resistenza interna
+	- Leggi di Kirchhoff
+	- Legge del nodo
+	- Legge della maglia
+	- Tensione ai capi del condensatore
+	- Esperienza di Orsted
+	- Esperienza di Ampere
+	- Il campo magnetico
+	- Teorema di Gauss per il campo magnetico
+	- Unità di misura alternative
+	- Forza di Lorentz
+	- Caso del ciclotrone
+	- Seconda legge fondamentale di Laplace
+	- Principio di equivalenza di Ampere
+	- Prima legge elementare di Laplace
+	- Legge di Ampere
+	- Collegamento tra velocità della luce e elettromagnetismo
+	- Legge di Ampere (circuitazione)
+	- Esercizi vari sulle spire

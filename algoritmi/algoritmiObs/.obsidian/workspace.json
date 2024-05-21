@@ -4,39 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "323a74d112807f95",
+        "id": "34713e05946c8f6c",
         "type": "tabs",
         "children": [
           {
-            "id": "37f37e1eeb7f438f",
+            "id": "323e93bebdb75b71",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Preparazione orale.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "67fa9c402ce93e5c",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "330de93a500a7681",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "16-Soluzioni a problemi intrattabili.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -96,9 +72,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Preparazione orale.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -142,11 +116,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "37f37e1eeb7f438f",
+  "active": "323e93bebdb75b71",
   "lastOpenFiles": [
+    "Preparazione orale.md",
     "16-Soluzioni a problemi intrattabili.md",
     "15-Problemi NP completi.md",
-    "Preparazione orale.md",
     "14-Algoritmi probabilistici.md",
     "11-Algoritmi Greedy.md",
     "13-Backtracking.md",
